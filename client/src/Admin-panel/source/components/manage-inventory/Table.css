@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+.main1 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.heading1 {
+  width: 80%;
+  margin: 10px auto;
+}
+
+.heading1 ul {
+  background: #9053c7;
+  background: linear-gradient(-120deg, #c850c0, #4158d0) fixed;
+}
+
+.navleft1 {
+  float: left;
+  color: white;
+  text-shadow: 1px 1px 10px black;
+}
+
+.navleft1 h1 {
+  font-family: "Poppins", sans-serif;
+}
+
+.navright1 {
+  float: right;
+}
+
+.tab1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.container1 {
+  background-color: rgb(255, 255, 255);
+  width: 80%;
+  text-align: center;
+  border-radius: 15px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.container1 th {
+  background-color: #c850c0;
+  border: 1px solid #4158d0;
+  border-collapse: collapse;
+  border-radius: 15px;
+  padding: 25px;
+  color: white;
+  font-size: large;
+  font-weight: lighter;
+  font-style: italic;
+  border-radius: 15px;
+}
+
+.container1 th:hover {
+  background-color: #4158d0;
+  border: 1px solid #c850c0;
+  border-collapse: collapse;
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.container1 td {
+  border: 1px solid #4158d0;
+  border-collapse: collapse;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.updateBtn1 {
+  background-color: #4158d0;
+  color: white;
+  width: 6rem;
+  height: 5vh;
+  border: transparent;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.deleteBtn1 {
+  background-color: #cf0c0c;
+  color: white;
+  width: 6rem;
+  height: 5vh;
+  border: transparent;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.updateBtn1:hover {
+  background-color: #6576cc;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.deleteBtn1:hover {
+  background-color: #f53535;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.addBtn1 {
+  background-color: rgb(47, 160, 204);
+  color: white;
+  width: 8rem;
+  height: 7vh;
+  border: transparent;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.addBtn1:hover {
+  background-color: skyblue;
+  color: black;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.title1 {
+  width: 35%;
+}
+.company1 {
+  width: 15%;
+}
+.price1 {
+  width: 10%;
+}
+.quantity1 {
+  width: 10%;
+}
+.actions1 {
+  width: 30%;
+}

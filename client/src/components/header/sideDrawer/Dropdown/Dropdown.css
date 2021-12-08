@@ -1,0 +1,43 @@
+.links5,
+.dropdownbtn {
+	padding: 6px 8px 6px 16px;
+	text-decoration: none;
+	font-size: 20px;
+	color: white;
+	display: block;
+	border: none;
+	background: none;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	outline: none;
+}
+
+/* On mouse-over */
+.links5:hover,
+.dropdownbtn:hover {
+	color: black;
+	background-color: white;
+	border-radius: 15px;
+}
+.links5:active,
+.dropdownbtn:active {
+	color: white;
+	background-color: rgb(180, 19, 19);
+	border-radius: 15px;
+}
+
+.menuicon {
+	padding-top: 5px;
+	font-size: 20px;
+	color: white;
+}
+
+.dropdowncontainer {
+	display: none;
+}
+
+.dropdowncontainer2 {
+	display: block;
+	padding-left: 15px;
+}

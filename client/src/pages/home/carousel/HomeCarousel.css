@@ -1,0 +1,7 @@
+.carimage {
+	height: clamp(300px, 30%, 600px);
+}
+
+.carcontain {
+	margin-top: 20px;
+}

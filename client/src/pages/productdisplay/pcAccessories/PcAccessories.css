@@ -1,0 +1,17 @@
+.sorting {
+	color: white;
+}
+
+#flush-collapseOne,
+#flush-collapseTwo {
+	background-color: black;
+	border-radius: 10px;
+	box-shadow: 0px 0px 5px whitesmoke;
+	overflow: hidden;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#ctg1 {
+	background-color: transparent;
+}

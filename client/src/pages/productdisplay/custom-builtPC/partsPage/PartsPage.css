@@ -1,0 +1,237 @@
+.cbheading {
+	color: white;
+}
+
+#cbtable {
+	border-radius: 20px;
+	-moz-border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 1px 1px 1px 1px 5px black;
+}
+
+.textcolor {
+	color: white;
+}
+
+.divborder {
+	border-left: 10px solid coral;
+	animation: mymove 5s infinite;
+}
+@keyframes mymove {
+	50% {
+		border-color: lightblue;
+	}
+}
+#flush-collapseOne,
+#flush-collapseTwo,
+#flush-collapseThree,
+#flush-collapseForth,
+#flush-collapseFifth {
+	background-color: black;
+	border-radius: 10px;
+	box-shadow: 0px 0px 5px whitesmoke;
+	overflow: hidden;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#ctg1 {
+	background-color: transparent;
+}
+
+.cbproduct {
+	width: auto;
+}
+.cbtype {
+	width: auto;
+}
+.cbcolor {
+	width: auto;
+}
+.cbmaterial {
+	width: auto;
+}
+.cbprice {
+	width: auto;
+}
+.cbactions {
+	width: auto;
+}
+
+.cbcontainer {
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 2px 2px 5px black;
+}
+
+.hero-image {
+	position: relative;
+}
+.cbimage {
+	width: 100%;
+}
+
+.heroimg {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.55));
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.hero-text {
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.6));
+	color: white;
+}
+#cbh1text {
+	font-size: clamp(1.5rem, 2.3vw, 2.5rem);
+}
+#cbptext {
+	font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+#herobtn {
+	border-radius: 4px;
+	font-size: 18px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 25px;
+	padding-right: 25px;
+	border-radius: 5px;
+	border: none;
+	letter-spacing: 0.02rem;
+	-webkit-transition: 0.3s all ease;
+	-o-transition: 0.3s all ease;
+	transition: 0.3s all ease;
+	position: relative;
+	-webkit-transform: skew(-21deg);
+	-ms-transform: skew(-21deg);
+	transform: skew(-21deg);
+}
+
+#herospan {
+	display: inline-block;
+	-webkit-transform: skew(21deg);
+	-ms-transform: skew(21deg);
+	transform: skew(21deg);
+}
+
+#herobtn:hover,
+#herobtn:active,
+#herobtn:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	-webkit-box-shadow: 5px 5px 10px 0 rgba(255, 254, 254, 0.15) !important;
+	box-shadow: 5px 5px 10px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+#cbcard {
+	border-radius: 15px;
+	position: relative;
+	box-shadow: 2px 2px 5px black;
+}
+
+#cbcardimg {
+	width: 100%;
+	height: 15vw;
+	object-fit: scale-down;
+	opacity: 1;
+	display: block;
+	transition: 0.5s ease;
+	backface-visibility: hidden;
+}
+
+#cbcardbody {
+	transition: 0.5s ease;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	text-align: center;
+}
+#cbcardbody2 {
+	transition: 0.5s ease;
+	opacity: 0;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 30%;
+	transform: translate(-30%, -50%);
+	-ms-transform: translate(-30%, -50%);
+	text-align: center;
+}
+
+#cbcard:hover #cbcardimg {
+	opacity: 0.3;
+}
+#cbcard:hover #cbcardbody {
+	opacity: 1;
+}
+#cbcard:hover #cbcardbody2 {
+	opacity: 1;
+}
+
+#cbcardtext {
+	padding: 16px 32px;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: justify;
+	text-justify: inter-word;
+}
+#cbcardtext2 {
+	font-weight: bold;
+	font-size: 16px;
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+#cbbutton {
+	border-radius: 4px;
+	font-size: 18px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 25px;
+	padding-right: 25px;
+	border-radius: 5px;
+	border: none;
+	letter-spacing: 0.02rem;
+	-webkit-transition: 0.3s all ease;
+	-o-transition: 0.3s all ease;
+	transition: 0.3s all ease;
+	position: relative;
+	-webkit-transform: skew(-21deg);
+	-ms-transform: skew(-21deg);
+	transform: skew(-21deg);
+	width: 100%;
+}
+
+#cbbtnspan {
+	display: inline-block;
+	-webkit-transform: skew(21deg);
+	-ms-transform: skew(21deg);
+	transform: skew(21deg);
+}
+
+#cbbutton:hover,
+#cbbutton:active,
+#cbbutton:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	-webkit-box-shadow: 5px 5px 10px 0 rgba(255, 254, 254, 0.15) !important;
+	box-shadow: 5px 5px 10px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+@media screen and (max-width: 768px) {
+	.divborder {
+		border: none;
+	}
+}

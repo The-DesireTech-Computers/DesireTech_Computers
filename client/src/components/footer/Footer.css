@@ -1,0 +1,88 @@
+#containerfoot {
+	background-color: black;
+	border-radius: 25px;
+	box-shadow: 1px 1px 5px white;
+	margin-bottom: 10px;
+}
+
+.inner {
+	padding: 20px;
+}
+
+.text {
+	color: white;
+}
+
+#footer {
+	float: none;
+	color: white;
+	text-decoration: none;
+	display: block;
+}
+#footer:hover {
+	font-weight: bold;
+}
+
+.fb {
+	height: 25px;
+	width: 25px;
+	color: white;
+}
+
+.fb:hover {
+	color: #3b5998;
+}
+.wa {
+	height: 25px;
+	width: 25px;
+	color: white;
+}
+
+.wa:hover {
+	color: #25d366;
+}
+.tw {
+	height: 25px;
+	width: 25px;
+	color: white;
+}
+
+.tw:hover {
+	color: #00acee;
+}
+.yt {
+	height: 25px;
+	width: 25px;
+	color: white;
+}
+
+.yt:hover {
+	color: #e62117;
+}
+.it {
+	height: 25px;
+	width: 25px;
+	color: white;
+}
+
+.it:hover {
+	color: #dd2a7b;
+}
+.pi {
+	height: 25px;
+	width: 25px;
+	color: white;
+}
+
+.pi:hover {
+	color: #c8232c;
+}
+.in {
+	height: 25px;
+	width: 25px;
+	color: white;
+}
+
+.in:hover {
+	color: #0e76a8;
+}

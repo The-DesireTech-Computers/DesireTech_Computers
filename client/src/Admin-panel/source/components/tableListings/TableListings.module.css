@@ -1,0 +1,42 @@
+/* td {
+  border: 1px solid #4158d0;
+  border-collapse: collapse;
+  border-radius: 15px;
+  padding: 20px;
+} */
+
+tr:nth-child(odd) {
+  background-color: skyblue;
+}
+
+.updateBtn1 {
+  background-color: #4158d0;
+  color: white;
+  width: 6rem;
+  height: 5vh;
+  border: transparent;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.deleteBtn1 {
+  background-color: #cf0c0c;
+  color: white;
+  width: 6rem;
+  height: 5vh;
+  border: transparent;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.updateBtn1:hover {
+  background-color: #6576cc;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.deleteBtn1:hover {
+  background-color: #f53535;
+  transition: 0.3s;
+  cursor: pointer;
+}
