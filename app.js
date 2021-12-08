@@ -1,0 +1,78 @@
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+let mongoose = require('mongoose');
+let config = require('config');
+let cors = require('cors');
+
+
+
+var usersRouter = require('./routes/api/usersRouter');
+var preBuiltDesktopRouter = require('./routes/api/preBuiltDesktopRouter');
+var pcPartsRouter = require('./routes/api/pcPartsRouter');
+var pcAccessoriesRouter = require('./routes/api/pcAccessoriesRouter');
+var laptopsRouter = require('./routes/api/laptopsRouter');
+var feedbackRouter = require('./routes/api/feedbackRouter');
+var contactUsRouter = require('./routes/api/contactUsRouter');
+var AccessoriesRouter = require('./routes/api/AccessoriesRouter');
+
+var app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+//using CORS
+
+app.use(cors());
+
+//Routes
+app.use('/api/users', usersRouter);
+app.use('/api/preBuiltDesktop', preBuiltDesktopRouter);
+app.use('/api/pcParts', pcPartsRouter);
+app.use('/api/pcAccessories', pcAccessoriesRouter);
+app.use('/api/laptops', laptopsRouter);
+app.use('/api/feedback', feedbackRouter);
+app.use('/api/contactUs', contactUsRouter);
+app.use('/api/accessories', AccessoriesRouter);
+
+
+
+
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+
+mongoose.connect( config.get('db') ,{ useNewUrlParser: true, useUnifiedTopology: true })
+.then(res=>{
+  console.log('database connected succesfully');
+}).catch(err=>{
+  console.log('problem connecting database');
+  console.log(err);
+});
+
+
+module.exports = app;
