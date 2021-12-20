@@ -12,203 +12,207 @@ html {
   font-weight: 400;
 } */
 .Maincontainer1 {
-  width: 100%;
-  margin: 0 auto;
+	width: 100%;
+	margin: 0 auto;
 }
 .containerlogin1 {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 15px;
 }
 .wraplogin1 {
-  width: 960px;
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 177px 130px 33px 95px;
+	width: 960px;
+	background: #fff;
+	border-radius: 10px;
+	overflow: hidden;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 177px 130px 33px 95px;
 }
 .loginpic1 {
-  width: 275px;
-  height: 275px;
-  margin-bottom: 100px;
+	width: 275px;
+	height: 275px;
+	margin-bottom: 100px;
 }
 .loginpic1 img {
-  max-width: 100%;
+	max-width: 100%;
 }
 .loginform1 {
-  width: 290px;
+	width: 290px;
 }
 .loginformtitle1 {
-  font-family: "poppins", sans-serif;
-  font-size: 24px;
-  color: #333333;
-  line-height: 1.2;
-  text-align: center;
-  font-weight: 700;
-  width: 100%;
-  display: block;
-  padding-bottom: 54px;
+	font-family: "poppins", sans-serif;
+	font-size: 24px;
+	color: #000000;
+	line-height: 1.2;
+	text-align: center;
+	font-weight: 700;
+	width: 100%;
+	display: block;
+	padding-bottom: 54px;
 }
 .wrapinput1 {
-  position: relative;
-  width: 100%;
-  z-index: 1;
-  margin-bottom: 10px;
+	position: relative;
+	width: 100%;
+	z-index: 1;
+	margin-bottom: 10px;
 }
 .input1 {
-  font-family: "Poppins", sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1.5;
-  color: #666666;
-  font-color: white;
-  outline: none;
-  border: none;
-  display: block;
-  width: 100%;
-  background: #e6e6e6;
-  height: 50px;
-  border-radius: 25px;
-  padding: 0 30px 0 68px;
+	font-family: "Poppins", sans-serif;
+	font-size: 15px;
+	font-weight: 500;
+	line-height: 1.5;
+	color: #000000;
+	outline: none;
+	border: none;
+	display: block;
+	width: 100%;
+	background: #e6e6e6;
+	height: 50px;
+	border-radius: 25px;
+	padding: 0 30px 0 68px;
 }
+
+.input1::placeholder {
+	color: #272727;
+}
+
 .focusinput1 {
-  display: block;
-  position: absolute;
-  border-radius: 25px;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0px 0px 0px 0px;
-  color: rgba(87, 184, 70, 0.8);
+	display: block;
+	position: absolute;
+	border-radius: 25px;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0px 0px 0px 0px;
+	color: rgba(87, 184, 70, 0.8);
 }
 .input1:focus + .focusinput1 {
-  animation: anim-shadow 0.5s ease-in-out forwards;
+	animation: anim-shadow 0.5s ease-in-out forwards;
 }
 @-webkit-keyframes anim-shadow {
-  to {
-    box-shadow: 0px 0px 70px 25px;
-    opacity: 0;
-  }
+	to {
+		box-shadow: 0px 0px 70px 25px;
+		opacity: 0;
+	}
 }
 @keyframes anim-shadow {
-  to {
-    box-shadow: 0px 0px 70px 25px;
-    opacity: 0;
-  }
+	to {
+		box-shadow: 0px 0px 70px 25px;
+		opacity: 0;
+	}
 }
 
 .symbolinput1 {
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  position: absolute;
-  border-radius: 25px;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding-left: 35px;
-  pointer-events: none;
-  color: #666666;
-  transition: all 0.4s;
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+	position: absolute;
+	border-radius: 25px;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding-left: 35px;
+	pointer-events: none;
+	color: #0a0a0a;
+	transition: all 0.4s;
 }
 .input1:focus + .focusinput1 + .symbolinput1 {
-  color: #57b846;
-  padding-left: 28px;
+	color: #57b846;
+	padding-left: 28px;
 }
 
 .loginformbtncontainer1 {
-  width: 40%;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-top: 20px;
+	width: 40%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-top: 20px;
 }
 .loginformbtn1 {
-  font-family: "poppins", sans-serif;
-  font-size: 15px;
-  line-height: 1.5;
-  color: rgb(0, 0, 0);
-  background: #26bdf8;
-  /* text-transform: uppercase; */
-  width: 100%;
-  height: 50px;
-  border-radius: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 25px;
-  transition: all 0.4s;
-  border: none;
+	font-family: "poppins", sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+	color: rgb(0, 0, 0);
+	background: #26bdf8;
+	text-transform: uppercase;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 25px;
+	transition: all 0.4s;
+	border: none;
 }
 .loginformbtn1:hover {
-  background: rgb(32, 5, 150);
-  color: white;
+	background: rgb(32, 5, 150);
+	color: white;
 }
 
 .pt21 {
-  padding-top: 136px;
+	padding-top: 136px;
 }
 
 .Maincontainer1 a {
-  font-family: "poppins", sans-serif;
-  font-size: 14px;
-  line-height: 1.7;
-  color: #666666;
-  margin: 0px;
-  transition: all 0.4s;
-  text-decoration: none;
-  font-weight: 400;
+	font-family: "poppins", sans-serif;
+	font-size: 14px;
+	line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+	transition: all 0.4s;
+	text-decoration: none;
+	font-weight: 400;
 }
 .Maincontainer1 a:focus {
-  outline: none !important;
+	outline: none !important;
 }
 .Maincontainer1 a:hover {
-  color: #57b846;
+	color: #57b846;
 }
 .Maincontainer1 button:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 /* Responsive */
 @media (max-width: 992px) {
-  .wraplogin1 {
-    padding: 177px 90px 33px 85px;
-  }
+	.wraplogin1 {
+		padding: 177px 90px 33px 85px;
+	}
 
-  .loginpic1 {
-    width: 35%;
-  }
-  .loginform1 {
-    width: 50%;
-  }
+	.loginpic1 {
+		width: 35%;
+	}
+	.loginform1 {
+		width: 50%;
+	}
 }
 
 @media (max-width: 768px) {
-  .wraplogin1 {
-    padding: 100px 80px 33px 80px;
-  }
+	.wraplogin1 {
+		padding: 100px 80px 33px 80px;
+	}
 
-  .loginpic1 {
-    display: none;
-  }
-  .loginform1 {
-    width: 100%;
-  }
+	.loginpic1 {
+		display: none;
+	}
+	.loginform1 {
+		width: 100%;
+	}
 }
 
 @media (max-width: 576px) {
-  .wraplogin1 {
-    padding: 100px 15px 33px 15px;
-  }
+	.wraplogin1 {
+		padding: 100px 15px 33px 15px;
+	}
 }
