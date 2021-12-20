@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 const AddFan = (props) => {
 	let [data, setData] = useState({
 		title: "",
@@ -86,7 +86,7 @@ const AddFan = (props) => {
 			alert("Please enter data in all the given fields (Tube_Material)");
 		} else if (data.Features === "") {
 			alert("Please enter data in all the given fields (Features)");
-		}else if (thumbnail === null) {
+		} else if (thumbnail === null) {
 			alert("Please provide a picture as a thumbnail picture(thumbnail)");
 		} else if (gallery === null) {
 			alert("Please provide atleaste 1 picture as gallery(gallery)");
@@ -153,73 +153,73 @@ const AddFan = (props) => {
 			<div>
 				<Navbar />
 				<div className={classes.main1}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Add Fan</h1>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Add Fan</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							encType="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="series">
+									<label className={classes.label1} htmlFor="series">
 										Series:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										Model:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="type">
+									<label className={classes.label1} htmlFor="type">
 										Type:
 									</label>
 									<br />
 									<label
-										className={classes.label}
+										className={classes.label1}
 										htmlFor="Block_Compatability"
 									>
 										Block_Compatability:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Block_Dim">
+									<label className={classes.label1} htmlFor="Block_Dim">
 										Block_Dim:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Block_Material">
+									<label className={classes.label1} htmlFor="Block_Material">
 										Block Material:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Radiator_Dim">
+									<label className={classes.label1} htmlFor="Radiator_Dim">
 										Radiator Dim:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Radiator_Material">
+									<label className={classes.label1} htmlFor="Radiator_Material">
 										Radiator Material:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Fan_Size">
+									<label className={classes.label1} htmlFor="Fan_Size">
 										Fan Size:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="thumbnail">
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="title"
 										name="title"
@@ -231,7 +231,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="price"
 										name="price"
@@ -248,7 +248,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="brand"
 										name="brand"
@@ -260,7 +260,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="series"
 										name="series"
@@ -272,7 +272,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="model"
 										name="model"
@@ -284,7 +284,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="type"
 										name="type"
@@ -296,7 +296,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Block_Compatability"
 										name="Block_Compatability"
@@ -308,7 +308,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Block_Dim"
 										name="Block_Dim"
@@ -320,7 +320,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Block_Material"
 										name="Block_Material"
@@ -332,7 +332,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Radiator_Dim"
 										name="Radiator_Dim"
@@ -347,7 +347,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Radiator_Material"
 										name="Radiator_Material"
@@ -362,7 +362,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Fan_Size"
 										name="Fan_Size"
@@ -373,9 +373,9 @@ const AddFan = (props) => {
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -387,59 +387,59 @@ const AddFan = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="Fan_Dim">
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="Fan_Dim">
 										Fan Dim:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="Bearing_Type">
+									<label className={classes.label1} htmlFor="Bearing_Type">
 										Bearing Type:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Fan_RPM">
+									<label className={classes.label1} htmlFor="Fan_RPM">
 										Fan RPM:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Fan_Air_Flow">
+									<label className={classes.label1} htmlFor="Fan_Air_Flow">
 										Fan Air Flow:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Fan_Noise">
+									<label className={classes.label1} htmlFor="Fan_Noise">
 										Fan Noise:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Fan_Connector">
+									<label className={classes.label1} htmlFor="Fan_Connector">
 										Fan Connector:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="color">
+									<label className={classes.label1} htmlFor="color">
 										color:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Tube_Dim">
+									<label className={classes.label1} htmlFor="Tube_Dim">
 										Tube Dim:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Tube_Material">
+									<label className={classes.label1} htmlFor="Tube_Material">
 										Tube Material:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Features">
+									<label className={classes.label1} htmlFor="Features">
 										Features:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="gallery">
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Fan_Dim"
 										name="Fan_Dim"
@@ -451,7 +451,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="quantity"
 										name="quantity"
@@ -469,7 +469,7 @@ const AddFan = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Bearing_Type"
 										name="Bearing_Type"
@@ -481,7 +481,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Fan_RPM"
 										name="Fan_RPM"
@@ -493,7 +493,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Fan_Air_Flow"
 										name="Fan_Air_Flow"
@@ -505,7 +505,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Fan_Noise"
 										name="Fan_Noise"
@@ -517,7 +517,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Fan_Connector"
 										name="Fan_Connector"
@@ -529,7 +529,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="color"
 										name="color"
@@ -541,7 +541,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Tube_Dim"
 										name="Tube_Dim"
@@ -556,7 +556,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Tube_Material"
 										name="Tube_Material"
@@ -568,7 +568,7 @@ const AddFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Features"
 										name="Features"
@@ -580,9 +580,9 @@ const AddFan = (props) => {
 									/>
 									<br />
 
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="gallery"
 											name="gallery"
@@ -604,9 +604,9 @@ const AddFan = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}

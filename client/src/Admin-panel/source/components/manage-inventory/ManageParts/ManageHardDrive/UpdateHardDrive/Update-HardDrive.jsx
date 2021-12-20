@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 
 const UpdateHardDrive = (props) => {
 	let [data, setData] = useState();
@@ -11,7 +11,6 @@ const UpdateHardDrive = (props) => {
 	let [gallery, setGallery] = useState(null);
 	let [loading, setLoading] = useState(false);
 
-	
 	//receiving query params
 	useEffect(() => {
 		let params = new URLSearchParams(props.location.search);
@@ -23,23 +22,19 @@ const UpdateHardDrive = (props) => {
 		setId(id);
 	}, []);
 
-
 	//fetching singel element from back-end
 	useEffect(() => {
 		if (id) {
 			axios
 				.get("pcParts/harddrive/" + id)
 				.then((res) => {
-				
 					setData(res.data);
-					
 				})
 				.catch((err) => {
 					console.log(err);
 				});
 		}
 	}, [id]);
-
 
 	let handelSubmitBtn = async () => {
 		console.log(data);
@@ -113,7 +108,7 @@ const UpdateHardDrive = (props) => {
 			}
 
 			await axios
-				.put("pcParts/harddrive/"+id, formData)
+				.put("pcParts/harddrive/" + id, formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -132,60 +127,60 @@ const UpdateHardDrive = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Update HardDrive</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Update HardDrive</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							encType="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="series">
+									<label className={classes.label1} htmlFor="series">
 										Series:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										Model:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="packing">
+									<label className={classes.label1} htmlFor="packing">
 										packing:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Interface">
+									<label className={classes.label1} htmlFor="Interface">
 										Interface:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Capacity">
-									Capacity :
+									<label className={classes.label1} htmlFor="Capacity">
+										Capacity :
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="RPM">
-									RPM:
+									<label className={classes.label1} htmlFor="RPM">
+										RPM:
 									</label>
 									<br />
-								
-									<label className={classes.label} htmlFor="thumbnail">
+
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="title"
 										name="title"
@@ -197,7 +192,7 @@ const UpdateHardDrive = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="number"
 										id="price"
 										name="price"
@@ -214,93 +209,123 @@ const UpdateHardDrive = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="brand"
 										name="brand"
 										value={data.Model.brand}
 										required
 										onChange={(e) => {
-											setData({ ...data,Model:{...data.Model,brand: e.target.value} });
+											setData({
+												...data,
+												Model: { ...data.Model, brand: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="series"
 										name="series"
 										value={data.Model.series}
 										required
 										onChange={(e) => {
-											setData({ ...data,Model:{...data.Model,series: e.target.value} });
+											setData({
+												...data,
+												Model: { ...data.Model, series: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="model"
 										name="model"
 										value={data.Model.model}
 										required
 										onChange={(e) => {
-											setData({ ...data,Model:{...data.Model,model: e.target.value} });
+											setData({
+												...data,
+												Model: { ...data.Model, model: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="packing"
 										name="packing"
 										value={data.Model.packing}
 										required
 										onChange={(e) => {
-											setData({ ...data,Model:{...data.Model,packing: e.target.value} });
+											setData({
+												...data,
+												Model: { ...data.Model, packing: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="Interface"
 										name="Interface"
 										value={data.Performance.Interface}
 										required
 										onChange={(e) => {
-											setData({ ...data,Performance:{...data.Performance,Interface: e.target.value} });
+											setData({
+												...data,
+												Performance: {
+													...data.Performance,
+													Interface: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="Capacity"
 										name="Capacity"
 										value={data.Performance.Capacity}
 										required
 										onChange={(e) => {
-											setData({ ...data,Performance:{...data.Performance,Capacity: e.target.value} });
+											setData({
+												...data,
+												Performance: {
+													...data.Performance,
+													Capacity: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="RPM"
 										name="RPM"
 										value={data.Performance.RPM}
 										required
 										onChange={(e) => {
-											setData({ ...data,Performance:{...data.Performance,RPM: e.target.value} });
+											setData({
+												...data,
+												Performance: {
+													...data.Performance,
+													RPM: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
-									
-									<label className={classes.customfile}>
+
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											packing="file"
 											type="file"
 											id="thumbnail"
@@ -313,67 +338,67 @@ const UpdateHardDrive = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="Usage">
-									Usage:
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="Usage">
+										Usage:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="FormFactor">
-									FormFactor:
+									<label className={classes.label1} htmlFor="FormFactor">
+										FormFactor:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Height">
-									Height:
+									<label className={classes.label1} htmlFor="Height">
+										Height:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Width">
-									Width:
+									<label className={classes.label1} htmlFor="Width">
+										Width:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Length">
-									Length:
+									<label className={classes.label1} htmlFor="Length">
+										Length:
 									</label>
 									<br />
-									<label
-										className={classes.label}
-										htmlFor="Average_Latency"
-									>
+									<label className={classes.label1} htmlFor="Average_Latency">
 										Average Latency:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Feature">
-									  Feature:
+									<label className={classes.label1} htmlFor="Feature">
+										Feature:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Cache">
-									Cache:
+									<label className={classes.label1} htmlFor="Cache">
+										Cache:
 									</label>
 									<br />
-									
-									<label className={classes.label} htmlFor="gallery">
+
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="Usage"
 										name="Usage"
 										value={data.Feature.Usage}
 										required
 										onChange={(e) => {
-											setData({ ...data,Feature:{...data.Feature,Usage: e.target.value} });
+											setData({
+												...data,
+												Feature: { ...data.Feature, Usage: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="number"
 										id="quantity"
 										name="quantity"
@@ -391,94 +416,133 @@ const UpdateHardDrive = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="FormFactor"
 										name="FormFactor"
 										value={data.Dimentions.FormFactor}
 										required
 										onChange={(e) => {
-											setData({ ...data,Dimentions:{...data.Dimentions,FormFactor: e.target.value} });
+											setData({
+												...data,
+												Dimentions: {
+													...data.Dimentions,
+													FormFactor: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="Height"
 										name="Height"
 										value={data.Dimentions.Height}
 										required
 										onChange={(e) => {
-											setData({ ...data,Dimentions:{...data.Dimentions,Height: e.target.value} });
+											setData({
+												...data,
+												Dimentions: {
+													...data.Dimentions,
+													Height: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="Width"
 										name="Width"
 										value={data.Dimentions.Width}
 										required
 										onChange={(e) => {
-											setData({ ...data,Dimentions:{...data.Dimentions,Width: e.target.value} });
+											setData({
+												...data,
+												Dimentions: {
+													...data.Dimentions,
+													Width: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="Length"
 										name="Length"
 										value={data.Dimentions.Length}
 										required
 										onChange={(e) => {
-											setData({ ...data,Dimentions:{...data.Dimentions,Length: e.target.value} });
+											setData({
+												...data,
+												Dimentions: {
+													...data.Dimentions,
+													Length: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
-									
+
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="Average_Latency"
 										name="Average_Latency"
 										value={data.Performance.Average_Latency}
 										required
 										onChange={(e) => {
-											setData({ ...data,Performance:{...data.Performance,Average_Latency: e.target.value} });
+											setData({
+												...data,
+												Performance: {
+													...data.Performance,
+													Average_Latency: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="Feature"
 										name="Feature"
 										value={data.Feature.Feature}
 										required
 										onChange={(e) => {
-											setData({ ...data,Feature:{...data.Feature,Feature: e.target.value} });
+											setData({
+												...data,
+												Feature: { ...data.Feature, Feature: e.target.value },
+											});
 										}}
 									/>
-									<br/>
+									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										packing="text"
 										id="Cache"
 										name="Cache"
 										value={data.Performance.Cache}
 										required
 										onChange={(e) => {
-											setData({ ...data,Performance:{...data.Performance,Cache: e.target.value} });
+											setData({
+												...data,
+												Performance: {
+													...data.Performance,
+													Cache: e.target.value,
+												},
+											});
 										}}
 									/>
-									
+
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											packing="file"
 											type="file"
 											id="gallery"
@@ -501,9 +565,9 @@ const UpdateHardDrive = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								packing="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}

@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 
 const UpdatePSU = (props) => {
 	let [data, setData] = useState();
@@ -155,82 +155,82 @@ const UpdatePSU = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Add PSU</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Add PSU</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							encType="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="series">
+									<label className={classes.label1} htmlFor="series">
 										Series:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										Model:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="type">
+									<label className={classes.label1} htmlFor="type">
 										Type:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Maximum_Power">
-									Maximum Power:
+									<label className={classes.label1} htmlFor="Maximum_Power">
+										Maximum Power:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Fans">
-									Fans:
+									<label className={classes.label1} htmlFor="Fans">
+										Fans:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="PFC">
-									PFC:
+									<label className={classes.label1} htmlFor="PFC">
+										PFC:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Main_Connectors">
-									Main Connectors:
+									<label className={classes.label1} htmlFor="Main_Connectors">
+										Main Connectors:
 									</label>
 									<br />
-									<label
-										className={classes.label}
-										htmlFor="Rails"
-									>
+									<label className={classes.label1} htmlFor="Rails">
 										Rails:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="PCI_Express_Connector">
-									PCI Express Connector:
+									<label
+										className={classes.label1}
+										htmlFor="PCI_Express_Connector"
+									>
+										PCI Express Connector:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Connectors">
-									Connectors:
+									<label className={classes.label1} htmlFor="Connectors">
+										Connectors:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Features">
-									Features:
+									<label className={classes.label1} htmlFor="Features">
+										Features:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="thumbnail">
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="title"
 										name="title"
@@ -242,7 +242,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="price"
 										name="price"
@@ -259,7 +259,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="brand"
 										name="brand"
@@ -271,7 +271,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="series"
 										name="series"
@@ -283,7 +283,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="model"
 										name="model"
@@ -295,7 +295,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="type"
 										name="type"
@@ -307,7 +307,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Maximum_Power"
 										name="Maximum_Power"
@@ -319,7 +319,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Fans"
 										name="Fans"
@@ -331,7 +331,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="PFC"
 										name="PFC"
@@ -343,7 +343,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Main_Connectors"
 										name="Main_Connectors"
@@ -355,7 +355,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Rails"
 										name="Rails"
@@ -367,7 +367,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="PCI_Express_Connector"
 										name="PCI_Express_Connector"
@@ -382,7 +382,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Connectors"
 										name="Connectors"
@@ -394,7 +394,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Features"
 										name="Features"
@@ -405,9 +405,9 @@ const UpdatePSU = (props) => {
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -419,72 +419,78 @@ const UpdatePSU = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="SATA_Power_Connector">
+								<div className={classes.row1}>
+									<label
+										className={classes.label1}
+										htmlFor="SATA_Power_Connector"
+									>
 										SATA_Power_Connector:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="SLI">
-									SLI:
+									<label className={classes.label1} htmlFor="SLI">
+										SLI:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Haswell_Support">
-									Haswell Support:
+									<label className={classes.label1} htmlFor="Haswell_Support">
+										Haswell Support:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="CrossFire">
-									Cross Fire:
+									<label className={classes.label1} htmlFor="CrossFire">
+										Cross Fire:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Modular">
-									Modular:
+									<label className={classes.label1} htmlFor="Modular">
+										Modular:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Energy_Efficent">
-									Energy Efficent:
+									<label className={classes.label1} htmlFor="Energy_Efficent">
+										Energy Efficent:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Input_Voltage">
-									Input Voltage:
+									<label className={classes.label1} htmlFor="Input_Voltage">
+										Input Voltage:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Input_Frequency_Range">
-									Input Frequency Range:
+									<label
+										className={classes.label1}
+										htmlFor="Input_Frequency_Range"
+									>
+										Input Frequency Range:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Input_Current">
-									Input Current:
+									<label className={classes.label1} htmlFor="Input_Current">
+										Input Current:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Output">
-									Output:
+									<label className={classes.label1} htmlFor="Output">
+										Output:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Dimentions">
+									<label className={classes.label1} htmlFor="Dimentions">
 										Dimentions:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Max_PSU_Length">
-									Max PSU Length:
+									<label className={classes.label1} htmlFor="Max_PSU_Length">
+										Max PSU Length:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Weight">
-									Weight:
+									<label className={classes.label1} htmlFor="Weight">
+										Weight:
 									</label>
 									<br />
-									
-									<label className={classes.label} htmlFor="gallery">
+
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="SATA_Power_Connector"
 										name="SATA_Power_Connector"
@@ -499,7 +505,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="quantity"
 										name="quantity"
@@ -517,7 +523,7 @@ const UpdatePSU = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="SLI"
 										name="SLI"
@@ -529,7 +535,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Haswell_Support"
 										name="Haswell_Support"
@@ -541,7 +547,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="CrossFire"
 										name="CrossFire"
@@ -553,7 +559,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Modular"
 										name="Modular"
@@ -565,7 +571,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Energy_Efficent"
 										name="Energy_Efficent"
@@ -577,7 +583,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Input_Voltage"
 										name="Input_Voltage"
@@ -589,7 +595,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Input_Frequency_Range"
 										name="Input_Frequency_Range"
@@ -604,7 +610,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Input_Current"
 										name="Input_Current"
@@ -616,7 +622,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Output"
 										name="Output"
@@ -628,7 +634,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Dimentions"
 										name="Dimentions"
@@ -640,7 +646,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Max_PSU_Length"
 										name="Max_PSU_Length"
@@ -652,7 +658,7 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Weight"
 										name="Weight"
@@ -664,9 +670,9 @@ const UpdatePSU = (props) => {
 									/>
 									<br />
 
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="gallery"
 											name="gallery"
@@ -688,9 +694,9 @@ const UpdatePSU = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}

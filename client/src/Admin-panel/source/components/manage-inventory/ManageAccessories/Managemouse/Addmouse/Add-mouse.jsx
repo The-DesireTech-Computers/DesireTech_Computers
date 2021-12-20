@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 const Addmouse = (props) => {
 	let [data, setData] = useState({
 		title: "",
@@ -23,7 +23,6 @@ const Addmouse = (props) => {
 		color: "",
 
 		feature: "",
-	
 	});
 	let [thumbnail, setThumbnail] = useState(null);
 	let [gallery, setGallery] = useState(null);
@@ -55,16 +54,14 @@ const Addmouse = (props) => {
 		} else if (data.button === "") {
 			alert("Please enter data in all the given fields (button)");
 		} else if (data.weightadjustment === "") {
-			alert(
-				"Please enter data in all the given fields (weightadjustment)"
-			);
+			alert("Please enter data in all the given fields (weightadjustment)");
 		} else if (data.scrollingcapablity === "") {
 			alert("Please enter data in all the given fields  (scrollingcapablity)");
 		} else if (data.color === "") {
 			alert("Please enter data in all the given fields  (color)");
 		} else if (data.feature === "") {
 			alert("Please enter data in all the given fields (feature)");
-		}  else if (thumbnail === null) {
+		} else if (thumbnail === null) {
 			alert("Please provide a picture as a thumbnail picture(thumbnail)");
 		} else if (gallery === null) {
 			alert("Please provide atleaste 1 picture as gallery(gallery)");
@@ -84,14 +81,11 @@ const Addmouse = (props) => {
 			formData.append("trackingmethod", data.trackingmethod);
 			formData.append("maximumdpi", data.maximumdpi);
 			formData.append("button", data.button);
-			formData.append(
-				"weightadjustment",
-				data.weightadjustment
-			);
+			formData.append("weightadjustment", data.weightadjustment);
 			formData.append("scrollingcapablity", data.scrollingcapablity);
 			formData.append("color", data.color);
 			formData.append("feature", data.feature);
-			
+
 			formData.append("thumbnail", thumbnail);
 
 			if (gallery) {
@@ -120,59 +114,59 @@ const Addmouse = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Add Mouse</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Add Mouse</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							encType="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="name">
-									name:
+									<label className={classes.label1} htmlFor="name">
+										name:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										Model:
 									</label>
 									<br />
-									
-									<label className={classes.label} htmlFor="button">
-									button:
+
+									<label className={classes.label1} htmlFor="button">
+										button:
 									</label>
 									<br />
-									<label
-										className={classes.label}
-										htmlFor="weightadjustment"
-									>
+									<label className={classes.label1} htmlFor="weightadjustment">
 										weight adjustment:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="scrollingcapablity">
-									scrolling capablity:
+									<label
+										className={classes.label1}
+										htmlFor="scrollingcapablity"
+									>
+										scrolling capablity:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="thumbnail">
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="title"
 										name="title"
@@ -184,7 +178,7 @@ const Addmouse = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="price"
 										name="price"
@@ -201,7 +195,7 @@ const Addmouse = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="brand"
 										name="brand"
@@ -213,7 +207,7 @@ const Addmouse = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="name"
 										name="name"
@@ -225,7 +219,7 @@ const Addmouse = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="model"
 										name="model"
@@ -236,9 +230,9 @@ const Addmouse = (props) => {
 										}}
 									/>
 									<br />
-								
+
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="button"
 										name="button"
@@ -253,7 +247,7 @@ const Addmouse = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="weightadjustment"
 										name="weightadjustment"
@@ -268,7 +262,7 @@ const Addmouse = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="scrollingcapablity"
 										name="scrollingcapablity"
@@ -279,9 +273,9 @@ const Addmouse = (props) => {
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -293,44 +287,44 @@ const Addmouse = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="color">
-									color:
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="color">
+										color:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="type">
+									<label className={classes.label1} htmlFor="type">
 										Type:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="interface">
-									interface:
+									<label className={classes.label1} htmlFor="interface">
+										interface:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="trackingmethod">
-									tracking method:
+									<label className={classes.label1} htmlFor="trackingmethod">
+										tracking method:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="maximumdpi">
-									maximumdpi:
+									<label className={classes.label1} htmlFor="maximumdpi">
+										maximumdpi:
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="feature">
-									feature:
+									<label className={classes.label1} htmlFor="feature">
+										feature:
 									</label>
-									
+
 									<br />
-									<label className={classes.label} htmlFor="gallery">
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="color"
 										name="color"
@@ -342,7 +336,7 @@ const Addmouse = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="quantity"
 										name="quantity"
@@ -359,7 +353,7 @@ const Addmouse = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="type"
 										name="type"
@@ -371,7 +365,7 @@ const Addmouse = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="interface"
 										name="interface"
@@ -383,7 +377,7 @@ const Addmouse = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="trackingmethod"
 										name="trackingmethod"
@@ -395,7 +389,7 @@ const Addmouse = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="maximumdpi"
 										name="maximumdpi"
@@ -408,7 +402,7 @@ const Addmouse = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="feature"
 										name="feature"
@@ -418,11 +412,11 @@ const Addmouse = (props) => {
 											setData({ ...data, feature: e.target.value });
 										}}
 									/>
-								
+
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="gallery"
 											name="gallery"
@@ -444,9 +438,9 @@ const Addmouse = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}

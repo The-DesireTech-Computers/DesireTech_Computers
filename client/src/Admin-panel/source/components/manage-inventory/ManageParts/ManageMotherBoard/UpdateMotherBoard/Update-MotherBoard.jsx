@@ -3,7 +3,7 @@ import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 
 const UpdateMotherBoard = (props) => {
 	let [data, setData] = useState();
@@ -30,7 +30,6 @@ const UpdateMotherBoard = (props) => {
 				.get("pcParts/motherboard/" + id)
 				.then((res) => {
 					setData(res.data);
-					
 				})
 				.catch((err) => {
 					console.log(err);
@@ -62,9 +61,7 @@ const UpdateMotherBoard = (props) => {
 				"Please enter data in all the given fields (Onboard_Video_Chipset)"
 			);
 		} else if (data.Memory.Memory_Pins === 0) {
-			alert(
-				"Please enter data in all the given fields (Memory_Pins)"
-			);
+			alert("Please enter data in all the given fields (Memory_Pins)");
 		} else if (data.Memory.Number_Of_Memory_Slots === "") {
 			alert(
 				"Please enter data in all the given fields  (Number_Of_Memory_Slots)"
@@ -72,7 +69,9 @@ const UpdateMotherBoard = (props) => {
 		} else if (data.Memory.Memory_Standard === "") {
 			alert("Please enter data in all the given fields  (Memory_Standard)");
 		} else if (data.Memory.Maximum_Memory_Supported === "") {
-			alert("Please enter data in all the given fields (Maximum_Memory_Supported)");
+			alert(
+				"Please enter data in all the given fields (Maximum_Memory_Supported)"
+			);
 		} else if (data.Memory.Channel_Supported === "") {
 			alert("Please enter data in all the given fields (Channel_Supported)");
 		} else if (data.Expansion_Slots.PCI_Express === "") {
@@ -83,13 +82,13 @@ const UpdateMotherBoard = (props) => {
 			alert("Please enter data in all the given fields(M2)");
 		} else if (data.Onboard_Audio.Audio_Chipset === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
-		}else if (data.Onboard_Audio.Audio_Channels === "") {
+		} else if (data.Onboard_Audio.Audio_Channels === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
-		}else if (data.Onboard_LAN.LAN_Chipset === "") {
+		} else if (data.Onboard_LAN.LAN_Chipset === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
 		} else if (data.Onboard_LAN.Max_LAN_Speed === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
-		}else if (data.Onboard_LAN.Wireless_LAN === "") {
+		} else if (data.Onboard_LAN.Wireless_LAN === "") {
 			alert("Please enter data in all the given fields (Wireless_LAN)");
 		} else if (data.Onboard_LAN.Bluetooth === "") {
 			alert("Please enter data in all the given fields (Bluetooth)");
@@ -99,21 +98,21 @@ const UpdateMotherBoard = (props) => {
 			alert("Please enter data in all the given fields(Onboard_USB)");
 		} else if (data.Internal_IO_Connectors.Other_Connectors === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
-		}else if (data.Physical_Spec.Form_Factor === "") {
+		} else if (data.Physical_Spec.Form_Factor === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
-		}else if (data.Physical_Spec.LED_Lighting === "") {
+		} else if (data.Physical_Spec.LED_Lighting === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
-		}else if (data.Physical_Spec.Dimentions === "") {
+		} else if (data.Physical_Spec.Dimentions === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
-		}else if (data.Physical_Spec.Power_Pin === "") {
+		} else if (data.Physical_Spec.Power_Pin === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
-		}else if (data.Windows === "") {
+		} else if (data.Windows === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
-		}else if (data.Features === "") {
+		} else if (data.Features === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
-		}else if (data.Power_Consumption === "") {
+		} else if (data.Power_Consumption === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
-		}else {
+		} else {
 			setLoading(true);
 
 			let formData = new FormData();
@@ -127,8 +126,11 @@ const UpdateMotherBoard = (props) => {
 			formData.append("CPU_Type", data.Supported_CPU.CPU_Type);
 			formData.append("Chipset", data.Chipset);
 			formData.append("Onboard_Video_Chipset", data.Onboard_Video_Chipset);
-			formData.append('Memory_Pins', data.Memory.Memory_Pins);
-			formData.append("Number_Of_Memory_Slots", data.Memory.Number_Of_Memory_Slots);
+			formData.append("Memory_Pins", data.Memory.Memory_Pins);
+			formData.append(
+				"Number_Of_Memory_Slots",
+				data.Memory.Number_Of_Memory_Slots
+			);
 			formData.append("Memory_Standard", data.Memory.Memory_Standard);
 			formData.append(
 				"Maximum_Memory_Supported",
@@ -146,7 +148,10 @@ const UpdateMotherBoard = (props) => {
 			formData.append("Bluetooth", data.Onboard_LAN.Bluetooth);
 			formData.append("Rear_Panel_Ports", data.Rear_Panel_Ports);
 			formData.append("Onboard_USB", data.Internal_IO_Connectors.Onboard_USB);
-			formData.append("Other_Connectors", data.Internal_IO_Connectors.Other_Connectors);
+			formData.append(
+				"Other_Connectors",
+				data.Internal_IO_Connectors.Other_Connectors
+			);
 			formData.append("Form_Factor", data.Physical_Spec.Form_Factor);
 			formData.append("LED_Lighting", data.Physical_Spec.LED_Lighting);
 			formData.append("Dimentions", data.Physical_Spec.Dimentions);
@@ -162,9 +167,9 @@ const UpdateMotherBoard = (props) => {
 					formData.append("gallery", gallery[i]);
 				}
 			}
-console.log(formData);
+			console.log(formData);
 			await axios
-				.put("pcParts/motherboard/"+id, formData)
+				.put("pcParts/motherboard/" + id, formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -184,107 +189,101 @@ console.log(formData);
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Update MotherBoard</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Update MotherBoard</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="put"
 							enctype="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-								
-									<label className={classes.label} htmlFor="model">
+
+									<label className={classes.label1} htmlFor="model">
 										Model:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="CPU_Socket_Type">
+									<label className={classes.label1} htmlFor="CPU_Socket_Type">
 										CPU_Socket_Type:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="CPU_Type">
+									<label className={classes.label1} htmlFor="CPU_Type">
 										CPU_Type:
 									</label>
 									<br />
-									<label
-										className={classes.label}
-										htmlFor="Chipset"
-									>
+									<label className={classes.label1} htmlFor="Chipset">
 										Chipset :
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Onboard_Video_Chipset">
-									Onboard_Video_Chipset:
+									<label
+										className={classes.label1}
+										htmlFor="Onboard_Video_Chipset"
+									>
+										Onboard_Video_Chipset:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Memory_Pins">
-									Memory_Pins:
+									<label className={classes.label1} htmlFor="Memory_Pins">
+										Memory_Pins:
 									</label>
 									<br />
 									<label
-										className={classes.label}
+										className={classes.label1}
 										htmlFor="Number_Of_Memory_Slots"
 									>
 										Number_Of_Memory_Slots:
 									</label>
 
 									<br />
-									<label
-										className={classes.label}
-										htmlFor="Memory_Standard"
-									>
+									<label className={classes.label1} htmlFor="Memory_Standard">
 										Memory_Standard:
 									</label>
 
 									<br />
 									<label
-										className={classes.label}
+										className={classes.label1}
 										htmlFor="Maximum_Memory_Supported"
 									>
 										Maximum_Memory_Supported:
 									</label>
 
 									<br />
-									<label
-										className={classes.label}
-										htmlFor="Channel_Supported"
-									>
+									<label className={classes.label1} htmlFor="Channel_Supported">
 										Channel_Supported:
 									</label>
 
 									<br />
-									<label className={classes.label} htmlFor="Windows">
-									Windows:
+									<label className={classes.label1} htmlFor="Windows">
+										Windows:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Features">
-									Features:
+									<label className={classes.label1} htmlFor="Features">
+										Features:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Power_Consumption">
-									Power_Consumption:
+									<label className={classes.label1} htmlFor="Power_Consumption">
+										Power_Consumption:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="thumbnail">
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="title"
 										name="title"
@@ -296,7 +295,7 @@ console.log(formData);
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="price"
 										name="price"
@@ -313,55 +312,73 @@ console.log(formData);
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="brand"
 										name="brand"
 										value={data.Model.brand}
 										required
 										onChange={(e) => {
-											setData({ ...data,Model:{...data.Model, brand: e.target.value }});
+											setData({
+												...data,
+												Model: { ...data.Model, brand: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="model"
 										name="model"
 										value={data.Model.model}
 										required
 										onChange={(e) => {
-											setData({ ...data,Model:{...data.Model, model: e.target.value }});
+											setData({
+												...data,
+												Model: { ...data.Model, model: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="CPU_Socket_Type"
 										name="CPU_Socket_Type"
 										value={data.Supported_CPU.CPU_Socket_Type}
 										required
 										onChange={(e) => {
-											setData({ ...data,Supported_CPU:{...data.Supported_CPU, CPU_Socket_Type: e.target.value }});
+											setData({
+												...data,
+												Supported_CPU: {
+													...data.Supported_CPU,
+													CPU_Socket_Type: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="CPU_Type"
 										name="CPU_Type"
 										value={data.Supported_CPU.CPU_Type}
 										required
 										onChange={(e) => {
-											setData({ ...data,Supported_CPU:{...data.Supported_CPU, CPU_Type: e.target.value }});
+											setData({
+												...data,
+												Supported_CPU: {
+													...data.Supported_CPU,
+													CPU_Type: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Chipset"
 										name="Chipset"
@@ -373,7 +390,7 @@ console.log(formData);
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Onboard_Video_Chipset"
 										name="Onboard_Video_Chipset"
@@ -388,71 +405,98 @@ console.log(formData);
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="Memory_Pins"
 										name="Memory_Pins"
 										value={data.Memory.Memory_Pins}
 										required
 										onChange={(e) => {
-											setData({ ...data,Memory:{...data.Memory, Memory_Pins: e.target.value }});
+											setData({
+												...data,
+												Memory: { ...data.Memory, Memory_Pins: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Number_Of_Memory_Slots"
 										name="Number_Of_Memory_Slots"
 										value={data.Memory.Number_Of_Memory_Slots}
 										required
 										onChange={(e) => {
-											setData({ ...data,Memory:{...data.Memory, Number_Of_Memory_Slots: e.target.value }});
+											setData({
+												...data,
+												Memory: {
+													...data.Memory,
+													Number_Of_Memory_Slots: e.target.value,
+												},
+											});
 										}}
 									/>
 
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Memory_Standard"
 										name="Memory_Standard"
 										value={data.Memory.Memory_Standard}
 										required
 										onChange={(e) => {
-											setData({ ...data,Memory:{...data.Memory, Memory_Standard: e.target.value }});
+											setData({
+												...data,
+												Memory: {
+													...data.Memory,
+													Memory_Standard: e.target.value,
+												},
+											});
 										}}
 									/>
 
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Maximum_Memory_Supported"
 										name="Maximum_Memory_Supported"
 										value={data.Memory.Maximum_Memory_Supported}
 										required
 										onChange={(e) => {
-											setData({ ...data,Memory:{...data.Memory, Maximum_Memory_Supported: e.target.value }});
+											setData({
+												...data,
+												Memory: {
+													...data.Memory,
+													Maximum_Memory_Supported: e.target.value,
+												},
+											});
 										}}
 									/>
 
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Channel_Supported"
 										name="Channel_Supported"
 										value={data.Memory.Channel_Supported}
 										required
 										onChange={(e) => {
-											setData({ ...data,Memory:{...data.Memory, Channel_Supported: e.target.value }});
+											setData({
+												...data,
+												Memory: {
+													...data.Memory,
+													Channel_Supported: e.target.value,
+												},
+											});
 										}}
 									/>
-									
+
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Windows"
 										name="Windows"
@@ -464,7 +508,7 @@ console.log(formData);
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Features"
 										name="Features"
@@ -476,7 +520,7 @@ console.log(formData);
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Power_Consumption"
 										name="Power_Consumption"
@@ -487,9 +531,9 @@ console.log(formData);
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -501,96 +545,102 @@ console.log(formData);
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="PCI_Express">
-									PCI_Express:
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="PCI_Express">
+										PCI_Express:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="SATA_6GBs">
-									SATA_6GBs:
+									<label className={classes.label1} htmlFor="SATA_6GBs">
+										SATA_6GBs:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="M2">
-									M2:
+									<label className={classes.label1} htmlFor="M2">
+										M2:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Audio_Chipset">
-									Audio_Chipset:
+									<label className={classes.label1} htmlFor="Audio_Chipset">
+										Audio_Chipset:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Audio_Channels">
-									Audio_Channels:
+									<label className={classes.label1} htmlFor="Audio_Channels">
+										Audio_Channels:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="LAN_Chipset">
-									LAN_Chipset:
+									<label className={classes.label1} htmlFor="LAN_Chipset">
+										LAN_Chipset:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Max_LAN_Speed">
-									Max_LAN_Speed:
+									<label className={classes.label1} htmlFor="Max_LAN_Speed">
+										Max_LAN_Speed:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Wireless_LAN">
-									Wireless_LAN:
+									<label className={classes.label1} htmlFor="Wireless_LAN">
+										Wireless_LAN:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Bluetooth">
-									Bluetooth:
+									<label className={classes.label1} htmlFor="Bluetooth">
+										Bluetooth:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Rear_Panel_Ports">
-									Rear_Panel_Ports:
+									<label className={classes.label1} htmlFor="Rear_Panel_Ports">
+										Rear_Panel_Ports:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Onboard_USB">
-									Onboard_USB:
+									<label className={classes.label1} htmlFor="Onboard_USB">
+										Onboard_USB:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Other_Connectors">
-									Other_Connectors:
+									<label className={classes.label1} htmlFor="Other_Connectors">
+										Other_Connectors:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Form_Factor">
-									Form_Factor:
+									<label className={classes.label1} htmlFor="Form_Factor">
+										Form_Factor:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="LED_Lighting">
-									LED_Lighting:
+									<label className={classes.label1} htmlFor="LED_Lighting">
+										LED_Lighting:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Dimentions">
-									Dimentions:
+									<label className={classes.label1} htmlFor="Dimentions">
+										Dimentions:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Power_Pin">
-									Power_Pin:
+									<label className={classes.label1} htmlFor="Power_Pin">
+										Power_Pin:
 									</label>
 									<br />
-									
-									<label className={classes.label} htmlFor="gallery">
+
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="PCI_Express"
 										name="PCI_Express"
 										value={data.Expansion_Slots.PCI_Express}
 										required
 										onChange={(e) => {
-											setData({ ...data,Expansion_Slots:{...data.Expansion_Slots, PCI_Express: e.target.value }});
+											setData({
+												...data,
+												Expansion_Slots: {
+													...data.Expansion_Slots,
+													PCI_Express: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="quantity"
 										name="quantity"
@@ -608,103 +658,151 @@ console.log(formData);
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="SATA_6GBs"
 										name="SATA_6GBs"
 										value={data.Storage_Device.SATA_6GBs}
 										required
 										onChange={(e) => {
-											setData({ ...data,Storage_Device:{...data.Storage_Device, SATA_6GBs: e.target.value }});
+											setData({
+												...data,
+												Storage_Device: {
+													...data.Storage_Device,
+													SATA_6GBs: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="M2"
 										name="M2"
 										value={data.Storage_Device.M2}
 										required
 										onChange={(e) => {
-											setData({ ...data,Storage_Device:{...data.Storage_Device, M2: e.target.value }});
+											setData({
+												...data,
+												Storage_Device: {
+													...data.Storage_Device,
+													M2: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Audio_Chipset"
 										name="Audio_Chipset"
 										value={data.Onboard_Audio.Audio_Chipset}
 										required
 										onChange={(e) => {
-											setData({ ...data,Onboard_Audio:{...data.Onboard_Audio, Audio_Chipset: e.target.value }});
+											setData({
+												...data,
+												Onboard_Audio: {
+													...data.Onboard_Audio,
+													Audio_Chipset: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Audio_Channels"
 										name="Audio_Channels"
 										value={data.Onboard_Audio.Audio_Channels}
 										required
 										onChange={(e) => {
-											setData({ ...data,Onboard_Audio:{...data.Onboard_Audio, Audio_Channels: e.target.value }});
+											setData({
+												...data,
+												Onboard_Audio: {
+													...data.Onboard_Audio,
+													Audio_Channels: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="LAN_Chipset"
 										name="LAN_Chipset"
 										value={data.Onboard_LAN.LAN_Chipset}
 										required
 										onChange={(e) => {
-											setData({ ...data,Onboard_LAN:{...data.Onboard_LAN, LAN_Chipset: e.target.value }});
+											setData({
+												...data,
+												Onboard_LAN: {
+													...data.Onboard_LAN,
+													LAN_Chipset: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Max_LAN_Speed"
 										name="Max_LAN_Speed"
 										value={data.Onboard_LAN.Max_LAN_Speed}
 										required
 										onChange={(e) => {
-											setData({ ...data,Onboard_LAN:{...data.Onboard_LAN, Max_LAN_Speed: e.target.value }});
+											setData({
+												...data,
+												Onboard_LAN: {
+													...data.Onboard_LAN,
+													Max_LAN_Speed: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Wireless_LAN"
 										name="Wireless_LAN"
 										value={data.Onboard_LAN.Wireless_LAN}
 										required
 										onChange={(e) => {
-											setData({ ...data,Onboard_LAN:{...data.Onboard_LAN, Wireless_LAN: e.target.value }});
+											setData({
+												...data,
+												Onboard_LAN: {
+													...data.Onboard_LAN,
+													Wireless_LAN: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Bluetooth"
 										name="Bluetooth"
 										value={data.Onboard_LAN.Bluetooth}
 										required
 										onChange={(e) => {
-											setData({ ...data,Onboard_LAN:{...data.Onboard_LAN, Bluetooth: e.target.value }});
+											setData({
+												...data,
+												Onboard_LAN: {
+													...data.Onboard_LAN,
+													Bluetooth: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Rear_Panel_Ports"
 										name="Rear_Panel_Ports"
@@ -716,81 +814,117 @@ console.log(formData);
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Onboard_USB"
 										name="Onboard_USB"
 										value={data.Internal_IO_Connectors.Onboard_USB}
 										required
 										onChange={(e) => {
-											setData({ ...data,Internal_IO_Connectors:{...data.Internal_IO_Connectors, Onboard_USB: e.target.value }});
+											setData({
+												...data,
+												Internal_IO_Connectors: {
+													...data.Internal_IO_Connectors,
+													Onboard_USB: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Other_Connectors"
 										name="Other_Connectors"
 										value={data.Internal_IO_Connectors.Other_Connectors}
 										required
 										onChange={(e) => {
-											setData({ ...data,Internal_IO_Connectors:{...data.Internal_IO_Connectors, Other_Connectors: e.target.value }});
+											setData({
+												...data,
+												Internal_IO_Connectors: {
+													...data.Internal_IO_Connectors,
+													Other_Connectors: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Form_Factor"
 										name="Form_Factor"
 										value={data.Physical_Spec.Form_Factor}
 										required
 										onChange={(e) => {
-											setData({ ...data,Physical_Spec:{...data.Physical_Spec, Form_Factor: e.target.value }});
+											setData({
+												...data,
+												Physical_Spec: {
+													...data.Physical_Spec,
+													Form_Factor: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="LED_Lighting"
 										name="LED_Lighting"
 										value={data.Physical_Spec.LED_Lighting}
 										required
 										onChange={(e) => {
-											setData({ ...data,Physical_Spec:{...data.Physical_Spec, LED_Lighting: e.target.value }});
+											setData({
+												...data,
+												Physical_Spec: {
+													...data.Physical_Spec,
+													LED_Lighting: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Dimentions"
 										name="Dimentions"
 										value={data.Physical_Spec.Dimentions}
 										required
 										onChange={(e) => {
-											setData({ ...data,Physical_Spec:{...data.Physical_Spec, Dimentions: e.target.value }});
+											setData({
+												...data,
+												Physical_Spec: {
+													...data.Physical_Spec,
+													Dimentions: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Power_Pin"
 										name="Power_Pin"
 										value={data.Physical_Spec.Power_Pin}
 										required
 										onChange={(e) => {
-											setData({ ...data,Physical_Spec:{...data.Physical_Spec, Power_Pin: e.target.value }});
+											setData({
+												...data,
+												Physical_Spec: {
+													...data.Physical_Spec,
+													Power_Pin: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
-									
-									<label className={classes.customfile}>
+
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="gallery"
 											name="gallery"
@@ -812,9 +946,9 @@ console.log(formData);
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}
@@ -828,6 +962,5 @@ console.log(formData);
 
 	return <div>{form}</div>;
 };
-
 
 export default UpdateMotherBoard;

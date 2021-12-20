@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 const AddHeadset = (props) => {
 	let [data, setData] = useState({
 		title: "",
@@ -19,7 +19,6 @@ const AddHeadset = (props) => {
 		connector: "",
 		cordLength: "",
 		feature: "",
-		
 	});
 	let [thumbnail, setThumbnail] = useState(null);
 	let [gallery, setGallery] = useState(null);
@@ -49,12 +48,10 @@ const AddHeadset = (props) => {
 		} else if (data.connector === "") {
 			alert("Please enter data in all the given fields (connector)");
 		} else if (data.cordLength === "") {
-			alert(
-				"Please enter data in all the given fields (cordLength)"
-			);
+			alert("Please enter data in all the given fields (cordLength)");
 		} else if (data.feature === "") {
 			alert("Please enter data in all the given fields  (feature)");
-		}  else if (thumbnail === null) {
+		} else if (thumbnail === null) {
 			alert("Please provide a picture as a thumbnail picture(thumbnail)");
 		} else if (gallery === null) {
 			alert("Please provide atleaste 1 picture as gallery(gallery)");
@@ -73,12 +70,9 @@ const AddHeadset = (props) => {
 			formData.append("weight", data.weight);
 			formData.append("connectiontype", data.connectiontype);
 			formData.append("connector", data.connector);
-			formData.append(
-				"cordLength",
-				data.cordLength
-			);
+			formData.append("cordLength", data.cordLength);
 			formData.append("feature", data.feature);
-		
+
 			formData.append("thumbnail", thumbnail);
 
 			if (gallery) {
@@ -107,48 +101,48 @@ const AddHeadset = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Add Headset</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Add Headset</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							encType="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										Model:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="compatability">
-									compatability:
+									<label className={classes.label1} htmlFor="compatability">
+										compatability:
 									</label>
-								
+
 									<br />
-									<label className={classes.label} htmlFor="feature">
-									feature:
+									<label className={classes.label1} htmlFor="feature">
+										feature:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="thumbnail">
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="title"
 										name="title"
@@ -160,7 +154,7 @@ const AddHeadset = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="price"
 										name="price"
@@ -177,7 +171,7 @@ const AddHeadset = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="brand"
 										name="brand"
@@ -188,9 +182,9 @@ const AddHeadset = (props) => {
 										}}
 									/>
 									<br />
-									
+
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="model"
 										name="model"
@@ -202,7 +196,7 @@ const AddHeadset = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="compatability"
 										name="compatability"
@@ -212,10 +206,10 @@ const AddHeadset = (props) => {
 											setData({ ...data, compatability: e.target.value });
 										}}
 									/>
-									
+
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="feature"
 										name="feature"
@@ -226,9 +220,9 @@ const AddHeadset = (props) => {
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -240,44 +234,39 @@ const AddHeadset = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									
-									<label className={classes.label} htmlFor="quantity">
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="LED">
-									LED:
+									<label className={classes.label1} htmlFor="LED">
+										LED:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="weight">
-									weight:
+									<label className={classes.label1} htmlFor="weight">
+										weight:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="connectiontype">
-									connection type:
+									<label className={classes.label1} htmlFor="connectiontype">
+										connection type:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="connector">
-									connector:
+									<label className={classes.label1} htmlFor="connector">
+										connector:
 									</label>
 									<br />
-									<label
-										className={classes.label}
-										htmlFor="cordLength"
-									>
+									<label className={classes.label1} htmlFor="cordLength">
 										cord Length:
 									</label>
 									<br />
-									
-									<label className={classes.label} htmlFor="gallery">
+
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
-									
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="quantity"
 										name="quantity"
@@ -294,7 +283,7 @@ const AddHeadset = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="LED"
 										name="LED"
@@ -306,7 +295,7 @@ const AddHeadset = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="weight"
 										name="weight"
@@ -318,7 +307,7 @@ const AddHeadset = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="connectiontype"
 										name="connectiontype"
@@ -330,7 +319,7 @@ const AddHeadset = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="connector"
 										name="connector"
@@ -345,7 +334,7 @@ const AddHeadset = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="cordLength"
 										name="cordLength"
@@ -359,10 +348,10 @@ const AddHeadset = (props) => {
 										}}
 									/>
 									<br />
-									
-									<label className={classes.customfile}>
+
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="gallery"
 											name="gallery"
@@ -384,9 +373,9 @@ const AddHeadset = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}

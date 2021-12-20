@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 
 const UpdateParts = (props) => {
 	let [data, setData] = useState();
@@ -59,7 +59,7 @@ const UpdateParts = (props) => {
 			alert("Please enter data in all the given fields (dimension)");
 		} else if (data.weight === "") {
 			alert("Please enter data in all the given fields (weight)");
-		}  else if (thumbnail === null) {
+		} else if (thumbnail === null) {
 			alert("Please provide a picture as a thumbnail picture(thumbnail)");
 		} else if (gallery === null) {
 			alert("Please provide atleaste 1 picture as gallery(gallery)");
@@ -78,7 +78,7 @@ const UpdateParts = (props) => {
 			formData.append("specification", data.specification);
 			formData.append("dimension", data.dimension);
 			formData.append("weight", data.weight);
-			
+
 			formData.append("thumbnail", thumbnail);
 
 			if (gallery) {
@@ -107,44 +107,44 @@ const UpdateParts = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Add Microphone</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Add Microphone</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							encType="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="series">
+									<label className={classes.label1} htmlFor="series">
 										Series:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										Model:
 									</label>
-									
+
 									<br />
-									<label className={classes.label} htmlFor="thumbnail">
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="title"
 										name="title"
@@ -156,7 +156,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="price"
 										name="price"
@@ -173,7 +173,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="brand"
 										name="brand"
@@ -185,7 +185,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="series"
 										name="series"
@@ -197,7 +197,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="model"
 										name="model"
@@ -207,11 +207,11 @@ const UpdateParts = (props) => {
 											setData({ ...data, model: e.target.value });
 										}}
 									/>
-								
+
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -223,37 +223,35 @@ const UpdateParts = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									
-									<label className={classes.label} htmlFor="quantity">
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="type">
+									<label className={classes.label1} htmlFor="type">
 										Type:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="specification">
-									specification:
+									<label className={classes.label1} htmlFor="specification">
+										specification:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="dimension">
-									dimension:
+									<label className={classes.label1} htmlFor="dimension">
+										dimension:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="weight">
-									weight:
+									<label className={classes.label1} htmlFor="weight">
+										weight:
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="gallery">
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
-									
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="quantity"
 										name="quantity"
@@ -269,9 +267,9 @@ const UpdateParts = (props) => {
 										}}
 									/>
 									<br />
-										
+
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="type"
 										name="type"
@@ -283,7 +281,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="specification"
 										name="specification"
@@ -295,7 +293,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="dimension"
 										name="dimension"
@@ -307,7 +305,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="weight"
 										name="weight"
@@ -317,13 +315,11 @@ const UpdateParts = (props) => {
 											setData({ ...data, weight: e.target.value });
 										}}
 									/>
-								
 
-									
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="gallery"
 											name="gallery"
@@ -345,9 +341,9 @@ const UpdateParts = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}

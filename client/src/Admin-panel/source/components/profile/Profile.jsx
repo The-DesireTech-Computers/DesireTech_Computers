@@ -84,30 +84,30 @@ const UpdateProfile = (props) => {
 			form = (
 				<div>
 					<Navbar />
-					<div className={classes.main}>
-						<div className={classes.inputform}>
-							<h1 className={classes.h1}>Update Profile</h1>
-							<form className={classes.form} method="put">
-								<div className={classes.form2}>
-									<div className={classes.row}>
-										<label className={classes.label} htmlFor="name">
+					<div className={classes.main1}>
+						<div className={classes.inputform1}>
+							<h1 className={classes.h11}>Update Profile</h1>
+							<form className={classes.form1} method="put">
+								<div className={classes.form21}>
+									<div className={classes.row1}>
+										<label className={classes.label1} htmlFor="name">
 											Name:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="email">
+										<label className={classes.label1} htmlFor="email">
 											Email:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="newPassword">
+										<label className={classes.label1} htmlFor="newPassword">
 											New Password:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="confirmPassword">
+										<label className={classes.label1} htmlFor="confirmPassword">
 											Confirm Password:
 										</label>
 										<br />
 									</div>
-									<div className={classes.row}>
+									<div className={classes.row1}>
 										<input
 											className={classes.input1}
 											type="text"
@@ -165,9 +165,9 @@ const UpdateProfile = (props) => {
 									</div>
 								</div>
 							</form>
-							<div className={classes.btnDiv}>
+							<div className={classes.btnDiv1}>
 								<input
-									className={classes.btn}
+									className={classes.btn1}
 									type="submit"
 									value="Update"
 									onClick={handelSubmitBtn}

@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 const AddWebcam = (props) => {
 	let [data, setData] = useState({
 		title: "",
@@ -109,52 +109,52 @@ const AddWebcam = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Add Webcam</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Add Webcam</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							encType="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="name">
+									<label className={classes.label1} htmlFor="name">
 										name:
 									</label>
 
 									<br />
-									<label className={classes.label} htmlFor="focusSetting">
+									<label className={classes.label1} htmlFor="focusSetting">
 										focusSetting:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="lens">
+									<label className={classes.label1} htmlFor="lens">
 										lens:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="operatingSystem">
+									<label className={classes.label1} htmlFor="operatingSystem">
 										operatingSystem:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="thumbnail">
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="title"
 										name="title"
@@ -166,7 +166,7 @@ const AddWebcam = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="price"
 										name="price"
@@ -183,7 +183,7 @@ const AddWebcam = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="brand"
 										name="brand"
@@ -195,7 +195,7 @@ const AddWebcam = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="name"
 										name="name"
@@ -208,7 +208,7 @@ const AddWebcam = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="focusSetting"
 										name="focusSetting"
@@ -223,7 +223,7 @@ const AddWebcam = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="lens"
 										name="lens"
@@ -238,7 +238,7 @@ const AddWebcam = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="operatingSystem"
 										name="operatingSystem"
@@ -249,9 +249,9 @@ const AddWebcam = (props) => {
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -264,44 +264,44 @@ const AddWebcam = (props) => {
 									</label>
 								</div>
 
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="feature">
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="feature">
 										feature:
 									</label>
 
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										Model:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="interface">
+									<label className={classes.label1} htmlFor="interface">
 										interface:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="color">
+									<label className={classes.label1} htmlFor="color">
 										Color:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="videoResolution">
+									<label className={classes.label1} htmlFor="videoResolution">
 										videoResolution:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="maximumResolution">
+									<label className={classes.label1} htmlFor="maximumResolution">
 										maximumResolution:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="gallery">
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 									<br />
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="feature"
 										name="feature"
@@ -313,7 +313,7 @@ const AddWebcam = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="Quantity"
 										name="Quantity"
@@ -325,7 +325,7 @@ const AddWebcam = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Model"
 										name="Model"
@@ -337,7 +337,7 @@ const AddWebcam = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="interface"
 										name="interface"
@@ -349,7 +349,7 @@ const AddWebcam = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="color"
 										name="color"
@@ -361,7 +361,7 @@ const AddWebcam = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="videoResolution"
 										name="videoResolution"
@@ -373,7 +373,7 @@ const AddWebcam = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="maximumResolution"
 										name="maximumResolution"
@@ -384,9 +384,9 @@ const AddWebcam = (props) => {
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="gallery"
 											name="gallery"
@@ -408,9 +408,9 @@ const AddWebcam = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}

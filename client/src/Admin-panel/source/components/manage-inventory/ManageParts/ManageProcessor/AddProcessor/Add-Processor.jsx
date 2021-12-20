@@ -2,43 +2,42 @@ import { React, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 
 const AddProcessor = (props) => {
 	let [data, setData] = useState({
-		title:'',
-      price: '',
-      quantity:'',
+		title: "",
+		price: "",
+		quantity: "",
 
-        brand:'' ,
-        processorType:'' ,
-        series:'' ,
-        name:'' ,
-        model:'' ,
+		brand: "",
+		processorType: "",
+		series: "",
+		name: "",
+		model: "",
 
-		CPU_Socket_Type:'' ,
-		CoreName:'' ,
-            NumberOfCores:'' ,
-            NumberOfThreads:'' ,
-            OperatingFrequency:'' ,
-            MaxFrequency:'' ,
-            BusSpeed:'' ,
-            L3_Cache:'' ,
-            ManufacturingTech:'' ,
-            bit_Support:'' ,
-            Hyper_Threading_Support:'' ,
-            MemoryType:'' ,
-            MemoryChannel:'' ,
-            Max_CPU_Cooler_Length:'' ,
-            Virtualization_Tech_Support:'' ,
-            IntegratedGraphics:'' ,
-            Graphics_Base_Frequency:'' ,
-			Graphics_Max_Dynamic_Frequency:'',
-            PCI_Express_Revision:'',
-            Max_Number_PCI_Express_Lane:'',
-            Thermal_Design_Power:'',
-            CoolingDevice:'',
-	
+		CPU_Socket_Type: "",
+		CoreName: "",
+		NumberOfCores: "",
+		NumberOfThreads: "",
+		OperatingFrequency: "",
+		MaxFrequency: "",
+		BusSpeed: "",
+		L3_Cache: "",
+		ManufacturingTech: "",
+		bit_Support: "",
+		Hyper_Threading_Support: "",
+		MemoryType: "",
+		MemoryChannel: "",
+		Max_CPU_Cooler_Length: "",
+		Virtualization_Tech_Support: "",
+		IntegratedGraphics: "",
+		Graphics_Base_Frequency: "",
+		Graphics_Max_Dynamic_Frequency: "",
+		PCI_Express_Revision: "",
+		Max_Number_PCI_Express_Lane: "",
+		Thermal_Design_Power: "",
+		CoolingDevice: "",
 	});
 	let [thumbnail, setThumbnail] = useState(null);
 	let [gallery, setGallery] = useState(null);
@@ -176,74 +175,77 @@ const AddProcessor = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Add Processor</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Add Processor</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							encprocessorType="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="series">
+									<label className={classes.label1} htmlFor="series">
 										Series:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										Model:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="processorType">
+									<label className={classes.label1} htmlFor="processorType">
 										processorType:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="CPU_Socket_Type">
+									<label className={classes.label1} htmlFor="CPU_Socket_Type">
 										CPU_Socket_Type:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Processormaterial">
+									<label className={classes.label1} htmlFor="Processormaterial">
 										Processor Material:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="withpowersupply">
+									<label className={classes.label1} htmlFor="withpowersupply">
 										With Power Supply:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="powersupplymounted">
+									<label
+										className={classes.label1}
+										htmlFor="powersupplymounted"
+									>
 										Power Supply Mounted:
 									</label>
 									<br />
 									<label
-										className={classes.label}
+										className={classes.label1}
 										htmlFor="motherboardcompatability"
 									>
 										MotherBoard Compatability:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="dustfilters">
+									<label className={classes.label1} htmlFor="dustfilters">
 										Dust Filters:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="thumbnail">
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="title"
 										name="title"
@@ -255,7 +257,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="number"
 										id="price"
 										name="price"
@@ -272,7 +274,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="brand"
 										name="brand"
@@ -284,7 +286,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="series"
 										name="series"
@@ -296,7 +298,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="model"
 										name="model"
@@ -308,7 +310,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="processorType"
 										name="processorType"
@@ -320,7 +322,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="CPU_Socket_Type"
 										name="CPU_Socket_Type"
@@ -332,7 +334,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="Processormaterial"
 										name="Processormaterial"
@@ -344,7 +346,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="withpowersupply"
 										name="withpowersupply"
@@ -356,7 +358,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="powersupplymounted"
 										name="powersupplymounted"
@@ -368,7 +370,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="motherboardcompatabililty"
 										name="motherboardcompatability"
@@ -380,7 +382,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="dustfilters"
 										name="dustfilters"
@@ -391,9 +393,9 @@ const AddProcessor = (props) => {
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											processorType="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -405,66 +407,69 @@ const AddProcessor = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="sidepanelwindow">
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="sidepanelwindow">
 										Side Panel Window:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="internaldrivebays">
+									<label className={classes.label1} htmlFor="internaldrivebays">
 										Internal Drive Bays:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="expansionslots">
+									<label className={classes.label1} htmlFor="expansionslots">
 										Expansion Slots:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="frontpanelports">
+									<label className={classes.label1} htmlFor="frontpanelports">
 										Front Panel Ports:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="fanoptions">
+									<label className={classes.label1} htmlFor="fanoptions">
 										Fan Options:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="radiatoroptions">
+									<label className={classes.label1} htmlFor="radiatoroptions">
 										Radiator Options:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="maxgpulength">
+									<label className={classes.label1} htmlFor="maxgpulength">
 										Max GPU Length:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="maxcpucoolerlength">
+									<label
+										className={classes.label1}
+										htmlFor="maxcpucoolerlength"
+									>
 										Max CPU Cooler Length:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="maxpsulength">
+									<label className={classes.label1} htmlFor="maxpsulength">
 										Max PSU Length:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="casedimentions">
+									<label className={classes.label1} htmlFor="casedimentions">
 										Case Dimentions:
 									</label>
 									<br />
 									<label
-										className={classes.label}
+										className={classes.label1}
 										htmlFor="PCI_Express_Revision"
 									>
 										PCI_Express_Revision:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="gallery">
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="sidepanelwindow"
 										name="sidepanelwindow"
@@ -476,7 +481,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="number"
 										id="quantity"
 										name="quantity"
@@ -494,7 +499,7 @@ const AddProcessor = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="internaldrivebay"
 										name="internaldrivebay"
@@ -506,7 +511,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="expansionslots"
 										name="expansionslots"
@@ -518,7 +523,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="frontpanelports"
 										name="frontpanelports"
@@ -530,7 +535,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="fanoptions"
 										name="fanoptions"
@@ -545,7 +550,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="radiatoroptions"
 										name="radiatoroptions"
@@ -557,7 +562,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="maxgpulength"
 										name="maxgpulength"
@@ -569,7 +574,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="maxcpucoolerlength"
 										name="maxcpucoolerlength"
@@ -584,7 +589,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="maxpsulength"
 										name="maxpsulength"
@@ -599,7 +604,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="casedimentions"
 										name="casedimentions"
@@ -614,7 +619,7 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										processorType="text"
 										id="PCI_Express_Revision"
 										name="PCI_Express_Revision"
@@ -628,9 +633,9 @@ const AddProcessor = (props) => {
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											processorType="file"
 											id="gallery"
 											name="gallery"
@@ -652,9 +657,9 @@ const AddProcessor = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								processorType="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}

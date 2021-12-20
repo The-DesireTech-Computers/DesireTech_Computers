@@ -3,7 +3,7 @@ import Navbar from "../../../header/Navbar";
 import TableListings from "../../../tableListings/TableListings";
 import Spinner from "../../../LoadingSpinner/LoadingSpinner";
 import axios from "../../../../axiosInstance";
-import classes from "../Table.module.css";
+import classes from "../../Table.module.css";
 
 let ManageMotherBoard = (props) => {
 	let [data, setData] = useState([]);
@@ -51,7 +51,7 @@ let ManageMotherBoard = (props) => {
 	return (
 		<div>
 			<Navbar />
-			<div className={classes.main}>
+			<div className={classes.main1}>
 				<div className={classes.heading}>
 					<ul>
 						<li className={classes.navleft}>

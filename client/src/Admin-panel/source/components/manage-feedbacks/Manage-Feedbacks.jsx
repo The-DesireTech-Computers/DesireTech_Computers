@@ -5,7 +5,7 @@ let ManageFeedbacks = (props) => {
 	return (
 		<div>
 			<Navbar />
-			<div className={classes.main}>
+			<div className={classes.main1}>
 				<div className={classes.heading1}>
 					<ul>
 						<li className={classes.navleft1}>

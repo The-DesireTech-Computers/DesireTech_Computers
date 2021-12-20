@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 
 const UpdateParts = (props) => {
 	let [data, setData] = useState();
@@ -70,11 +70,14 @@ const UpdateParts = (props) => {
 		} else if (data.Details.Dust_Filters === "") {
 			alert("Please enter data in all the given fields  (Dust_Filters)");
 		} else if (data.Expansions.Internal_Drive_Bays25 === "") {
-			alert("Please enter data in all the given fields (Internal_Drive_Bays25)");
+			alert(
+				"Please enter data in all the given fields (Internal_Drive_Bays25)"
+			);
 		} else if (data.Expansions.Internal_Drive_Bays35 === "") {
-			alert("Please enter data in all the given fields (Internal_Drive_Bays35)");
-		} 
-		 else if (data.Expansions.Expansion_Slots === "") {
+			alert(
+				"Please enter data in all the given fields (Internal_Drive_Bays35)"
+			);
+		} else if (data.Expansions.Expansion_Slots === "") {
 			alert("Please enter data in all the given fields (Expansion_Slots)");
 		} else if (data.Front_Panel_Ports === "") {
 			alert("Please enter data in all the given fields(Front_Panel_Ports)");
@@ -171,77 +174,77 @@ const UpdateParts = (props) => {
 			form = (
 				<div>
 					<Navbar />
-					<div className={classes.main}>
-						<div className={classes.inputform}>
-							<h1 className={classes.h1}>Update Casing</h1>
+					<div className={classes.main1}>
+						<div className={classes.inputform1}>
+							<h1 className={classes.h11}>Update Casing</h1>
 							<form
-								className={classes.form}
+								className={classes.form1}
 								method="put"
 								encType="multipart/form-data"
 							>
-								<div className={classes.form2}>
-									<div className={classes.row}>
-										<label className={classes.label} htmlFor="title">
+								<div className={classes.form21}>
+									<div className={classes.row1}>
+										<label className={classes.label1} htmlFor="title">
 											Title:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="price">
+										<label className={classes.label1} htmlFor="price">
 											Price:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="brand">
+										<label className={classes.label1} htmlFor="brand">
 											Brand:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="series">
+										<label className={classes.label1} htmlFor="series">
 											Series:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="model">
+										<label className={classes.label1} htmlFor="model">
 											Model:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="type">
+										<label className={classes.label1} htmlFor="type">
 											Type:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="color">
+										<label className={classes.label1} htmlFor="color">
 											Color:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="casingmaterial">
+										<label className={classes.label1} htmlFor="casingmaterial">
 											Casing Material:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="withpowersupply">
+										<label className={classes.label1} htmlFor="withpowersupply">
 											With Power Supply:
 										</label>
 										<br />
 										<label
-											className={classes.label}
+											className={classes.label1}
 											htmlFor="powersupplymounted"
 										>
 											Power Supply Mounted:
 										</label>
 										<br />
 										<label
-											className={classes.label}
+											className={classes.label1}
 											htmlFor="Supported_Motherboard"
 										>
-										Supported Motherboard:
+											Supported Motherboard:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="dustfilters">
+										<label className={classes.label1} htmlFor="dustfilters">
 											Dust Filters:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="thumbnail">
+										<label className={classes.label1} htmlFor="thumbnail">
 											Thumbnail:
 										</label>
 									</div>
-									<div className={classes.row}>
+									<div className={classes.row1}>
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="title"
 											name="title"
@@ -253,7 +256,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="number"
 											id="price"
 											name="price"
@@ -270,7 +273,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="brand"
 											name="brand"
@@ -285,7 +288,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="series"
 											name="series"
@@ -300,7 +303,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="model"
 											name="model"
@@ -315,7 +318,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="type"
 											name="type"
@@ -330,7 +333,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="color"
 											name="color"
@@ -345,7 +348,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="casingmaterial"
 											name="casingmaterial"
@@ -363,7 +366,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="withpowersupply"
 											name="withpowersupply"
@@ -381,7 +384,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="powersupplymounted"
 											name="powersupplymounted"
@@ -399,7 +402,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="Supported_Motherboard"
 											name="Supported_Motherboard"
@@ -417,7 +420,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="dustfilters"
 											name="dustfilters"
@@ -434,9 +437,9 @@ const UpdateParts = (props) => {
 											}}
 										/>
 										<br />
-										<label className={classes.customfile}>
+										<label className={classes.customfile1}>
 											<input
-												className={classes.inputfile}
+												className={classes.inputfile1}
 												type="file"
 												id="thumbnail"
 												name="thumbnail"
@@ -448,76 +451,76 @@ const UpdateParts = (props) => {
 											<i className="fa fa-cloud-upload"></i> Select File
 										</label>
 									</div>
-									<div className={classes.row}>
-										<label className={classes.label} htmlFor="sidepanelwindow">
+									<div className={classes.row1}>
+										<label className={classes.label1} htmlFor="sidepanelwindow">
 											Side Panel Window:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="quantity">
+										<label className={classes.label1} htmlFor="quantity">
 											Quantity:
 										</label>
 										<br />
 
 										<label
-											className={classes.label}
+											className={classes.label1}
 											htmlFor="Internal_Drive_Bays25"
 										>
 											Internal Drive Bays 25:
 										</label>
 										<br />
 										<label
-											className={classes.label}
+											className={classes.label1}
 											htmlFor="Internal_Drive_Bays35"
 										>
-										Internal Drive Bays 35:
+											Internal Drive Bays 35:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="expansionslots">
+										<label className={classes.label1} htmlFor="expansionslots">
 											Expansion Slots:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="frontpanelports">
+										<label className={classes.label1} htmlFor="frontpanelports">
 											Front Panel Ports:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="fanoptions">
+										<label className={classes.label1} htmlFor="fanoptions">
 											Fan Options:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="radiatoroptions">
+										<label className={classes.label1} htmlFor="radiatoroptions">
 											Radiator Options:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="maxgpulength">
+										<label className={classes.label1} htmlFor="maxgpulength">
 											Max GPU Length:
 										</label>
 										<br />
 										<label
-											className={classes.label}
+											className={classes.label1}
 											htmlFor="maxcpucoolerlength"
 										>
 											Max CPU Cooler Length:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="maxpsulength">
+										<label className={classes.label1} htmlFor="maxpsulength">
 											Max PSU Length:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="casedimentions">
+										<label className={classes.label1} htmlFor="casedimentions">
 											Case Dimentions:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="weight">
+										<label className={classes.label1} htmlFor="weight">
 											Weight:
 										</label>
 										<br />
-										<label className={classes.label} htmlFor="gallery">
+										<label className={classes.label1} htmlFor="gallery">
 											Gallery:
 										</label>
 									</div>
-									<div className={classes.row}>
+									<div className={classes.row1}>
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="sidepanelwindow"
 											name="sidepanelwindow"
@@ -535,7 +538,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="number"
 											id="quantity"
 											name="quantity"
@@ -553,7 +556,7 @@ const UpdateParts = (props) => {
 										<br />
 
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="Internal_Drive_Bays25"
 											name="Internal_Drive_Bays25"
@@ -571,7 +574,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="Internal_Drive_Bays35"
 											name="Internal_Drive_Bays35"
@@ -589,7 +592,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="expansionslots"
 											name="expansionslots"
@@ -607,7 +610,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="frontpanelports"
 											name="frontpanelports"
@@ -619,7 +622,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="fanoptions"
 											name="fanoptions"
@@ -637,7 +640,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="radiatoroptions"
 											name="radiatoroptions"
@@ -655,7 +658,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="maxgpulength"
 											name="maxgpulength"
@@ -673,7 +676,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="maxcpucoolerlength"
 											name="maxcpucoolerlength"
@@ -691,7 +694,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="maxpsulength"
 											name="maxpsulength"
@@ -709,7 +712,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="casedimentions"
 											name="casedimentions"
@@ -727,7 +730,7 @@ const UpdateParts = (props) => {
 										/>
 										<br />
 										<input
-											className={classes.input}
+											className={classes.input1}
 											type="text"
 											id="weight"
 											name="weight"
@@ -744,9 +747,9 @@ const UpdateParts = (props) => {
 											}}
 										/>
 										<br />
-										<label className={classes.customfile}>
+										<label className={classes.customfile1}>
 											<input
-												className={classes.inputfile}
+												className={classes.inputfile1}
 												type="file"
 												id="gallery"
 												name="gallery"
@@ -768,9 +771,9 @@ const UpdateParts = (props) => {
 									</div>
 								</div>
 							</form>
-							<div className={classes.btnDiv}>
+							<div className={classes.btnDiv1}>
 								<input
-									className={classes.btn}
+									className={classes.btn1}
 									type="submit"
 									value="Submit"
 									onClick={handelSubmitBtn}
