@@ -27,7 +27,7 @@ const UpdateProcessor = (props) => {
 	useEffect(() => {
 		if (id) {
 			axios
-				.get("pcParts/casing/" + id)
+				.get("pcParts/processor/" + id)
 				.then((res) => {
 					setData(res.data);
 				})
@@ -108,10 +108,8 @@ const UpdateProcessor = (props) => {
 			alert("Please enter data in all the given fields(Thermal_Design_Power)");
 		} else if (data.Details.CoolingDevice === "") {
 			alert("Please enter data in all the given fields(CoolingDevice)");
-		} else if (thumbnail === null) {
-			alert("Please provide a picture as a thumbnail picture(thumbnail)");
-		} else if (gallery === null) {
-			alert("Please provide atleaste 1 picture as gallery(gallery)");
+		}  else if (data.Details.Power_Consumption === "") {
+			alert("Please enter data in all the given fields(Power_Consumption)");
 		} else {
 			setLoading(true);
 
@@ -168,7 +166,7 @@ const UpdateProcessor = (props) => {
 				data.Details.Thermal_Design_Power
 			);
 			formData.append("CoolingDevice", data.Details.CoolingDevice);
-			formData.append("Power_Consumption", data.Details.Power_Consumption);
+			formData.append("Power_Consumption", data.Power_Consumption);
 
 			formData.append("thumbnail", thumbnail);
 
@@ -179,11 +177,11 @@ const UpdateProcessor = (props) => {
 			}
 
 			await axios
-				.put("pcParts/Processor/" + id, formData)
+				.put("pcParts/processor/" + id, formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
-					props.history.replace("/managecpu");
+					props.history.replace("/admin-panel/manageprocessor");
 				})
 				.catch((err) => {
 					console.log(err);
@@ -281,7 +279,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="title"
 										name="title"
-										placeholder="Enter Title"
+										value={data.title}
 										required
 										onChange={(e) => {
 											setData({ ...data, title: e.target.value });
@@ -293,7 +291,7 @@ const UpdateProcessor = (props) => {
 										type="number"
 										id="price"
 										name="price"
-										placeholder="Enter Price"
+										value={data.price}
 										required
 										onChange={(e) => {
 											let price = e.target.value;
@@ -310,7 +308,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="brand"
 										name="brand"
-										placeholder="Enter Brand"
+										value={data.Model.brand}
 										required
 										onChange={(e) => {
 											setData({
@@ -325,7 +323,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="series"
 										name="series"
-										placeholder="Enter Series"
+										value={data.Model.series}
 										required
 										onChange={(e) => {
 											setData({
@@ -340,7 +338,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="model"
 										name="model"
-										placeholder="Enter Model"
+										value={data.Model.model}
 										required
 										onChange={(e) => {
 											setData({
@@ -355,7 +353,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="name"
 										name="name"
-										placeholder="Enter Name"
+										value={data.Model.name}
 										required
 										onChange={(e) => {
 											setData({
@@ -370,7 +368,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="processorType"
 										name="processorType"
-										placeholder="Enter processorType"
+										value={data.Model.processorType}
 										required
 										onChange={(e) => {
 											setData({
@@ -385,7 +383,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="CPU_Socket_Type"
 										name="CPU_Socket_Type"
-										placeholder="Enter CPU_Socket_Type"
+										value={data.Details.CPU_Socket_Type}
 										required
 										onChange={(e) => {
 											setData({
@@ -403,7 +401,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="CoreName"
 										name="CoreName"
-										placeholder="Enter Core Name"
+										value={data.Details.CoreName}
 										required
 										onChange={(e) => {
 											setData({
@@ -418,7 +416,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="NumberOfCores"
 										name="NumberOfCores"
-										placeholder="Enter Number Of Cores"
+										value={data.Details.NumberOfCores}
 										required
 										onChange={(e) => {
 											setData({
@@ -436,7 +434,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="NumberOfThreads"
 										name="NumberOfThreads"
-										placeholder="Enter Number Of Threads."
+										value={data.Details.NumberOfThreads}
 										required
 										onChange={(e) => {
 											setData({
@@ -454,7 +452,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="OperatingFrequency"
 										name="OperatingFrequency"
-										placeholder="Enter Operating Frequency"
+										value={data.Details.OperatingFrequency}
 										required
 										onChange={(e) => {
 											setData({
@@ -472,7 +470,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="MaxFrequency"
 										name="MaxFrequency"
-										placeholder="Enter Max Frequency"
+										value={data.Details.MaxFrequency}
 										required
 										onChange={(e) => {
 											setData({
@@ -490,7 +488,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="BusSpeed"
 										name="BusSpeed"
-										placeholder="Enter Bus Speed"
+										value={data.Details.BusSpeed}
 										required
 										onChange={(e) => {
 											setData({
@@ -505,7 +503,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="L3_Cache"
 										name="L3_Cache"
-										placeholder="Enter L3 Cache"
+										value={data.Details.L3_Cache}
 										required
 										onChange={(e) => {
 											setData({
@@ -625,7 +623,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="ManufacturingTech"
 										name="ManufacturingTech"
-										placeholder="Enter Manufacturing Tech"
+										value={data.Details.ManufacturingTech}
 										required
 										onChange={(e) => {
 											setData({
@@ -643,7 +641,7 @@ const UpdateProcessor = (props) => {
 										type="number"
 										id="quantity"
 										name="quantity"
-										placeholder="Enter Quantity"
+										value={data.quantity}
 										required
 										onChange={(e) => {
 											let quantity = e.target.value;
@@ -661,7 +659,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="bit_Support"
 										name="bit_Support"
-										placeholder="Enter Bit Support."
+										value={data.Details.bit_Support}
 										required
 										onChange={(e) => {
 											setData({
@@ -679,7 +677,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="Hyper_Threading_Support"
 										name="Hyper_Threading_Support"
-										placeholder="Enter Hyper Threading Support."
+										value={data.Details.Hyper_Threading_Support}
 										required
 										onChange={(e) => {
 											setData({
@@ -697,7 +695,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="MemoryType"
 										name="MemoryType"
-										placeholder="Enter Memory Type."
+										value={data.Details.MemoryType}
 										required
 										onChange={(e) => {
 											setData({
@@ -715,7 +713,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="MemoryChannel"
 										name="MemoryChannel"
-										placeholder="Enter Memory Channel."
+										value={data.Details.MemoryChannel}
 										required
 										onChange={(e) => {
 											setData({
@@ -733,7 +731,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="Virtualization_Tech_Support"
 										name="Virtualization_Tech_Support"
-										placeholder="Enter Virtualization Tech Support."
+										value={data.Details.Virtualization_Tech_Support}
 										required
 										onChange={(e) => {
 											setData({
@@ -751,7 +749,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="IntegratedGraphics"
 										name="IntegratedGraphics"
-										placeholder="Enter Integrated Graphics."
+										value={data.Details.IntegratedGraphics}
 										required
 										onChange={(e) => {
 											setData({
@@ -769,7 +767,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="Graphics_Base_Frequency"
 										name="Graphics_Base_Frequency"
-										placeholder="Enter Graphics Base Frequency."
+										value={data.Details.Graphics_Base_Frequency}
 										required
 										onChange={(e) => {
 											setData({
@@ -787,7 +785,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="Graphics_Max_Dynamic_Frequency"
 										name="Graphics_Max_Dynamic_Frequency"
-										placeholder="Enter Graphics_Max_Dynamic_Frequency."
+										value={data.Details.Graphics_Max_Dynamic_Frequency}
 										required
 										onChange={(e) => {
 											setData({
@@ -805,7 +803,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="PCI_Express_Revision"
 										name="PCI_Express_Revision"
-										placeholder="Enter PCI_Express_Revision."
+										value={data.Details.PCI_Express_Revision}
 										required
 										onChange={(e) => {
 											setData({
@@ -823,7 +821,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="Max_Number_PCI_Express_Lane"
 										name="Max_Number_PCI_Express_Lane"
-										placeholder="Enter Max_Number_PCI_Express_Lane."
+										value={data.Details.Max_Number_PCI_Express_Lane}
 										required
 										onChange={(e) => {
 											setData({
@@ -842,6 +840,7 @@ const UpdateProcessor = (props) => {
 										id="Thermal_Design_Power"
 										name="Thermal_Design_Power"
 										placeholder="Enter Thermal_Design_Power."
+										value={data.Details.Thermal_Design_Power}
 										required
 										onChange={(e) => {
 											setData({
@@ -859,7 +858,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="CoolingDevice"
 										name="CoolingDevice"
-										placeholder="Enter CoolingDevice."
+										value={data.Details.CoolingDevice}
 										required
 										onChange={(e) => {
 											setData({
@@ -877,7 +876,7 @@ const UpdateProcessor = (props) => {
 										type="text"
 										id="Power_Consumption"
 										name="Power_Consumption"
-										placeholder="Enter Power_Consumption."
+										value={data.Power_Consumption}
 										required
 										onChange={(e) => {
 											setData({

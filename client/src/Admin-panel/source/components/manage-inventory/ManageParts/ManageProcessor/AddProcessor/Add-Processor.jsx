@@ -114,7 +114,9 @@ const AddProcessor = (props) => {
 			alert("Please enter data in all the given fields(Thermal_Design_Power)");
 		} else if (data.CoolingDevice === "") {
 			alert("Please enter data in all the given fields(CoolingDevice)");
-		} else if (thumbnail === null) {
+		} else if (data.Power_Consumption === "") {
+			alert("Please enter data in all the given fields(Power_Consumption)");
+		}else if (thumbnail === null) {
 			alert("Please provide a picture as a thumbnail picture(thumbnail)");
 		} else if (gallery === null) {
 			alert("Please provide atleaste 1 picture as gallery(gallery)");
