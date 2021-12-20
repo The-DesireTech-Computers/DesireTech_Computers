@@ -1,27 +1,22 @@
 import React from "react";
 import classes from "./TableListings.module.css";
 import { withRouter } from "react-router-dom";
-import axios from '../../axiosInstance';
+import axios from "../../axiosInstance";
 
-
-
-
-
-let TableListings = ({ path, title, model, price, quantity,id, history,apiPath ,onDelete}) => {
-	/* props needed
-
-    title
-    model
-    price
-    quantity
-    path
-	id
-	apiPath
-    */
-
+let TableListings = ({
+	path,
+	title,
+	model,
+	price,
+	quantity,
+	id,
+	history,
+	apiPath,
+	onDelete,
+}) => {
 	let handelUpdateProduct = () => {
 		// sending query params
-		let queryString = new URLSearchParams({id});
+		let queryString = new URLSearchParams({ id });
 
 		history.push({
 			pathname: "/" + path,
@@ -29,25 +24,21 @@ let TableListings = ({ path, title, model, price, quantity,id, history,apiPath ,
 		});
 	};
 
+	//delete button
+	let handelDeleteProduct = () => {
+		console.log("delet fucnc");
 
-	 //delete button
-	 let handelDeleteProduct = () => {
-
-		console.log('delet fucnc');
-	
-		 axios.delete(apiPath + '/' + id)
-		.then(res=>{
-			console.log('deleted successfuly');
-			onDelete();
-				})
-		.catch(err=>{
-			console.log('not deleted');
-			console.log(err);
-		});
+		axios
+			.delete(apiPath + "/" + id)
+			.then((res) => {
+				console.log("deleted successfuly");
+				onDelete();
+			})
+			.catch((err) => {
+				console.log("not deleted");
+				console.log(err);
+			});
 	};
-
-
-
 
 	return (
 		<tr>
@@ -57,13 +48,11 @@ let TableListings = ({ path, title, model, price, quantity,id, history,apiPath ,
 			<td>{quantity}</td>
 			<td>
 				<button className={classes.updateBtn1} onClick={handelUpdateProduct}>
-					{" "}
-					Update{" "}
-				</button>{" "}
-				/{"  "}
+					Update
+				</button>
+				{"  "}
 				<button className={classes.deleteBtn1} onClick={handelDeleteProduct}>
-					{" "}
-					Delete{" "}
+					Delete
 				</button>
 			</td>
 		</tr>
