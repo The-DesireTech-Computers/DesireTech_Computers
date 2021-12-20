@@ -4,7 +4,7 @@ import "./Header.css";
 import { RiLogoutBoxRLine, RiShoppingCart2Line } from "react-icons/ri";
 import { FiMenu } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
-import { AuthContext } from "../../App";
+import { AuthContext } from "../../Start";
 
 const Header = (props) => {
 	const [show, setShow] = useState(false);
