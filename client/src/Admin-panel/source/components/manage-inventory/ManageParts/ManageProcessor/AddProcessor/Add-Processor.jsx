@@ -16,28 +16,29 @@ const AddProcessor = (props) => {
 		name: "",
 		model: "",
 
-		CPU_Socket_Type: "",
-		CoreName: "",
-		NumberOfCores: "",
-		NumberOfThreads: "",
-		OperatingFrequency: "",
-		MaxFrequency: "",
-		BusSpeed: "",
-		L3_Cache: "",
-		ManufacturingTech: "",
-		bit_Support: "",
-		Hyper_Threading_Support: "",
-		MemoryType: "",
-		MemoryChannel: "",
-		Max_CPU_Cooler_Length: "",
-		Virtualization_Tech_Support: "",
-		IntegratedGraphics: "",
-		Graphics_Base_Frequency: "",
-		Graphics_Max_Dynamic_Frequency: "",
-		PCI_Express_Revision: "",
-		Max_Number_PCI_Express_Lane: "",
-		Thermal_Design_Power: "",
-		CoolingDevice: "",
+		CPU_Socket_Type:'' ,
+		CoreName:'' ,
+            NumberOfCores:'' ,
+            NumberOfThreads:'' ,
+            OperatingFrequency:'' ,
+            MaxFrequency:'' ,
+            BusSpeed:'' ,
+            L3_Cache:'' ,
+            ManufacturingTech:'' ,
+            bit_Support:'' ,
+            Hyper_Threading_Support:'' ,
+            MemoryType:'' ,
+            MemoryChannel:'' ,
+            Virtualization_Tech_Support:'' ,
+            IntegratedGraphics:'' ,
+            Graphics_Base_Frequency:'' ,
+			Graphics_Max_Dynamic_Frequency:'',
+            PCI_Express_Revision:'',
+            Max_Number_PCI_Express_Lane:'',
+            Thermal_Design_Power:'',
+            CoolingDevice:'',
+			Power_Consumption:''
+	
 	});
 	let [thumbnail, setThumbnail] = useState(null);
 	let [gallery, setGallery] = useState(null);
@@ -58,6 +59,8 @@ const AddProcessor = (props) => {
 			alert("Please enter data in all the given fields (series)");
 		} else if (data.model === "") {
 			alert("Please enter data in all the given fields (model)");
+		}else if (data.name === "") {
+			alert("Please enter data in all the given fields (name)");
 		} else if (data.processorType === "") {
 			alert("Please enter data in all the given fields(processorType)");
 		} else if (data.CPU_Socket_Type === "") {
@@ -88,9 +91,13 @@ const AddProcessor = (props) => {
 			alert("Please enter data in all the given fields (MemoryType)");
 		} else if (data.MemoryChannel === "") {
 			alert("Please enter data in all the given fields (MemoryChannel)");
-		} else if (data.Max_CPU_Cooler_Length === "") {
+		} else if (data.Virtualization_Tech_Support === "") {
 			alert(
-				"Please enter data in all the given fields (Max_CPU_Cooler_Length)"
+				"Please enter data in all the given fields (Virtualization_Tech_Support)"
+			);
+		} else if (data.IntegratedGraphics === "") {
+			alert(
+				"Please enter data in all the given fields (IntegratedGraphics)"
 			);
 		} else if (data.Graphics_Base_Frequency === "") {
 			alert(
@@ -125,6 +132,7 @@ const AddProcessor = (props) => {
 			formData.append("brand", data.brand);
 			formData.append("series", data.series);
 			formData.append("model", data.model);
+			formData.append("name", data.name);
 			formData.append("processorType", data.processorType);
 			formData.append("CPU_Socket_Type", data.CPU_Socket_Type);
 			formData.append("CoreName", data.CoreName);
@@ -139,13 +147,20 @@ const AddProcessor = (props) => {
 			formData.append("Hyper_Threading_Support", data.Hyper_Threading_Support);
 			formData.append("MemoryType", data.MemoryType);
 			formData.append("MemoryChannel", data.MemoryChannel);
-			formData.append("Max_CPU_Cooler_Length", data.Max_CPU_Cooler_Length);
+			formData.append("Virtualization_Tech_Support", data.Virtualization_Tech_Support);
+			formData.append("IntegratedGraphics", data.IntegratedGraphics);
 			formData.append("Graphics_Base_Frequency", data.Graphics_Base_Frequency);
+			
 			formData.append(
 				"Graphics_Max_Dynamic_Frequency",
 				data.Graphics_Max_Dynamic_Frequency
 			);
 			formData.append("PCI_Express_Revision", data.PCI_Express_Revision);
+			formData.append("Max_Number_PCI_Express_Lane", data.Max_Number_PCI_Express_Lane);
+			formData.append("Thermal_Design_Power", data.Thermal_Design_Power);
+			formData.append("CoolingDevice", data.CoolingDevice);
+			formData.append("Power_Consumption", data.Power_Consumption);
+			
 
 			formData.append("thumbnail", thumbnail);
 
@@ -156,7 +171,7 @@ const AddProcessor = (props) => {
 			}
 
 			await axios
-				.post("pcParts/Processor", formData)
+				.post("pcParts/processor", formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -181,7 +196,7 @@ const AddProcessor = (props) => {
 						<form
 							className={classes.form1}
 							method="post"
-							encprocessorType="multipart/form-data"
+							enctype="multipart/form-data"
 						>
 							<div className={classes.form21}>
 								<div className={classes.row1}>
@@ -205,38 +220,47 @@ const AddProcessor = (props) => {
 										Model:
 									</label>
 									<br />
-									<label className={classes.label1} htmlFor="processorType">
-										processorType:
+									<label className={classes.label} htmlFor="name">
+										Name:
+									</label>
+									<br />
+									<label className={classes.label} htmlFor="processorType">
+										ProcessorType:
 									</label>
 									<br />
 									<label className={classes.label1} htmlFor="CPU_Socket_Type">
 										CPU_Socket_Type:
 									</label>
 									<br />
-									<label className={classes.label1} htmlFor="Processormaterial">
-										Processor Material:
+									<label className={classes.label} htmlFor="CoreName">
+									Core Name:
 									</label>
 									<br />
-									<label className={classes.label1} htmlFor="withpowersupply">
-										With Power Supply:
+									<label className={classes.label} htmlFor="NumberOfCores">
+									Number Of Cores:
 									</label>
 									<br />
-									<label
-										className={classes.label1}
-										htmlFor="powersupplymounted"
-									>
-										Power Supply Mounted:
+									<label className={classes.label} htmlFor="NumberOfThreads">
+									Number Of Threads:
 									</label>
 									<br />
 									<label
-										className={classes.label1}
-										htmlFor="motherboardcompatability"
+										className={classes.label}
+										htmlFor="OperatingFrequency"
 									>
-										MotherBoard Compatability:
+										OperatingFrequency:
 									</label>
 									<br />
-									<label className={classes.label1} htmlFor="dustfilters">
-										Dust Filters:
+									<label className={classes.label} htmlFor="MaxFrequency">
+									Max Frequency:
+									</label>
+									<br />
+									<label className={classes.label} htmlFor="BusSpeed">
+									Bus Speed:
+									</label>
+									<br />
+									<label className={classes.label} htmlFor="L3_Cache">
+									L3 Cache:
 									</label>
 									<br />
 									<label className={classes.label1} htmlFor="thumbnail">
@@ -245,8 +269,8 @@ const AddProcessor = (props) => {
 								</div>
 								<div className={classes.row1}>
 									<input
-										className={classes.input1}
-										processorType="text"
+										className={classes.input}
+										type="text"
 										id="title"
 										name="title"
 										placeholder="Enter Title"
@@ -257,8 +281,8 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="number"
+										className={classes.input}
+										type="number"
 										id="price"
 										name="price"
 										placeholder="Enter Price"
@@ -274,8 +298,8 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
+										className={classes.input}
+										type="text"
 										id="brand"
 										name="brand"
 										placeholder="Enter Brand"
@@ -286,8 +310,8 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
+										className={classes.input}
+										type="text"
 										id="series"
 										name="series"
 										placeholder="Enter Series"
@@ -298,8 +322,8 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
+										className={classes.input}
+										type="text"
 										id="model"
 										name="model"
 										placeholder="Enter Model"
@@ -310,8 +334,20 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
+										className={classes.input}
+										type="text"
+										id="name"
+										name="name"
+										placeholder="Enter Name"
+										required
+										onChange={(e) => {
+											setData({ ...data, name: e.target.value });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input}
+										type="text"
 										id="processorType"
 										name="processorType"
 										placeholder="Enter processorType"
@@ -322,8 +358,8 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
+										className={classes.input}
+										type="text"
 										id="CPU_Socket_Type"
 										name="CPU_Socket_Type"
 										placeholder="Enter CPU_Socket_Type"
@@ -334,11 +370,11 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
-										id="Processormaterial"
-										name="Processormaterial"
-										placeholder="Enter Processor Material"
+										className={classes.input}
+										type="text"
+										id="CoreName"
+										name="CoreName"
+										placeholder="Enter Core Name"
 										required
 										onChange={(e) => {
 											setData({ ...data, CoreName: e.target.value });
@@ -346,11 +382,11 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
-										id="withpowersupply"
-										name="withpowersupply"
-										placeholder="Enter With Power Supply"
+										className={classes.input}
+										type="text"
+										id="NumberOfCores"
+										name="NumberOfCores"
+										placeholder="Enter Number Of Cores"
 										required
 										onChange={(e) => {
 											setData({ ...data, NumberOfCores: e.target.value });
@@ -358,11 +394,11 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
-										id="powersupplymounted"
-										name="powersupplymounted"
-										placeholder="Enter Power Supply Mounted."
+										className={classes.input}
+										type="text"
+										id="NumberOfThreads"
+										name="NumberOfThreads"
+										placeholder="Enter Number Of Threads."
 										required
 										onChange={(e) => {
 											setData({ ...data, NumberOfThreads: e.target.value });
@@ -370,11 +406,11 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
-										id="motherboardcompatabililty"
-										name="motherboardcompatability"
-										placeholder="Enter MotherBoard Compatability"
+										className={classes.input}
+										type="text"
+										id="OperatingFrequency"
+										name="OperatingFrequency"
+										placeholder="Enter Operating Frequency"
 										required
 										onChange={(e) => {
 											setData({ ...data, OperatingFrequency: e.target.value });
@@ -382,21 +418,45 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
-										id="dustfilters"
-										name="dustfilters"
-										placeholder="Enter Dust Filters"
+										className={classes.input}
+										type="text"
+										id="MaxFrequency"
+										name="MaxFrequency"
+										placeholder="Enter Max Frequency"
+										required
+										onChange={(e) => {
+											setData({ ...data, MaxFrequency: e.target.value });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="BusSpeed"
+										name="BusSpeed"
+										placeholder="Enter Bus Speed"
 										required
 										onChange={(e) => {
 											setData({ ...data, BusSpeed: e.target.value });
 										}}
 									/>
 									<br />
-									<label className={classes.customfile1}>
+									<input
+										className={classes.input}
+										type="text"
+										id="L3_Cache"
+										name="L3_Cache"
+										placeholder="Enter L3 Cache"
+										required
+										onChange={(e) => {
+											setData({ ...data, L3_Cache: e.target.value });
+										}}
+									/>
+									<br />
+									<label className={classes.customfile}>
 										<input
-											className={classes.inputfile1}
-											processorType="file"
+											className={classes.inputfile}
+											type="file"
 											id="thumbnail"
 											name="thumbnail"
 											required
@@ -407,9 +467,9 @@ const AddProcessor = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row1}>
-									<label className={classes.label1} htmlFor="sidepanelwindow">
-										Side Panel Window:
+								<div className={classes.row}>
+									<label className={classes.label} htmlFor="ManufacturingTech">
+									Manufacturing Tech:
 									</label>
 									<br />
 									<label className={classes.label1} htmlFor="quantity">
@@ -417,50 +477,68 @@ const AddProcessor = (props) => {
 									</label>
 									<br />
 
-									<label className={classes.label1} htmlFor="internaldrivebays">
-										Internal Drive Bays:
+									<label className={classes.label} htmlFor="bit_Support">
+									Bit Support:
 									</label>
 									<br />
-									<label className={classes.label1} htmlFor="expansionslots">
-										Expansion Slots:
+									<label className={classes.label} htmlFor="Hyper_Threading_Support">
+									Hyper Threading Support:
 									</label>
 									<br />
-									<label className={classes.label1} htmlFor="frontpanelports">
-										Front Panel Ports:
+									<label className={classes.label} htmlFor="MemoryType">
+									Memory Type:
 									</label>
 									<br />
-									<label className={classes.label1} htmlFor="fanoptions">
-										Fan Options:
+									<label className={classes.label} htmlFor="MemoryChannel">
+									Memory Channel:
 									</label>
 									<br />
-									<label className={classes.label1} htmlFor="radiatoroptions">
-										Radiator Options:
+									<label className={classes.label} htmlFor="Virtualization_Tech_Support">
+									Virtualization Tech Support:
 									</label>
 									<br />
-									<label className={classes.label1} htmlFor="maxgpulength">
-										Max GPU Length:
+									<label className={classes.label} htmlFor="IntegratedGraphics">
+									Integrated Graphics:
 									</label>
 									<br />
-									<label
-										className={classes.label1}
-										htmlFor="maxcpucoolerlength"
-									>
-										Max CPU Cooler Length:
+									<label className={classes.label} htmlFor="Graphics_Base_Frequency">
+									Graphics Base Frequency:
 									</label>
 									<br />
-									<label className={classes.label1} htmlFor="maxpsulength">
-										Max PSU Length:
+									<label className={classes.label} htmlFor="Graphics_Max_Dynamic_Frequency">
+									Graphics Max Dynamic Frequency:
 									</label>
 									<br />
-									<label className={classes.label1} htmlFor="casedimentions">
-										Case Dimentions:
+									<label className={classes.label} htmlFor="PCI_Express_Revision">
+									PCI Express Revision:
 									</label>
 									<br />
 									<label
-										className={classes.label1}
-										htmlFor="PCI_Express_Revision"
+										className={classes.label}
+										htmlFor="Max_Number_PCI_Express_Lane"
 									>
-										PCI_Express_Revision:
+										Max Number PCI Express Lane:
+									</label>
+									<br />
+									<label
+										className={classes.label}
+										htmlFor="Thermal_Design_Power"
+									>
+										Thermal Design Power:
+									</label>
+									<br />
+									<label
+										className={classes.label}
+										htmlFor="Power_Consumption"
+									>
+										Power Consumption:
+									</label>
+									<br />
+									<label
+										className={classes.label}
+										htmlFor="CoolingDevice"
+									>
+										Cooling Device:
 									</label>
 									<br />
 									<label className={classes.label1} htmlFor="gallery">
@@ -469,20 +547,20 @@ const AddProcessor = (props) => {
 								</div>
 								<div className={classes.row1}>
 									<input
-										className={classes.input1}
-										processorType="text"
-										id="sidepanelwindow"
-										name="sidepanelwindow"
-										placeholder="Enter Side Panel Window"
+										className={classes.input}
+										type="text"
+										id="ManufacturingTech"
+										name="ManufacturingTech"
+										placeholder="Enter Manufacturing Tech"
 										required
 										onChange={(e) => {
-											setData({ ...data, MaxFrequency: e.target.value });
+											setData({ ...data, ManufacturingTech: e.target.value });
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="number"
+										className={classes.input}
+										type="number"
 										id="quantity"
 										name="quantity"
 										placeholder="Enter Quantity"
@@ -499,35 +577,11 @@ const AddProcessor = (props) => {
 									<br />
 
 									<input
-										className={classes.input1}
-										processorType="text"
-										id="internaldrivebay"
-										name="internaldrivebay"
-										placeholder="Enter Internal Drive Bays."
-										required
-										onChange={(e) => {
-											setData({ ...data, L3_Cache: e.target.value });
-										}}
-									/>
-									<br />
-									<input
-										className={classes.input1}
-										processorType="text"
-										id="expansionslots"
-										name="expansionslots"
-										placeholder="Enter Expansion Slots."
-										required
-										onChange={(e) => {
-											setData({ ...data, ManufacturingTech: e.target.value });
-										}}
-									/>
-									<br />
-									<input
-										className={classes.input1}
-										processorType="text"
-										id="frontpanelports"
-										name="frontpanelports"
-										placeholder="Enter Front Panel Ports."
+										className={classes.input}
+										type="text"
+										id="bit_Support"
+										name="bit_Support"
+										placeholder="Enter Bit Support."
 										required
 										onChange={(e) => {
 											setData({ ...data, bit_Support: e.target.value });
@@ -535,26 +589,23 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
-										id="fanoptions"
-										name="fanoptions"
-										placeholder="Enter Fan Options."
+										className={classes.input}
+										type="text"
+										id="Hyper_Threading_Support"
+										name="Hyper_Threading_Support"
+										placeholder="Enter Hyper Threading Support."
 										required
 										onChange={(e) => {
-											setData({
-												...data,
-												Hyper_Threading_Support: e.target.value,
-											});
+											setData({ ...data, Hyper_Threading_Support: e.target.value });
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
-										id="radiatoroptions"
-										name="radiatoroptions"
-										placeholder="Enter Radiator Options."
+										className={classes.input}
+										type="text"
+										id="MemoryType"
+										name="MemoryType"
+										placeholder="Enter Memory Type."
 										required
 										onChange={(e) => {
 											setData({ ...data, MemoryType: e.target.value });
@@ -562,38 +613,50 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
-										id="maxgpulength"
-										name="maxgpulength"
-										placeholder="Enter Max GPU Length."
-										required
-										onChange={(e) => {
-											setData({ ...data, MemoryChannel: e.target.value });
-										}}
-									/>
-									<br />
-									<input
-										className={classes.input1}
-										processorType="text"
-										id="maxcpucoolerlength"
-										name="maxcpucoolerlength"
-										placeholder="Enter Max CPU Cooler Length."
+										className={classes.input}
+										type="text"
+										id="MemoryChannel"
+										name="MemoryChannel"
+										placeholder="Enter Memory Channel."
 										required
 										onChange={(e) => {
 											setData({
 												...data,
-												Max_CPU_Cooler_Length: e.target.value,
+												MemoryChannel: e.target.value,
 											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
-										id="maxpsulength"
-										name="maxpsulength"
-										placeholder="Enter Max PSU Length."
+										className={classes.input}
+										type="text"
+										id="Virtualization_Tech_Support"
+										name="Virtualization_Tech_Support"
+										placeholder="Enter Virtualization Tech Support."
+										required
+										onChange={(e) => {
+											setData({ ...data, Virtualization_Tech_Support: e.target.value });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="IntegratedGraphics"
+										name="IntegratedGraphics"
+										placeholder="Enter Integrated Graphics."
+										required
+										onChange={(e) => {
+											setData({ ...data, IntegratedGraphics: e.target.value });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="Graphics_Base_Frequency"
+										name="Graphics_Base_Frequency"
+										placeholder="Enter Graphics Base Frequency."
 										required
 										onChange={(e) => {
 											setData({
@@ -604,11 +667,11 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
-										id="casedimentions"
-										name="casedimentions"
-										placeholder="Enter Case Dimentions."
+										className={classes.input}
+										type="text"
+										id="Graphics_Max_Dynamic_Frequency"
+										name="Graphics_Max_Dynamic_Frequency"
+										placeholder="Enter Graphics_Max_Dynamic_Frequency."
 										required
 										onChange={(e) => {
 											setData({
@@ -619,8 +682,8 @@ const AddProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input1}
-										processorType="text"
+										className={classes.input}
+										type="text"
 										id="PCI_Express_Revision"
 										name="PCI_Express_Revision"
 										placeholder="Enter PCI_Express_Revision."
@@ -633,10 +696,70 @@ const AddProcessor = (props) => {
 										}}
 									/>
 									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="Max_Number_PCI_Express_Lane"
+										name="Max_Number_PCI_Express_Lane"
+										placeholder="Enter Max_Number_PCI_Express_Lane."
+										required
+										onChange={(e) => {
+											setData({
+												...data,
+												Max_Number_PCI_Express_Lane: e.target.value,
+											});
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="Thermal_Design_Power"
+										name="Thermal_Design_Power"
+										placeholder="Enter Thermal_Design_Power."
+										required
+										onChange={(e) => {
+											setData({
+												...data,
+												Thermal_Design_Power: e.target.value,
+											});
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="CoolingDevice"
+										name="CoolingDevice"
+										placeholder="Enter CoolingDevice."
+										required
+										onChange={(e) => {
+											setData({
+												...data,
+												CoolingDevice: e.target.value,
+											});
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="Power_Consumption"
+										name="Power_Consumption"
+										placeholder="Enter Power_Consumption."
+										required
+										onChange={(e) => {
+											setData({
+												...data,
+												Power_Consumption: e.target.value,
+											});
+										}}
+									/>
+									<br />
 									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile1}
-											processorType="file"
+											className={classes.inputfile}
+											type="file"
 											id="gallery"
 											name="gallery"
 											required
@@ -659,8 +782,8 @@ const AddProcessor = (props) => {
 						</form>
 						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn1}
-								processorType="submit"
+								className={classes.btn}
+								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}
 							/>
