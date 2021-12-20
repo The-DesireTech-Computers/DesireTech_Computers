@@ -3,7 +3,7 @@ import Navbar from "../../../header/Navbar";
 import TableListings from "../../../tableListings/TableListings";
 import Spinner from "../../../LoadingSpinner/LoadingSpinner";
 import axios from "../../../../axiosInstance";
-import classes from "../Table.module.css";
+import classes from "../../Table.module.css";
 
 let ManageProcessor = (props) => {
 	let [data, setData] = useState([]);
