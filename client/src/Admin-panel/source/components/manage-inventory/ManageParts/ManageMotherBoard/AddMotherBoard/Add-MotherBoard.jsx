@@ -19,8 +19,7 @@ const AddMotherBoard = (props) => {
 		Chipset: "",
 		Onboard_Video_Chipset: "",
 
-
-		Memory_Pins: "",
+		Memory_Pins: 0,
 		Number_Of_Memory_Slots: "",
 		Memory_Standard: "",
 		Maximum_Memory_Supported: "",
@@ -67,8 +66,6 @@ const AddMotherBoard = (props) => {
 			alert("Please enter data in all the given fields  (price)");
 		} else if (data.quantity === 0 || data.quantity === "") {
 			alert("Please enter data in all the given fields (quantity)");
-		} else if (data.company === "") {
-			alert("Please enter data in all the given fields(company)");
 		} else if (data.brand === "") {
 			alert("Please enter data in all the given fields (brand)");
 		} else if (data.model === "") {
@@ -83,12 +80,10 @@ const AddMotherBoard = (props) => {
 			alert(
 				"Please enter data in all the given fields (Onboard_Video_Chipset)"
 			);
-		} else if (data.Memory_Pins === "") {
+		} else if (data.Memory_Pins === 0) {
 			alert(
 				"Please enter data in all the given fields (Memory_Pins)"
 			);
-		} else if (data.Memory_Standard === "") {
-			alert("Please enter data in all the given fields (Memory_Standard)");
 		} else if (data.Number_Of_Memory_Slots === "") {
 			alert(
 				"Please enter data in all the given fields  (Number_Of_Memory_Slots)"
@@ -107,9 +102,13 @@ const AddMotherBoard = (props) => {
 			alert("Please enter data in all the given fields(M2)");
 		} else if (data.Audio_Chipset === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
-		} else if (data.Max_GPU_Length === "") {
-			alert("Please enter data in all the given fields (Max_GPU_Length)");
-		} else if (data.Wireless_LAN === "") {
+		}else if (data.Audio_Channels === "") {
+			alert("Please enter data in all the given fields(Audio_Chipset)");
+		}else if (data.LAN_Chipset === "") {
+			alert("Please enter data in all the given fields(Audio_Chipset)");
+		} else if (data.Max_LAN_Speed === "") {
+			alert("Please enter data in all the given fields(Audio_Chipset)");
+		}else if (data.Wireless_LAN === "") {
 			alert("Please enter data in all the given fields (Wireless_LAN)");
 		} else if (data.Bluetooth === "") {
 			alert("Please enter data in all the given fields (Bluetooth)");
@@ -117,7 +116,27 @@ const AddMotherBoard = (props) => {
 			alert("Please enter data in all the given fields (Rear_Panel_Ports)");
 		} else if (data.Onboard_USB === "") {
 			alert("Please enter data in all the given fields(Onboard_USB)");
-		} else {
+		} else if (data.Other_Connectors === "") {
+			alert("Please enter data in all the given fields(Audio_Chipset)");
+		}else if (data.Form_Factor === "") {
+			alert("Please enter data in all the given fields(Audio_Chipset)");
+		}else if (data.LED_Lighting === "") {
+			alert("Please enter data in all the given fields(Audio_Chipset)");
+		}else if (data.Dimentions === "") {
+			alert("Please enter data in all the given fields(Audio_Chipset)");
+		}else if (data.Power_Pin === "") {
+			alert("Please enter data in all the given fields(Audio_Chipset)");
+		}else if (data.Windows === "") {
+			alert("Please enter data in all the given fields(Audio_Chipset)");
+		}else if (data.Features === "") {
+			alert("Please enter data in all the given fields(Audio_Chipset)");
+		}else if (data.Power_Consumption === "") {
+			alert("Please enter data in all the given fields(Audio_Chipset)");
+		}else if (thumbnail === null) {
+			alert("Please provide a picture as a thumbnail picture(thumbnail)");
+		} else if (gallery === null) {
+			alert("Please provide atleaste 1 picture as gallery(gallery)");
+		}else {
 			setLoading(true);
 
 			let formData = new FormData();
@@ -125,14 +144,13 @@ const AddMotherBoard = (props) => {
 			formData.append("title", data.title);
 			formData.append("price", data.price);
 			formData.append("quantity", data.quantity);
-			formData.append("company", data.company);
 			formData.append("brand", data.brand);
 			formData.append("model", data.model);
 			formData.append("CPU_Socket_Type", data.CPU_Socket_Type);
 			formData.append("CPU_Type", data.CPU_Type);
 			formData.append("Chipset", data.Chipset);
 			formData.append("Onboard_Video_Chipset", data.Onboard_Video_Chipset);
-			formData.append(" Memory_Pins ", data.Memory_Pins);
+			formData.append('Memory_Pins', data.Memory_Pins);
 			formData.append("Number_Of_Memory_Slots", data.Number_Of_Memory_Slots);
 			formData.append("Memory_Standard", data.Memory_Standard);
 			formData.append(
@@ -150,6 +168,15 @@ const AddMotherBoard = (props) => {
 			formData.append("Wireless_LAN", data.Wireless_LAN);
 			formData.append("Bluetooth", data.Bluetooth);
 			formData.append("Rear_Panel_Ports", data.Rear_Panel_Ports);
+			formData.append("Onboard_USB", data.Onboard_USB);
+			formData.append("Other_Connectors", data.Other_Connectors);
+			formData.append("Form_Factor", data.Form_Factor);
+			formData.append("LED_Lighting", data.LED_Lighting);
+			formData.append("Dimentions", data.Dimentions);
+			formData.append("Power_Pin", data.Power_Pin);
+			formData.append("Windows", data.Windows);
+			formData.append("Features", data.Features);
+			formData.append("Power_Consumption", data.Power_Consumption);
 
 			formData.append("thumbnail", thumbnail);
 
@@ -158,7 +185,7 @@ const AddMotherBoard = (props) => {
 					formData.append("gallery", gallery[i]);
 				}
 			}
-
+console.log(formData);
 			await axios
 				.post("pcParts/motherboard", formData)
 				.then((res) => {
@@ -172,6 +199,7 @@ const AddMotherBoard = (props) => {
 				});
 		}
 	};
+	//console.log(data)
 
 	let form = <Spinner />;
 
@@ -185,7 +213,7 @@ const AddMotherBoard = (props) => {
 						<form
 							className={classes.form}
 							method="post"
-							encCPU_Socket_Type="multipart/form-data"
+							enctype="multipart/form-data"
 						>
 							<div className={classes.form2}>
 								<div className={classes.row}>
@@ -201,10 +229,7 @@ const AddMotherBoard = (props) => {
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="series">
-										Series:
-									</label>
-									<br />
+								
 									<label className={classes.label} htmlFor="model">
 										Model:
 									</label>
@@ -219,26 +244,62 @@ const AddMotherBoard = (props) => {
 									<br />
 									<label
 										className={classes.label}
-										htmlFor="MotherBoardmaterial"
+										htmlFor="Chipset"
 									>
-										MotherBoard Material:
+										Chipset :
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="withpowersupply">
-										With Power Supply:
+									<label className={classes.label} htmlFor="Onboard_Video_Chipset">
+									Onboard_Video_Chipset:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="powersupplymounted">
-										Power Supply Mounted:
+									<label className={classes.label} htmlFor="Memory_Pins">
+									Memory_Pins:
 									</label>
 									<br />
 									<label
 										className={classes.label}
-										htmlFor="motherboardcompatability"
+										htmlFor="Number_Of_Memory_Slots"
 									>
-										MotherBoard Compatability:
+										Number_Of_Memory_Slots:
 									</label>
 
+									<br />
+									<label
+										className={classes.label}
+										htmlFor="Memory_Standard"
+									>
+										Memory_Standard:
+									</label>
+
+									<br />
+									<label
+										className={classes.label}
+										htmlFor="Maximum_Memory_Supported"
+									>
+										Maximum_Memory_Supported:
+									</label>
+
+									<br />
+									<label
+										className={classes.label}
+										htmlFor="Channel_Supported"
+									>
+										Channel_Supported:
+									</label>
+
+									<br />
+									<label className={classes.label} htmlFor="Windows">
+									Windows:
+									</label>
+									<br />
+									<label className={classes.label} htmlFor="Features">
+									Features:
+									</label>
+									<br />
+									<label className={classes.label} htmlFor="Power_Consumption">
+									Power_Consumption:
+									</label>
 									<br />
 									<label className={classes.label} htmlFor="thumbnail">
 										Thumbnail:
@@ -247,7 +308,7 @@ const AddMotherBoard = (props) => {
 								<div className={classes.row}>
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
+										type="text"
 										id="title"
 										name="title"
 										placeholder="Enter Title"
@@ -259,7 +320,7 @@ const AddMotherBoard = (props) => {
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="number"
+										type="number"
 										id="price"
 										name="price"
 										placeholder="Enter Price"
@@ -276,7 +337,7 @@ const AddMotherBoard = (props) => {
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
+										type="text"
 										id="brand"
 										name="brand"
 										placeholder="Enter Brand"
@@ -288,19 +349,7 @@ const AddMotherBoard = (props) => {
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
-										id="series"
-										name="series"
-										placeholder="Enter Series"
-										required
-										onChange={(e) => {
-											setData({ ...data, series: e.target.value });
-										}}
-									/>
-									<br />
-									<input
-										className={classes.input}
-										CPU_Socket_Type="text"
+										type="text"
 										id="model"
 										name="model"
 										placeholder="Enter Model"
@@ -312,7 +361,7 @@ const AddMotherBoard = (props) => {
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
+										type="text"
 										id="CPU_Socket_Type"
 										name="CPU_Socket_Type"
 										placeholder="Enter CPU_Socket_Type"
@@ -324,7 +373,7 @@ const AddMotherBoard = (props) => {
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
+										type="text"
 										id="CPU_Type"
 										name="CPU_Type"
 										placeholder="Enter CPU_Type"
@@ -336,10 +385,10 @@ const AddMotherBoard = (props) => {
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
-										id="MotherBoardmaterial"
-										name="MotherBoardmaterial"
-										placeholder="Enter MotherBoard Material"
+										type="text"
+										id="Chipset"
+										name="Chipset"
+										placeholder="Enter Chipset"
 										required
 										onChange={(e) => {
 											setData({ ...data, Chipset: e.target.value });
@@ -348,10 +397,10 @@ const AddMotherBoard = (props) => {
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
-										id="withpowersupply"
-										name="withpowersupply"
-										placeholder="Enter With Power Supply"
+										type="text"
+										id="Onboard_Video_Chipset"
+										name="Onboard_Video_Chipset"
+										placeholder="Enter Onboard_Video_Chipset"
 										required
 										onChange={(e) => {
 											setData({
@@ -363,25 +412,38 @@ const AddMotherBoard = (props) => {
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
-										id="powersupplymounted"
-										name="powersupplymounted"
-										placeholder="Enter Power Supply Mounted."
+										type="number"
+										id="Memory_Pins"
+										name="Memory_Pins"
+										placeholder="Enter Memory_Pins"
 										required
 										onChange={(e) => {
 											setData({
 												...data,
-												Number_Of_Memory_Slots: e.target.value,
+												Memory_Pins:e.target.value,
 											});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
-										id="motherboardcompatabililty"
-										name="motherboardcompatability"
-										placeholder="Enter MotherBoard Compatability"
+										type="text"
+										id="Number_Of_Memory_Slots"
+										name="Number_Of_Memory_Slots"
+										placeholder="Enter Number_Of_Memory_Slots"
+										required
+										onChange={(e) => {
+											setData({ ...data, Number_Of_Memory_Slots: e.target.value });
+										}}
+									/>
+
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="Memory_Standard"
+										name="Memory_Standard"
+										placeholder="Enter Memory_Standard"
 										required
 										onChange={(e) => {
 											setData({ ...data, Memory_Standard: e.target.value });
@@ -389,10 +451,72 @@ const AddMotherBoard = (props) => {
 									/>
 
 									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="Maximum_Memory_Supported"
+										name="Maximum_Memory_Supported"
+										placeholder="Enter Maximum_Memory_Supported"
+										required
+										onChange={(e) => {
+											setData({ ...data, Maximum_Memory_Supported: e.target.value });
+										}}
+									/>
+
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="Channel_Supported"
+										name="Channel_Supported"
+										placeholder="Enter Channel_Supported"
+										required
+										onChange={(e) => {
+											setData({ ...data, Channel_Supported: e.target.value });
+										}}
+									/>
+									
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="Windows"
+										name="Windows"
+										placeholder="Enter Windows."
+										required
+										onChange={(e) => {
+											setData({ ...data, Windows: e.target.value });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="Features"
+										name="Features"
+										placeholder="Enter Features."
+										required
+										onChange={(e) => {
+											setData({ ...data, Features: e.target.value });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="Power_Consumption"
+										name="Power_Consumption"
+										placeholder="Enter Power_Consumption."
+										required
+										onChange={(e) => {
+											setData({ ...data, Power_Consumption: e.target.value });
+										}}
+									/>
+									<br />
 									<label className={classes.customfile}>
 										<input
 											className={classes.inputfile}
-											CPU_Socket_Type="file"
+											type="file"
 											id="thumbnail"
 											name="thumbnail"
 											required
@@ -404,8 +528,8 @@ const AddMotherBoard = (props) => {
 									</label>
 								</div>
 								<div className={classes.row}>
-									<label className={classes.label} htmlFor="sidepanelwindow">
-										Side Panel Window:
+									<label className={classes.label} htmlFor="PCI_Express">
+									PCI_Express:
 									</label>
 									<br />
 									<label className={classes.label} htmlFor="quantity">
@@ -413,46 +537,67 @@ const AddMotherBoard = (props) => {
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="internaldrivebays">
-										Internal Drive Bays:
+									<label className={classes.label} htmlFor="SATA_6GBs">
+									SATA_6GBs:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="expansionslots">
-										Expansion Slots:
+									<label className={classes.label} htmlFor="M2">
+									M2:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="frontpanelports">
-										Front Panel Ports:
+									<label className={classes.label} htmlFor="Audio_Chipset">
+									Audio_Chipset:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="fanoptions">
-										Fan Options:
+									<label className={classes.label} htmlFor="Audio_Channels">
+									Audio_Channels:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="radiatoroptions">
-										Radiator Options:
+									<label className={classes.label} htmlFor="LAN_Chipset">
+									LAN_Chipset:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="maxgpulength">
-										Max GPU Length:
+									<label className={classes.label} htmlFor="Max_LAN_Speed">
+									Max_LAN_Speed:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="maxcpucoolerlength">
-										Max CPU Cooler Length:
+									<label className={classes.label} htmlFor="Wireless_LAN">
+									Wireless_LAN:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="maxpsulength">
-										Max PSU Length:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="casedimentions">
-										Case Dimentions:
+									<label className={classes.label} htmlFor="Bluetooth">
+									Bluetooth:
 									</label>
 									<br />
 									<label className={classes.label} htmlFor="Rear_Panel_Ports">
-										Rear_Panel_Ports:
+									Rear_Panel_Ports:
 									</label>
 									<br />
+									<label className={classes.label} htmlFor="Onboard_USB">
+									Onboard_USB:
+									</label>
+									<br />
+									<label className={classes.label} htmlFor="Other_Connectors">
+									Other_Connectors:
+									</label>
+									<br />
+									<label className={classes.label} htmlFor="Form_Factor">
+									Form_Factor:
+									</label>
+									<br />
+									<label className={classes.label} htmlFor="LED_Lighting">
+									LED_Lighting:
+									</label>
+									<br />
+									<label className={classes.label} htmlFor="Dimentions">
+									Dimentions:
+									</label>
+									<br />
+									<label className={classes.label} htmlFor="Power_Pin">
+									Power_Pin:
+									</label>
+									<br />
+									
 									<label className={classes.label} htmlFor="gallery">
 										Gallery:
 									</label>
@@ -460,22 +605,22 @@ const AddMotherBoard = (props) => {
 								<div className={classes.row}>
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
-										id="sidepanelwindow"
-										name="sidepanelwindow"
-										placeholder="Enter Side Panel Window"
+										type="text"
+										id="PCI_Express"
+										name="PCI_Express"
+										placeholder="Enter PCI_Express"
 										required
 										onChange={(e) => {
 											setData({
 												...data,
-												Maximum_Memory_Supported: e.target.value,
+												PCI_Express: e.target.value,
 											});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="number"
+										type="number"
 										id="quantity"
 										name="quantity"
 										placeholder="Enter Quantity"
@@ -493,22 +638,10 @@ const AddMotherBoard = (props) => {
 
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
-										id="internaldrivebay"
-										name="internaldrivebay"
-										placeholder="Enter Internal Drive Bays."
-										required
-										onChange={(e) => {
-											setData({ ...data, PCI_Express: e.target.value });
-										}}
-									/>
-									<br />
-									<input
-										className={classes.input}
-										CPU_Socket_Type="text"
-										id="expansionslots"
-										name="expansionslots"
-										placeholder="Enter Expansion Slots."
+										type="text"
+										id="SATA_6GBs"
+										name="SATA_6GBs"
+										placeholder="Enter SATA_6GBs."
 										required
 										onChange={(e) => {
 											setData({ ...data, SATA_6GBs: e.target.value });
@@ -517,10 +650,10 @@ const AddMotherBoard = (props) => {
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
-										id="frontpanelports"
-										name="frontpanelports"
-										placeholder="Enter Front Panel Ports."
+										type="text"
+										id="M2"
+										name="M2"
+										placeholder="Enter M2."
 										required
 										onChange={(e) => {
 											setData({ ...data, M2: e.target.value });
@@ -529,10 +662,10 @@ const AddMotherBoard = (props) => {
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
-										id="fanoptions"
-										name="fanoptions"
-										placeholder="Enter Fan Options."
+										type="text"
+										id="Audio_Chipset"
+										name="Audio_Chipset"
+										placeholder="Enter Audio_Chipset."
 										required
 										onChange={(e) => {
 											setData({ ...data, Audio_Chipset: e.target.value });
@@ -541,34 +674,34 @@ const AddMotherBoard = (props) => {
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
-										id="radiatoroptions"
-										name="radiatoroptions"
-										placeholder="Enter Radiator Options."
+										type="text"
+										id="Audio_Channels"
+										name="Audio_Channels"
+										placeholder="Enter Audio_Channels."
 										required
 										onChange={(e) => {
-											setData({ ...data, Rdiator_Options: e.target.value });
+											setData({ ...data, Audio_Channels: e.target.value });
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
-										id="maxgpulength"
-										name="maxgpulength"
-										placeholder="Enter Max GPU Length."
+										type="text"
+										id="LAN_Chipset"
+										name="LAN_Chipset"
+										placeholder="Enter LAN_Chipset."
 										required
 										onChange={(e) => {
-											setData({ ...data, Max_GPU_Length: e.target.value });
+											setData({ ...data, LAN_Chipset: e.target.value });
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
-										id="maxcpucoolerlength"
-										name="maxcpucoolerlength"
-										placeholder="Enter Max CPU Cooler Length."
+										type="text"
+										id="Max_LAN_Speed"
+										name="Max_LAN_Speed"
+										placeholder="Enter Max_LAN_Speed."
 										required
 										onChange={(e) => {
 											setData({ ...data, Max_LAN_Speed: e.target.value });
@@ -577,22 +710,22 @@ const AddMotherBoard = (props) => {
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
-										id="maxpsulength"
-										name="maxpsulength"
-										placeholder="Enter Max PSU Length."
+										type="text"
+										id="Wireless_LAN"
+										name="Wireless_LAN"
+										placeholder="Enter Wireless_LAN."
 										required
 										onChange={(e) => {
-											setData({ ...data, Max_PSU_Length: e.target.value });
+											setData({ ...data, Wireless_LAN: e.target.value });
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
-										id="casedimentions"
-										name="casedimentions"
-										placeholder="Enter Case Dimentions."
+										type="text"
+										id="Bluetooth"
+										name="Bluetooth"
+										placeholder="Enter Bluetooth."
 										required
 										onChange={(e) => {
 											setData({ ...data, Bluetooth: e.target.value });
@@ -601,7 +734,7 @@ const AddMotherBoard = (props) => {
 									<br />
 									<input
 										className={classes.input}
-										CPU_Socket_Type="text"
+										type="text"
 										id="Rear_Panel_Ports"
 										name="Rear_Panel_Ports"
 										placeholder="Enter Rear_Panel_Ports."
@@ -611,10 +744,83 @@ const AddMotherBoard = (props) => {
 										}}
 									/>
 									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="Onboard_USB"
+										name="Onboard_USB"
+										placeholder="Enter Onboard_USB."
+										required
+										onChange={(e) => {
+											setData({ ...data, Onboard_USB: e.target.value });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="Other_Connectors"
+										name="Other_Connectors"
+										placeholder="Enter Other_Connectors."
+										required
+										onChange={(e) => {
+											setData({ ...data, Other_Connectors: e.target.value });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="Form_Factor"
+										name="Form_Factor"
+										placeholder="Enter Form_Factor."
+										required
+										onChange={(e) => {
+											setData({ ...data, Form_Factor: e.target.value });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="LED_Lighting"
+										name="LED_Lighting"
+										placeholder="Enter LED_Lighting."
+										required
+										onChange={(e) => {
+											setData({ ...data, LED_Lighting: e.target.value });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="Dimentions"
+										name="Dimentions"
+										placeholder="Enter Dimentions."
+										required
+										onChange={(e) => {
+											setData({ ...data, Dimentions: e.target.value });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input}
+										type="text"
+										id="Power_Pin"
+										name="Power_Pin"
+										placeholder="Enter Power_Pin."
+										required
+										onChange={(e) => {
+											setData({ ...data, Power_Pin: e.target.value });
+										}}
+									/>
+									<br />
+									
 									<label className={classes.customfile}>
 										<input
 											className={classes.inputfile}
-											CPU_Socket_Type="file"
+											type="file"
 											id="gallery"
 											name="gallery"
 											required
@@ -638,7 +844,7 @@ const AddMotherBoard = (props) => {
 						<div className={classes.btnDiv}>
 							<input
 								className={classes.btn}
-								CPU_Socket_Type="submit"
+								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}
 							/>

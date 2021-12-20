@@ -108,12 +108,7 @@ if(user){
 			<Router>
 				<ToastContainer />
 				<Switch>
-					<PrivateRoute
-						path="/admin-panel/home"
-						exact={true}
-						auth={auth}
-						component={Home}
-					/>
+				
 					<PrivateRoute
 						auth={auth}
 						path="/admin-panel/managecasefan"
@@ -285,7 +280,7 @@ if(user){
 					<PrivateRoute
 						auth={auth}
 						path="/admin-panel/managefans"
-						exact
+						
 						component={ManageFans}
 					/>
 					<PrivateRoute
@@ -478,7 +473,14 @@ if(user){
 						exact
 						component={NotFound}
 					/>
-					<PublicRoute path="/admin-panel" exact={true} auth={auth} component={Login} />
+						<PrivateRoute
+						path="/admin-panel/home"
+						
+						auth={auth}
+						component={Home}
+					/>
+					<PublicRoute  path="/admin-panel"  auth={auth} component={Login} />
+
 					<Redirect to="/admin-panel/not-found" />
 				</Switch>
 			</Router>

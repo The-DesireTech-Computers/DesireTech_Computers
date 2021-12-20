@@ -1662,6 +1662,10 @@ router.put('/casing/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', max
     }
     else{
        
+        product.title = req.body.title;
+        product.price = req.body.price;
+        product.quantity = req.body.quantity;
+
         product.Model.brand = req.body.brand;
         product.Model.series = req.body.series;
         product.Model.model = req.body.model;
