@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 const AddVideoCard = (props) => {
 	let [data, setData] = useState({
 		title: "",
@@ -68,11 +68,11 @@ const AddVideoCard = (props) => {
 		} else if (data.GPU === "") {
 			alert("Please enter data in all the given fields (GPU)");
 		} else if (data.Effective_Memory_Clock === "") {
-			alert("Please enter data in all the given fields (Effective_Memory_Clock)");
-		} else if (data.Memory_Size === "") {
 			alert(
-				"Please enter data in all the given fields (Memory_Size)"
+				"Please enter data in all the given fields (Effective_Memory_Clock)"
 			);
+		} else if (data.Memory_Size === "") {
+			alert("Please enter data in all the given fields (Memory_Size)");
 		} else if (data.Memory_Interface === "") {
 			alert("Please enter data in all the given fields  (Memory_Interface)");
 		} else if (data.Memory_Type === "") {
@@ -86,26 +86,23 @@ const AddVideoCard = (props) => {
 		} else if (data.DisplayPort === "") {
 			alert("Please enter data in all the given fields(DisplayPort)");
 		} else if (data.Virtual_Reality_Ready === "") {
-			alert("Please enter data in all the given fields (Virtual_Reality_Ready)");
+			alert(
+				"Please enter data in all the given fields (Virtual_Reality_Ready)"
+			);
 		} else if (data.Cooler === "") {
 			alert("Please enter data in all the given fields (Cooler)");
 		} else if (data.System_Requirments === "") {
-			alert(
-				"Please enter data in all the given fields (System_Requirments)"
-			);
+			alert("Please enter data in all the given fields (System_Requirments)");
 		} else if (data.Power_Connectors === "") {
 			alert("Please enter data in all the given fields (Power_Connectors)");
 		} else if (data.FormFactor === "") {
 			alert("Please enter data in all the given fields (FormFactor)");
 		} else if (data.Max_GPU_Length === "") {
 			alert("Please enter data in all the given fields(Max_GPU_Length)");
-		
 		} else if (data.Card_Dimentions === "") {
 			alert("Please enter data in all the given fields(Card_Dimentions)");
-		
 		} else if (data.SlotWidth === "") {
 			alert("Please enter data in all the given fields(SlotWidth)");
-		
 		} else if (data.Power_Consumption === "") {
 			alert("Please enter data in all the given fields(Power_Consumption)");
 		} else if (thumbnail === null) {
@@ -128,10 +125,7 @@ const AddVideoCard = (props) => {
 			formData.append("GPU_Series", data.GPU_Series);
 			formData.append("GPU", data.GPU);
 			formData.append("Effective_Memory_Clock", data.Effective_Memory_Clock);
-			formData.append(
-				"Memory_Size",
-				data.Memory_Size
-			);
+			formData.append("Memory_Size", data.Memory_Size);
 			formData.append("Memory_Interface", data.Memory_Interface);
 			formData.append("Memory_Type", data.Memory_Type);
 			formData.append("DirectX", data.DirectX);
@@ -176,78 +170,78 @@ const AddVideoCard = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Add VideoCard</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Add VideoCard</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							encType="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="series">
+									<label className={classes.label1} htmlFor="series">
 										Series:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										Model:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Interface">
-									Interface:
+									<label className={classes.label1} htmlFor="Interface">
+										Interface:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Manufacturer">
-									Manufacturer:
+									<label className={classes.label1} htmlFor="Manufacturer">
+										Manufacturer:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="GPU_Series">
-									GPU Series:
+									<label className={classes.label1} htmlFor="GPU_Series">
+										GPU Series:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="GPU">
-									GPU:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="Effective_Memory_Clock">
-									Effective Memory Clock:
+									<label className={classes.label1} htmlFor="GPU">
+										GPU:
 									</label>
 									<br />
 									<label
-										className={classes.label}
-										htmlFor="Memory_Size"
+										className={classes.label1}
+										htmlFor="Effective_Memory_Clock"
 									>
+										Effective Memory Clock:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="Memory_Size">
 										Memory Size:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Memory_Interface">
-									Memory Interface:
+									<label className={classes.label1} htmlFor="Memory_Interface">
+										Memory Interface:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Power_Consumption">
-									Power Consumption:
+									<label className={classes.label1} htmlFor="Power_Consumption">
+										Power Consumption:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="thumbnail">
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="title"
 										name="title"
@@ -259,7 +253,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="price"
 										name="price"
@@ -276,7 +270,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="brand"
 										name="brand"
@@ -288,7 +282,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="series"
 										name="series"
@@ -300,7 +294,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="model"
 										name="model"
@@ -312,7 +306,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Interface"
 										name="Interface"
@@ -324,7 +318,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Manufacturer"
 										name="Manufacturer"
@@ -336,7 +330,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="GPU_Series"
 										name="GPU_Series"
@@ -348,7 +342,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="GPU"
 										name="GPU"
@@ -360,7 +354,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Effective_Memory_Clock"
 										name="Effective_Memory_Clock"
@@ -375,7 +369,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Memory_Size"
 										name="Memory_Size"
@@ -390,7 +384,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Memory_Interface"
 										name="Memory_Interface"
@@ -402,7 +396,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Power_Consumption"
 										name="Power_Consumption"
@@ -413,9 +407,9 @@ const AddVideoCard = (props) => {
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -427,72 +421,78 @@ const AddVideoCard = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="Memory_Type">
-									Memory Type:
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="Memory_Type">
+										Memory Type:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="DirectX">
-									DirectX:
+									<label className={classes.label1} htmlFor="DirectX">
+										DirectX:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="OpenGL">
-									OpenGL:
+									<label className={classes.label1} htmlFor="OpenGL">
+										OpenGL:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="HDMI">
-									HDMI:
+									<label className={classes.label1} htmlFor="HDMI">
+										HDMI:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="DisplayPort">
-									DisplayPort:
+									<label className={classes.label1} htmlFor="DisplayPort">
+										DisplayPort:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Virtual_Reality_Ready">
-									Virtual Reality Ready:
+									<label
+										className={classes.label1}
+										htmlFor="Virtual_Reality_Ready"
+									>
+										Virtual Reality Ready:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Cooler">
-									Cooler:
+									<label className={classes.label1} htmlFor="Cooler">
+										Cooler:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="System_Requirments">
-									System Requirments:
+									<label
+										className={classes.label1}
+										htmlFor="System_Requirments"
+									>
+										System Requirments:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Power_Connectors">
-									Power Connectors:
+									<label className={classes.label1} htmlFor="Power_Connectors">
+										Power Connectors:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="FormFactor">
-									FormFactor:
+									<label className={classes.label1} htmlFor="FormFactor">
+										FormFactor:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Max_GPU_Length">
-									Max GPU Length:
+									<label className={classes.label1} htmlFor="Max_GPU_Length">
+										Max GPU Length:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Card_Dimentions">
-									Card Dimentions:
+									<label className={classes.label1} htmlFor="Card_Dimentions">
+										Card Dimentions:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="SlotWidth">
-									Slot Width:
+									<label className={classes.label1} htmlFor="SlotWidth">
+										Slot Width:
 									</label>
-								
+
 									<br />
-									<label className={classes.label} htmlFor="gallery">
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Memory_Type"
 										name="Memory_Type"
@@ -504,7 +504,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="quantity"
 										name="quantity"
@@ -522,7 +522,7 @@ const AddVideoCard = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="DirectX"
 										name="DirectX"
@@ -534,7 +534,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="OpenGL"
 										name="OpenGL"
@@ -546,7 +546,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="HDMI"
 										name="HDMI"
@@ -558,7 +558,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="DisplayPort"
 										name="DisplayPort"
@@ -570,7 +570,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Virtual_Reality_Ready"
 										name="Virtual_Reality_Ready"
@@ -582,7 +582,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Cooler"
 										name="Cooler"
@@ -594,7 +594,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="System_Requirments"
 										name="System_Requirments"
@@ -609,7 +609,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Power_Connectors"
 										name="Power_Connectors"
@@ -621,7 +621,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="FormFactor"
 										name="FormFactor"
@@ -633,7 +633,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Max_GPU_Length"
 										name="Max_GPU_Length"
@@ -645,7 +645,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Card_Dimentions"
 										name="Card_Dimentions"
@@ -657,7 +657,7 @@ const AddVideoCard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="SlotWidth"
 										name="SlotWidth"
@@ -668,10 +668,10 @@ const AddVideoCard = (props) => {
 										}}
 									/>
 									<br />
-									
-									<label className={classes.customfile}>
+
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="gallery"
 											name="gallery"
@@ -693,9 +693,9 @@ const AddVideoCard = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}

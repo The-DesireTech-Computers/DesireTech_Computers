@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 const Addkeyboard = (props) => {
 	let [data, setData] = useState({
 		title: "",
@@ -24,8 +24,6 @@ const Addkeyboard = (props) => {
 
 		Type: "",
 		feature: "",
-
-	
 	});
 	let [thumbnail, setThumbnail] = useState(null);
 	let [gallery, setGallery] = useState(null);
@@ -57,9 +55,7 @@ const Addkeyboard = (props) => {
 		} else if (data.keyswitchtype === "") {
 			alert("Please enter data in all the given fields (keyswitchtype)");
 		} else if (data.keyboardcolor === "") {
-			alert(
-				"Please enter data in all the given fields (keyboardcolor)"
-			);
+			alert("Please enter data in all the given fields (keyboardcolor)");
 		} else if (data.dimension === "") {
 			alert("Please enter data in all the given fields  (dimension)");
 		} else if (data.backlit === "") {
@@ -68,7 +64,7 @@ const Addkeyboard = (props) => {
 			alert("Please enter data in all the given fields (Type)");
 		} else if (data.feature === "") {
 			alert("Please enter data in all the given fields (feature)");
-		}  else if (thumbnail === null) {
+		} else if (thumbnail === null) {
 			alert("Please provide a picture as a thumbnail picture(thumbnail)");
 		} else if (gallery === null) {
 			alert("Please provide atleaste 1 picture as gallery(gallery)");
@@ -88,15 +84,12 @@ const Addkeyboard = (props) => {
 			formData.append("palmRest", data.palmRest);
 			formData.append("mechanicalKeyboard", data.mechanicalKeyboard);
 			formData.append("keyswitchtype", data.keyswitchtype);
-			formData.append(
-				"keyboardcolor",
-				data.keyboardcolor
-			);
+			formData.append("keyboardcolor", data.keyboardcolor);
 			formData.append("dimension", data.dimension);
 			formData.append("backlit", data.backlit);
 			formData.append("Type", data.Type);
 			formData.append("feature", data.feature);
-			
+
 			formData.append("thumbnail", thumbnail);
 
 			if (gallery) {
@@ -125,59 +118,56 @@ const Addkeyboard = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Add Keyboard</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Add Keyboard</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							encType="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="name">
-									name:
+									<label className={classes.label1} htmlFor="name">
+										name:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										Model:
 									</label>
-									
+
 									<br />
-									<label className={classes.label} htmlFor="keyswitchtype">
-									key switch type:
+									<label className={classes.label1} htmlFor="keyswitchtype">
+										key switch type:
 									</label>
 									<br />
-									<label
-										className={classes.label}
-										htmlFor="keyboardcolor"
-									>
+									<label className={classes.label1} htmlFor="keyboardcolor">
 										keyboard color:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="dimension">
-									dimension:
+									<label className={classes.label1} htmlFor="dimension">
+										dimension:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="thumbnail">
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="title"
 										name="title"
@@ -189,7 +179,7 @@ const Addkeyboard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="price"
 										name="price"
@@ -206,7 +196,7 @@ const Addkeyboard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="brand"
 										name="brand"
@@ -218,7 +208,7 @@ const Addkeyboard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="name"
 										name="name"
@@ -230,7 +220,7 @@ const Addkeyboard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="model"
 										name="model"
@@ -241,9 +231,9 @@ const Addkeyboard = (props) => {
 										}}
 									/>
 									<br />
-									
+
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="keyswitchtype"
 										name="keyswitchtype"
@@ -258,7 +248,7 @@ const Addkeyboard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="keyboardcolor"
 										name="keyboardcolor"
@@ -273,7 +263,7 @@ const Addkeyboard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="dimension"
 										name="dimension"
@@ -284,9 +274,9 @@ const Addkeyboard = (props) => {
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -298,50 +288,53 @@ const Addkeyboard = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="backlit">
-									backlit:
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="backlit">
+										backlit:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="Type">
-									Type:
+									<label className={classes.label1} htmlFor="Type">
+										Type:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="keyboardInterface">
-									keyboard Interface:
+									<label className={classes.label1} htmlFor="keyboardInterface">
+										keyboard Interface:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="designStyle">
-									design Style:
+									<label className={classes.label1} htmlFor="designStyle">
+										design Style:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="palmRest">
-									palm Rest:
+									<label className={classes.label1} htmlFor="palmRest">
+										palm Rest:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="mechanicalKeyboard">
-									mechanical Keyboard:
+									<label
+										className={classes.label1}
+										htmlFor="mechanicalKeyboard"
+									>
+										mechanical Keyboard:
 									</label>
-									
+
 									<br />
-									
-									<label className={classes.label} htmlFor="feature">
-									feature:
+
+									<label className={classes.label1} htmlFor="feature">
+										feature:
 									</label>
 									<br />
-									
-									<label className={classes.label} htmlFor="gallery">
+
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="backlit"
 										name="backlit"
@@ -353,7 +346,7 @@ const Addkeyboard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="quantity"
 										name="quantity"
@@ -371,7 +364,7 @@ const Addkeyboard = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Type"
 										name="Type"
@@ -383,7 +376,7 @@ const Addkeyboard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="keyboardInterface"
 										name="keyboardInterface"
@@ -395,7 +388,7 @@ const Addkeyboard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="designStyle"
 										name="designStyle"
@@ -407,7 +400,7 @@ const Addkeyboard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="palmRest"
 										name="palmRest"
@@ -419,7 +412,7 @@ const Addkeyboard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="mechanicalKeyboard"
 										name="mechanicalKeyboard"
@@ -432,7 +425,7 @@ const Addkeyboard = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="feature"
 										name="feature"
@@ -443,10 +436,10 @@ const Addkeyboard = (props) => {
 										}}
 									/>
 									<br />
-											
-										<label className={classes.customfile}>
+
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="gallery"
 											name="gallery"
@@ -468,9 +461,9 @@ const Addkeyboard = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}

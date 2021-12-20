@@ -3,7 +3,7 @@ import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 
 const UpdateProcessor = (props) => {
 	let [data, setData] = useState();
@@ -187,29 +187,29 @@ const UpdateProcessor = (props) => {
 					<div className={classes.inputform}>
 						<h1 className={classes.h1}>Update Processor</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							enctype="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="series">
+									<label className={classes.label1} htmlFor="series">
 										Series:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										Model:
 									</label>
 									<br />
@@ -221,7 +221,7 @@ const UpdateProcessor = (props) => {
 										ProcessorType:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="CPU_Socket_Type">
+									<label className={classes.label1} htmlFor="CPU_Socket_Type">
 										CPU_Socket_Type:
 									</label>
 									<br />
@@ -256,11 +256,11 @@ const UpdateProcessor = (props) => {
 									L3 Cache:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="thumbnail">
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
 										className={classes.input}
 										type="text"
@@ -446,7 +446,7 @@ const UpdateProcessor = (props) => {
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
 											className={classes.inputfile}
 											type="file"
@@ -465,7 +465,7 @@ const UpdateProcessor = (props) => {
 									Manufacturing Tech:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
@@ -534,11 +534,11 @@ const UpdateProcessor = (props) => {
 										Cooling Device:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="gallery">
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
 										className={classes.input}
 										type="text"
@@ -728,7 +728,7 @@ const UpdateProcessor = (props) => {
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
 											className={classes.inputfile}
 											type="file"
@@ -752,7 +752,7 @@ const UpdateProcessor = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
 								className={classes.btn}
 								type="submit"
@@ -768,6 +768,5 @@ const UpdateProcessor = (props) => {
 
 	return <div>{form}</div>;
 };
-
 
 export default UpdateProcessor;

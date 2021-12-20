@@ -1,8 +1,8 @@
-import { React, useState ,useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 const UpdateMemory = (props) => {
 	let [data, setData] = useState();
 	let [id, setId] = useState(null);
@@ -10,7 +10,6 @@ const UpdateMemory = (props) => {
 	let [gallery, setGallery] = useState(null);
 	let [loading, setLoading] = useState(false);
 
-	
 	//receiving query params
 	useEffect(() => {
 		let params = new URLSearchParams(props.location.search);
@@ -22,25 +21,21 @@ const UpdateMemory = (props) => {
 		setId(id);
 	}, []);
 
-		//fetching singel element from back-end
-		useEffect(() => {
-			if (id) {
-				axios
-					.get("pcParts/memory/" + id)
-					.then((res) => {
-					
-						setData(res.data);
-						
-					})
-					.catch((err) => {
-						console.log(err);
-					});
-			}
-		}, [id]);
+	//fetching singel element from back-end
+	useEffect(() => {
+		if (id) {
+			axios
+				.get("pcParts/memory/" + id)
+				.then((res) => {
+					setData(res.data);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
+	}, [id]);
 
 	let handelSubmitBtn = async () => {
-		
-
 		if (data.title === "") {
 			alert("Please enter data in all the given fields  (title)");
 		} else if (data.price === 0 || data.price === "") {
@@ -74,22 +69,18 @@ const UpdateMemory = (props) => {
 		} else if (data.Details.Multi_Channel_Kit === "") {
 			alert("Please enter data in all the given fields(Multi_Channel_Kit)");
 		} else if (data.Details.chipset === "") {
-			alert(
-				"Please enter data in all the given fields(chipset)"
-			);
+			alert("Please enter data in all the given fields(chipset)");
 		} else if (data.Details.color === "") {
 			alert("Please enter data in all the given fields (color)");
 		} else if (data.Details.HeatSpreader === "") {
 			alert("Please enter data in all the given fields (HeatSpreader)");
 		} else if (data.Details.features === "") {
-			alert(
-				"Please enter data in all the given fields (features)"
-			);
+			alert("Please enter data in all the given fields (features)");
 		} else if (data.Details.recommendUse === "") {
 			alert("Please enter data in all the given fields (recommendUse)");
 		} else if (data.Power_Consumption === "") {
 			alert("Please enter data in all the given fields (Power_Consumption)");
-		}else {
+		} else {
 			setLoading(true);
 
 			let formData = new FormData();
@@ -113,13 +104,10 @@ const UpdateMemory = (props) => {
 			formData.append("Multi_Channel_Kit", data.Details.Multi_Channel_Kit);
 			formData.append("chipset", data.Details.chipset);
 			formData.append("color", data.Details.color);
-			formData.append(
-				"HeatSpreader",
-				data.Details.HeatSpreader
-			);
+			formData.append("HeatSpreader", data.Details.HeatSpreader);
 			formData.append("features", data.Details.features);
 			formData.append("recommendUse", data.Details.recommendUse);
-			
+
 			formData.append("Power_Consumption", data.Power_Consumption);
 
 			formData.append("thumbnail", thumbnail);
@@ -131,7 +119,7 @@ const UpdateMemory = (props) => {
 			}
 
 			await axios
-				.put("pcParts/memory/"+id, formData)
+				.put("pcParts/memory/" + id, formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -150,71 +138,68 @@ const UpdateMemory = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Update Memory</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Update Memory</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="put"
 							encType="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-								<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										quantity:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="series">
+									<label className={classes.label1} htmlFor="series">
 										series:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										model:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Capacity">
-									Capacity:
+									<label className={classes.label1} htmlFor="Capacity">
+										Capacity:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Type">
-									Type:
+									<label className={classes.label1} htmlFor="Type">
+										Type:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Memory_Pins">
-									Memory_Pins:
+									<label className={classes.label1} htmlFor="Memory_Pins">
+										Memory_Pins:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="speed">
-									speed:
+									<label className={classes.label1} htmlFor="speed">
+										speed:
 									</label>
 									<br />
-									<label
-										className={classes.label}
-										htmlFor="CAS_Latency"
-									>
+									<label className={classes.label1} htmlFor="CAS_Latency">
 										CAS Latency:
 									</label>
 									<br />
-									
-									<label className={classes.label} htmlFor="thumbnail">
+
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="title"
 										name="title"
@@ -226,7 +211,7 @@ const UpdateMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="price"
 										name="price"
@@ -243,7 +228,7 @@ const UpdateMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="quantity"
 										name="quantity"
@@ -261,105 +246,135 @@ const UpdateMemory = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="brand"
 										name="brand"
 										value={data.Model.brand}
 										required
 										onChange={(e) => {
-											setData({ ...data,Model:{...data.Model,brand: e.target.value} });
+											setData({
+												...data,
+												Model: { ...data.Model, brand: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="series"
 										name="series"
 										value={data.Model.series}
 										required
 										onChange={(e) => {
-											setData({ ...data,Model:{...data.Model,series: e.target.value} });
+											setData({
+												...data,
+												Model: { ...data.Model, series: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="model"
 										name="model"
 										value={data.Model.model}
 										required
 										onChange={(e) => {
-											setData({ ...data,Model:{...data.Model,model: e.target.value} });
+											setData({
+												...data,
+												Model: { ...data.Model, model: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="Capacity"
 										name="Capacity"
 										value={data.Details.Capacity}
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details,Capacity: e.target.value} });
+											setData({
+												...data,
+												Details: { ...data.Details, Capacity: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Type"
 										name="Type"
 										value={data.Details.Type}
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details,Type: e.target.value} });
+											setData({
+												...data,
+												Details: { ...data.Details, Type: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="Memory_Pins"
 										name="Memory_Pins"
 										value={data.Details.Memory_Pins}
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details,Memory_Pins: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													Memory_Pins: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="speed"
 										name="speed"
 										value={data.Details.speed}
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details,speed: e.target.value} });
+											setData({
+												...data,
+												Details: { ...data.Details, speed: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="CAS_Latency"
 										name="CAS_Latency"
 										value={data.Details.CAS_Latency}
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details,CAS_Latency: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													CAS_Latency: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
-								
-									<label className={classes.customfile}>
+
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -371,198 +386,234 @@ const UpdateMemory = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="ECC">
-									ECC:
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="ECC">
+										ECC:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Buffered">
-									Buffered:
+									<label className={classes.label1} htmlFor="Buffered">
+										Buffered:
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="Multi_Channel_Kit">
-									Multi Channel Kit:
+									<label className={classes.label1} htmlFor="Multi_Channel_Kit">
+										Multi Channel Kit:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="chipset">
-									Chipset:
+									<label className={classes.label1} htmlFor="chipset">
+										Chipset:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="color">
-									Color:
+									<label className={classes.label1} htmlFor="color">
+										Color:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="HeatSpreader">
-									Heat Spreader:
+									<label className={classes.label1} htmlFor="HeatSpreader">
+										Heat Spreader:
 									</label>
 									<br />
-									<label
-										className={classes.label}
-										htmlFor="features"
-									>
+									<label className={classes.label1} htmlFor="features">
 										Features:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="recommendUse">
-									Recommend Use:
+									<label className={classes.label1} htmlFor="recommendUse">
+										Recommend Use:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Power_Consumption">
-									Power Consumption:
+									<label className={classes.label1} htmlFor="Power_Consumption">
+										Power Consumption:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="voltage">
-									Voltage:
+									<label className={classes.label1} htmlFor="voltage">
+										Voltage:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="timing">
-									Timing:
+									<label className={classes.label1} htmlFor="timing">
+										Timing:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="gallery">
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="ECC"
 										name="ECC"
 										value={data.Details.ECC}
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details,ECC: e.target.value} });
+											setData({
+												...data,
+												Details: { ...data.Details, ECC: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Buffered"
 										name="Buffered"
 										value={data.Details.Buffered}
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details,Buffered: e.target.value} });
+											setData({
+												...data,
+												Details: { ...data.Details, Buffered: e.target.value },
+											});
 										}}
 									/>
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										Capacity="text"
 										id="Multi_Channel_Kit"
 										name="Multi_Channel_Kit"
 										value={data.Details.Multi_Channel_Kit}
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details,Multi_Channel_Kit: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													Multi_Channel_Kit: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="chipset"
 										name="chipset"
 										value={data.Details.chipset}
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details,chipset: e.target.value} });
+											setData({
+												...data,
+												Details: { ...data.Details, chipset: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="color"
 										name="color"
 										value={data.Details.color}
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details,color: e.target.value} });
+											setData({
+												...data,
+												Details: { ...data.Details, color: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="HeatSpreader"
 										name="HeatSpreader"
 										value={data.Details.HeatSpreader}
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details,HeatSpreader: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													HeatSpreader: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="features"
 										name="features"
 										value={data.Details.features}
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details,features: e.target.value} });
+											setData({
+												...data,
+												Details: { ...data.Details, features: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="recommendUse"
 										name="recommendUse"
 										value={data.Details.recommendUse}
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details,recommendUse: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													recommendUse: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="Power_Consumption"
 										name="Power_Consumption"
 										value={data.Power_Consumption}
 										required
 										onChange={(e) => {
-											setData({ ...data ,Power_Consumption: e.target.value});
+											setData({ ...data, Power_Consumption: e.target.value });
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="voltage"
 										name="voltage"
 										value={data.Details.voltage}
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details,voltage: e.target.value} });
+											setData({
+												...data,
+												Details: { ...data.Details, voltage: e.target.value },
+											});
 										}}
 									/>
 
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="timing"
 										name="timing"
 										value={data.Details.timing}
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details,timing: e.target.value} });
+											setData({
+												...data,
+												Details: { ...data.Details, timing: e.target.value },
+											});
 										}}
 									/>
 									<br />
 
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="gallery"
 											name="gallery"
@@ -584,9 +635,9 @@ const UpdateMemory = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								Capacity="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}

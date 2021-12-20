@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 
 const UpdateParts = (props) => {
 	let [data, setData] = useState();
@@ -56,22 +56,24 @@ const UpdateParts = (props) => {
 		} else if (data.displaytype === "") {
 			alert("Please enter data in all the given fields(displaytype)");
 		} else if (data.adaptivesychronisetech === "") {
-			alert("Please enter data in all the given fields (adaptivesychronisetech)");
+			alert(
+				"Please enter data in all the given fields (adaptivesychronisetech)"
+			);
 		} else if (data.pixelpitch === "") {
 			alert("Please enter data in all the given fields (pixelpitch)");
 		} else if (data.refreshRatio === "") {
 			alert("Please enter data in all the given fields (refreshRatio)");
 		} else if (data.connector === "") {
-			alert(
-				"Please enter data in all the given fields (connector)"
-			);
+			alert("Please enter data in all the given fields (connector)");
 		} else if (data.inputvideocapability === "") {
-			alert("Please enter data in all the given fields  (inputvideocapability)");
+			alert(
+				"Please enter data in all the given fields  (inputvideocapability)"
+			);
 		} else if (data.powersupply === "") {
 			alert("Please enter data in all the given fields  (powersupply)");
 		} else if (data.powerconsumption === "") {
 			alert("Please enter data in all the given fields (powerconsumption)");
-		}  else if (thumbnail === null) {
+		} else if (thumbnail === null) {
 			alert("Please provide a picture as a thumbnail picture(thumbnail)");
 		} else if (gallery === null) {
 			alert("Please provide atleaste 1 picture as gallery(gallery)");
@@ -91,15 +93,11 @@ const UpdateParts = (props) => {
 			formData.append("adaptivesychronisetech", data.adaptivesychronisetech);
 			formData.append("pixelpitch", data.pixelpitch);
 			formData.append("refreshRatio", data.refreshRatio);
-			formData.append(
-				"connector",
-				data.connector
-			);
+			formData.append("connector", data.connector);
 			formData.append("inputvideocapability", data.inputvideocapability);
 			formData.append("powersupply", data.powersupply);
 			formData.append("powerconsumption", data.powerconsumption);
-		
-			
+
 			formData.append("thumbnail", thumbnail);
 
 			if (gallery) {
@@ -128,74 +126,77 @@ const UpdateParts = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Add Casing</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Add Casing</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							encType="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="cabinetcolor">
-									cabinetcolor:
+									<label className={classes.label1} htmlFor="cabinetcolor">
+										cabinetcolor:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="glarescreen">
-									glarescreen:
+									<label className={classes.label1} htmlFor="glarescreen">
+										glarescreen:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="displaytype">
-									displaytype:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="adaptivesychronisetech">
-									adaptive sychronisetech:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="pixelpitch">
-									pixel pitch:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="refreshRatio">
-									refresh Ratio:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="connector">
-									connector:
+									<label className={classes.label1} htmlFor="displaytype">
+										displaytype:
 									</label>
 									<br />
 									<label
-										className={classes.label}
+										className={classes.label1}
+										htmlFor="adaptivesychronisetech"
+									>
+										adaptive sychronisetech:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="pixelpitch">
+										pixel pitch:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="refreshRatio">
+										refresh Ratio:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="connector">
+										connector:
+									</label>
+									<br />
+									<label
+										className={classes.label1}
 										htmlFor="inputvideocapability"
 									>
 										input video capability:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="powersupply">
-									powersupply:
+									<label className={classes.label1} htmlFor="powersupply">
+										powersupply:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="thumbnail">
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="title"
 										name="title"
@@ -207,7 +208,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="price"
 										name="price"
@@ -224,7 +225,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="brand"
 										name="brand"
@@ -236,7 +237,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="cabinetcolor"
 										name="cabinetcolor"
@@ -248,7 +249,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="model"
 										name="model"
@@ -260,7 +261,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="glarescreen"
 										name="glarescreen"
@@ -272,7 +273,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="displaytype"
 										name="displaytype"
@@ -284,19 +285,22 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="adaptivesychronisetech"
 										name="adaptivesychronisetech"
 										placeholder="Enteradaptive sychronisetechg "
 										required
 										onChange={(e) => {
-											setData({ ...data, adaptivesychronisetech: e.target.value });
+											setData({
+												...data,
+												adaptivesychronisetech: e.target.value,
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="pixelpitch"
 										name="pixelpitch"
@@ -308,7 +312,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="refreshRatio"
 										name="refreshRatio"
@@ -323,7 +327,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="connector"
 										name="connector"
@@ -338,7 +342,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="inputvideocapability"
 										name="inputvideocapability"
@@ -349,9 +353,9 @@ const UpdateParts = (props) => {
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -363,28 +367,28 @@ const UpdateParts = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="powersupply">
-									power supply:
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="powersupply">
+										power supply:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="powerconsumption">
-									power consumption:
+									<label className={classes.label1} htmlFor="powerconsumption">
+										power consumption:
 									</label>
-								
+
 									<br />
-									<label className={classes.label} htmlFor="gallery">
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="powersupply"
 										name="powersupply"
@@ -396,7 +400,7 @@ const UpdateParts = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="quantity"
 										name="quantity"
@@ -414,7 +418,7 @@ const UpdateParts = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="powerconsumption"
 										name="powerconsumption"
@@ -425,10 +429,10 @@ const UpdateParts = (props) => {
 										}}
 									/>
 									<br />
-																		
-									<label className={classes.customfile}>
+
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="gallery"
 											name="gallery"
@@ -450,9 +454,9 @@ const UpdateParts = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}

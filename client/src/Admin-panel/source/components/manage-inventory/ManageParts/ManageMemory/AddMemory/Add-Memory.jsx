@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 const AddMemory = (props) => {
 	let [data, setData] = useState({
 		title: "",
@@ -13,27 +13,23 @@ const AddMemory = (props) => {
 		series: "",
 		model: "",
 
-		Capacity:0,
-        type:"",
-        Memory_Pins:0,
-        speed:"",
-        CAS_Latency:"",
-        timing:"",
-        voltage:"",
-        ECC:"",
-        Buffered:"",
-        Multi_Channel_Kit:"",
-        chipset:"",
-        color:"",
-        HeatSpreader:"",
-        features:"",
-        recommendUse:"",
-        
-		
-		Power_Consumption:0,
+		Capacity: 0,
+		type: "",
+		Memory_Pins: 0,
+		speed: "",
+		CAS_Latency: "",
+		timing: "",
+		voltage: "",
+		ECC: "",
+		Buffered: "",
+		Multi_Channel_Kit: "",
+		chipset: "",
+		color: "",
+		HeatSpreader: "",
+		features: "",
+		recommendUse: "",
 
-		
-       
+		Power_Consumption: 0,
 	});
 	let [thumbnail, setThumbnail] = useState(null);
 	let [gallery, setGallery] = useState(null);
@@ -77,26 +73,22 @@ const AddMemory = (props) => {
 		} else if (data.Multi_Channel_Kit === "") {
 			alert("Please enter data in all the given fields(Multi_Channel_Kit)");
 		} else if (data.chipset === "") {
-			alert(
-				"Please enter data in all the given fields(chipset)"
-			);
+			alert("Please enter data in all the given fields(chipset)");
 		} else if (data.color === "") {
 			alert("Please enter data in all the given fields (color)");
 		} else if (data.HeatSpreader === "") {
 			alert("Please enter data in all the given fields (HeatSpreader)");
 		} else if (data.features === "") {
-			alert(
-				"Please enter data in all the given fields (features)"
-			);
+			alert("Please enter data in all the given fields (features)");
 		} else if (data.recommendUse === "") {
 			alert("Please enter data in all the given fields (recommendUse)");
 		} else if (data.Power_Consumption === "") {
 			alert("Please enter data in all the given fields (Power_Consumption)");
-		}else if (thumbnail === null) {
+		} else if (thumbnail === null) {
 			alert("Please provide a picture as a thumbnail picture(thumbnail)");
 		} else if (gallery === null) {
 			alert("Please provide atleaste 1 picture as gallery(gallery)");
-		}else {
+		} else {
 			setLoading(true);
 
 			let formData = new FormData();
@@ -120,13 +112,10 @@ const AddMemory = (props) => {
 			formData.append("Multi_Channel_Kit", data.Multi_Channel_Kit);
 			formData.append("chipset", data.chipset);
 			formData.append("color", data.color);
-			formData.append(
-				"HeatSpreader",
-				data.HeatSpreader
-			);
+			formData.append("HeatSpreader", data.HeatSpreader);
 			formData.append("features", data.features);
 			formData.append("recommendUse", data.recommendUse);
-			
+
 			formData.append("Power_Consumption", data.Power_Consumption);
 
 			formData.append("thumbnail", thumbnail);
@@ -157,71 +146,68 @@ const AddMemory = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Add Memory</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Add Memory</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							encprocessorType="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										quantity:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="series">
+									<label className={classes.label1} htmlFor="series">
 										series:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										model:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Capacity">
-									Capacity:
+									<label className={classes.label1} htmlFor="Capacity">
+										Capacity:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Type">
-									Type:
+									<label className={classes.label1} htmlFor="Type">
+										Type:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Memory_Pins">
-									Memory_Pins:
+									<label className={classes.label1} htmlFor="Memory_Pins">
+										Memory_Pins:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="speed">
-									speed:
+									<label className={classes.label1} htmlFor="speed">
+										speed:
 									</label>
 									<br />
-									<label
-										className={classes.label}
-										htmlFor="CAS_Latency"
-									>
+									<label className={classes.label1} htmlFor="CAS_Latency">
 										CAS Latency:
 									</label>
 									<br />
-									
-									<label className={classes.label} htmlFor="thumbnail">
+
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="title"
 										name="title"
@@ -233,7 +219,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="price"
 										name="price"
@@ -250,7 +236,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="quantity"
 										name="quantity"
@@ -268,19 +254,19 @@ const AddMemory = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="brand"
 										name="brand"
 										placeholder="Enter brand"
 										required
 										onChange={(e) => {
-											setData({ ...data,brand: e.target.value });
+											setData({ ...data, brand: e.target.value });
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="series"
 										name="series"
@@ -292,7 +278,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="model"
 										name="model"
@@ -304,7 +290,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="Capacity"
 										name="Capacity"
@@ -316,7 +302,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Type"
 										name="Type"
@@ -328,7 +314,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="Memory_Pins"
 										name="Memory_Pins"
@@ -340,7 +326,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="speed"
 										name="speed"
@@ -352,7 +338,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="CAS_Latency"
 										name="CAS_Latency"
@@ -366,10 +352,10 @@ const AddMemory = (props) => {
 										}}
 									/>
 									<br />
-								
-									<label className={classes.customfile}>
+
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -381,62 +367,59 @@ const AddMemory = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="ECC">
-									ECC:
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="ECC">
+										ECC:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Buffered">
-									Buffered:
+									<label className={classes.label1} htmlFor="Buffered">
+										Buffered:
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="Multi_Channel_Kit">
-									Multi Channel Kit:
+									<label className={classes.label1} htmlFor="Multi_Channel_Kit">
+										Multi Channel Kit:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="chipset">
-									Chipset:
+									<label className={classes.label1} htmlFor="chipset">
+										Chipset:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="color">
-									Color:
+									<label className={classes.label1} htmlFor="color">
+										Color:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="HeatSpreader">
-									Heat Spreader:
+									<label className={classes.label1} htmlFor="HeatSpreader">
+										Heat Spreader:
 									</label>
 									<br />
-									<label
-										className={classes.label}
-										htmlFor="features"
-									>
+									<label className={classes.label1} htmlFor="features">
 										Features:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="recommendUse">
-									Recommend Use:
+									<label className={classes.label1} htmlFor="recommendUse">
+										Recommend Use:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Power_Consumption">
-									Power Consumption:
+									<label className={classes.label1} htmlFor="Power_Consumption">
+										Power Consumption:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="voltage">
-									Voltage:
+									<label className={classes.label1} htmlFor="voltage">
+										Voltage:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="timing">
-									Timing:
+									<label className={classes.label1} htmlFor="timing">
+										Timing:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="gallery">
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="ECC"
 										name="ECC"
@@ -448,7 +431,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Buffered"
 										name="Buffered"
@@ -461,7 +444,7 @@ const AddMemory = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										Capacity="text"
 										id="Multi_Channel_Kit"
 										name="Multi_Channel_Kit"
@@ -473,7 +456,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="chipset"
 										name="chipset"
@@ -485,7 +468,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="color"
 										name="color"
@@ -497,7 +480,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="HeatSpreader"
 										name="HeatSpreader"
@@ -509,7 +492,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="features"
 										name="features"
@@ -524,7 +507,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="recommendUse"
 										name="recommendUse"
@@ -536,7 +519,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="Power_Consumption"
 										name="Power_Consumption"
@@ -548,7 +531,7 @@ const AddMemory = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="voltage"
 										name="voltage"
@@ -561,7 +544,7 @@ const AddMemory = (props) => {
 
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="timing"
 										name="timing"
@@ -573,9 +556,9 @@ const AddMemory = (props) => {
 									/>
 									<br />
 
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="gallery"
 											name="gallery"
@@ -597,9 +580,9 @@ const AddMemory = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								Capacity="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}

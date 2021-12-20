@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 const AddSSD = (props) => {
 	let [data, setData] = useState({
 		title: "",
@@ -70,7 +70,7 @@ const AddSSD = (props) => {
 			alert("Please enter data in all the given fields (MTTF)");
 		} else if (data.Cache === "") {
 			alert("Please enter data in all the given fields (MTTF)");
-		}else if (data.Feature === "") {
+		} else if (data.Feature === "") {
 			alert("Please enter data in all the given fields (Feature)");
 		} else if (data.Operating_Temperature === "") {
 			alert("Please enter data in all the given fields(Operating_Temperature)");
@@ -114,7 +114,7 @@ const AddSSD = (props) => {
 				.post("pcParts/ssd", formData)
 				.then((res) => {
 					console.log("product Added successfully");
-					console.log(data)
+					console.log(data);
 					setLoading(false);
 					props.history.replace("/admin-panel/managessd");
 				})
@@ -131,60 +131,60 @@ const AddSSD = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Add SSD</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Add SSD</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							encType="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="series">
+									<label className={classes.label1} htmlFor="series">
 										Series:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										Model:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Device_Type">
+									<label className={classes.label1} htmlFor="Device_Type">
 										Device_Type:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="UsedFor">
+									<label className={classes.label1} htmlFor="UsedFor">
 										UsedFor:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Interface">
-									Interface:
+									<label className={classes.label1} htmlFor="Interface">
+										Interface:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Cache">
-									Cache:
+									<label className={classes.label1} htmlFor="Cache">
+										Cache:
 									</label>
 									<br />
-									
-									<label className={classes.label} htmlFor="thumbnail">
+
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="title"
 										name="title"
@@ -196,7 +196,7 @@ const AddSSD = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="price"
 										name="price"
@@ -213,7 +213,7 @@ const AddSSD = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="brand"
 										name="brand"
@@ -225,7 +225,7 @@ const AddSSD = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="series"
 										name="series"
@@ -237,7 +237,7 @@ const AddSSD = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="model"
 										name="model"
@@ -249,7 +249,7 @@ const AddSSD = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Device_Type"
 										name="Device_Type"
@@ -261,7 +261,7 @@ const AddSSD = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="UsedFor"
 										name="UsedFor"
@@ -273,7 +273,7 @@ const AddSSD = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Interface"
 										name="Interface"
@@ -285,7 +285,7 @@ const AddSSD = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Cache"
 										name="Cache"
@@ -297,9 +297,9 @@ const AddSSD = (props) => {
 									/>
 									<br />
 
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -311,66 +311,75 @@ const AddSSD = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="Max_Sequential_Write">
-									Max Sequential Write:
+								<div className={classes.row1}>
+									<label
+										className={classes.label1}
+										htmlFor="Max_Sequential_Write"
+									>
+										Max Sequential Write:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="MTTF">
-									MTTF:
+									<label className={classes.label1} htmlFor="MTTF">
+										MTTF:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Feature">
-									Feature:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="Operating_Temperature">
-									Operating Temperature:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="Capacity">
-									Capacity:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="Memory_Components">
-									Memory_Components:
+									<label className={classes.label1} htmlFor="Feature">
+										Feature:
 									</label>
 									<br />
 									<label
-										className={classes.label}
-										htmlFor="FormFactor"
+										className={classes.label1}
+										htmlFor="Operating_Temperature"
 									>
+										Operating Temperature:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="Capacity">
+										Capacity:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="Memory_Components">
+										Memory_Components:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="FormFactor">
 										Form Factor:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Max_Sequential_Read">
-									Max Sequential Reads:
+									<label
+										className={classes.label1}
+										htmlFor="Max_Sequential_Read"
+									>
+										Max Sequential Reads:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="gallery">
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Max_Sequential_Write"
 										name="Max_Sequential_Write"
 										placeholder="Enter Max Sequential Write"
 										required
 										onChange={(e) => {
-											setData({ ...data, Max_Sequential_Write: e.target.value });
+											setData({
+												...data,
+												Max_Sequential_Write: e.target.value,
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="quantity"
 										name="quantity"
@@ -388,7 +397,7 @@ const AddSSD = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="MTTF"
 										name="MTTF"
@@ -400,7 +409,7 @@ const AddSSD = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Feature"
 										name="Feature"
@@ -412,19 +421,22 @@ const AddSSD = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Operating_Temperature"
 										name="Operating_Temperature"
 										placeholder="Enter Operating Temperature."
 										required
 										onChange={(e) => {
-											setData({ ...data, Operating_Temperature: e.target.value });
+											setData({
+												...data,
+												Operating_Temperature: e.target.value,
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Capacity"
 										name="Capacity"
@@ -436,7 +448,7 @@ const AddSSD = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Memory_Components"
 										name="Memory_Components"
@@ -448,7 +460,7 @@ const AddSSD = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="FormFactor"
 										name="FormFactor"
@@ -460,7 +472,7 @@ const AddSSD = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Max_Sequential_Read"
 										name="Max_Sequential_Read"
@@ -474,9 +486,9 @@ const AddSSD = (props) => {
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="gallery"
 											name="gallery"
@@ -498,9 +510,9 @@ const AddSSD = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}

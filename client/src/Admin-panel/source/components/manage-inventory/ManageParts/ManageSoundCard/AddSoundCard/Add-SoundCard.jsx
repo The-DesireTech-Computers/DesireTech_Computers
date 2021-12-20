@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 const AddSoundcard = (props) => {
 	let [data, setData] = useState({
 		title: "",
@@ -12,7 +12,7 @@ const AddSoundcard = (props) => {
 		brand: "",
 		series: "",
 		model: "",
-        part: "",
+		part: "",
 
 		Audio_Chipset: "",
 		Sample_Rate: "",
@@ -30,7 +30,6 @@ const AddSoundcard = (props) => {
 
 		Package_Contents: "",
 		Dimentions: "",
-
 	});
 	let [thumbnail, setThumbnail] = useState(null);
 	let [gallery, setGallery] = useState(null);
@@ -81,7 +80,7 @@ const AddSoundcard = (props) => {
 			alert("Please enter data in all the given fields (Package_Contents)");
 		} else if (data.Dimentions === "") {
 			alert("Please enter data in all the given fields (Dimentions)");
-		}else if (thumbnail === null) {
+		} else if (thumbnail === null) {
 			alert("Please provide a picture as a thumbnail picture(thumbnail)");
 		} else if (gallery === null) {
 			alert("Please provide atleaste 1 picture as gallery(gallery)");
@@ -113,7 +112,6 @@ const AddSoundcard = (props) => {
 			);
 			formData.append("Package_Contents", data.Package_Contents);
 			formData.append("Dimentions", data.Dimentions);
-			
 
 			formData.append("thumbnail", thumbnail);
 
@@ -143,64 +141,64 @@ const AddSoundcard = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Add Soundcard</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Add Soundcard</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							encpart="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="series">
+									<label className={classes.label1} htmlFor="series">
 										Series:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										Model:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="part">
+									<label className={classes.label1} htmlFor="part">
 										part:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Audio_Chipset">
+									<label className={classes.label1} htmlFor="Audio_Chipset">
 										Audio_Chipset:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Sample_Rate">
+									<label className={classes.label1} htmlFor="Sample_Rate">
 										Sample Rate:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Digital_Audio">
-									Digital Audio:
+									<label className={classes.label1} htmlFor="Digital_Audio">
+										Digital Audio:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="SNR">
-									SNR:
+									<label className={classes.label1} htmlFor="SNR">
+										SNR:
 									</label>
 									<br />
-									
-									<label className={classes.label} htmlFor="thumbnail">
+
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="title"
 										name="title"
@@ -212,7 +210,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="number"
 										id="price"
 										name="price"
@@ -229,7 +227,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="brand"
 										name="brand"
@@ -241,7 +239,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="series"
 										name="series"
@@ -253,7 +251,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="model"
 										name="model"
@@ -265,7 +263,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="part"
 										name="part"
@@ -277,7 +275,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="Audio_Chipset"
 										name="Audio_Chipset"
@@ -289,7 +287,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="Sample_Rate"
 										name="Sample_Rate"
@@ -301,7 +299,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="Digital_Audio"
 										name="Digital_Audio"
@@ -313,7 +311,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="SNR"
 										name="SNR"
@@ -325,9 +323,9 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											part="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -339,63 +337,66 @@ const AddSoundcard = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="Line_Out">
-									Line Out:
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="Line_Out">
+										Line Out:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="SPDIF_Out">
-									SPDIF Out:
+									<label className={classes.label1} htmlFor="SPDIF_Out">
+										SPDIF Out:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Other_Ports">
-									Other Ports:
+									<label className={classes.label1} htmlFor="Other_Ports">
+										Other Ports:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Interface">
-									Interface:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="Operating_System_Supported">
-									Operating System Supported:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="System_Requirments">
-									System Requirments:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="Package_Contents">
-									Package Contents:
+									<label className={classes.label1} htmlFor="Interface">
+										Interface:
 									</label>
 									<br />
 									<label
-										className={classes.label}
-										htmlFor="Encode"
+										className={classes.label1}
+										htmlFor="Operating_System_Supported"
 									>
+										Operating System Supported:
+									</label>
+									<br />
+									<label
+										className={classes.label1}
+										htmlFor="System_Requirments"
+									>
+										System Requirments:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="Package_Contents">
+										Package Contents:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="Encode">
 										Encode:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Line_In">
-									Line In :
+									<label className={classes.label1} htmlFor="Line_In">
+										Line In :
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Dimentions">
-									Dimentions:
+									<label className={classes.label1} htmlFor="Dimentions">
+										Dimentions:
 									</label>
-									
+
 									<br />
-									<label className={classes.label} htmlFor="gallery">
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="Line_Out"
 										name="Line_Out"
@@ -407,7 +408,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="number"
 										id="quantity"
 										name="quantity"
@@ -425,7 +426,7 @@ const AddSoundcard = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="SPDIF_Out"
 										name="SPDIF_Out"
@@ -437,7 +438,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="Other_Ports"
 										name="Other_Ports"
@@ -449,7 +450,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="Interface"
 										name="Interface"
@@ -461,7 +462,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="Operating_System_Supported"
 										name="Operating_System_Supported"
@@ -476,7 +477,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="System_Requirments"
 										name="System_Requirments"
@@ -488,7 +489,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="Package_Contents"
 										name="Package_Contents"
@@ -500,7 +501,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="Encode"
 										name="Encode"
@@ -512,7 +513,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="Line_In"
 										name="Line_In"
@@ -524,7 +525,7 @@ const AddSoundcard = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										part="text"
 										id="Dimentions"
 										name="Dimentions"
@@ -537,11 +538,11 @@ const AddSoundcard = (props) => {
 											});
 										}}
 									/>
-								
+
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											part="file"
 											id="gallery"
 											name="gallery"
@@ -563,9 +564,9 @@ const AddSoundcard = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								part="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}

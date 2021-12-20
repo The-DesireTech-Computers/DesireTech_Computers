@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
-import classes from "../../Form.module.css";
+import classes from "../../../Form.module.css";
 
 const UpdateCaseFan = (props) => {
 	let [data, setData] = useState();
@@ -62,9 +62,7 @@ const UpdateCaseFan = (props) => {
 		} else if (data.RPM === "") {
 			alert("Please enter data in all the given fields (RPM)");
 		} else if (data.AirFlow === "") {
-			alert(
-				"Please enter data in all the given fields (AirFlow)"
-			);
+			alert("Please enter data in all the given fields (AirFlow)");
 		} else if (data.NoiseLvel === "") {
 			alert("Please enter data in all the given fields  (NoiseLvel)");
 		} else if (data.PowerConnector === "") {
@@ -93,10 +91,7 @@ const UpdateCaseFan = (props) => {
 			formData.append("Size", data.Size);
 			formData.append("BearingType", data.BearingType);
 			formData.append("RPM", data.RPM);
-			formData.append(
-				"AirFlow",
-				data.AirFlow
-			);
+			formData.append("AirFlow", data.AirFlow);
 			formData.append("NoiseLvel", data.NoiseLvel);
 			formData.append("PowerConnector", data.PowerConnector);
 			formData.append("Color", data.Color);
@@ -131,63 +126,60 @@ const UpdateCaseFan = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Add Case Fan</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Add Case Fan</h1>
 						<form
-							className={classes.form}
+							className={classes.form1}
 							method="post"
 							encType="multipart/form-data"
 						>
-							<div className={classes.form2}>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="title">
+							<div className={classes.form21}>
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="title">
 										Title:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="price">
+									<label className={classes.label1} htmlFor="price">
 										Price:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="brand">
+									<label className={classes.label1} htmlFor="brand">
 										Brand:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="series">
+									<label className={classes.label1} htmlFor="series">
 										Series:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="model">
+									<label className={classes.label1} htmlFor="model">
 										Model:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="type">
+									<label className={classes.label1} htmlFor="type">
 										Type:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Compatability">
-									Compatability:
+									<label className={classes.label1} htmlFor="Compatability">
+										Compatability:
 									</label>
-									
+
 									<br />
-									<label
-										className={classes.label}
-										htmlFor="AirFlow"
-									>
+									<label className={classes.label1} htmlFor="AirFlow">
 										Air Flow:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="NoiseLvel">
-									Noise Lvel:
+									<label className={classes.label1} htmlFor="NoiseLvel">
+										Noise Lvel:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="thumbnail">
+									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="title"
 										name="title"
@@ -199,7 +191,7 @@ const UpdateCaseFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="price"
 										name="price"
@@ -216,7 +208,7 @@ const UpdateCaseFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="brand"
 										name="brand"
@@ -228,7 +220,7 @@ const UpdateCaseFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="series"
 										name="series"
@@ -240,7 +232,7 @@ const UpdateCaseFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="model"
 										name="model"
@@ -252,7 +244,7 @@ const UpdateCaseFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="type"
 										name="type"
@@ -264,7 +256,7 @@ const UpdateCaseFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Compatability"
 										name="Compatability"
@@ -275,8 +267,8 @@ const UpdateCaseFan = (props) => {
 										}}
 									/>
 									<br />
-									    <input
-										className={classes.input}
+									<input
+										className={classes.input1}
 										type="text"
 										id="AirFlow"
 										name="AirFlow"
@@ -291,7 +283,7 @@ const UpdateCaseFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="NoiseLvel"
 										name="NoiseLvel"
@@ -302,9 +294,9 @@ const UpdateCaseFan = (props) => {
 										}}
 									/>
 									<br />
-									<label className={classes.customfile}>
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -316,47 +308,47 @@ const UpdateCaseFan = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="PowerConnector">
-									PowerConnector:
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="PowerConnector">
+										PowerConnector:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="quantity">
+									<label className={classes.label1} htmlFor="quantity">
 										Quantity:
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="Color">
-									Color:
+									<label className={classes.label1} htmlFor="Color">
+										Color:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="LED">
-									LED:
+									<label className={classes.label1} htmlFor="LED">
+										LED:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="Size">
-									Size:
+									<label className={classes.label1} htmlFor="Size">
+										Size:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="BearingType">
-									BearingType:
+									<label className={classes.label1} htmlFor="BearingType">
+										BearingType:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="RPM">
-									RPM:
+									<label className={classes.label1} htmlFor="RPM">
+										RPM:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="feature">
-									feature:
+									<label className={classes.label1} htmlFor="feature">
+										feature:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="gallery">
+									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
 								</div>
-								<div className={classes.row}>
+								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="PowerConnector"
 										name="PowerConnector"
@@ -368,7 +360,7 @@ const UpdateCaseFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="quantity"
 										name="quantity"
@@ -386,7 +378,7 @@ const UpdateCaseFan = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Color"
 										name="Color"
@@ -396,9 +388,9 @@ const UpdateCaseFan = (props) => {
 											setData({ ...data, Color: e.target.value });
 										}}
 									/>
-									<br /> 
+									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="LED"
 										name="LED"
@@ -410,7 +402,7 @@ const UpdateCaseFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="Size"
 										name="Size"
@@ -422,7 +414,7 @@ const UpdateCaseFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="BearingType"
 										name="BearingType"
@@ -434,7 +426,7 @@ const UpdateCaseFan = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="RPM"
 										name="RPM"
@@ -449,9 +441,8 @@ const UpdateCaseFan = (props) => {
 									/>
 									<br />
 
-									
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="feature"
 										name="feature"
@@ -462,10 +453,10 @@ const UpdateCaseFan = (props) => {
 										}}
 									/>
 									<br />
-									
-									<label className={classes.customfile}>
+
+									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="gallery"
 											name="gallery"
@@ -487,9 +478,9 @@ const UpdateCaseFan = (props) => {
 								</div>
 							</div>
 						</form>
-						<div className={classes.btnDiv}>
+						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}
