@@ -27,7 +27,7 @@ let ProductCard = ({
 			<div className="card">
 				<img src={img} className="card-img-top" alt="..." />
 				<div className="card-body">
-					<p className="card-text">{title}</p>
+					<p className="card-text">{title.substring(0, 70)}...</p>
 				</div>
 				<ul className="list-group list-group-flush">
 					<li className="list-group-item">Price: {price} PKR</li>

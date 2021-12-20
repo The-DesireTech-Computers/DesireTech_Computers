@@ -1,346 +1,346 @@
 /* css for 1st navbar */
 
 .unlist {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: black;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  box-shadow: 0px 0px 10px white;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: black;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	box-shadow: 0px 0px 10px white;
 }
 
 .navleft {
-  margin-left: 20px;
-  float: left;
+	margin-left: 20px;
+	float: left;
 }
 
 .navright {
-  float: right;
-  margin-right: 20px;
+	float: right;
+	margin-right: 20px;
 }
 
 .iconstyle1 {
-  font-size: 23px;
-  margin-bottom: 1px;
-  color: white;
+	font-size: 23px;
+	margin-bottom: 1px;
+	color: white;
 }
 
 .iconstylebox {
-  padding: 3px 16px;
-  transition: all 0.4s;
-  text-align: center;
+	padding: 3px 16px;
+	transition: all 0.4s;
+	text-align: center;
 }
 
 .iconstylebox.active {
-  background-color: rgb(182, 23, 23);
-  color: rgb(255, 255, 255);
-  border-radius: 10px;
+	background-color: rgb(182, 23, 23);
+	color: rgb(255, 255, 255);
+	border-radius: 10px;
 }
 
 .iconstylebox:hover {
-  background-color: white;
-  border-radius: 10px;
-  cursor: pointer;
+	background-color: white;
+	border-radius: 10px;
+	cursor: pointer;
 }
 .iconstylebox:hover > .iconstyle1 {
-  color: black;
+	color: black;
 }
 
 .links {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 5px 16px;
-  text-decoration: none;
-  transition: all 0.4s;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 5px 16px;
+	text-decoration: none;
+	transition: all 0.4s;
 }
 
 .links.active {
-  background-color: rgb(182, 23, 23);
-  color: white;
-  border-radius: 10px;
+	background-color: rgb(182, 23, 23);
+	color: white;
+	border-radius: 10px;
 }
 
 .links:hover {
-  background-color: white;
-  color: black;
-  border-radius: 10px;
+	background-color: white;
+	color: black;
+	border-radius: 10px;
 }
 
 /* css for logo display in header */
 
 .nav-contain2 {
-  width: 100%;
+	width: 100%;
 }
 
 .logo {
-  display: block;
-  margin: 0 auto;
-  width: clamp(200px, 20%, 250px);
-  height: clamp(80px, 10%, 100px);
-  padding: 5px;
+	display: block;
+	margin: 0 auto;
+	width: clamp(200px, 20%, 250px);
+	height: clamp(80px, 10%, 100px);
+	padding: 5px;
 }
 .logo2 {
-  display: block;
-  margin: 0 auto;
-  width: clamp(50px, 10%, 90px);
-  height: clamp(650px, 50%, 100px);
-  padding: 5px;
+	display: block;
+	margin: 0 auto;
+	width: clamp(50px, 10%, 90px);
+	height: clamp(650px, 50%, 100px);
+	padding: 5px;
 }
 
 /* css for 2nd navbar */
 
 .nav-contain3 {
-  margin: auto;
-  width: 90%;
+	margin: auto;
+	width: 90%;
 }
 
 .navmain {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .nav-sticky {
-  position: fixed;
-  top: 10px;
-  width: 90%;
-  z-index: 5;
+	position: fixed;
+	top: 10px;
+	width: 90%;
+	z-index: 5;
 }
 
 .unlist2 {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: black;
-  border-radius: 15px;
-  box-shadow: 0px 0px 10px white;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: black;
+	border-radius: 15px;
+	box-shadow: 0px 0px 10px white;
 }
 
 .links2:hover > .iconstyle1 {
-  color: rgb(255, 255, 255);
+	color: rgb(255, 255, 255);
 }
 
 .links2 {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 10px 10px;
-  text-decoration: none;
-  transition: all 0.4s;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 10px 10px;
+	text-decoration: none;
+	transition: all 0.4s;
 }
 
 .links2.active {
-  background-color: rgb(182, 23, 23);
-  color: rgb(255, 255, 255);
-  border-radius: 15px;
+	background-color: rgb(182, 23, 23);
+	color: rgb(255, 255, 255);
+	border-radius: 15px;
 }
 
 .links2:hover {
-  background-color: white;
-  color: black;
-  border-radius: 15px;
-  cursor: pointer;
+	background-color: white;
+	color: black;
+	border-radius: 15px;
+	cursor: pointer;
 }
 
 .links2.dropdowns {
-  display: inline-block;
+	display: inline-block;
 }
 
 .links3 {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  text-decoration: none;
-  transition: all 0.4s;
-  position: relative;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 10px;
+	text-decoration: none;
+	transition: all 0.4s;
+	position: relative;
 }
 
 .links3.active {
-  background-color: rgb(182, 23, 23);
-  color: rgb(255, 255, 255);
-  border-radius: 15px;
+	background-color: rgb(182, 23, 23);
+	color: rgb(255, 255, 255);
+	border-radius: 15px;
 }
 
 .links3:hover {
-  background-color: white;
-  color: black;
-  border-radius: 15px;
+	background-color: white;
+	color: black;
+	border-radius: 15px;
 }
 
 .links3.dropdowns {
-  display: inline-block;
+	display: inline-block;
 }
 
 .links4 {
-  display: none;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.4s;
-  left: 100%;
-  white-space: nowrap;
-  background-color: black;
-  border-radius: 15px;
-  top: 0;
-  box-shadow: 0px 0px 10px white;
+	display: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	transition: all 0.4s;
+	left: 100%;
+	white-space: nowrap;
+	background-color: black;
+	border-radius: 15px;
+	top: 0;
+	box-shadow: 0px 0px 10px white;
 }
 
 .links3:hover > .links4 {
-  display: block;
-  position: absolute;
-  margin-left: 3px;
+	display: block;
+	position: absolute;
+	margin-left: 3px;
 }
 
 .dropdown-content {
-  visibility: hidden; /* hides sub-menu */
-  opacity: 0;
-  width: 250px;
-  background-color: black;
-  border-radius: 15px;
-  margin-top: 5px;
-  position: absolute;
-  transform: translateY(-2em);
-  z-index: 2;
-  box-shadow: 0px 0px 10px white;
-  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s;
+	visibility: hidden; /* hides sub-menu */
+	opacity: 0;
+	width: 250px;
+	background-color: black;
+	border-radius: 15px;
+	margin-top: 5px;
+	position: absolute;
+	transform: translateY(-2em);
+	z-index: 2;
+	box-shadow: 0px 0px 10px white;
+	transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s;
 }
 
 .dropdown-content a {
-  text-align: left;
+	text-align: left;
 }
 
 .dropdowns:focus .dropdown-content,
-.dropdowns:focus-within .dropdown-content,
+/* .dropdowns:focus-within .dropdown-content, */
 .dropdowns:hover .dropdown-content {
-  visibility: visible; /* shows sub-menu */
-  opacity: 1;
-  transform: translateY(0%);
-  transition-delay: 0s, 0s, 0.3s; /* this removes the transition delay so the menu will be visible while the other styles transition */
+	visibility: visible; /* shows sub-menu */
+	opacity: 1;
+	transform: translateY(0%);
+	transition-delay: 0s, 0s, 0.3s; /* this removes the transition delay so the menu will be visible while the other styles transition */
 }
 
 /* for the arrow of the dropdown link which has submenu */
 .dropicon {
-  font-size: 30px;
-  margin-bottom: -10px;
+	font-size: 30px;
+	margin-bottom: -10px;
 }
 
 #demo-2 input[type="search"] {
-  outline: none;
-  -webkit-appearance: textfield;
-  box-sizing: content-box;
-  font-family: inherit;
-  font-size: 90%;
-  width: 15px;
-  color: transparent;
-  cursor: pointer;
-  margin-top: 5px;
-  background: skyblue
-    url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat
-    8px center;
-  border: transparent;
-  padding: 5px 10px 9px 9px;
-  -webkit-border-radius: 10em;
-  -moz-border-radius: 10em;
-  border-radius: 10em;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transition: all 0.5s;
+	outline: none;
+	-webkit-appearance: textfield;
+	box-sizing: content-box;
+	font-family: inherit;
+	font-size: 90%;
+	width: 15px;
+	color: transparent;
+	cursor: pointer;
+	margin-top: 5px;
+	background: skyblue
+		url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat
+		8px center;
+	border: transparent;
+	padding: 5px 10px 9px 9px;
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	transition: all 0.5s;
 }
 #demo-2 input[type="search"]:hover {
-  background-color: #fff;
+	background-color: #fff;
 }
 #demo-2 input[type="search"]:focus {
-  width: 170px;
-  padding-left: 32px;
-  padding-top: 5px;
-  padding-bottom: 7px;
-  color: #000;
-  background-color: #fff;
-  cursor: auto;
+	width: 170px;
+	padding-left: 32px;
+	padding-top: 5px;
+	padding-bottom: 7px;
+	color: #000;
+	background-color: #fff;
+	cursor: auto;
 }
 #demo-2 input:-moz-placeholder {
-  color: transparent;
+	color: transparent;
 }
 #demo-2 input::-webkit-input-placeholder {
-  color: transparent;
+	color: transparent;
 }
 
 /* 3rd navbar on low width */
 .navigation-div2 {
-  display: none;
+	display: none;
 }
 
 .navmain2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10px;
 }
 .nav-contain4 {
-  margin: auto;
-  width: 90%;
+	margin: auto;
+	width: 90%;
 }
 
 .nav-sticky2 {
-  position: fixed;
-  top: 10px;
-  width: 90%;
-  z-index: 2;
+	position: fixed;
+	top: 10px;
+	width: 90%;
+	z-index: 2;
 }
 
 /* drawermenu */
 
 .iconstyle2 {
-  font-size: 23px;
-  color: white;
+	font-size: 23px;
+	color: white;
 }
 
 .iconstylebox2:hover > .iconstyle2 {
-  color: black;
+	color: black;
 }
 
 .iconstylebox2 {
-  display: block;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  padding: 10px 10px;
-  text-decoration: none;
-  transition: all 0.4s;
+	display: block;
+	color: rgb(0, 0, 0);
+	text-align: center;
+	padding: 10px 10px;
+	text-decoration: none;
+	transition: all 0.4s;
 }
 
 .iconstylebox2.active {
-  background-color: rgb(182, 23, 23);
-  color: white;
-  border-radius: 15px;
+	background-color: rgb(182, 23, 23);
+	color: white;
+	border-radius: 15px;
 }
 
 .iconstylebox2:hover {
-  color: black;
-  background-color: white;
-  border-radius: 15px;
+	color: black;
+	background-color: white;
+	border-radius: 15px;
 }
 
 @media (max-width: 950px) {
-  .links2 {
-    padding: 10px 0px;
-  }
+	.links2 {
+		padding: 10px 0px;
+	}
 }
 @media (max-width: 850px) {
-  #demo-2 input[type="search"]:focus {
-    width: 100px;
-  }
+	#demo-2 input[type="search"]:focus {
+		width: 100px;
+	}
 }
 
 @media (max-width: 775px) {
-  .navigation-div {
-    display: none;
-  }
-  .navigation-div2 {
-    display: block;
-  }
+	.navigation-div {
+		display: none;
+	}
+	.navigation-div2 {
+		display: block;
+	}
 }

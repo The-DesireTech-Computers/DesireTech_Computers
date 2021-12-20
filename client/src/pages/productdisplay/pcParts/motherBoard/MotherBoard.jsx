@@ -147,13 +147,27 @@ const MotherBoard = () => {
 
 	return (
 		<div className="container-fluid">
-			<div className="row">
+			<div className="container mt-5">
+				<div className="cbcontainer">
+					<div className="hero-image">
+						<img src="/images/others/motherboard.jpg" className="cbimage" />
+						<div className="heroimg">
+							<div className="hero-text-light">
+								<h1 id="cbh1text">Motherboard</h1>
+								<p id="cbptext">Here you can find Motherboards</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="row mt-5">
 				<MotherBoardCategory
 					setCompanyFilterHandler={setCompanyFilterHandler}
 					setPriceFilterHandler={setPriceFilterHandler}
 				/>
 				<div className="col-md-8 ">
-					<div className="container-fluid ">
+					<div className="container-fluid mt-3">
+						<h3 className="cbheading">Motherboards:</h3>
 						<div className="row mx-auto">{products}</div>
 					</div>
 				</div>

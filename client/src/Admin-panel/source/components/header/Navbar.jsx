@@ -12,7 +12,7 @@ const Navbar = (props) => {
 	return (
 		<div className="nav-contain1">
 			<ul className="navlist1">
-				<li className="navleft1 dropdown1">
+				<li className="navleft12 dropdown1">
 					<NavLink className="dropbtn1 linksadmin11" to="/admin-panel/home">
 						Manage Inventory
 					</NavLink>
@@ -26,22 +26,34 @@ const Navbar = (props) => {
 						<div to="/admin-panel/manageparts" className="linksadmin11">
 							Manage PC Parts
 							<div className="linksadmin21">
-								<NavLink className="linksadmin31" to="/admin-panel/managecasing">
+								<NavLink
+									className="linksadmin31"
+									to="/admin-panel/managecasing"
+								>
 									Computer Cases
 								</NavLink>
 								<NavLink className="linksadmin31" to="/admin-panel/managefans">
 									Fans & PC Cooling
 								</NavLink>
-								<NavLink className="linksadmin31" to="/admin-panel/manageharddrive">
+								<NavLink
+									className="linksadmin31"
+									to="/admin-panel/manageharddrive"
+								>
 									Hard Drives
 								</NavLink>
 								<NavLink className="linksadmin31" to="/admin-panel/managessd">
 									SSDs
 								</NavLink>
-								<NavLink className="linksadmin31" to="/admin-panel/managememory">
+								<NavLink
+									className="linksadmin31"
+									to="/admin-panel/managememory"
+								>
 									Memory
 								</NavLink>
-								<NavLink className="linksadmin31" to="/admin-panel/managemotherboard">
+								<NavLink
+									className="linksadmin31"
+									to="/admin-panel/managemotherboard"
+								>
 									MotherBoards
 								</NavLink>
 								<NavLink className="linksadmin31" to="/admin-panel/managecpu">
@@ -50,10 +62,16 @@ const Navbar = (props) => {
 								<NavLink className="linksadmin31" to="/admin-panel/managepsu">
 									Power Supplies
 								</NavLink>
-								<NavLink className="linksadmin31" to="/admin-panel/managesoundcard">
+								<NavLink
+									className="linksadmin31"
+									to="/admin-panel/managesoundcard"
+								>
 									Sound Cards
 								</NavLink>
-								<NavLink className="linksadmin31" to="/admin-panel/managevideocard">
+								<NavLink
+									className="linksadmin31"
+									to="/admin-panel/managevideocard"
+								>
 									Video Cards
 								</NavLink>
 							</div>
@@ -61,50 +79,71 @@ const Navbar = (props) => {
 						<div to="/manageaccessories" className="linksadmin11">
 							Manage PC Accessories
 							<div className="linksadmin21">
-								<NavLink className="linksadmin31" to="/admin-panel/managecaseFan">
+								<NavLink
+									className="linksadmin31"
+									to="/admin-panel/managecaseFan"
+								>
 									Case Fan
 								</NavLink>
-								<NavLink className="linksadmin31" to="/admin-panel/manageheadset">
+								<NavLink
+									className="linksadmin31"
+									to="/admin-panel/manageheadset"
+								>
 									HeadSet
 								</NavLink>
-								<NavLink className="linksadmin31" to="/admin-panel/managekeyboard">
+								<NavLink
+									className="linksadmin31"
+									to="/admin-panel/managekeyboard"
+								>
 									Keyboard
 								</NavLink>
-								<NavLink className="linksadmin31" to="/admin-panel/managemicrophone">
+								<NavLink
+									className="linksadmin31"
+									to="/admin-panel/managemicrophone"
+								>
 									Microphpone
 								</NavLink>
-								<NavLink className="linksadmin31" to="/admin-panel/managemonitor">
+								<NavLink
+									className="linksadmin31"
+									to="/admin-panel/managemonitor"
+								>
 									Monitor
 								</NavLink>
 								<NavLink className="linksadmin31" to="/admin-panel/managemouse">
 									Mouse
 								</NavLink>
-								<NavLink className="linksadmin31" to="/admin-panel/managespeaker">
+								<NavLink
+									className="linksadmin31"
+									to="/admin-panel/managespeaker"
+								>
 									Speaker
 								</NavLink>
-								<NavLink className="linksadmin31" to="/admin-panel/managewebcam">
+								<NavLink
+									className="linksadmin31"
+									to="/admin-panel/managewebcam"
+								>
 									Web Cam
 								</NavLink>
 							</div>
 						</div>
 					</div>
 				</li>
-				<li className="navleft1">
+				<li className="navleft12">
 					<NavLink to="/admin-panel/manageorders" className="linksadmin11">
 						Manage Orders
 					</NavLink>
 				</li>
-				<li className="navleft1">
+				<li className="navleft12">
 					<NavLink to="/admin-panel/managefeedbacks" className="linksadmin11">
 						Manage Feedbacks
 					</NavLink>
 				</li>
-				<li className="navright1">
+				<li className="navright12">
 					<div className="iconstylebox1" onClick={handelLogoutBtn}>
 						<RiLogoutBoxRLine className="iconstyle11" />
 					</div>
 				</li>
-				<li className="navright1">
+				<li className="navright12">
 					<NavLink to="/admin-panel/profile" className="linksadmin11">
 						<RiSettings5Line className="iconstyle21" />
 					</NavLink>

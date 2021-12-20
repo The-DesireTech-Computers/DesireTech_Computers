@@ -211,14 +211,28 @@ const HardDrive = () => {
 
 	return (
 		<div className="container-fluid">
-			<div className="row">
+			<div className="container mt-5">
+				<div className="cbcontainer">
+					<div className="hero-image">
+						<img src="/images/others/hdd.jpg" className="cbimage" />
+						<div className="heroimg">
+							<div className="hero-text-light">
+								<h1 id="cbh1text">Harddrive</h1>
+								<p id="cbptext">Here you can find HDDs</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="row mt-5">
 				<HardDiskCategory
 					setCompanyFilterHandler={setCompanyFilterHandler}
 					setCapacityFilterHandler={setCapacityFilterHandler}
 					setPriceFilterHandler={setPriceFilterHandler}
 				/>
 				<div className="col-md-8 ">
-					<div className="container-fluid ">
+					<div className="container-fluid mt-3">
+						<h3 className="cbheading">Harddrives:</h3>
 						<div className="row mx-auto">{products}</div>
 					</div>
 				</div>

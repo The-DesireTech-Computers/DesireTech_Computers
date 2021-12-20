@@ -19,15 +19,15 @@ const CPU = () => {
 		setPriceFilter(x);
 	};
 	let addToCartBtnHandler = (product_id) => {
-		let cart = localStorage.getItem("casing_cart");
+		let cart = localStorage.getItem("cpu_cart");
 
 		if (cart) {
 			cart = cart.split(",");
 			cart.push(product_id);
 
-			localStorage.setItem("casing_cart", cart);
+			localStorage.setItem("cpu_cart", cart);
 		} else {
-			localStorage.setItem("casing_cart", product_id);
+			localStorage.setItem("cpu_cart", product_id);
 		}
 		console.log(cart);
 	};
@@ -147,13 +147,27 @@ const CPU = () => {
 
 	return (
 		<div className="container-fluid">
-			<div className="row">
+			<div className="container mt-5">
+				<div className="cbcontainer">
+					<div className="hero-image">
+						<img src="/images/others/cpu.jpg" className="cbimage" />
+						<div className="heroimg">
+							<div className="hero-text-light">
+								<h1 id="cbh1text">CPUs</h1>
+								<p id="cbptext">Here you can find CPUs</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="row mt-5">
 				<CPUCategory
 					setCompanyFilterHandler={setCompanyFilterHandler}
 					setPriceFilterHandler={setPriceFilterHandler}
 				/>
 				<div className="col-md-8 ">
-					<div className="container-fluid ">
+					<div className="container-fluid mt-3">
+						<h3 className="cbheading">CPUs:</h3>
 						<div className="row mx-auto">{products}</div>
 					</div>
 				</div>

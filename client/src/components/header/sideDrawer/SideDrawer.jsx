@@ -32,7 +32,7 @@ const SideDrawer = (props) => {
 	let groupdiv = null;
 	if (group1) {
 		groupdiv = (
-			<div>
+			<div className="mt-3 border">
 				<NavLink className="links5" to="/" onClick={props.closeSideDrawer}>
 					Home
 				</NavLink>
@@ -47,97 +47,165 @@ const SideDrawer = (props) => {
 		);
 	} else if (group2) {
 		groupdiv = (
-			<div>
+			<div className="mt-3 border">
+				<NavLink
+					className="links5"
+					to="/custom-built"
+					onClick={props.closeSideDrawer}
+				>
+					Custom-Built PCs
+				</NavLink>
 				<Dropdown name="Pre-Built PCs">
 					<NavLink
 						className="links5"
-						to="/submenu38"
+						to="/desktops"
 						onClick={props.closeSideDrawer}
 					>
-						Company1
+						Desktops
 					</NavLink>
 					<NavLink
 						className="links5"
-						to="/submenu1"
+						to="/laptops"
 						onClick={props.closeSideDrawer}
 					>
-						Company2
-					</NavLink>
-					<NavLink
-						className="links5"
-						to="/submenu2"
-						onClick={props.closeSideDrawer}
-					>
-						Company3
+						Laptops
 					</NavLink>
 				</Dropdown>
 				<Dropdown name="PC Parts">
 					<NavLink
 						className="links5"
-						to="/submenu12"
 						onClick={props.closeSideDrawer}
+						to="/pcparts/casing"
 					>
-						Company1
+						Computer Cases
 					</NavLink>
 					<NavLink
 						className="links5"
-						to="/submenu13"
 						onClick={props.closeSideDrawer}
+						to="/pcparts/coolingsystem"
 					>
-						Company1
+						Fans & PC Cooling
 					</NavLink>
 					<NavLink
 						className="links5"
-						to="/submenu14"
 						onClick={props.closeSideDrawer}
+						to="/pcparts/harddrive"
 					>
-						Company1
+						Hard Drives
+					</NavLink>
+					<NavLink
+						className="links5"
+						onClick={props.closeSideDrawer}
+						to="/pcparts/ssd"
+					>
+						SSDs
+					</NavLink>
+					<NavLink
+						className="links5"
+						onClick={props.closeSideDrawer}
+						to="/pcparts/memory"
+					>
+						Memory
+					</NavLink>
+					<NavLink
+						className="links5"
+						onClick={props.closeSideDrawer}
+						to="/pcparts/motherboard"
+					>
+						MotherBoards
+					</NavLink>
+					<NavLink
+						className="links5"
+						onClick={props.closeSideDrawer}
+						to="/pcparts/cpu"
+					>
+						CPUs/Processors
+					</NavLink>
+					<NavLink
+						className="links5"
+						onClick={props.closeSideDrawer}
+						to="/pcparts/psu"
+					>
+						Power Supplies
+					</NavLink>
+					<NavLink
+						className="links5"
+						onClick={props.closeSideDrawer}
+						to="/pcparts/soundcard"
+					>
+						Sound Cards
+					</NavLink>
+					<NavLink
+						className="links5"
+						onClick={props.closeSideDrawer}
+						to="/pcparts/videocard"
+					>
+						Video Cards
 					</NavLink>
 				</Dropdown>
 				<Dropdown name="PC Accessories">
 					<NavLink
 						className="links5"
-						to="/submenu26"
 						onClick={props.closeSideDrawer}
+						to="/pcaccessories/casefan"
 					>
-						Company1
+						Case Fan
 					</NavLink>
 					<NavLink
 						className="links5"
-						to="/submenu27"
 						onClick={props.closeSideDrawer}
+						to="/pcaccessories/headset"
 					>
-						Company1
+						Headset
 					</NavLink>
 					<NavLink
 						className="links5"
-						to="/submenu28"
 						onClick={props.closeSideDrawer}
+						to="/pcaccessories/keyboard"
 					>
-						Company1
-					</NavLink>
-				</Dropdown>
-				<Dropdown name="Custom-Built">
-					<NavLink
-						className="links5"
-						to="/submenu29"
-						onClick={props.closeSideDrawer}
-					>
-						Company1
+						Keyboard
 					</NavLink>
 					<NavLink
 						className="links5"
-						to="/submenu30"
 						onClick={props.closeSideDrawer}
+						to="/pcaccessories/microphone"
 					>
-						Company1
+						Microphone
+					</NavLink>
+					<NavLink
+						className="links5"
+						onClick={props.closeSideDrawer}
+						to="/pcaccessories/monitor"
+					>
+						Monitor
+					</NavLink>
+					<NavLink
+						className="links5"
+						onClick={props.closeSideDrawer}
+						to="/pcaccessories/mouse"
+					>
+						Mouse
+					</NavLink>
+					<NavLink
+						className="links5"
+						onClick={props.closeSideDrawer}
+						to="/pcaccessories/speaker"
+					>
+						Speaker
+					</NavLink>
+					<NavLink
+						className="links5"
+						onClick={props.closeSideDrawer}
+						to="/pcaccessories/webcam"
+					>
+						Webcam
 					</NavLink>
 				</Dropdown>
 			</div>
 		);
 	} else if (group3) {
 		groupdiv = (
-			<div>
+			<div className="mt-3 border ">
 				<NavLink className="links5" to="/login" onClick={props.closeSideDrawer}>
 					Login
 				</NavLink>
@@ -162,21 +230,21 @@ const SideDrawer = (props) => {
 				<div className="btn-group" role="group">
 					<button
 						type="button"
-						className="btn btn-outline-primary"
+						className="btn btn-outline-success"
 						onClick={group1handler}
 					>
 						DesireTech
 					</button>
 					<button
 						type="button"
-						className="btn btn-outline-primary"
+						className="btn btn-outline-info"
 						onClick={group2handler}
 					>
 						Store
 					</button>
 					<button
 						type="button"
-						className="btn btn-outline-primary"
+						className="btn btn-outline-danger"
 						onClick={group3handler}
 					>
 						Account

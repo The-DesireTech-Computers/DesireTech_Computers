@@ -3,7 +3,7 @@ import "./Home.css";
 import Navbar from "../header/Navbar";
 const Home = () => {
 	return (
-		<div className="container">
+		<div>
 			<Navbar />
 		</div>
 	);

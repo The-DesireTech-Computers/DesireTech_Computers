@@ -9,15 +9,15 @@ const PSUDisplay = (props) => {
 	let [data, setData] = useState();
 
 	let addToCartBtnHandler = (product_id) => {
-		let cart = localStorage.getItem("preBuilt_cart");
+		let cart = localStorage.getItem("psu_cart");
 
 		if (cart) {
 			cart = cart.split(",");
 			cart.push(data._id);
 
-			localStorage.setItem("preBuilt_cart", cart);
+			localStorage.setItem("psu_cart", cart);
 		} else {
-			localStorage.setItem("preBuilt_cart", data._id);
+			localStorage.setItem("psu_cart", data._id);
 		}
 		console.log(cart);
 	};
@@ -37,7 +37,7 @@ const PSUDisplay = (props) => {
 	useEffect(() => {
 		if (id) {
 			axios
-				.get("preBuiltDesktop/" + id)
+				.get("pcParts/psu/" + id)
 				.then((res) => {
 					console.log(res.data);
 					setData(res.data);
@@ -47,6 +47,10 @@ const PSUDisplay = (props) => {
 				});
 		}
 	}, [id]);
+	let footer = null;
+	if (data) {
+		footer = <DetailFooter id={data ? data._id : null} />;
+	}
 
 	return (
 		<div className="container mt-5 detailcolor">
@@ -77,213 +81,105 @@ const PSUDisplay = (props) => {
 							<td>{data ? data.Model.model : ""}</td>
 						</tr>
 						<tr>
-							<th>Quick Info</th>
+							<th>Details</th>
 							<th></th>
 						</tr>
 						<tr>
 							<td>Type:</td>
-							<td>{data ? data.information.Type : ""}</td>
+							<td>{data ? data.Details.Type : ""}</td>
 						</tr>
 						<tr>
-							<td>Form Factor:</td>
-							<td>{data ? data.information.formFactor : ""}</td>
+							<td>Maximum Power:</td>
+							<td>{data ? data.Details.Maximum_Power : ""}</td>
 						</tr>
 						<tr>
-							<td>Usage:</td>
-							<td>{data ? data.information.usage : ""}</td>
+							<td>Fans:</td>
+							<td>{data ? data.Details.Fans : ""}</td>
 						</tr>
 						<tr>
-							<td>Processor:</td>
-							<td>{data ? data.information.processor : ""}</td>
+							<td>PFC:</td>
+							<td>{data ? data.Details.PFC : ""}</td>
 						</tr>
 						<tr>
-							<td>Processor Main Feature:</td>
-							<td>{data ? data.information.processorMainFeatures : ""}</td>
+							<td>Main Connectors:</td>
+							<td>{data ? data.Details.Main_Connectors : ""}</td>
 						</tr>
 						<tr>
-							<td>Cache Per Processor:</td>
-							<td>{data ? data.information.cachePerProcessor : ""}</td>
+							<td>Rails:</td>
+							<td>{data ? data.Details.Rails : ""}</td>
 						</tr>
 						<tr>
-							<td>Memory:</td>
-							<td>{data ? data.information.memory : ""}</td>
+							<td>PCI Express Connector:</td>
+							<td>{data ? data.Details.PCI_Express_Connector : ""}</td>
 						</tr>
 						<tr>
-							<td>Storage:</td>
-							<td>{data ? data.information.storage : ""}</td>
+							<td>SATA Power Connector:</td>
+							<td>{data ? data.Details.SATA_Power_Connector : ""}</td>
 						</tr>
 						<tr>
-							<td>Graphics:</td>
-							<td>{data ? data.information.graphics : ""}</td>
+							<td>SLI:</td>
+							<td>{data ? data.Details.SLI : ""}</td>
 						</tr>
 						<tr>
-							<td>Power Supply:</td>
-							<td>{data ? data.information.powerSupply : ""}</td>
+							<td>Haswell Support:</td>
+							<td>{data ? data.Details.Haswell_Support : ""}</td>
 						</tr>
 						<tr>
-							<td>Case:</td>
-							<td>{data ? data.information.case : ""}</td>
+							<td>Crossfire:</td>
+							<td>{data ? data.Details.CrossFire : ""}</td>
 						</tr>
 						<tr>
-							<td>Cooling System:</td>
-							<td>{data ? data.information.coolingSystem : ""}</td>
+							<td>Modular:</td>
+							<td>{data ? data.Details.Modular : ""}</td>
 						</tr>
 						<tr>
-							<td>Operating System:</td>
-							<td>{data ? data.information.operatingSystem : ""}</td>
+							<td>Energy Efficient:</td>
+							<td>{data ? data.Details.Energy_Efficent : ""}</td>
 						</tr>
 						<tr>
-							<td>Windows:</td>
-							<td>{data ? data.information.windows : ""}</td>
+							<td>Input Voltage:</td>
+							<td>{data ? data.Details.Input_Voltage : ""}</td>
 						</tr>
 						<tr>
-							<th>MotherBoard</th>
+							<td>Input Frequency Range:</td>
+							<td>{data ? data.Details.Input_Frequency_Range : ""}</td>
+						</tr>
+						<tr>
+							<td>Input Current:</td>
+							<td>{data ? data.Details.Input_Current : ""}</td>
+						</tr>
+						<tr>
+							<td>Output:</td>
+							<td>{data ? data.Details.Output : ""}</td>
+						</tr>
+						<tr>
+							<td>Dimentions:</td>
+							<td>{data ? data.Details.Dimentions : ""}</td>
+						</tr>
+						<tr>
+							<td>Max PSU Length:</td>
+							<td>{data ? data.Details.Max_PSU_Length : ""}</td>
+						</tr>
+						<tr>
+							<td>Weight:</td>
+							<td>{data ? data.Details.Weight : ""}</td>
+						</tr>
+						<tr>
+							<th>Features</th>
 							<th></th>
 						</tr>
 						<tr>
-							<td>Chipset:</td>
-							<td>{data ? data.MotherBoard.chipset : ""}</td>
+							<td>Connectors:</td>
+							<td>{data ? data.Features.Connectors : ""}</td>
 						</tr>
 						<tr>
-							<td>MotherBoard Name:</td>
-							<td>{data ? data.MotherBoard.motherBoardName : ""}</td>
-						</tr>
-						<tr>
-							<th>CPU</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td>CPU Type:</td>
-							<td>{data ? data.CPU.CPU_Type : ""}</td>
-						</tr>
-						<tr>
-							<td>CPU Speed:</td>
-							<td>{data ? data.CPU.CPU_Speed : ""}</td>
-						</tr>
-						<tr>
-							<td>L3 Cache Per CPU:</td>
-							<td>{data ? data.CPU.L3_Cache_Per_CPU : ""}</td>
-						</tr>
-						<tr>
-							<td>CPU Main Features:</td>
-							<td>{data ? data.CPU.CPU_MainFeatures : ""}</td>
-						</tr>
-						<tr>
-							<th>Graphics</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td>GPU Type:</td>
-							<td>{data ? data.Graphics.GPU_Type : ""}</td>
-						</tr>
-						<tr>
-							<td>Video Memory:</td>
-							<td>{data ? data.Graphics.VideoMemory : ""}</td>
-						</tr>
-						<tr>
-							<td>VR Ready:</td>
-							<td>{data ? data.Graphics.VR_Ready : ""}</td>
-						</tr>
-						<tr>
-							<th>Memory</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td>Capacity:</td>
-							<td>{data ? data.Memory.capacity : ""}</td>
-						</tr>
-						<tr>
-							<td>Speed:</td>
-							<td>{data ? data.Memory.speed : ""}</td>
-						</tr>
-						<tr>
-							<td>Spec:</td>
-							<td>{data ? data.Memory.spec : ""}</td>
-						</tr>
-						<tr>
-							<th>Storage</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td>SSD:</td>
-							<td>{data ? data.Storage.SSD : ""}</td>
-						</tr>
-						<tr>
-							<td>HDD:</td>
-							<td>{data ? data.Storage.HDD : ""}</td>
-						</tr>
-						<tr>
-							<th>Optical Drive</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td>Type:</td>
-							<td>{data ? data.Optical_Drive.Type : ""}</td>
-						</tr>
-						<tr>
-							<th>Communication</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td>LAN Speed:</td>
-							<td>{data ? data.Communication.LAN_Speed : ""}</td>
-						</tr>
-						<tr>
-							<td>WLAN:</td>
-							<td>{data ? data.Communication.WLAN : ""}</td>
-						</tr>
-						<tr>
-							<th>Audio</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td>WIFI Generation:</td>
-							<td>{data ? data.Audio.WIFI_Generation : ""}</td>
-						</tr>
-						<tr>
-							<th>Front Panel Ports</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td>Front USB:</td>
-							<td>{data ? data.FrontPanelPorts.Front_USB : ""}</td>
-						</tr>
-						<tr>
-							<td>Front Audio Ports:</td>
-							<td>{data ? data.FrontPanelPorts.FrontAudioPorts : ""}</td>
-						</tr>
-						<tr>
-							<th>Back Panel Ports:</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td>PS 2:</td>
-							<td>{data ? data.BackPanelPorts.PS_2 : ""}</td>
-						</tr>
-						<tr>
-							<td>Video Port:</td>
-							<td>{data ? data.BackPanelPorts.videoPort : ""}</td>
-						</tr>
-						<tr>
-							<td>Rear USB:</td>
-							<td>{data ? data.BackPanelPorts.Rear_USB : ""}</td>
-						</tr>
-						<tr>
-							<td>Rj45:</td>
-							<td>{data ? data.BackPanelPorts.Rj45 : ""}</td>
-						</tr>
-						<tr>
-							<td>Rear Audio Ports:</td>
-							<td>{data ? data.BackPanelPorts.RearAudioPorts : ""}</td>
-						</tr>
-						<tr>
-							<td>SP DIF:</td>
-							<td>{data ? data.BackPanelPorts.SP_DIF : ""}</td>
+							<td>Features:</td>
+							<td>{data ? data.Features.Features : ""}</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-			<DetailFooter id={data ? data._id : ""} />
+			{footer}
 		</div>
 	);
 };

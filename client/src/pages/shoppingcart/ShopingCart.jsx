@@ -17,7 +17,6 @@ const ShoppingCart = (props) => {
 
 	let main_cart = [];
 
-
 	let deleteBtnHandler = (id) => {
 		let prebuilt = localStorage.getItem("preBuilt_cart");
 		let laptops = localStorage.getItem("laptops_cart");
@@ -39,7 +38,6 @@ const ShoppingCart = (props) => {
 			localStorage.setItem("laptops_cart", laptops);
 		}
 
-	
 		window.location.reload();
 	};
 
@@ -123,7 +121,7 @@ const ShoppingCart = (props) => {
 				<tfoot>
 					<tr className="d-block d-sm-none">
 						<td className="text-center">
-							<strong>Total: $1.99</strong>
+							{/* <strong>Total: $1.99</strong> */}
 						</td>
 					</tr>
 					<tr>
@@ -135,7 +133,7 @@ const ShoppingCart = (props) => {
 
 						<td className="d-none d-sm-block text-center" />
 						<td className="d-none d-sm-block text-center">
-							<strong>Total: $1.99</strong>
+							{/* <strong>Total: $1.99</strong> */}
 						</td>
 
 						<td>

@@ -1,158 +1,158 @@
 .nav-contain1 {
-  margin: auto;
-  width: 90%;
-  margin-top: 10px;
+	margin: auto;
+	width: 90%;
+	margin-top: 10px;
 }
 
 .navlist1 {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
 }
 
 ul {
-  list-style-type: none;
+	list-style-type: none;
 }
 
-.navleft1 {
-  margin-left: 20px;
-  float: left;
+.navleft12 {
+	margin-left: 20px;
+	float: left;
 }
 
-.navright1 {
-  float: right;
-  margin-right: 20px;
+.navright12 {
+	float: right;
+	margin-right: 20px;
 }
 
 .iconstyle21 {
-  font-size: 23px;
-  margin: -5px;
+	font-size: 23px;
+	margin: -5px;
 }
 
 .iconstylebox1 {
-  padding: 14px 16px;
-  transition: all 0.4s;
-  text-align: center;
+	padding: 14px 16px;
+	transition: all 0.4s;
+	text-align: center;
 }
 
 .iconstyle11 {
-  font-size: 23px;
-  margin: -5px;
-  color: rgb(0, 0, 0);
+	font-size: 23px;
+	margin: -5px;
+	color: rgb(0, 0, 0);
 }
 
 .iconstylebox1.active {
-  background-color: #c850c0;
-  color: rgb(255, 255, 255);
-  border-radius: 30px;
+	background-color: #c850c0;
+	color: rgb(255, 255, 255);
+	border-radius: 30px;
 }
 
 .iconstylebox1:hover {
-  background-color: #4158d0;
-  color: rgb(255, 255, 255);
-  border-radius: 30px;
-  cursor: pointer;
+	background-color: #4158d0;
+	color: rgb(255, 255, 255);
+	border-radius: 30px;
+	cursor: pointer;
 }
 .iconstylebox1:hover > .iconstyle11 {
-  color: rgb(255, 255, 255);
+	color: rgb(255, 255, 255);
 }
 
 .linksadmin11 {
-  display: block;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  transition: all 0.4s;
-  position: relative;
+	display: block;
+	color: rgb(0, 0, 0);
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	transition: all 0.4s;
+	position: relative;
 }
 
 .linksadmin11.active {
-  background-color: #c850c0;
-  color: rgb(255, 255, 255);
-  border-radius: 30px;
+	background-color: #c850c0;
+	color: rgb(255, 255, 255);
+	border-radius: 30px;
 }
 
 .linksadmin11:hover {
-  background-color: #4158d0;
-  color: rgb(255, 255, 255);
-  border-radius: 30px;
+	background-color: #4158d0;
+	color: rgb(255, 255, 255);
+	border-radius: 30px;
 }
 .linksadmin31 {
-  display: block;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  padding: 8px 16px;
-  text-decoration: none;
-  transition: all 0.4s;
-  position: relative;
+	display: block;
+	color: rgb(0, 0, 0);
+	text-align: center;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: all 0.4s;
+	position: relative;
 }
 
 .linksadmin31.active {
-  background-color: #c850c0;
-  color: rgb(255, 255, 255);
-  border-radius: 30px;
+	background-color: #c850c0;
+	color: rgb(255, 255, 255);
+	border-radius: 30px;
 }
 
 .linksadmin31:hover {
-  background-color: #4158d0;
-  color: rgb(255, 255, 255);
-  border-radius: 30px;
+	background-color: #4158d0;
+	color: rgb(255, 255, 255);
+	border-radius: 30px;
 }
 
 li.dropdown1 {
-  display: inline-block;
+	display: inline-block;
 }
 
 .dropdown-content1 {
-  visibility: hidden; /* shows sub-menu */
-  opacity: 0;
-  transform: translateY(-2em);
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  z-index: 1;
-  border-radius: 15px;
-  box-shadow: 1px 1px 5px rgb(131, 13, 13);
-  margin-top: 5px;
-  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s;
+	visibility: hidden; /* shows sub-menu */
+	opacity: 0;
+	transform: translateY(-2em);
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	z-index: 1;
+	border-radius: 15px;
+	box-shadow: 1px 1px 5px rgb(131, 13, 13);
+	margin-top: 5px;
+	transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s;
 }
 
 .dropdown1:focus .dropdown-content1,
 .dropdown1:focus-within .dropdown-content1,
 .dropdown1:hover .dropdown-content1 {
-  visibility: visible; /* shows sub-menu */
-  opacity: 1;
-  transform: translateY(0%);
-  transition-delay: 0s, 0s, 0.3s; /* this removes the transition delay so the menu will be visible while the other styles transition */
+	visibility: visible; /* shows sub-menu */
+	opacity: 1;
+	transform: translateY(0%);
+	transition-delay: 0s, 0s, 0.3s; /* this removes the transition delay so the menu will be visible while the other styles transition */
 }
 
 .dropdown-content1 .linksadmin11 {
-  text-align: left;
+	text-align: left;
 }
 .dropdown-content1 .linksadmin31 {
-  text-align: left;
+	text-align: left;
 }
 
 .linksadmin21 {
-  display: none;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.4s;
-  left: 100%;
-  white-space: nowrap;
-  background-color: white;
-  border-radius: 15px;
-  top: 0;
-  box-shadow: 1px 1px 5px rgb(131, 13, 13);
+	display: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	transition: all 0.4s;
+	left: 100%;
+	white-space: nowrap;
+	background-color: white;
+	border-radius: 15px;
+	top: 0;
+	box-shadow: 1px 1px 5px rgb(131, 13, 13);
 }
 
 .linksadmin11:hover > .linksadmin21 {
-  display: block;
-  position: absolute;
-  margin-left: 3px;
+	display: block;
+	position: absolute;
+	margin-left: 3px;
 }

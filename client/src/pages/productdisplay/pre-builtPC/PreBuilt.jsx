@@ -194,19 +194,25 @@ const PreBuilt = () => {
 			if (gpuTypeFilter == "NVIDIA") {
 				setData1(
 					data1.filter((e) => {
-						return e.Graphics.brand === "NVIDIA";
+						return e.Graphics.GPU_brand === "NVIDIA";
 					})
 				);
 			} else if (gpuTypeFilter == "AMD") {
 				setData1(
 					data1.filter((e) => {
-						return e.Graphics.brand === "AMD";
+						return e.Graphics.GPU_brand === "AMD";
 					})
 				);
 			} else if (gpuTypeFilter == "NA") {
 				setData1(
 					data1.filter((e) => {
-						return e.Graphics.brand === "NA";
+						return e.Graphics.GPU_brand === "NA";
+					})
+				);
+			} else if (gpuTypeFilter == "NA") {
+				setData1(
+					data1.filter((e) => {
+						return e.Graphics.GPU_brand === "NA";
 					})
 				);
 			}
@@ -264,7 +270,7 @@ const PreBuilt = () => {
 			return (
 				<ProductCard
 					key={product._id}
-					img={"/images/productimages/4.jpg"}
+					img={"/uploads/preBuiltpc/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
@@ -278,7 +284,7 @@ const PreBuilt = () => {
 			return (
 				<ProductCard
 					key={product._id}
-					img={"/images/productimages/4.jpg"}
+					img={"/uploads/preBuiltpc/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
@@ -291,7 +297,20 @@ const PreBuilt = () => {
 
 	return (
 		<div className="container-fluid">
-			<div className="row">
+			<div className="container mt-5">
+				<div className="cbcontainer">
+					<div className="hero-image">
+						<img src="/images/others/desktops.jpg" className="cbimage" />
+						<div className="heroimg">
+							<div className="hero-text-light">
+								<h1 id="cbh1text">Desktop Computers</h1>
+								<p id="cbptext">Here you can find already built PCs</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="row mt-5">
 				<PreBuiltCategory
 					setCompanyFilterHandler={setCompanyFilterHandler}
 					setTypeFilterHandler={setTypeFilterHandler}
@@ -300,7 +319,8 @@ const PreBuilt = () => {
 					setPriceFilterHandler={setPriceFilterHandler}
 				/>
 				<div className="col-md-8 ">
-					<div className="container-fluid ">
+					<div className="container-fluid mt-3">
+						<h3 className="cbheading">Desktop Computers:</h3>
 						<div className="row mx-auto">{products}</div>
 					</div>
 				</div>

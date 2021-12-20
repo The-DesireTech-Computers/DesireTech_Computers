@@ -49,13 +49,17 @@ const PreBuiltDisplay = (props) => {
 	}, [id]);
 
 	let footer = null;
-	if(data){
-		footer = 	<DetailFooter id={data ? data._id:null} />;
+	if (data) {
+		footer = <DetailFooter id={data ? data._id : null} />;
 	}
 
 	return (
 		<div className="container mt-5 detailcolor">
-			<DetailHeader data={data} addToCartBtnHandler={addToCartBtnHandler} />
+			<DetailHeader
+				data={data}
+				imgpath="preBuiltpc"
+				addToCartBtnHandler={addToCartBtnHandler}
+			/>
 			<h3 className="cbheading">Specification:</h3>
 			<div className="row mt-4 table-responsive">
 				<table
@@ -288,7 +292,7 @@ const PreBuiltDisplay = (props) => {
 					</tbody>
 				</table>
 			</div>
-		{footer}
+			{footer}
 		</div>
 	);
 };

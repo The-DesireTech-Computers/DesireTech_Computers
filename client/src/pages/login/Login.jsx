@@ -53,13 +53,13 @@ const Login = (props) => {
 							<input
 								type="text"
 								class="form-control"
-								id="floatingInputemail"
+								id="floatingInput"
 								placeholder="name@example.com"
 								onChange={(e) => {
 									setData({ ...data, email: e.target.value });
 								}}
 							/>
-							<label for="floatingInputemail">Email address</label>
+							<label for="floatingInput">Email address</label>
 						</div>
 					</div>
 
@@ -71,13 +71,13 @@ const Login = (props) => {
 							<input
 								type="passowrd"
 								class="form-control"
-								id="floatingInputpas"
+								id="floatingInput"
 								placeholder="anything"
 								onChange={(e) => {
 									setData({ ...data, password: e.target.value });
 								}}
 							/>
-							<label for="floatingInputpas">Password</label>
+							<label for="floatingInput">Password</label>
 						</div>
 					</div>
 

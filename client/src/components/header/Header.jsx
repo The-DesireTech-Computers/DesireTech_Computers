@@ -4,7 +4,7 @@ import "./Header.css";
 import { RiLogoutBoxRLine, RiShoppingCart2Line } from "react-icons/ri";
 import { FiMenu } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
-import { AuthContext } from "../../Start";
+import { AuthContext } from "../../App";
 
 const Header = (props) => {
 	const [show, setShow] = useState(false);
@@ -94,17 +94,32 @@ const Header = (props) => {
 									</NavLink>
 								</div>
 							</li>
-							<li className="navleft dropdowns">
+							<li className="navleft dropdowns" data>
 								<div className="links2">PC Accessories</div>
 								<div className="dropdown-content">
-									<NavLink className="links3" to="/submenu38">
-										Company1
+									<NavLink className="links3" to="/pcaccessories/casefan">
+										Case Fan
 									</NavLink>
-									<NavLink className="links3" to="/submenu1">
-										Company2
+									<NavLink className="links3" to="/pcaccessories/headset">
+										Headset
 									</NavLink>
-									<NavLink className="links3" to="/submenu2">
-										Company3
+									<NavLink className="links3" to="/pcaccessories/keyboard">
+										Keyboard
+									</NavLink>
+									<NavLink className="links3" to="/pcaccessories/microphone">
+										Microphone
+									</NavLink>
+									<NavLink className="links3" to="/pcaccessories/monitor">
+										Monitor
+									</NavLink>
+									<NavLink className="links3" to="/pcaccessories/mouse">
+										Mouse
+									</NavLink>
+									<NavLink className="links3" to="/pcaccessories/speaker">
+										Speaker
+									</NavLink>
+									<NavLink className="links3" to="/pcaccessories/webcam">
+										Webcam
 									</NavLink>
 								</div>
 							</li>
@@ -149,11 +164,11 @@ const Header = (props) => {
 									<RiShoppingCart2Line className="iconstyle2" />
 								</NavLink>
 							</li>
-							<li className="navright">
+							{/* <li className="navright">
 								<form id="demo-2">
 									<input type="search" placeholder="Search" />
 								</form>
-							</li>
+							</li> */}
 						</ul>
 					</div>
 				</div>

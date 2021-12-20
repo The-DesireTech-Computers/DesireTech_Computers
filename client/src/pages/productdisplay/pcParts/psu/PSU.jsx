@@ -160,13 +160,27 @@ const PSU = () => {
 
 	return (
 		<div className="container-fluid">
-			<div className="row">
+			<div className="container mt-5">
+				<div className="cbcontainer">
+					<div className="hero-image">
+						<img src="/images/others/psu.jpg" className="cbimage" />
+						<div className="heroimg">
+							<div className="hero-text-light">
+								<h1 id="cbh1text">Power Supply Units</h1>
+								<p id="cbptext">Here you can find PSUs</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="row mt-5">
 				<PSUCategory
 					setCompanyFilterHandler={setCompanyFilterHandler}
 					setPriceFilterHandler={setPriceFilterHandler}
 				/>
 				<div className="col-md-8 ">
-					<div className="container-fluid ">
+					<div className="container-fluid mt-3">
+						<h3 className="cbheading">Power Supply Units:</h3>
 						<div className="row mx-auto">{products}</div>
 					</div>
 				</div>

@@ -191,19 +191,25 @@ const Laptops = () => {
 			if (gpuTypeFilter == "NVIDIA") {
 				setData1(
 					data1.filter((e) => {
-						return e.Graphics.brand === "NVIDIA";
+						return e.Graphics.GPU_brand === "NVIDIA";
 					})
 				);
 			} else if (gpuTypeFilter == "AMD") {
 				setData1(
 					data1.filter((e) => {
-						return e.Graphics.brand === "AMD";
+						return e.Graphics.GPU_brand === "AMD";
 					})
 				);
 			} else if (gpuTypeFilter == "NA") {
 				setData1(
 					data1.filter((e) => {
-						return e.Graphics.brand === "NA";
+						return e.Graphics.GPU_brand === "NA";
+					})
+				);
+			} else if (gpuTypeFilter == "Intel") {
+				setData1(
+					data1.filter((e) => {
+						return e.Graphics.GPU_brand === "Intel";
 					})
 				);
 			}
@@ -261,7 +267,7 @@ const Laptops = () => {
 			return (
 				<ProductCard
 					key={product._id}
-					img={"/images/productimages/4.jpg"}
+					img={"/uploads/laptops/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
@@ -275,7 +281,7 @@ const Laptops = () => {
 			return (
 				<ProductCard
 					key={product._id}
-					img={"/images/productimages/4.jpg"}
+					img={"/uploads/laptops/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
@@ -288,7 +294,20 @@ const Laptops = () => {
 
 	return (
 		<div className="container-fluid">
-			<div className="row">
+			<div className="container mt-5">
+				<div className="cbcontainer">
+					<div className="hero-image">
+						<img src="/images/others/laptops.jpg" className="cbimage" />
+						<div className="heroimg">
+							<div className="hero-text-light">
+								<h1 id="cbh1text">Laptops</h1>
+								<p id="cbptext">Here you can find portable PCs</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="row mt-5">
 				<PreBuiltCategory
 					setCompanyFilterHandler={setCompanyFilterHandler}
 					setTypeFilterHandler={setTypeFilterHandler}
@@ -296,8 +315,9 @@ const Laptops = () => {
 					setGpuTypeFilterHandler={setGpuTypeFilterHandler}
 					setPriceFilterHandler={setPriceFilterHandler}
 				/>
-				<div className="col-md-8 ">
+				<div className="col-md-8 mt-3">
 					<div className="container-fluid ">
+						<h3 className="cbheading">Laptops:</h3>
 						<div className="row mx-auto">{products}</div>
 					</div>
 				</div>

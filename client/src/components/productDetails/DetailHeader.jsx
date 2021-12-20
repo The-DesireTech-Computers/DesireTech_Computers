@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const DetailHeader = ({ data, addToCartBtnHandler }) => {
+const DetailHeader = ({ data, imgpath, addToCartBtnHandler }) => {
 	return (
 		<div className="row">
 			<div className="col-md-6">
@@ -12,16 +12,54 @@ const DetailHeader = ({ data, addToCartBtnHandler }) => {
 				>
 					<div className="carousel-inner">
 						<div className="carousel-item active">
-							<img src="https://i.imgur.com/weXVL8M.jpg" alt="Hills" />
+							<img
+								src={
+									data
+										? "/uploads/" + imgpath + "/" + data.image.gallery[0]
+										: ""
+								}
+								alt="..."
+							/>
 						</div>
 						<div className="carousel-item">
-							<img src="https://i.imgur.com/Rpxx6wU.jpg" alt="Hills" />
+							<img
+								src={
+									data
+										? "/uploads/" + imgpath + "/" + data.image.gallery[1]
+										: ""
+								}
+								alt="..."
+							/>
 						</div>
 						<div className="carousel-item">
-							<img src="https://i.imgur.com/83fandJ.jpg" alt="Hills" />
+							<img
+								src={
+									data
+										? "/uploads/" + imgpath + "/" + data.image.gallery[2]
+										: ""
+								}
+								alt="..."
+							/>
 						</div>
 						<div className="carousel-item">
-							<img src="https://i.imgur.com/JiQ9Ppv.jpg" alt="Hills" />
+							<img
+								src={
+									data
+										? "/uploads/" + imgpath + "/" + data.image.gallery[3]
+										: ""
+								}
+								alt="..."
+							/>
+						</div>
+						<div className="carousel-item">
+							<img
+								src={
+									data
+										? "/uploads/" + imgpath + "/" + data.image.gallery[4]
+										: ""
+								}
+								alt="..."
+							/>
 						</div>
 					</div>
 					<ol className="carousel-indicators list-inline">
@@ -32,7 +70,11 @@ const DetailHeader = ({ data, addToCartBtnHandler }) => {
 								data-bs-target="#custCarousel"
 							>
 								<img
-									src="https://i.imgur.com/weXVL8M.jpg"
+									src={
+										data
+											? "/uploads/" + imgpath + "/" + data.image.gallery[0]
+											: ""
+									}
 									className="img-fluid"
 								/>
 							</Link>
@@ -44,7 +86,11 @@ const DetailHeader = ({ data, addToCartBtnHandler }) => {
 								data-bs-target="#custCarousel"
 							>
 								<img
-									src="https://i.imgur.com/Rpxx6wU.jpg"
+									src={
+										data
+											? "/uploads/" + imgpath + "/" + data.image.gallery[1]
+											: ""
+									}
 									className="img-fluid"
 								/>
 							</Link>
@@ -56,7 +102,11 @@ const DetailHeader = ({ data, addToCartBtnHandler }) => {
 								data-bs-target="#custCarousel"
 							>
 								<img
-									src="https://i.imgur.com/83fandJ.jpg"
+									src={
+										data
+											? "/uploads/" + imgpath + "/" + data.image.gallery[2]
+											: ""
+									}
 									className="img-fluid"
 								/>
 							</Link>
@@ -68,7 +118,27 @@ const DetailHeader = ({ data, addToCartBtnHandler }) => {
 								data-bs-target="#custCarousel"
 							>
 								<img
-									src="https://i.imgur.com/JiQ9Ppv.jpg"
+									src={
+										data
+											? "/uploads/" + imgpath + "/" + data.image.gallery[3]
+											: ""
+									}
+									className="img-fluid"
+								/>
+							</Link>
+						</li>
+						<li className="list-inline-item">
+							<Link
+								id="carousel-selector-2"
+								data-bs-slide-to="4"
+								data-bs-target="#custCarousel"
+							>
+								<img
+									src={
+										data
+											? "/uploads/" + imgpath + "/" + data.image.gallery[4]
+											: ""
+									}
 									className="img-fluid"
 								/>
 							</Link>
