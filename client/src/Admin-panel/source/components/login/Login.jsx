@@ -4,6 +4,7 @@ import logo from "../../Assets/logo/desiretech1.png";
 import axios from "../../axiosAuthInstance";
 import Spinner from "../LoadingSpinner/LoadingSpinner";
 import { toast } from "react-toastify";
+import { FaEnvelope, FaLock } from "react-icons/fa";
 
 const Login = (props) => {
 	let [data, setData] = useState({
@@ -68,7 +69,7 @@ const Login = (props) => {
 								/>
 								<span className={classes.focusinput1}></span>
 								<span className={classes.symbolinput1}>
-									<i className="fa fa-envelope" aria-hidden="true"></i>
+									<FaEnvelope />
 								</span>
 							</div>
 							<div className={classes.wrapinput1}>
@@ -84,7 +85,7 @@ const Login = (props) => {
 								/>
 								<span className={classes.focusinput1}></span>
 								<span className={classes.symbolinput1}>
-									<i className="fa fa-lock" aria-hidden="true"></i>
+									<FaLock />
 								</span>
 							</div>
 						</form>

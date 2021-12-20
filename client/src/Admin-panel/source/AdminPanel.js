@@ -1,4 +1,3 @@
-import "./AdminPanel.css";
 import { React, useEffect, useState } from "react";
 import axios from "./axiosAuthInstance";
 import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
@@ -80,35 +79,33 @@ function AdminPanel() {
 	let user_id = localStorage.getItem("user_id");
 
 	useEffect(() => {
-		
-		axios.get('users/'+user_id)
-		.then(res=>{
-			setUser(res.data);
-		})
-		.catch(err=>{
-			console.log(err.response.data);
-		})
-
+		axios
+			.get("users/" + user_id)
+			.then((res) => {
+				setUser(res.data);
+			})
+			.catch((err) => {
+				console.log(err.response.data);
+			});
 	}, []);
 
 	useEffect(() => {
-if(user){
-		if (tokken && user.role ==="admin") {
-			if (!auth) {
-				setAuth(true);
+		if (user) {
+			if (tokken && user.role === "admin") {
+				if (!auth) {
+					setAuth(true);
+				}
+			} else {
+				setAuth(false);
 			}
-		} else {
-			setAuth(false);
 		}
-	}
 	}, [user]);
 
 	return (
-		<div className="App">
+		<div>
 			<Router>
 				<ToastContainer />
 				<Switch>
-				
 					<PrivateRoute
 						auth={auth}
 						path="/admin-panel/managecasefan"
@@ -280,7 +277,6 @@ if(user){
 					<PrivateRoute
 						auth={auth}
 						path="/admin-panel/managefans"
-						
 						component={ManageFans}
 					/>
 					<PrivateRoute
@@ -343,7 +339,12 @@ if(user){
 						exact
 						component={UpdateCasing}
 					/>
-					<PrivateRoute auth={auth} path="/admin-panel/addfans" exact component={AddFan} />
+					<PrivateRoute
+						auth={auth}
+						path="/admin-panel/addfans"
+						exact
+						component={AddFan}
+					/>
 					<PrivateRoute
 						auth={auth}
 						path="/admin-panel/updatefans"
@@ -398,7 +399,12 @@ if(user){
 						exact
 						component={UpdateProcessor}
 					/>
-					<PrivateRoute auth={auth} path="/admin-panel/addpsu" exact component={AddPSU} />
+					<PrivateRoute
+						auth={auth}
+						path="/admin-panel/addpsu"
+						exact
+						component={AddPSU}
+					/>
 					<PrivateRoute
 						auth={auth}
 						path="/admin-panel/updatepsu"
@@ -417,7 +423,12 @@ if(user){
 						exact
 						component={UpdateSoundCard}
 					/>
-					<PrivateRoute auth={auth} path="/admin-panel/addssd" exact component={AddSSD} />
+					<PrivateRoute
+						auth={auth}
+						path="/admin-panel/addssd"
+						exact
+						component={AddSSD}
+					/>
 					<PrivateRoute
 						auth={auth}
 						path="/admin-panel/updatessd"
@@ -466,20 +477,20 @@ if(user){
 						exact
 						component={ManageFeedbacks}
 					/>
-					<PrivateRoute auth={auth} path="/admin-panel/profile" exact component={Profile} />
+					<PrivateRoute
+						auth={auth}
+						path="/admin-panel/profile"
+						exact
+						component={Profile}
+					/>
 					<PrivateRoute
 						auth={auth}
 						path="/admin-panel/not-found"
 						exact
 						component={NotFound}
 					/>
-						<PrivateRoute
-						path="/admin-panel/home"
-						
-						auth={auth}
-						component={Home}
-					/>
-					<PublicRoute  path="/admin-panel"  auth={auth} component={Login} />
+					<PrivateRoute path="/admin-panel/home" auth={auth} component={Home} />
+					<PublicRoute path="/admin-panel" auth={auth} component={Login} />
 
 					<Redirect to="/admin-panel/not-found" />
 				</Switch>

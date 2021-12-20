@@ -6,15 +6,15 @@ let ManageOrders = (props) => {
 		<div>
 			<Navbar />
 			<div className={classes.main1}>
-				<div className={classes.heading11}>
+				<div className={classes.heading1}>
 					<ul>
-						<li className={classes.navleft11}>
+						<li className={classes.navleft1}>
 							<h1>Manage Orders</h1>
 						</li>
 					</ul>
 				</div>
-				<div className={classes.tab11}>
-					<table className={classes.container11}>
+				<div className={classes.tab1}>
+					<table className={classes.container1}>
 						<tr>
 							<th className={classes.id1}>Order ID</th>
 							<th className={classes.items1}>Items List</th>

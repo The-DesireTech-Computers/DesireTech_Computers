@@ -1,7 +1,7 @@
 .nav-contain1 {
 	margin: auto;
 	width: 90%;
-	margin-top: 10px;
+	padding-top: 10px;
 }
 
 .navlist1 {
@@ -10,7 +10,7 @@
 	padding: 0;
 	overflow: hidden;
 	background-color: rgb(255, 255, 255);
-	border-radius: 10px;
+	border-radius: 15px;
 }
 
 ul {
@@ -47,13 +47,13 @@ ul {
 .iconstylebox1.active {
 	background-color: #c850c0;
 	color: rgb(255, 255, 255);
-	border-radius: 30px;
+	border-radius: 15px;
 }
 
 .iconstylebox1:hover {
 	background-color: #4158d0;
 	color: rgb(255, 255, 255);
-	border-radius: 30px;
+	border-radius: 15px;
 	cursor: pointer;
 }
 .iconstylebox1:hover > .iconstyle11 {
@@ -73,13 +73,13 @@ ul {
 .linksadmin11.active {
 	background-color: #c850c0;
 	color: rgb(255, 255, 255);
-	border-radius: 30px;
+	border-radius: 15px;
 }
 
 .linksadmin11:hover {
 	background-color: #4158d0;
 	color: rgb(255, 255, 255);
-	border-radius: 30px;
+	border-radius: 15px;
 }
 .linksadmin31 {
 	display: block;
@@ -94,13 +94,13 @@ ul {
 .linksadmin31.active {
 	background-color: #c850c0;
 	color: rgb(255, 255, 255);
-	border-radius: 30px;
+	border-radius: 15px;
 }
 
 .linksadmin31:hover {
 	background-color: #4158d0;
 	color: rgb(255, 255, 255);
-	border-radius: 30px;
+	border-radius: 15px;
 }
 
 li.dropdown1 {

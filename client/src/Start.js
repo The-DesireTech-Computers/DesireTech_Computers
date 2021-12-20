@@ -69,7 +69,7 @@ function Start() {
 	};
 
 	return (
-		<div>
+		<div className="App">
 			<AuthContext.Provider value={auth}>
 				<BrowserRouter>
 					<SideDrawer
