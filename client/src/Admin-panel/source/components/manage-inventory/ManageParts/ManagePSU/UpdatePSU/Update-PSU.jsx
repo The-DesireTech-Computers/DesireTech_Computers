@@ -26,7 +26,7 @@ const UpdatePSU = (props) => {
 	useEffect(() => {
 		if (id) {
 			axios
-				.get("pcParts/casing/" + id)
+				.get("pcParts/psu/" + id)
 				.then((res) => {
 					setData(res.data);
 				})

@@ -97,6 +97,14 @@ const AddPSU = (props) => {
 			alert("Please enter data in all the given fields (Output)");
 		} else if (data.Dimentions === "") {
 			alert("Please enter data in all the given fields(Dimentions)");
+		} else if (data.Max_PSU_Length === "") {
+			alert("Please enter data in all the given fields(Max_PSU_Length)");
+		} else if (data.Weight === "") {
+			alert("Please enter data in all the given fields(Weight)");
+		} else if (data.Connectors === "") {
+			alert("Please enter data in all the given fields(Connectors)");
+		} else if (data.Features === "") {
+			alert("Please enter data in all the given fields(Features)");
 		} else if (thumbnail === null) {
 			alert("Please provide a picture as a thumbnail picture(thumbnail)");
 		} else if (gallery === null) {
@@ -130,6 +138,11 @@ const AddPSU = (props) => {
 			formData.append("Input_Current", data.Input_Current);
 			formData.append("Output", data.Output);
 			formData.append("Dimentions", data.Dimentions);
+			formData.append("Max_PSU_Length", data.Max_PSU_Length);
+			formData.append("Weight", data.Weight);
+
+			formData.append("Connectors", data.Connectors);
+			formData.append("Features", data.Features);
 
 			formData.append("thumbnail", thumbnail);
 
@@ -140,11 +153,11 @@ const AddPSU = (props) => {
 			}
 
 			await axios
-				.post("pcParts/PSU", formData)
+				.post("pcParts/psu", formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
-					props.history.replace("/admin-panel/managepsu");
+					props.history.push("/admin-panel/managepsu");
 				})
 				.catch((err) => {
 					console.log(err);
@@ -405,7 +418,7 @@ const AddPSU = (props) => {
 										placeholder="Enter Features."
 										required
 										onChange={(e) => {
-											setData({ ...data, Connectors: e.target.value });
+											setData({ ...data, Features: e.target.value });
 										}}
 									/>
 									<br />

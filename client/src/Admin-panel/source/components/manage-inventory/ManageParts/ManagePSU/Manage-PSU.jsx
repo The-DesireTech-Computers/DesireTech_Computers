@@ -10,7 +10,7 @@ let ManagePSU = (props) => {
 
 	let getData = () => {
 		axios
-			.get("pcParts/PSU")
+			.get("pcParts/psu")
 			.then((res) => {
 				setData(res.data);
 			})
@@ -41,7 +41,7 @@ let ManagePSU = (props) => {
 					quantity={element.quantity}
 					id={element._id}
 					path="admin-panel/updatepsu"
-					apiPath="pcParts/PSU"
+					apiPath="pcParts/psu"
 					onDelete={getData}
 				/>
 			);

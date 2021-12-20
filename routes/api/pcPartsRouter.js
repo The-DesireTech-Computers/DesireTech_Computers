@@ -1892,7 +1892,7 @@ router.put('/psu/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', maxCou
         product.Details.Max_PSU_Length = req.body.Max_PSU_Length;
         product.Details.Weight = req.body.Weight;
  
-        product.Frequency.Connectors = req.body.Connectors;
+        product.Features.Connectors = req.body.Connectors;
         product.Features.Features = req.body.Features;
         
         product.image.thumbnail = req.files.thumbnail[0].filename;
@@ -1939,7 +1939,7 @@ router.put('/psu/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', maxCou
         product.Details.Max_PSU_Length = req.body.Max_PSU_Length;
         product.Details.Weight = req.body.Weight;
  
-        product.Frequency.Connectors = req.body.Connectors;
+        product.Features.Connectors = req.body.Connectors;
         product.Features.Features = req.body.Features;
             
             product.image.thumbnail = req.files.thumbnail[0].filename;
@@ -1979,7 +1979,7 @@ router.put('/psu/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', maxCou
         product.Details.Max_PSU_Length = req.body.Max_PSU_Length;
         product.Details.Weight = req.body.Weight;
  
-        product.Frequency.Connectors = req.body.Connectors;
+        product.Features.Connectors = req.body.Connectors;
         product.Features.Features = req.body.Features;
         
         product.image.thumbnail = product.image.thumbnail;
@@ -2023,7 +2023,7 @@ router.put('/psu/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', maxCou
         product.Details.Max_PSU_Length = req.body.Max_PSU_Length;
         product.Details.Weight = req.body.Weight;
  
-        product.Frequency.Connectors = req.body.Connectors;
+        product.Features.Connectors = req.body.Connectors;
         product.Features.Features = req.body.Features;
         
         product.image.thumbnail = product.image.thumbnail;
@@ -2047,7 +2047,7 @@ router.put('/psu/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', maxCou
 //restrict picture selection in front end gallery=6  
 
 router.post('/psu',auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCount: 1 },{ name: 'gallery', maxCount: 6 }]) , validationPSU, async (req, res)=> {
-
+console.log(req.body);
     try{
         
         let product = new PSU();
@@ -2083,7 +2083,7 @@ router.post('/psu',auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCount:
         product.Details.Max_PSU_Length = req.body.Max_PSU_Length;
         product.Details.Weight = req.body.Weight;
  
-        product.Frequency.Connectors = req.body.Connectors;
+        product.Features.Connectors = req.body.Connectors;
         product.Features.Features = req.body.Features;
  
         
