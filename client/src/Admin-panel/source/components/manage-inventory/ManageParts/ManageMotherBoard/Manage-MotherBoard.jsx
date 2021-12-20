@@ -52,28 +52,28 @@ let ManageMotherBoard = (props) => {
 		<div>
 			<Navbar />
 			<div className={classes.main1}>
-				<div className={classes.heading}>
+				<div className={classes.heading1}>
 					<ul>
-						<li className={classes.navleft}>
+						<li className={classes.navleft1}>
 							<h1>Manage MotherBoard</h1>
 						</li>
-						<li className={classes.navright}>
-							<button className={classes.addBtn} onClick={handelAddBtn}>
+						<li className={classes.navright1}>
+							<button className={classes.addBtn1} onClick={handelAddBtn}>
 								{" "}
 								Add Product{" "}
 							</button>
 						</li>
 					</ul>
 				</div>
-				<div className={classes.tab}>
-					<table className={classes.container}>
+				<div className={classes.tab1}>
+					<table className={classes.container1}>
 						<thead>
 							<tr>
-								<th className={classes.title}>Title</th>
-								<th className={classes.company}>Model</th>
-								<th className={classes.price}>Price</th>
-								<th className={classes.quantity}>Quantity</th>
-								<th className={classes.actions}>Actions</th>
+								<th className={classes.title1}>Title</th>
+								<th className={classes.company1}>Model</th>
+								<th className={classes.price1}>Price</th>
+								<th className={classes.quantity1}>Quantity</th>
+								<th className={classes.actions1}>Actions</th>
 							</tr>
 						</thead>
 						<tbody>{tableData}</tbody>

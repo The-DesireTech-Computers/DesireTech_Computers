@@ -52,7 +52,7 @@ const UpdateProcessor = (props) => {
 			alert("Please enter data in all the given fields (series)");
 		} else if (data.Model.model === "") {
 			alert("Please enter data in all the given fields (model)");
-		}else if (data.Model.name === "") {
+		} else if (data.Model.name === "") {
 			alert("Please enter data in all the given fields (name)");
 		} else if (data.Details.processorType === "") {
 			alert("Please enter data in all the given fields(processorType)");
@@ -89,9 +89,7 @@ const UpdateProcessor = (props) => {
 				"Please enter data in all the given fields (Virtualization_Tech_Support)"
 			);
 		} else if (data.Details.IntegratedGraphics === "") {
-			alert(
-				"Please enter data in all the given fields (IntegratedGraphics)"
-			);
+			alert("Please enter data in all the given fields (IntegratedGraphics)");
 		} else if (data.Details.Graphics_Base_Frequency === "") {
 			alert(
 				"Please enter data in all the given fields (Graphics_Base_Frequency)"
@@ -137,23 +135,40 @@ const UpdateProcessor = (props) => {
 			formData.append("L3_Cache", data.Details.L3_Cache);
 			formData.append("ManufacturingTech", data.Details.ManufacturingTech);
 			formData.append("bit_Support", data.Details.bit_Support);
-			formData.append("Hyper_Threading_Support", data.Details.Hyper_Threading_Support);
+			formData.append(
+				"Hyper_Threading_Support",
+				data.Details.Hyper_Threading_Support
+			);
 			formData.append("MemoryType", data.Details.MemoryType);
 			formData.append("MemoryChannel", data.Details.MemoryChannel);
-			formData.append("Virtualization_Tech_Support", data.Details.Virtualization_Tech_Support);
+			formData.append(
+				"Virtualization_Tech_Support",
+				data.Details.Virtualization_Tech_Support
+			);
 			formData.append("IntegratedGraphics", data.Details.IntegratedGraphics);
-			formData.append("Graphics_Base_Frequency", data.Details.Graphics_Base_Frequency);
-			
+			formData.append(
+				"Graphics_Base_Frequency",
+				data.Details.Graphics_Base_Frequency
+			);
+
 			formData.append(
 				"Graphics_Max_Dynamic_Frequency",
 				data.Details.Graphics_Max_Dynamic_Frequency
 			);
-			formData.append("PCI_Express_Revision", data.Details.PCI_Express_Revision);
-			formData.append("Max_Number_PCI_Express_Lane", data.Details.Max_Number_PCI_Express_Lane);
-			formData.append("Thermal_Design_Power", data.Details.Thermal_Design_Power);
+			formData.append(
+				"PCI_Express_Revision",
+				data.Details.PCI_Express_Revision
+			);
+			formData.append(
+				"Max_Number_PCI_Express_Lane",
+				data.Details.Max_Number_PCI_Express_Lane
+			);
+			formData.append(
+				"Thermal_Design_Power",
+				data.Details.Thermal_Design_Power
+			);
 			formData.append("CoolingDevice", data.Details.CoolingDevice);
 			formData.append("Power_Consumption", data.Details.Power_Consumption);
-			
 
 			formData.append("thumbnail", thumbnail);
 
@@ -164,7 +179,7 @@ const UpdateProcessor = (props) => {
 			}
 
 			await axios
-				.put("pcParts/Processor/"+id, formData)
+				.put("pcParts/Processor/" + id, formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -183,9 +198,9 @@ const UpdateProcessor = (props) => {
 		form = (
 			<div>
 				<Navbar />
-				<div className={classes.main}>
-					<div className={classes.inputform}>
-						<h1 className={classes.h1}>Update Processor</h1>
+				<div className={classes.main1}>
+					<div className={classes.inputform1}>
+						<h1 className={classes.h11}>Update Processor</h1>
 						<form
 							className={classes.form1}
 							method="post"
@@ -213,11 +228,11 @@ const UpdateProcessor = (props) => {
 										Model:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="name">
+									<label className={classes.label1} htmlFor="name">
 										Name:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="processorType">
+									<label className={classes.label1} htmlFor="processorType">
 										ProcessorType:
 									</label>
 									<br />
@@ -225,35 +240,35 @@ const UpdateProcessor = (props) => {
 										CPU_Socket_Type:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="CoreName">
-									Core Name:
+									<label className={classes.label1} htmlFor="CoreName">
+										Core Name:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="NumberOfCores">
-									Number Of Cores:
+									<label className={classes.label1} htmlFor="NumberOfCores">
+										Number Of Cores:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="NumberOfThreads">
-									Number Of Threads:
+									<label className={classes.label1} htmlFor="NumberOfThreads">
+										Number Of Threads:
 									</label>
 									<br />
 									<label
-										className={classes.label}
+										className={classes.label1}
 										htmlFor="OperatingFrequency"
 									>
 										OperatingFrequency:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="MaxFrequency">
-									Max Frequency:
+									<label className={classes.label1} htmlFor="MaxFrequency">
+										Max Frequency:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="BusSpeed">
-									Bus Speed:
+									<label className={classes.label1} htmlFor="BusSpeed">
+										Bus Speed:
 									</label>
 									<br />
-									<label className={classes.label} htmlFor="L3_Cache">
-									L3 Cache:
+									<label className={classes.label1} htmlFor="L3_Cache">
+										L3 Cache:
 									</label>
 									<br />
 									<label className={classes.label1} htmlFor="thumbnail">
@@ -262,7 +277,7 @@ const UpdateProcessor = (props) => {
 								</div>
 								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="title"
 										name="title"
@@ -274,7 +289,7 @@ const UpdateProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="price"
 										name="price"
@@ -291,164 +306,218 @@ const UpdateProcessor = (props) => {
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="brand"
 										name="brand"
 										placeholder="Enter Brand"
 										required
 										onChange={(e) => {
-											setData({ ...data,Model:{...data.Model, brand: e.target.value} });
+											setData({
+												...data,
+												Model: { ...data.Model, brand: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="series"
 										name="series"
 										placeholder="Enter Series"
 										required
 										onChange={(e) => {
-											setData({ ...data,Model:{...data.Model, series: e.target.value} });
+											setData({
+												...data,
+												Model: { ...data.Model, series: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="model"
 										name="model"
 										placeholder="Enter Model"
 										required
 										onChange={(e) => {
-											setData({ ...data,Model:{...data.Model, model: e.target.value} });
+											setData({
+												...data,
+												Model: { ...data.Model, model: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="name"
 										name="name"
 										placeholder="Enter Name"
 										required
 										onChange={(e) => {
-											setData({ ...data,Model:{...data.Model, name: e.target.value} });
+											setData({
+												...data,
+												Model: { ...data.Model, name: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="processorType"
 										name="processorType"
 										placeholder="Enter processorType"
 										required
 										onChange={(e) => {
-											setData({ ...data,Model:{...data.Model, name: e.target.value} });
+											setData({
+												...data,
+												Model: { ...data.Model, name: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="CPU_Socket_Type"
 										name="CPU_Socket_Type"
 										placeholder="Enter CPU_Socket_Type"
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, CPU_Socket_Type: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													CPU_Socket_Type: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="CoreName"
 										name="CoreName"
 										placeholder="Enter Core Name"
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, CoreName: e.target.value} });
+											setData({
+												...data,
+												Details: { ...data.Details, CoreName: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="NumberOfCores"
 										name="NumberOfCores"
 										placeholder="Enter Number Of Cores"
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, NumberOfCores: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													NumberOfCores: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="NumberOfThreads"
 										name="NumberOfThreads"
 										placeholder="Enter Number Of Threads."
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, NumberOfThreads: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													NumberOfThreads: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="OperatingFrequency"
 										name="OperatingFrequency"
 										placeholder="Enter Operating Frequency"
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, OperatingFrequency: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													OperatingFrequency: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="MaxFrequency"
 										name="MaxFrequency"
 										placeholder="Enter Max Frequency"
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, MaxFrequency: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													MaxFrequency: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="BusSpeed"
 										name="BusSpeed"
 										placeholder="Enter Bus Speed"
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, BusSpeed: e.target.value} });
+											setData({
+												...data,
+												Details: { ...data.Details, BusSpeed: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="L3_Cache"
 										name="L3_Cache"
 										placeholder="Enter L3 Cache"
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, L3_Cache: e.target.value} });
+											setData({
+												...data,
+												Details: { ...data.Details, L3_Cache: e.target.value },
+											});
 										}}
 									/>
 									<br />
 									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="thumbnail"
 											name="thumbnail"
@@ -460,9 +529,9 @@ const UpdateProcessor = (props) => {
 										<i className="fa fa-cloud-upload"></i> Select File
 									</label>
 								</div>
-								<div className={classes.row}>
-									<label className={classes.label} htmlFor="ManufacturingTech">
-									Manufacturing Tech:
+								<div className={classes.row1}>
+									<label className={classes.label1} htmlFor="ManufacturingTech">
+										Manufacturing Tech:
 									</label>
 									<br />
 									<label className={classes.label1} htmlFor="quantity">
@@ -470,67 +539,79 @@ const UpdateProcessor = (props) => {
 									</label>
 									<br />
 
-									<label className={classes.label} htmlFor="bit_Support">
-									Bit Support:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="Hyper_Threading_Support">
-									Hyper Threading Support:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="MemoryType">
-									Memory Type:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="MemoryChannel">
-									Memory Channel:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="Virtualization_Tech_Support">
-									Virtualization Tech Support:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="IntegratedGraphics">
-									Integrated Graphics:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="Graphics_Base_Frequency">
-									Graphics Base Frequency:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="Graphics_Max_Dynamic_Frequency">
-									Graphics Max Dynamic Frequency:
-									</label>
-									<br />
-									<label className={classes.label} htmlFor="PCI_Express_Revision">
-									PCI Express Revision:
+									<label className={classes.label1} htmlFor="bit_Support">
+										Bit Support:
 									</label>
 									<br />
 									<label
-										className={classes.label}
+										className={classes.label1}
+										htmlFor="Hyper_Threading_Support"
+									>
+										Hyper Threading Support:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="MemoryType">
+										Memory Type:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="MemoryChannel">
+										Memory Channel:
+									</label>
+									<br />
+									<label
+										className={classes.label1}
+										htmlFor="Virtualization_Tech_Support"
+									>
+										Virtualization Tech Support:
+									</label>
+									<br />
+									<label
+										className={classes.label1}
+										htmlFor="IntegratedGraphics"
+									>
+										Integrated Graphics:
+									</label>
+									<br />
+									<label
+										className={classes.label1}
+										htmlFor="Graphics_Base_Frequency"
+									>
+										Graphics Base Frequency:
+									</label>
+									<br />
+									<label
+										className={classes.label1}
+										htmlFor="Graphics_Max_Dynamic_Frequency"
+									>
+										Graphics Max Dynamic Frequency:
+									</label>
+									<br />
+									<label
+										className={classes.label1}
+										htmlFor="PCI_Express_Revision"
+									>
+										PCI Express Revision:
+									</label>
+									<br />
+									<label
+										className={classes.label1}
 										htmlFor="Max_Number_PCI_Express_Lane"
 									>
 										Max Number PCI Express Lane:
 									</label>
 									<br />
 									<label
-										className={classes.label}
+										className={classes.label1}
 										htmlFor="Thermal_Design_Power"
 									>
 										Thermal Design Power:
 									</label>
 									<br />
-									<label
-										className={classes.label}
-										htmlFor="Power_Consumption"
-									>
+									<label className={classes.label1} htmlFor="Power_Consumption">
 										Power Consumption:
 									</label>
 									<br />
-									<label
-										className={classes.label}
-										htmlFor="CoolingDevice"
-									>
+									<label className={classes.label1} htmlFor="CoolingDevice">
 										Cooling Device:
 									</label>
 									<br />
@@ -540,19 +621,25 @@ const UpdateProcessor = (props) => {
 								</div>
 								<div className={classes.row1}>
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="ManufacturingTech"
 										name="ManufacturingTech"
 										placeholder="Enter Manufacturing Tech"
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, ManufacturingTech: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													ManufacturingTech: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="number"
 										id="quantity"
 										name="quantity"
@@ -570,151 +657,223 @@ const UpdateProcessor = (props) => {
 									<br />
 
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="bit_Support"
 										name="bit_Support"
 										placeholder="Enter Bit Support."
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, bit_Support: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													bit_Support: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Hyper_Threading_Support"
 										name="Hyper_Threading_Support"
 										placeholder="Enter Hyper Threading Support."
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, Hyper_Threading_Support: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													Hyper_Threading_Support: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="MemoryType"
 										name="MemoryType"
 										placeholder="Enter Memory Type."
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, MemoryType: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													MemoryType: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="MemoryChannel"
 										name="MemoryChannel"
 										placeholder="Enter Memory Channel."
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, MemoryChannel: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													MemoryChannel: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Virtualization_Tech_Support"
 										name="Virtualization_Tech_Support"
 										placeholder="Enter Virtualization Tech Support."
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, Virtualization_Tech_Support: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													Virtualization_Tech_Support: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="IntegratedGraphics"
 										name="IntegratedGraphics"
 										placeholder="Enter Integrated Graphics."
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, IntegratedGraphics: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													IntegratedGraphics: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Graphics_Base_Frequency"
 										name="Graphics_Base_Frequency"
 										placeholder="Enter Graphics Base Frequency."
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, Graphics_Base_Frequency: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													Graphics_Base_Frequency: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Graphics_Max_Dynamic_Frequency"
 										name="Graphics_Max_Dynamic_Frequency"
 										placeholder="Enter Graphics_Max_Dynamic_Frequency."
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, Graphics_Max_Dynamic_Frequency: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													Graphics_Max_Dynamic_Frequency: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="PCI_Express_Revision"
 										name="PCI_Express_Revision"
 										placeholder="Enter PCI_Express_Revision."
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, PCI_Express_Revision: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													PCI_Express_Revision: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Max_Number_PCI_Express_Lane"
 										name="Max_Number_PCI_Express_Lane"
 										placeholder="Enter Max_Number_PCI_Express_Lane."
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, Max_Number_PCI_Express_Lane: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													Max_Number_PCI_Express_Lane: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Thermal_Design_Power"
 										name="Thermal_Design_Power"
 										placeholder="Enter Thermal_Design_Power."
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, Thermal_Design_Power: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													Thermal_Design_Power: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="CoolingDevice"
 										name="CoolingDevice"
 										placeholder="Enter CoolingDevice."
 										required
 										onChange={(e) => {
-											setData({ ...data,Details:{...data.Details, CoolingDevice: e.target.value} });
+											setData({
+												...data,
+												Details: {
+													...data.Details,
+													CoolingDevice: e.target.value,
+												},
+											});
 										}}
 									/>
 									<br />
 									<input
-										className={classes.input}
+										className={classes.input1}
 										type="text"
 										id="Power_Consumption"
 										name="Power_Consumption"
@@ -730,7 +889,7 @@ const UpdateProcessor = (props) => {
 									<br />
 									<label className={classes.customfile1}>
 										<input
-											className={classes.inputfile}
+											className={classes.inputfile1}
 											type="file"
 											id="gallery"
 											name="gallery"
@@ -754,7 +913,7 @@ const UpdateProcessor = (props) => {
 						</form>
 						<div className={classes.btnDiv1}>
 							<input
-								className={classes.btn}
+								className={classes.btn1}
 								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}
