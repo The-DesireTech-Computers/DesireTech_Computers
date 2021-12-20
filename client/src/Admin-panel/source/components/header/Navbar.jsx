@@ -56,7 +56,7 @@ const Navbar = (props) => {
 								>
 									MotherBoards
 								</NavLink>
-								<NavLink className="linksadmin31" to="/admin-panel/managecpu">
+								<NavLink className="linksadmin31" to="/admin-panel/manageprocessor">
 									CPUs/Processors
 								</NavLink>
 								<NavLink className="linksadmin31" to="/admin-panel/managepsu">

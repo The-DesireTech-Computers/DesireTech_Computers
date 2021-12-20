@@ -3,14 +3,14 @@ import Navbar from "../../../header/Navbar";
 import TableListings from "../../../tableListings/TableListings";
 import Spinner from "../../../LoadingSpinner/LoadingSpinner";
 import axios from "../../../../axiosInstance";
-import classes from "../../Table.module.css";
+import classes from "../Table.module.css";
 
 let ManageProcessor = (props) => {
 	let [data, setData] = useState([]);
 
 	let getData = () => {
 		axios
-			.get("pcParts/Processor")
+			.get("pcParts/processor")
 			.then((res) => {
 				setData(res.data);
 			})
@@ -41,7 +41,7 @@ let ManageProcessor = (props) => {
 					quantity={element.quantity}
 					id={element._id}
 					path="admin-panel/updateprocessor"
-					apiPath="pcParts/Processor"
+					apiPath="pcParts/processor"
 					onDelete={getData}
 				/>
 			);
@@ -51,29 +51,29 @@ let ManageProcessor = (props) => {
 	return (
 		<div>
 			<Navbar />
-			<div className={classes.main1}>
-				<div className={classes.heading1}>
+			<div className={classes.main}>
+				<div className={classes.heading}>
 					<ul>
-						<li className={classes.navleft1}>
+						<li className={classes.navleft}>
 							<h1>Manage Processor</h1>
 						</li>
-						<li className={classes.navright1}>
-							<button className={classes.addBtn1} onClick={handelAddBtn}>
+						<li className={classes.navright}>
+							<button className={classes.addBtn} onClick={handelAddBtn}>
 								{" "}
 								Add Product{" "}
 							</button>
 						</li>
 					</ul>
 				</div>
-				<div className={classes.tab1}>
-					<table className={classes.container1}>
+				<div className={classes.tab}>
+					<table className={classes.container}>
 						<thead>
 							<tr>
-								<th className={classes.title1}>Title</th>
-								<th className={classes.company1}>Model</th>
-								<th className={classes.price1}>Price</th>
-								<th className={classes.quantity1}>Quantity</th>
-								<th className={classes.actions1}>Actions</th>
+								<th className={classes.title}>Title</th>
+								<th className={classes.company}>Model</th>
+								<th className={classes.price}>Price</th>
+								<th className={classes.quantity}>Quantity</th>
+								<th className={classes.actions}>Actions</th>
 							</tr>
 						</thead>
 						<tbody>{tableData}</tbody>
