@@ -34,10 +34,12 @@ const AddVideoCard = (props) => {
 		Cooler: "",
 		System_Requirments: "",
 		Power_Connectors: "",
+
 		FormFactor: "",
 		Max_GPU_Length: "",
 		Card_Dimentions: "",
 		SlotWidth: "",
+
 		Power_Consumption: "",
 	});
 	let [thumbnail, setThumbnail] = useState(null);
@@ -151,7 +153,7 @@ const AddVideoCard = (props) => {
 			}
 
 			await axios
-				.post("pcParts/VideoCard", formData)
+				.post("pcParts/videocard", formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -397,13 +399,13 @@ const AddVideoCard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="Power_Consumption"
 										name="Power_Consumption"
 										placeholder="Enter Power Consumption."
 										required
 										onChange={(e) => {
-											setData({ ...data, Max_GPU_Length: e.target.value });
+											setData({ ...data, Power_Consumption: e.target.value });
 										}}
 									/>
 									<br />
@@ -577,7 +579,7 @@ const AddVideoCard = (props) => {
 										placeholder="Enter Virtual Reality Ready."
 										required
 										onChange={(e) => {
-											setData({ ...data, Rdiator_Options: e.target.value });
+											setData({ ...data, Virtual_Reality_Ready: e.target.value });
 										}}
 									/>
 									<br />
@@ -603,7 +605,7 @@ const AddVideoCard = (props) => {
 										onChange={(e) => {
 											setData({
 												...data,
-												Max_CPU_Cooler_LeSystem_Requirmentsngth: e.target.value,
+												System_Requirments: e.target.value,
 											});
 										}}
 									/>
@@ -664,7 +666,7 @@ const AddVideoCard = (props) => {
 										placeholder="Enter Slot Width."
 										required
 										onChange={(e) => {
-											setData({ ...data, Max_GPU_Length: e.target.value });
+											setData({ ...data, SlotWidth: e.target.value });
 										}}
 									/>
 									<br />

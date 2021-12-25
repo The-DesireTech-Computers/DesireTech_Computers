@@ -27,6 +27,7 @@ const AddSoundcard = (props) => {
 
 		Interface: "",
 		Operating_System_Supported: "",
+		System_Requirments: "",
 
 		Package_Contents: "",
 		Dimentions: "",
@@ -76,7 +77,11 @@ const AddSoundcard = (props) => {
 			alert(
 				"Please enter data in all the given fields(Operating_System_Supported)"
 			);
-		} else if (data.Package_Contents === "") {
+		}else if (data.System_Requirments === "") {
+			alert(
+				"Please enter data in all the given fields(System_Requirments)"
+			);
+		}  else if (data.Package_Contents === "") {
 			alert("Please enter data in all the given fields (Package_Contents)");
 		} else if (data.Dimentions === "") {
 			alert("Please enter data in all the given fields (Dimentions)");
@@ -110,6 +115,10 @@ const AddSoundcard = (props) => {
 				"Operating_System_Supported",
 				data.Operating_System_Supported
 			);
+			formData.append(
+				"System_Requirments",
+				data.System_Requirments
+			);
 			formData.append("Package_Contents", data.Package_Contents);
 			formData.append("Dimentions", data.Dimentions);
 
@@ -122,7 +131,7 @@ const AddSoundcard = (props) => {
 			}
 
 			await axios
-				.post("pcParts/Soundcard", formData)
+				.post("pcParts/soundcard", formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -131,6 +140,7 @@ const AddSoundcard = (props) => {
 				.catch((err) => {
 					console.log(err);
 					setLoading(false);
+					
 				});
 		}
 	};
@@ -147,7 +157,7 @@ const AddSoundcard = (props) => {
 						<form
 							className={classes.form1}
 							method="post"
-							encpart="multipart/form-data"
+							encType="multipart/form-data"
 						>
 							<div className={classes.form21}>
 								<div className={classes.row1}>
@@ -199,7 +209,7 @@ const AddSoundcard = (props) => {
 								<div className={classes.row1}>
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="title"
 										name="title"
 										placeholder="Enter Title"
@@ -211,7 +221,7 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="number"
+										type="number"
 										id="price"
 										name="price"
 										placeholder="Enter Price"
@@ -228,7 +238,7 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="brand"
 										name="brand"
 										placeholder="Enter Brand"
@@ -240,7 +250,7 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="series"
 										name="series"
 										placeholder="Enter Series"
@@ -252,7 +262,7 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="model"
 										name="model"
 										placeholder="Enter Model"
@@ -264,7 +274,7 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="part"
 										name="part"
 										placeholder="Enter part"
@@ -288,7 +298,7 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Sample_Rate"
 										name="Sample_Rate"
 										placeholder="Enter Sample_Ratel"
@@ -300,7 +310,7 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Digital_Audio"
 										name="Digital_Audio"
 										placeholder="Enter Digital_Audio"
@@ -312,7 +322,7 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="SNR"
 										name="SNR"
 										placeholder="Enter SNR."
@@ -326,7 +336,7 @@ const AddSoundcard = (props) => {
 									<label className={classes.customfile1}>
 										<input
 											className={classes.inputfile1}
-											part="file"
+											type="file"
 											id="thumbnail"
 											name="thumbnail"
 											required
@@ -397,7 +407,7 @@ const AddSoundcard = (props) => {
 								<div className={classes.row1}>
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Line_Out"
 										name="Line_Out"
 										placeholder="Enter Line Out"
@@ -409,7 +419,7 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="number"
+										type="number"
 										id="quantity"
 										name="quantity"
 										placeholder="Enter Quantity"
@@ -427,7 +437,7 @@ const AddSoundcard = (props) => {
 
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="SPDIF_Out"
 										name="SPDIF_Out"
 										placeholder="Enter SPDIF Out."
@@ -439,7 +449,7 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Other_Ports"
 										name="Other_Ports"
 										placeholder="Enter Other Ports."
@@ -451,7 +461,7 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Interface"
 										name="Interface"
 										placeholder="Enter Interface."
@@ -463,7 +473,7 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Operating_System_Supported"
 										name="Operating_System_Supported"
 										placeholder="Enter Operating System Supported."
@@ -478,7 +488,7 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="System_Requirments"
 										name="System_Requirments"
 										placeholder="Enter System Requirments."
@@ -490,7 +500,7 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Package_Contents"
 										name="Package_Contents"
 										placeholder="Enter Package Contents."
@@ -502,7 +512,7 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Encode"
 										name="Encode"
 										placeholder="Enter Encode"
@@ -514,19 +524,19 @@ const AddSoundcard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Line_In"
 										name="Line_In"
 										placeholder="Enter Line_In"
 										required
 										onChange={(e) => {
-											setData({ ...data, Line_Out: e.target.value });
+											setData({ ...data, Line_In: e.target.value });
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Dimentions"
 										name="Dimentions"
 										placeholder="Enter Dimentions."
@@ -543,7 +553,7 @@ const AddSoundcard = (props) => {
 									<label className={classes.customfile1}>
 										<input
 											className={classes.inputfile1}
-											part="file"
+											type="file"
 											id="gallery"
 											name="gallery"
 											required
@@ -565,12 +575,11 @@ const AddSoundcard = (props) => {
 							</div>
 						</form>
 						<div className={classes.btnDiv1}>
-							<input
+							<button
 								className={classes.btn1}
-								part="submit"
-								value="Submit"
+								
 								onClick={handelSubmitBtn}
-							/>
+							>Submit</button>
 						</div>
 					</div>
 				</div>

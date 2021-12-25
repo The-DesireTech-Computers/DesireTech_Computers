@@ -1328,7 +1328,10 @@ router.put('/videocard/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', 
         
     }
     else{
-       
+        product.title = req.body.title;
+            product.price = req.body.price;
+            product.quantity = req.body.quantity;
+            
         product.Model.brand = req.body.brand;
         product.Model.series = req.body.series;
         product.Model.model = req.body.model;
@@ -1849,7 +1852,7 @@ router.delete('/psu/:id',  auth,adminAuth,async (req, res)=> {
 //update PSU
 
 router.put('/psu/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', maxCount: 1 },{ name: 'gallery', maxCount: 6 }]) , validationUpdatedPSU , async (req, res)=> {
-    
+    console.log(req.body);
     let product = await PSU.findById(req.params.id);
 
 

@@ -57,7 +57,7 @@ const AddPSU = (props) => {
 			alert("Please enter data in all the given fields (model)");
 		} else if (data.type === "") {
 			alert("Please enter data in all the given fields(type)");
-		} else if (data.Maximum_Power === "") {
+		} else if (data.Maximum_Power === 0 || data.Maximum_Power === "") {
 			alert("Please enter data in all the given fields (Maximum_Power)");
 		} else if (data.Fans === "") {
 			alert("Please enter data in all the given fields (Fans)");
@@ -325,7 +325,7 @@ const AddPSU = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="Maximum_Power"
 										name="Maximum_Power"
 										placeholder="Enter Maximum_Power"

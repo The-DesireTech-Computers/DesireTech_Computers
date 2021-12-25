@@ -24,7 +24,7 @@ let validatePSU = (req,res,next)=>{
 
 
 let validateUpdatedPSU= async (req,res,next)=>{
-    
+    console.log(req.body);
     let product = await PSU.findById(req.params.id);
 
     if(req.files.thumbnail && req.files.gallery){

@@ -10,7 +10,7 @@ let ManageSoundcard = (props) => {
 
 	let getData = () => {
 		axios
-			.get("pcParts/Soundcard")
+			.get("pcParts/soundcard")
 			.then((res) => {
 				setData(res.data);
 			})
@@ -41,7 +41,7 @@ let ManageSoundcard = (props) => {
 					quantity={element.quantity}
 					id={element._id}
 					path="admin-panel/updatesoundcard"
-					apiPath="pcParts/Soundcard"
+					apiPath="pcParts/soundcard"
 					onDelete={getData}
 				/>
 			);

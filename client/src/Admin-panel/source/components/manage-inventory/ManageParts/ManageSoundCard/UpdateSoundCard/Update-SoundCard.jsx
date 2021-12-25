@@ -27,7 +27,7 @@ const UpdateSoundCard = (props) => {
 	useEffect(() => {
 		if (id) {
 			axios
-				.get("pcParts/casing/" + id)
+				.get("pcParts/soundcard/" + id)
 				.then((res) => {
 					setData(res.data);
 				})
@@ -46,47 +46,47 @@ const UpdateSoundCard = (props) => {
 			alert("Please enter data in all the given fields  (price)");
 		} else if (data.quantity === 0 || data.quantity === "") {
 			alert("Please enter data in all the given fields (quantity)");
-		} else if (data.brand === "") {
+		} else if (data.Model.brand === "") {
 			alert("Please enter data in all the given fields(brand)");
-		} else if (data.series === "") {
+		} else if (data.Model.series === "") {
 			alert("Please enter data in all the given fields (series)");
-		} else if (data.model === "") {
+		} else if (data.Model.model === "") {
 			alert("Please enter data in all the given fields (model)");
-		} else if (data.part === "") {
+		} else if (data.Model.part === "") {
 			alert("Please enter data in all the given fields(part)");
-		} else if (data.Audio_Chipset === "") {
+		} else if (data.Audio_Core.Audio_Chipset === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
-		} else if (data.Sample_Rate === "") {
+		} else if (data.Audio_Core.Sample_Rate === "") {
 			alert("Please enter data in all the given fields (Sample_Rate)");
-		} else if (data.Digital_Audio === "") {
+		} else if (data.Audio_Core.Digital_Audio === "") {
 			alert("Please enter data in all the given fields (Digital_Audio)");
-		} else if (data.SNR === "") {
+		} else if (data.Audio_Core.SNR === "") {
 			alert("Please enter data in all the given fields (SNR)");
-		} else if (data.Encode === "") {
+		} else if (data.Audio_Core.Encode === "") {
 			alert("Please enter data in all the given fields (Encode)");
-		} else if (data.Line_In === "") {
+		} else if (data.Ports.Line_In === "") {
 			alert("Please enter data in all the given fields  (Line_In)");
-		} else if (data.Line_Out === "") {
+		} else if (data.Ports.Line_Out === "") {
 			alert("Please enter data in all the given fields  (Line_Out)");
-		} else if (data.SPDIF_Out === "") {
+		} else if (data.Ports.SPDIF_Out === "") {
 			alert("Please enter data in all the given fields (SPDIF_Out)");
-		} else if (data.Other_Ports === "") {
+		} else if (data.Ports.Other_Ports === "") {
 			alert("Please enter data in all the given fields (Other_Ports)");
-		} else if (data.Interface === "") {
+		} else if (data.Details.Interface === "") {
 			alert("Please enter data in all the given fields(Interface)");
-		} else if (data.Operating_System_Supported === "") {
+		} else if (data.Details.Operating_System_Supported === "") {
 			alert(
 				"Please enter data in all the given fields(Operating_System_Supported)"
+			);
+		} else if (data.Details.System_Requirments === "") {
+			alert(
+				"Please enter data in all the given fields(System_Requirments)"
 			);
 		} else if (data.Package_Contents === "") {
 			alert("Please enter data in all the given fields (Package_Contents)");
 		} else if (data.Dimentions === "") {
 			alert("Please enter data in all the given fields (Dimentions)");
-		} else if (thumbnail === null) {
-			alert("Please provide a picture as a thumbnail picture(thumbnail)");
-		} else if (gallery === null) {
-			alert("Please provide atleaste 1 picture as gallery(gallery)");
-		} else {
+		}  else {
 			setLoading(true);
 
 			let formData = new FormData();
@@ -94,23 +94,27 @@ const UpdateSoundCard = (props) => {
 			formData.append("title", data.title);
 			formData.append("price", data.price);
 			formData.append("quantity", data.quantity);
-			formData.append("brand", data.brand);
-			formData.append("series", data.series);
-			formData.append("model", data.model);
-			formData.append("part", data.part);
-			formData.append("Audio_Chipset", data.Audio_Chipset);
-			formData.append("Sample_Rate", data.Sample_Rate);
-			formData.append("Digital_Audio", data.Digital_Audio);
-			formData.append("SNR", data.SNR);
-			formData.append("Encode", data.Encode);
-			formData.append("Line_In", data.Line_In);
-			formData.append("Line_Out", data.Line_Out);
-			formData.append("SPDIF_Out", data.SPDIF_Out);
-			formData.append("Other_Ports", data.Other_Ports);
-			formData.append("Interface", data.Interface);
+			formData.append("brand", data.Model.brand);
+			formData.append("series", data.Model.series);
+			formData.append("model", data.Model.model);
+			formData.append("part", data.Model.part);
+			formData.append("Audio_Chipset", data.Audio_Core.Audio_Chipset);
+			formData.append("Sample_Rate", data.Audio_Core.Sample_Rate);
+			formData.append("Digital_Audio", data.Audio_Core.Digital_Audio);
+			formData.append("SNR", data.Audio_Core.SNR);
+			formData.append("Encode", data.Audio_Core.Encode);
+			formData.append("Line_In", data.Ports.Line_In);
+			formData.append("Line_Out", data.Ports.Line_Out);
+			formData.append("SPDIF_Out", data.Ports.SPDIF_Out);
+			formData.append("Other_Ports", data.Ports.Other_Ports);
+			formData.append("Interface", data.Details.Interface);
 			formData.append(
 				"Operating_System_Supported",
-				data.Operating_System_Supported
+				data.Details.Operating_System_Supported
+			);
+			formData.append(
+				"System_Requirments",
+				data.Details.System_Requirments
 			);
 			formData.append("Package_Contents", data.Package_Contents);
 			formData.append("Dimentions", data.Dimentions);
@@ -124,7 +128,7 @@ const UpdateSoundCard = (props) => {
 			}
 
 			await axios
-				.post("pcParts/Soundcard", formData)
+				.put("pcParts/soundcard/"+id, formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -139,17 +143,17 @@ const UpdateSoundCard = (props) => {
 
 	let form = <Spinner />;
 
-	if (!loading) {
+	if (!loading && data) {
 		form = (
 			<div>
 				<Navbar />
 				<div className={classes.main1}>
 					<div className={classes.inputform1}>
-						<h1 className={classes.h11}>Add Soundcard</h1>
+						<h1 className={classes.h11}>Update Soundcard</h1>
 						<form
 							className={classes.form1}
 							method="post"
-							encpart="multipart/form-data"
+							enctype="multipart/form-data"
 						>
 							<div className={classes.form21}>
 								<div className={classes.row1}>
@@ -201,10 +205,10 @@ const UpdateSoundCard = (props) => {
 								<div className={classes.row1}>
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="title"
 										name="title"
-										placeholder="Enter Title"
+										value={data.title}
 										required
 										onChange={(e) => {
 											setData({ ...data, title: e.target.value });
@@ -213,10 +217,10 @@ const UpdateSoundCard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="number"
+										type="number"
 										id="price"
 										name="price"
-										placeholder="Enter Price"
+										value={data.price}
 										required
 										onChange={(e) => {
 											let price = e.target.value;
@@ -230,97 +234,97 @@ const UpdateSoundCard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="brand"
 										name="brand"
-										placeholder="Enter Brand"
+										value={data.Model.brand}
 										required
 										onChange={(e) => {
-											setData({ ...data, brand: e.target.value });
+											setData({ ...data,Model:{...data.Model,  brand: e.target.value }});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="series"
 										name="series"
-										placeholder="Enter Series"
+										value={data.Model.series}
 										required
 										onChange={(e) => {
-											setData({ ...data, series: e.target.value });
+											setData({ ...data,Model:{...data.Model,  series: e.target.value }});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="model"
 										name="model"
-										placeholder="Enter Model"
+										value={data.Model.model}
 										required
 										onChange={(e) => {
-											setData({ ...data, model: e.target.value });
+											setData({ ...data,Model:{...data.Model,  model: e.target.value }});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="part"
 										name="part"
-										placeholder="Enter part"
+										value={data.Model.part}
 										required
 										onChange={(e) => {
-											setData({ ...data, part: e.target.value });
+											setData({ ...data,Model:{...data.Model,  part: e.target.value }});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Audio_Chipset"
 										name="Audio_Chipset"
-										placeholder="Enter Audio_Chipset"
+										value={data.Audio_Core.Audio_Chipset}
 										required
 										onChange={(e) => {
-											setData({ ...data, Audio_Chipset: e.target.value });
+											setData({ ...data,Audio_Core:{...data.Audio_Core,  Audio_Chipset: e.target.value }});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Sample_Rate"
 										name="Sample_Rate"
-										placeholder="Enter Sample_Ratel"
+										value={data.Audio_Core.Sample_Rate}
 										required
 										onChange={(e) => {
-											setData({ ...data, Sample_Rate: e.target.value });
+											setData({ ...data,Audio_Core:{...data.Audio_Core,  Sample_Rate: e.target.value }});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Digital_Audio"
 										name="Digital_Audio"
-										placeholder="Enter Digital_Audio"
+										value={data.Audio_Core.Digital_Audio}
 										required
 										onChange={(e) => {
-											setData({ ...data, Digital_Audio: e.target.value });
+											setData({ ...data,Audio_Core:{...data.Audio_Core,  Digital_Audio: e.target.value }});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="SNR"
 										name="SNR"
-										placeholder="Enter SNR."
+										value={data.Audio_Core.SNR}
 										required
 										onChange={(e) => {
-											setData({ ...data, SNR: e.target.value });
+											setData({ ...data,Audio_Core:{...data.Audio_Core,  SNR: e.target.value }});
 										}}
 									/>
 									<br />
@@ -328,7 +332,7 @@ const UpdateSoundCard = (props) => {
 									<label className={classes.customfile1}>
 										<input
 											className={classes.inputfile1}
-											part="file"
+											type="file"
 											id="thumbnail"
 											name="thumbnail"
 											required
@@ -399,22 +403,22 @@ const UpdateSoundCard = (props) => {
 								<div className={classes.row1}>
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Line_Out"
 										name="Line_Out"
-										placeholder="Enter Line Out"
+										value={data.Ports.Line_Out}
 										required
 										onChange={(e) => {
-											setData({ ...data, Line_Out: e.target.value });
+											setData({ ...data,Ports:{...data.Ports,  Line_Out: e.target.value }});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="number"
+										type="number"
 										id="quantity"
 										name="quantity"
-										placeholder="Enter Quantity"
+										value={data.quantity}
 										required
 										onChange={(e) => {
 											let quantity = e.target.value;
@@ -429,73 +433,70 @@ const UpdateSoundCard = (props) => {
 
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="SPDIF_Out"
 										name="SPDIF_Out"
-										placeholder="Enter SPDIF Out."
+										value={data.Ports.SPDIF_Out}
 										required
 										onChange={(e) => {
-											setData({ ...data, SPDIF_Out: e.target.value });
+											setData({ ...data,Ports:{...data.Ports,  SPDIF_Out: e.target.value }});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Other_Ports"
 										name="Other_Ports"
-										placeholder="Enter Other Ports."
+										value={data.Ports.Other_Ports}
 										required
 										onChange={(e) => {
-											setData({ ...data, Other_Ports: e.target.value });
+											setData({ ...data,Ports:{...data.Ports,  Other_Ports: e.target.value }});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Interface"
 										name="Interface"
-										placeholder="Enter Interface."
+										value={data.Details.Interface}
 										required
 										onChange={(e) => {
-											setData({ ...data, Interface: e.target.value });
+											setData({ ...data,Details:{...data.Details,  Interface: e.target.value }});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Operating_System_Supported"
 										name="Operating_System_Supported"
-										placeholder="Enter Operating System Supported."
+										value={data.Details.Operating_System_Supported}
 										required
 										onChange={(e) => {
-											setData({
-												...data,
-												Operating_System_Supported: e.target.value,
-											});
+											setData({ ...data,Details:{...data.Details,  Operating_System_Supported: e.target.value }});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="System_Requirments"
 										name="System_Requirments"
-										placeholder="Enter System Requirments."
+										value={data.Details.System_Requirments}
 										required
 										onChange={(e) => {
-											setData({ ...data, System_Requirments: e.target.value });
+											setData({ ...data,Details:{...data.Details,  System_Requirments: e.target.value }});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Package_Contents"
 										name="Package_Contents"
-										placeholder="Enter Package Contents."
+										value={data.Package_Contents}
 										required
 										onChange={(e) => {
 											setData({ ...data, Package_Contents: e.target.value });
@@ -504,34 +505,34 @@ const UpdateSoundCard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Encode"
 										name="Encode"
-										placeholder="Enter Encode"
+										value={data.Audio_Core.Encode}
 										required
 										onChange={(e) => {
-											setData({ ...data, Encode: e.target.value });
+											setData({ ...data,Audio_Core:{...data.Audio_Core,  Encode: e.target.value }});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Line_In"
 										name="Line_In"
-										placeholder="Enter Line_In"
+										value={data.Ports.Line_In}
 										required
 										onChange={(e) => {
-											setData({ ...data, Line_Out: e.target.value });
+											setData({ ...data,Ports:{...data.Ports,  Line_In: e.target.value }});
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
-										part="text"
+										type="text"
 										id="Dimentions"
 										name="Dimentions"
-										placeholder="Enter Dimentions."
+									value={data.Dimentions}
 										required
 										onChange={(e) => {
 											setData({
@@ -545,7 +546,7 @@ const UpdateSoundCard = (props) => {
 									<label className={classes.customfile1}>
 										<input
 											className={classes.inputfile1}
-											part="file"
+											type="file"
 											id="gallery"
 											name="gallery"
 											required
@@ -569,7 +570,7 @@ const UpdateSoundCard = (props) => {
 						<div className={classes.btnDiv1}>
 							<input
 								className={classes.btn1}
-								part="submit"
+								type="submit"
 								value="Submit"
 								onClick={handelSubmitBtn}
 							/>

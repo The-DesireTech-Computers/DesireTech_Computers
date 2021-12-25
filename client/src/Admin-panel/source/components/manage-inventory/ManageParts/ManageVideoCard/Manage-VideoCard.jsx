@@ -10,7 +10,7 @@ let ManageVideoCard = (props) => {
 
 	let getData = () => {
 		axios
-			.get("pcParts/VideoCard")
+			.get("pcParts/videocard")
 			.then((res) => {
 				setData(res.data);
 			})
@@ -41,7 +41,7 @@ let ManageVideoCard = (props) => {
 					quantity={element.quantity}
 					id={element._id}
 					path="admin-panel/updatevideocard"
-					apiPath="pcParts/VideoCard"
+					apiPath="pcParts/videocard"
 					onDelete={getData}
 				/>
 			);
