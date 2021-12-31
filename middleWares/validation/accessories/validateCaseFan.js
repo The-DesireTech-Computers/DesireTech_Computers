@@ -1,9 +1,9 @@
 
-const {validationCasefan,Casefan} = require('../../../model/accessories/caseFanModel');
+const {validationCasefan,CaseFan} = require('../../../model/accessories/caseFanModel');
 
 
 let validateCaseFan = (req,res,next)=>{
-
+console.log(req.body)
 
     req.body.thumbnail= req.files.thumbnail[0].filename;
     req.body.gallery= req.files.gallery;
@@ -12,7 +12,9 @@ let validateCaseFan = (req,res,next)=>{
      let {error} = validationCasefan(req.body);
 
     if(error){
+        console.log(error.details[0].message);
         return res.status(400).send(error.details[0].message);
+       
     }
 
    
@@ -25,9 +27,10 @@ let validateCaseFan = (req,res,next)=>{
 
 let validateUpdatedCaseFan= async (req,res,next)=>{
     
-    let product = await Casefan.findById(req.params.id);
+    let product = await CaseFan.findById(req.params.id);
 console.log(req.files);
     if(req.files.thumbnail && req.files.gallery){
+        console.log(req.files);
         req.body.thumbnail= req.files.thumbnail[0].filename;
         req.body.gallery= req.files.gallery;
     }

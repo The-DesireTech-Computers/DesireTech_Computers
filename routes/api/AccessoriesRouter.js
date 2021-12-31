@@ -138,34 +138,34 @@ router.put('/casefan/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', ma
 
     if(req.files.thumbnail && req.files.gallery){
    
-        product.title = res.body.title;
-        product.price=res.body.title;
-        product.quantity=res.body.title;
+        product.title = req.body.title;
+        product.price=req.body.title;
+        product.quantity=req.body.title;
        
     
      
-              product.Model.brand = res.body.brand;
-            product.Model.series = res.body.series;
-                product.Model.model = res.body.model;
+              product.Model.brand = req.body.brand;
+            product.Model.series = req.body.series;
+                product.Model.model = req.body.model;
     
        
-                product.Details.type =   res.body.type;
-                product.Details.Compatability = res.body.Compatability;
-                product.Details.Size =  res.body.Size;
-                product.Details.BearingType =   res.body.BearingType;
-                product.Details.RPM =  res.body.RPM;
-                product.Details.AirFlow = res.body.AirFlow;
-                product.Details.NoiseLvel =  res.body.NoiseLvel;
-                product.Details.PowerConnector =  res.body.PowerConnector;
-                product.Details.Color =  res.body.Color;
-                product.Details.LED = res.body.LED;
+                product.Details.Type =   req.body.type;
+                product.Details.Compatability = req.body.Compatability;
+                product.Details.Size =  req.body.Size;
+                product.Details.BearingType =   req.body.BearingType;
+                product.Details.RPM =  req.body.RPM;
+                product.Details.AirFlow = req.body.AirFlow;
+                product.Details.NoiseLvel =  req.body.NoiseLvel;
+                product.Details.PowerConnector =  req.body.PowerConnector;
+                product.Details.Color =  req.body.Color;
+                product.Details.LED = req.body.LED;
          
-                product.features.feature = res.body.feature;
+                product.features.feature = req.body.feature;
               
-                product.Dimentions.Dimention = res.body.Dimention;
+                product.Dimentions.Dimention = req.body.Dimention;
         
         product.image.thumbnail = req.files.thumbnail[0].filename;
-        product.image.thumbnail=[];
+        product.image.gallery=[];
         for (let index in req.files.gallery){
             product.image.gallery[index] = req.files.gallery[index].filename;
         }
@@ -177,31 +177,31 @@ router.put('/casefan/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', ma
     else if(req.files.thumbnail || req.files.gallery ){
         if(req.files.thumbnail){
     
-            product.title = res.body.title;
-            product.price=res.body.title;
-            product.quantity=res.body.title;
+            product.title = req.body.title;
+            product.price=req.body.title;
+            product.quantity=req.body.title;
            
         
          
-                  product.Model.brand = res.body.brand;
-                product.Model.series = res.body.series;
-                    product.Model.model = res.body.model;
+                  product.Model.brand = req.body.brand;
+                product.Model.series = req.body.series;
+                    product.Model.model = req.body.model;
         
            
-                    product.Details.type =   res.body.type;
-                    product.Details.Compatability = res.body.Compatability;
-                    product.Details.Size =  res.body.Size;
-                    product.Details.BearingType =   res.body.BearingType;
-                    product.Details.RPM =  res.body.RPM;
-                    product.Details.AirFlow = res.body.AirFlow;
-                    product.Details.NoiseLvel =  res.body.NoiseLvel;
-                    product.Details.PowerConnector =  res.body.PowerConnector;
-                    product.Details.Color =  res.body.Color;
-                    product.Details.LED = res.body.LED;
+                    product.Details.Type =   req.body.type;
+                    product.Details.Compatability = req.body.Compatability;
+                    product.Details.Size =  req.body.Size;
+                    product.Details.BearingType =   req.body.BearingType;
+                    product.Details.RPM =  req.body.RPM;
+                    product.Details.AirFlow = req.body.AirFlow;
+                    product.Details.NoiseLvel =  req.body.NoiseLvel;
+                    product.Details.PowerConnector =  req.body.PowerConnector;
+                    product.Details.Color =  req.body.Color;
+                    product.Details.LED = req.body.LED;
              
-                    product.features.feature = res.body.feature;
+                    product.features.feature = req.body.feature;
                   
-                    product.Dimentions.Dimention = res.body.Dimention;
+                    product.Dimentions.Dimention = req.body.Dimention;
             
             product.image.thumbnail = req.files.thumbnail[0].filename;
              product.image.gallery =product.image.gallery;
@@ -209,31 +209,31 @@ router.put('/casefan/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', ma
         }
         else if(req.files.gallery){
         
-            product.title = res.body.title;
-        product.price=res.body.title;
-        product.quantity=res.body.title;
+            product.title = req.body.title;
+        product.price=req.body.title;
+        product.quantity=req.body.title;
        
     
      
-              product.Model.brand = res.body.brand;
-            product.Model.series = res.body.series;
-                product.Model.model = res.body.model;
+              product.Model.brand = req.body.brand;
+            product.Model.series = req.body.series;
+                product.Model.model = req.body.model;
     
        
-                product.Details.type =   res.body.type;
-                product.Details.Compatability = res.body.Compatability;
-                product.Details.Size =  res.body.Size;
-                product.Details.BearingType =   res.body.BearingType;
-                product.Details.RPM =  res.body.RPM;
-                product.Details.AirFlow = res.body.AirFlow;
-                product.Details.NoiseLvel =  res.body.NoiseLvel;
-                product.Details.PowerConnector =  res.body.PowerConnector;
-                product.Details.Color =  res.body.Color;
-                product.Details.LED = res.body.LED;
+                product.Details.Type =   req.body.type;
+                product.Details.Compatability = req.body.Compatability;
+                product.Details.Size =  req.body.Size;
+                product.Details.BearingType =   req.body.BearingType;
+                product.Details.RPM =  req.body.RPM;
+                product.Details.AirFlow = req.body.AirFlow;
+                product.Details.NoiseLvel =  req.body.NoiseLvel;
+                product.Details.PowerConnector =  req.body.PowerConnector;
+                product.Details.Color =  req.body.Color;
+                product.Details.LED = req.body.LED;
          
-                product.features.feature = res.body.feature;
+                product.features.feature = req.body.feature;
               
-                product.Dimentions.Dimention = res.body.Dimention;
+                product.Dimentions.Dimention = req.body.Dimention;
         
         product.image.thumbnail = product.image.thumbnail;
         product.image.gallery = [];
@@ -246,31 +246,31 @@ router.put('/casefan/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', ma
     }
     else{
        
-        product.title = res.body.title;
-        product.price=res.body.title;
-        product.quantity=res.body.title;
+        product.title = req.body.title;
+        product.price=req.body.title;
+        product.quantity=req.body.title;
        
     
      
-              product.Model.brand = res.body.brand;
-            product.Model.series = res.body.series;
-                product.Model.model = res.body.model;
+              product.Model.brand = req.body.brand;
+            product.Model.series = req.body.series;
+                product.Model.model = req.body.model;
     
        
-                product.Details.type =   res.body.type;
-                product.Details.Compatability = res.body.Compatability;
-                product.Details.Size =  res.body.Size;
-                product.Details.BearingType =   res.body.BearingType;
-                product.Details.RPM =  res.body.RPM;
-                product.Details.AirFlow = res.body.AirFlow;
-                product.Details.NoiseLvel =  res.body.NoiseLvel;
-                product.Details.PowerConnector =  res.body.PowerConnector;
-                product.Details.Color =  res.body.Color;
-                product.Details.LED = res.body.LED;
+                product.Details.Type =   req.body.type;
+                product.Details.Compatability = req.body.Compatability;
+                product.Details.Size =  req.body.Size;
+                product.Details.BearingType =   req.body.BearingType;
+                product.Details.RPM =  req.body.RPM;
+                product.Details.AirFlow = req.body.AirFlow;
+                product.Details.NoiseLvel =  req.body.NoiseLvel;
+                product.Details.PowerConnector =  req.body.PowerConnector;
+                product.Details.Color =  req.body.Color;
+                product.Details.LED = req.body.LED;
          
-                product.features.feature = res.body.feature;
+                product.features.feature = req.body.feature;
               
-                product.Dimentions.Dimention = res.body.Dimention;
+                product.Dimentions.Dimention = req.body.Dimention;
         
         product.image.thumbnail = product.image.thumbnail;
         product.image.gallery= product.image.gallery;
@@ -293,36 +293,36 @@ router.put('/casefan/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', ma
 //restrict picture selection in front end gallery=6  
 
 router.post('/casefan',auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCount: 1 },{ name: 'gallery', maxCount: 6 }]) , validationCaseFan , async (req, res)=> {
-
+console.log(req.body);
     try{
         
         let product = new CaseFan();
 
-        product.title = res.body.title;
-        product.price=res.body.title;
-        product.quantity=res.body.title;
+        product.title = req.body.title;
+        product.price=req.body.title;
+        product.quantity=req.body.title;
        
     
      
-              product.Model.brand = res.body.brand;
-            product.Model.series = res.body.series;
-                product.Model.model = res.body.model;
+              product.Model.brand = req.body.brand;
+            product.Model.series = req.body.series;
+                product.Model.model = req.body.model;
     
        
-                product.Details.type =   res.body.type;
-                product.Details.Compatability = res.body.Compatability;
-                product.Details.Size =  res.body.Size;
-                product.Details.BearingType =   res.body.BearingType;
-                product.Details.RPM =  res.body.RPM;
-                product.Details.AirFlow = res.body.AirFlow;
-                product.Details.NoiseLvel =  res.body.NoiseLvel;
-                product.Details.PowerConnector =  res.body.PowerConnector;
-                product.Details.Color =  res.body.Color;
-                product.Details.LED = res.body.LED;
+                product.Details.Type =   req.body.type;
+                product.Details.Compatability = req.body.Compatability;
+                product.Details.Size =  req.body.Size;
+                product.Details.BearingType =   req.body.BearingType;
+                product.Details.RPM =  req.body.RPM;
+                product.Details.AirFlow = req.body.AirFlow;
+                product.Details.NoiseLvel =  req.body.NoiseLvel;
+                product.Details.PowerConnector =  req.body.PowerConnector;
+                product.Details.Color =  req.body.Color;
+                product.Details.LED = req.body.LED;
          
-                product.features.feature = res.body.feature;
+                product.features.feature = req.body.feature;
               
-                product.Dimentions.Dimention = res.body.Dimention;
+                product.Dimentions.Dimention = req.body.Dimention;
  
         
         product.image.thumbnail = req.files.thumbnail[0].filename;
@@ -430,19 +430,19 @@ router.put('/headset/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', ma
         product.Model.brand = req.body.brand;
         product.Model.model = req.body.model;
 
-       product.Details.compatability = res.body.compatability;
-       product.Details.LED = res.body.LED;
-       product.Details.weight = res.body.weight;
+       product.Details.compatability = req.body.compatability;
+       product.Details.LED = req.body.LED;
+       product.Details.weight = req.body.weight;
       
       
-       product.connectivity.connectiontype = res.body.connectiontype;
-       product.connectivity.connector = res.body.connector;
-       product.connectivity.cordLength = res.body.cordLength;
+       product.connectivity.connectiontype = req.body.connectiontype;
+       product.connectivity.connector = req.body.connector;
+       product.connectivity.cordLength = req.body.cordLength;
       
-       product.features.feature = res.body.feature;
+       product.features.feature = req.body.feature;
    
         product.image.thumbnail = req.files.thumbnail[0].filename;
-        product.image.thumbnail=[];
+        product.image.gallery=[];
         for (let index in req.files.gallery){
             product.image.gallery[index] = req.files.gallery[index].filename;
         }
@@ -461,16 +461,16 @@ router.put('/headset/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', ma
             product.Model.brand = req.body.brand;
             product.Model.model = req.body.model;
     
-           product.Details.compatability = res.body.compatability;
-           product.Details.LED = res.body.LED;
-           product.Details.weight = res.body.weight;
+           product.Details.compatability = req.body.compatability;
+           product.Details.LED = req.body.LED;
+           product.Details.weight = req.body.weight;
           
           
-           product.connectivity.connectiontype = res.body.connectiontype;
-           product.connectivity.connector = res.body.connector;
-           product.connectivity.cordLength = res.body.cordLength;
+           product.connectivity.connectiontype = req.body.connectiontype;
+           product.connectivity.connector = req.body.connector;
+           product.connectivity.cordLength = req.body.cordLength;
           
-           product.features.feature = res.body.feature;
+           product.features.feature = req.body.feature;
 
             product.image.thumbnail = req.files.thumbnail[0].filename;
              product.image.gallery =product.image.gallery;
@@ -485,16 +485,16 @@ router.put('/headset/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', ma
         product.Model.brand = req.body.brand;
         product.Model.model = req.body.model;
 
-       product.Details.compatability = res.body.compatability;
-       product.Details.LED = res.body.LED;
-       product.Details.weight = res.body.weight;
+       product.Details.compatability = req.body.compatability;
+       product.Details.LED = req.body.LED;
+       product.Details.weight = req.body.weight;
       
       
-       product.connectivity.connectiontype = res.body.connectiontype;
-       product.connectivity.connector = res.body.connector;
-       product.connectivity.cordLength = res.body.cordLength;
+       product.connectivity.connectiontype = req.body.connectiontype;
+       product.connectivity.connector = req.body.connector;
+       product.connectivity.cordLength = req.body.cordLength;
       
-       product.features.feature = res.body.feature;
+       product.features.feature = req.body.feature;
 
         product.image.thumbnail = product.image.thumbnail;
         product.image.gallery = [];
@@ -514,16 +514,16 @@ router.put('/headset/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', ma
         product.Model.brand = req.body.brand;
         product.Model.model = req.body.model;
 
-       product.Details.compatability = res.body.compatability;
-       product.Details.LED = res.body.LED;
-       product.Details.weight = res.body.weight;
+       product.Details.compatability = req.body.compatability;
+       product.Details.LED = req.body.LED;
+       product.Details.weight = req.body.weight;
       
       
-       product.connectivity.connectiontype = res.body.connectiontype;
-       product.connectivity.connector = res.body.connector;
-       product.connectivity.cordLength = res.body.cordLength;
+       product.connectivity.connectiontype = req.body.connectiontype;
+       product.connectivity.connector = req.body.connector;
+       product.connectivity.cordLength = req.body.cordLength;
       
-       product.features.feature = res.body.feature;
+       product.features.feature = req.body.feature;
 
         product.image.thumbnail = product.image.thumbnail;
         product.image.gallery= product.image.gallery;
@@ -558,16 +558,16 @@ router.post('/headset',auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCo
         product.Model.brand = req.body.brand;
         product.Model.model = req.body.model;
 
-       product.Details.compatability = res.body.compatability;
-       product.Details.LED = res.body.LED;
-       product.Details.weight = res.body.weight;
+       product.Details.compatability = req.body.compatability;
+       product.Details.LED = req.body.LED;
+       product.Details.weight = req.body.weight;
       
       
-       product.connectivity.connectiontype = res.body.connectiontype;
-       product.connectivity.connector = res.body.connector;
-       product.connectivity.cordLength = res.body.cordLength;
+       product.connectivity.connectiontype = req.body.connectiontype;
+       product.connectivity.connector = req.body.connector;
+       product.connectivity.cordLength = req.body.cordLength;
       
-       product.features.feature = res.body.feature;
+       product.features.feature = req.body.feature;
         
         product.image.thumbnail = req.files.thumbnail[0].filename;
         for (let index in req.files.gallery){
@@ -696,7 +696,7 @@ router.put('/keyboard/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', m
 
         
         product.image.thumbnail = req.files.thumbnail[0].filename;
-        product.image.thumbnail=[];
+        product.image.gallery=[];
         for (let index in req.files.gallery){
             product.image.gallery[index] = req.files.gallery[index].filename;
         }
@@ -969,7 +969,7 @@ router.put('/microphone/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail',
    
         
         product.image.thumbnail = req.files.thumbnail[0].filename;
-        product.image.thumbnail=[];
+        product.image.gallery=[];
         for (let index in req.files.gallery){
             product.image.gallery[index] = req.files.gallery[index].filename;
         }
@@ -1213,7 +1213,7 @@ router.put('/monitor/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', ma
 
         
         product.image.thumbnail = req.files.thumbnail[0].filename;
-        product.image.thumbnail=[];
+        product.image.gallery=[];
         for (let index in req.files.gallery){
             product.image.gallery[index] = req.files.gallery[index].filename;
         }
@@ -1490,7 +1490,7 @@ router.put('/mouse/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', maxC
         product.features.feature = req.body.feature;
         
         product.image.thumbnail = req.files.thumbnail[0].filename;
-        product.image.thumbnail=[];
+        product.image.gallery=[];
         for (let index in req.files.gallery){
             product.image.gallery[index] = req.files.gallery[index].filename;
         }
@@ -1753,7 +1753,7 @@ router.put('/speaker/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', ma
 
       
         product.image.thumbnail = req.files.thumbnail[0].filename;
-        product.image.thumbnail=[];
+        product.image.gallery=[];
         for (let index in req.files.gallery){
             product.image.gallery[index] = req.files.gallery[index].filename;
         }
@@ -2028,7 +2028,7 @@ router.put('/webcam/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', max
 
     
         product.image.thumbnail = req.files.thumbnail[0].filename;
-        product.image.thumbnail=[];
+        product.image.gallery=[];
         for (let index in req.files.gallery){
             product.image.gallery[index] = req.files.gallery[index].filename;
         }

@@ -26,7 +26,7 @@ const UpdateCaseFan = (props) => {
 	useEffect(() => {
 		if (id) {
 			axios
-				.get("accessories/CaseFan" + id)
+				.get("accessories/casefan/" + id)
 				.then((res) => {
 					setData(res.data);
 				})
@@ -45,37 +45,38 @@ const UpdateCaseFan = (props) => {
 			alert("Please enter data in all the given fields  (price)");
 		} else if (data.quantity === 0 || data.quantity === "") {
 			alert("Please enter data in all the given fields (quantity)");
-		} else if (data.brand === "") {
+		} else if (data.Model.brand === "") {
 			alert("Please enter data in all the given fields(brand)");
-		} else if (data.series === "") {
+		} else if (data.Model.series === "") {
 			alert("Please enter data in all the given fields (series)");
-		} else if (data.model === "") {
+		} else if (data.Model.model === "") {
 			alert("Please enter data in all the given fields (model)");
-		} else if (data.type === "") {
+		} else if (data.Details.type === "") {
 			alert("Please enter data in all the given fields(type)");
-		} else if (data.Compatability === "") {
+		} else if (data.Details.Compatability === "") {
 			alert("Please enter data in all the given fields(Compatability)");
-		} else if (data.Size === "") {
+		} else if (data.Details.Size === "") {
 			alert("Please enter data in all the given fields (Size)");
-		} else if (data.BearingType === "") {
+		} else if (data.Details.BearingType === "") {
 			alert("Please enter data in all the given fields (BearingType)");
-		} else if (data.RPM === "") {
+		} else if (data.Details.RPM === "") {
 			alert("Please enter data in all the given fields (RPM)");
-		} else if (data.AirFlow === "") {
+		} else if (data.Details.AirFlow === "") {
 			alert("Please enter data in all the given fields (AirFlow)");
-		} else if (data.NoiseLvel === "") {
+		} else if (data.Details.NoiseLvel === "") {
 			alert("Please enter data in all the given fields  (NoiseLvel)");
-		} else if (data.PowerConnector === "") {
+		} else if (data.Details.PowerConnector === "") {
 			alert("Please enter data in all the given fields  (PowerConnector)");
-		} else if (data.Color === "") {
+		} else if (data.Details.Color === "") {
 			alert("Please enter data in all the given fields (Color)");
-		} else if (data.LED === "") {
+		} else if (data.Details.LED === "") {
 			alert("Please enter data in all the given fields (LED)");
-		} else if (thumbnail === null) {
-			alert("Please provide a picture as a thumbnail picture(thumbnail)");
-		} else if (gallery === null) {
-			alert("Please provide atleaste 1 picture as gallery(gallery)");
-		} else {
+		}else if (data.features.feature === "") {
+			alert("Please enter data in all the given fields (LED)");
+		} else if (data.Dimentions.Dimention === "") {
+			alert("Please enter data in all the given fields (LED)");
+		}  
+		 else {
 			setLoading(true);
 
 			let formData = new FormData();
@@ -83,20 +84,21 @@ const UpdateCaseFan = (props) => {
 			formData.append("title", data.title);
 			formData.append("price", data.price);
 			formData.append("quantity", data.quantity);
-			formData.append("brand", data.brand);
-			formData.append("series", data.series);
-			formData.append("model", data.model);
-			formData.append("type", data.type);
-			formData.append("Compatability", data.Compatability);
-			formData.append("Size", data.Size);
-			formData.append("BearingType", data.BearingType);
-			formData.append("RPM", data.RPM);
-			formData.append("AirFlow", data.AirFlow);
-			formData.append("NoiseLvel", data.NoiseLvel);
-			formData.append("PowerConnector", data.PowerConnector);
-			formData.append("Color", data.Color);
-			formData.append("LED", data.LED);
-			formData.append("feature", data.feature);
+			formData.append("brand", data.Model.brand);
+			formData.append("series", data.Model.series);
+			formData.append("model", data.Model.model);
+			formData.append("type", data.Details.Type);
+			formData.append("Compatability", data.Details.Compatability);
+			formData.append("Size", data.Details.Size);
+			formData.append("BearingType", data.Details.BearingType);
+			formData.append("RPM", data.Details.RPM);
+			formData.append("AirFlow", data.Details.AirFlow);
+			formData.append("NoiseLvel", data.Details.NoiseLvel);
+			formData.append("PowerConnector", data.Details.PowerConnector);
+			formData.append("Color", data.Details.Color);
+			formData.append("LED", data.Details.LED);
+			formData.append("feature", data.features.feature);
+			formData.append("Dimention", data.Dimentions.Dimention);
 
 			formData.append("thumbnail", thumbnail);
 
@@ -107,7 +109,7 @@ const UpdateCaseFan = (props) => {
 			}
 
 			await axios
-				.post("accessories/CaseFan", formData)
+				.put("accessories/casefan/"+id, formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -122,16 +124,16 @@ const UpdateCaseFan = (props) => {
 
 	let form = <Spinner />;
 
-	if (!loading) {
+	if (!loading && data) {
 		form = (
 			<div>
 				<Navbar />
 				<div className={classes.main1}>
 					<div className={classes.inputform1}>
-						<h1 className={classes.h11}>Add Case Fan</h1>
+						<h1 className={classes.h11}>Update Case Fan</h1>
 						<form
 							className={classes.form1}
-							method="post"
+							method="put"
 							encType="multipart/form-data"
 						>
 							<div className={classes.form21}>
@@ -183,7 +185,7 @@ const UpdateCaseFan = (props) => {
 										type="text"
 										id="title"
 										name="title"
-										placeholder="Enter Title"
+										value={data.title}
 										required
 										onChange={(e) => {
 											setData({ ...data, title: e.target.value });
@@ -195,7 +197,7 @@ const UpdateCaseFan = (props) => {
 										type="number"
 										id="price"
 										name="price"
-										placeholder="Enter Price"
+										value={data.price}
 										required
 										onChange={(e) => {
 											let price = e.target.value;
@@ -212,10 +214,10 @@ const UpdateCaseFan = (props) => {
 										type="text"
 										id="brand"
 										name="brand"
-										placeholder="Enter Brand"
+										value={data.Model.brand}
 										required
 										onChange={(e) => {
-											setData({ ...data, brand: e.target.value });
+											setData({ ...data,Model:{...data.Model,brand: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -224,10 +226,10 @@ const UpdateCaseFan = (props) => {
 										type="text"
 										id="series"
 										name="series"
-										placeholder="Enter Series"
+										value={data.Model.series}
 										required
 										onChange={(e) => {
-											setData({ ...data, series: e.target.value });
+											setData({ ...data,Model:{...data.Model,series: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -236,10 +238,10 @@ const UpdateCaseFan = (props) => {
 										type="text"
 										id="model"
 										name="model"
-										placeholder="Enter Model"
+										value={data.Model.model}
 										required
 										onChange={(e) => {
-											setData({ ...data, model: e.target.value });
+											setData({ ...data,Model:{...data.Model,model: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -248,10 +250,10 @@ const UpdateCaseFan = (props) => {
 										type="text"
 										id="type"
 										name="type"
-										placeholder="Enter Type"
+										value={data.Details.Type}
 										required
 										onChange={(e) => {
-											setData({ ...data, type: e.target.value });
+											setData({ ...data,Details:{...data.Details,Type: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -260,10 +262,10 @@ const UpdateCaseFan = (props) => {
 										type="text"
 										id="Compatability"
 										name="Compatability"
-										placeholder="Enter Compatability"
+										value={data.Details.Compatability}
 										required
 										onChange={(e) => {
-											setData({ ...data, Compatability: e.target.value });
+											setData({ ...data,Details:{...data.Details,Compatability: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -272,13 +274,10 @@ const UpdateCaseFan = (props) => {
 										type="text"
 										id="AirFlow"
 										name="AirFlow"
-										placeholder="Enter Air Flow"
+										value={data.Details.AirFlow}
 										required
 										onChange={(e) => {
-											setData({
-												...data,
-												AirFlow: e.target.value,
-											});
+											setData({ ...data,Details:{...data.Details,AirFlow: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -287,10 +286,10 @@ const UpdateCaseFan = (props) => {
 										type="text"
 										id="NoiseLvel"
 										name="NoiseLvel"
-										placeholder="Enter Noise Lvel"
+										value={data.Details.NoiseLvel}
 										required
 										onChange={(e) => {
-											setData({ ...data, NoiseLvel: e.target.value });
+											setData({ ...data,Details:{...data.Details,NoiseLvel: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -342,6 +341,10 @@ const UpdateCaseFan = (props) => {
 										feature:
 									</label>
 									<br />
+									<label className={classes.label1} htmlFor="Dimention">
+									Dimention:
+									</label>
+									<br />
 									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
@@ -352,10 +355,10 @@ const UpdateCaseFan = (props) => {
 										type="text"
 										id="PowerConnector"
 										name="PowerConnector"
-										placeholder="Enter PowerConnector"
+										value={data.Details.PowerConnector}
 										required
 										onChange={(e) => {
-											setData({ ...data, PowerConnector: e.target.value });
+											setData({ ...data,Details:{...data.Details,PowerConnector: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -364,7 +367,7 @@ const UpdateCaseFan = (props) => {
 										type="number"
 										id="quantity"
 										name="quantity"
-										placeholder="Enter Quantity"
+										value={data.quantity}
 										required
 										onChange={(e) => {
 											let quantity = e.target.value;
@@ -382,10 +385,10 @@ const UpdateCaseFan = (props) => {
 										type="text"
 										id="Color"
 										name="Color"
-										placeholder="Enter Color."
+										value={data.Details.Color}
 										required
 										onChange={(e) => {
-											setData({ ...data, Color: e.target.value });
+											setData({ ...data,Details:{...data.Details,Color: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -394,10 +397,10 @@ const UpdateCaseFan = (props) => {
 										type="text"
 										id="LED"
 										name="LED"
-										placeholder="Enter LED."
+										value={data.Details.LED}
 										required
 										onChange={(e) => {
-											setData({ ...data, LED: e.target.value });
+											setData({ ...data,Details:{...data.Details,LED: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -406,10 +409,10 @@ const UpdateCaseFan = (props) => {
 										type="number"
 										id="Size"
 										name="Size"
-										placeholder="Enter Size"
+										value={data.Details.Size}
 										required
 										onChange={(e) => {
-											setData({ ...data, Size: e.target.value });
+											setData({ ...data,Details:{...data.Details,Size: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -418,10 +421,10 @@ const UpdateCaseFan = (props) => {
 										type="text"
 										id="BearingType"
 										name="BearingType"
-										placeholder="Enter With Bearing Type"
+										value={data.Details.BearingType}
 										required
 										onChange={(e) => {
-											setData({ ...data, BearingType: e.target.value });
+											setData({ ...data,Details:{...data.Details,BearingType: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -430,13 +433,10 @@ const UpdateCaseFan = (props) => {
 										type="text"
 										id="RPM"
 										name="RPM"
-										placeholder="Enter RPM."
+										value={data.Details.RPM}
 										required
 										onChange={(e) => {
-											setData({
-												...data,
-												RPM: e.target.value,
-											});
+											setData({ ...data,Details:{...data.Details,RPM: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -446,10 +446,23 @@ const UpdateCaseFan = (props) => {
 										type="text"
 										id="feature"
 										name="feature"
-										placeholder="Enter feature."
+										value={data.features.feature}
 										required
 										onChange={(e) => {
-											setData({ ...data, feature: e.target.value });
+											setData({ ...data,features:{...data.features,feature: e.target.value}  });
+										}}
+									/>
+									<br />
+
+									<input
+										className={classes.input1}
+										type="text"
+										id="Dimention"
+										name="Dimention"
+										value={data.Dimentions.Dimention}
+										required
+										onChange={(e) => {
+											setData({ ...data,Dimentions:{...data.Dimentions,Dimention: e.target.value}  });
 										}}
 									/>
 									<br />

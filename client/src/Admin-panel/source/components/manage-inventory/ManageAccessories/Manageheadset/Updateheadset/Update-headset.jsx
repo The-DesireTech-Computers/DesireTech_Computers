@@ -26,7 +26,7 @@ const UpdateHeadset = (props) => {
 	useEffect(() => {
 		if (id) {
 			axios
-				.get("pcParts/casing/" + id)
+				.get("accessories/headset/" + id)
 				.then((res) => {
 					setData(res.data);
 				})
@@ -45,28 +45,24 @@ const UpdateHeadset = (props) => {
 			alert("Please enter data in all the given fields  (price)");
 		} else if (data.quantity === 0 || data.quantity === "") {
 			alert("Please enter data in all the given fields (quantity)");
-		} else if (data.brand === "") {
+		} else if (data.Model.brand === "") {
 			alert("Please enter data in all the given fields(brand)");
-		} else if (data.model === "") {
+		} else if (data.Model.model === "") {
 			alert("Please enter data in all the given fields (model)");
-		} else if (data.compatability === "") {
+		} else if (data.Details.compatability === "") {
 			alert("Please enter data in all the given fields(compatability)");
-		} else if (data.LED === "") {
+		} else if (data.Details.LED === "") {
 			alert("Please enter data in all the given fields(LED)");
-		} else if (data.weight === "") {
+		} else if (data.Details.weight === "") {
 			alert("Please enter data in all the given fields (weight)");
-		} else if (data.connectiontype === "") {
+		} else if (data.connectivity.connectiontype === "") {
 			alert("Please enter data in all the given fields (connectiontype)");
-		} else if (data.connector === "") {
+		} else if (data.connectivity.connector === "") {
 			alert("Please enter data in all the given fields (connector)");
-		} else if (data.cordLength === "") {
+		} else if (data.connectivity.cordLength === "") {
 			alert("Please enter data in all the given fields (cordLength)");
-		} else if (data.feature === "") {
+		} else if (data.features.feature === "") {
 			alert("Please enter data in all the given fields  (feature)");
-		} else if (thumbnail === null) {
-			alert("Please provide a picture as a thumbnail picture(thumbnail)");
-		} else if (gallery === null) {
-			alert("Please provide atleaste 1 picture as gallery(gallery)");
 		} else {
 			setLoading(true);
 
@@ -75,15 +71,15 @@ const UpdateHeadset = (props) => {
 			formData.append("title", data.title);
 			formData.append("price", data.price);
 			formData.append("quantity", data.quantity);
-			formData.append("brand", data.brand);
-			formData.append("model", data.model);
-			formData.append("compatability", data.compatability);
-			formData.append("LED", data.LED);
-			formData.append("weight", data.weight);
-			formData.append("connectiontype", data.connectiontype);
-			formData.append("connector", data.connector);
-			formData.append("cordLength", data.cordLength);
-			formData.append("feature", data.feature);
+			formData.append("brand", data.Model.brand);
+			formData.append("model", data.Model.model);
+			formData.append("compatability", data.Details.compatability);
+			formData.append("LED", data.Details.LED);
+			formData.append("weight", data.Details.weight);
+			formData.append("connectiontype", data.connectivity.connectiontype);
+			formData.append("connector", data.connectivity.connector);
+			formData.append("cordLength", data.connectivity.cordLength);
+			formData.append("feature", data.features.feature);
 
 			formData.append("thumbnail", thumbnail);
 
@@ -94,7 +90,7 @@ const UpdateHeadset = (props) => {
 			}
 
 			await axios
-				.post("accessories/headset", formData)
+				.put("accessories/headset/"+id, formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -109,16 +105,16 @@ const UpdateHeadset = (props) => {
 
 	let form = <Spinner />;
 
-	if (!loading) {
+	if (!loading && data) {
 		form = (
 			<div>
 				<Navbar />
 				<div className={classes.main1}>
 					<div className={classes.inputform1}>
-						<h1 className={classes.h11}>Add Headset</h1>
+						<h1 className={classes.h11}>Update Headset</h1>
 						<form
 							className={classes.form1}
-							method="post"
+							method="put"
 							encType="multipart/form-data"
 						>
 							<div className={classes.form21}>
@@ -158,7 +154,7 @@ const UpdateHeadset = (props) => {
 										type="text"
 										id="title"
 										name="title"
-										placeholder="Enter Title"
+										value={data.title}
 										required
 										onChange={(e) => {
 											setData({ ...data, title: e.target.value });
@@ -170,7 +166,7 @@ const UpdateHeadset = (props) => {
 										type="number"
 										id="price"
 										name="price"
-										placeholder="Enter Price"
+										value={data.price}
 										required
 										onChange={(e) => {
 											let price = e.target.value;
@@ -187,10 +183,10 @@ const UpdateHeadset = (props) => {
 										type="text"
 										id="brand"
 										name="brand"
-										placeholder="Enter Brand"
+										value={data.Model.brand}
 										required
 										onChange={(e) => {
-											setData({ ...data, brand: e.target.value });
+											setData({ ...data,Model:{...data.Model ,brand: e.target.value} });
 										}}
 									/>
 									<br />
@@ -200,10 +196,10 @@ const UpdateHeadset = (props) => {
 										type="text"
 										id="model"
 										name="model"
-										placeholder="Enter Model"
+										value={data.Model.model}
 										required
 										onChange={(e) => {
-											setData({ ...data, model: e.target.value });
+											setData({ ...data,Model:{...data.Model ,model: e.target.value} });
 										}}
 									/>
 									<br />
@@ -212,10 +208,10 @@ const UpdateHeadset = (props) => {
 										type="text"
 										id="compatability"
 										name="compatability"
-										placeholder="Enter compatability"
+										value={data.Details.compatability}
 										required
 										onChange={(e) => {
-											setData({ ...data, compatability: e.target.value });
+											setData({ ...data,Details:{...data.Details ,compatability: e.target.value} });
 										}}
 									/>
 
@@ -225,10 +221,11 @@ const UpdateHeadset = (props) => {
 										type="text"
 										id="feature"
 										name="feature"
-										placeholder="Enter feature"
+										value={data.features.feature}
 										required
 										onChange={(e) => {
-											setData({ ...data, feature: e.target.value });
+											setData({ ...data,features:{...data.features ,feature: e.target.value} });
+										
 										}}
 									/>
 									<br />
@@ -282,7 +279,7 @@ const UpdateHeadset = (props) => {
 										type="number"
 										id="quantity"
 										name="quantity"
-										placeholder="Enter Quantity"
+										value={data.quantity}
 										required
 										onChange={(e) => {
 											let quantity = e.target.value;
@@ -299,10 +296,11 @@ const UpdateHeadset = (props) => {
 										type="text"
 										id="LED"
 										name="LED"
-										placeholder="Enter LED"
+										value={data.Details.LED}
 										required
 										onChange={(e) => {
-											setData({ ...data, LED: e.target.value });
+											setData({ ...data,Details:{...data.Details ,LED: e.target.value} });
+										
 										}}
 									/>
 									<br />
@@ -311,10 +309,11 @@ const UpdateHeadset = (props) => {
 										type="text"
 										id="weight"
 										name="weight"
-										placeholder="Enter weight"
+										value={data.Details.weight}
 										required
 										onChange={(e) => {
-											setData({ ...data, weight: e.target.value });
+											setData({ ...data,Details:{...data.Details ,weight: e.target.value} });
+										
 										}}
 									/>
 									<br />
@@ -323,10 +322,11 @@ const UpdateHeadset = (props) => {
 										type="text"
 										id="connectiontype"
 										name="connectiontype"
-										placeholder="Enter connectiontype"
+										value={data.connectivity.connectiontype}
 										required
 										onChange={(e) => {
-											setData({ ...data, connectiontype: e.target.value });
+											setData({ ...data,connectivity:{...data.connectivity ,connectiontype: e.target.value} });
+										
 										}}
 									/>
 									<br />
@@ -335,13 +335,11 @@ const UpdateHeadset = (props) => {
 										type="text"
 										id="connector"
 										name="connector"
-										placeholder="Enter connector."
+										value={data.connectivity.connector}
 										required
 										onChange={(e) => {
-											setData({
-												...data,
-												Power_Supply_Mounted: e.target.value,
-											});
+											setData({ ...data,connectivity:{...data.connectivity ,connector: e.target.value} });
+										
 										}}
 									/>
 									<br />
@@ -350,13 +348,11 @@ const UpdateHeadset = (props) => {
 										type="text"
 										id="cordLength"
 										name="cordLength"
-										placeholder="Enter cordLength"
+										value={data.connectivity.cordLength}
 										required
 										onChange={(e) => {
-											setData({
-												...data,
-												cordLength: e.target.value,
-											});
+											setData({ ...data,connectivity:{...data.connectivity ,cordLength: e.target.value} });
+										
 										}}
 									/>
 									<br />

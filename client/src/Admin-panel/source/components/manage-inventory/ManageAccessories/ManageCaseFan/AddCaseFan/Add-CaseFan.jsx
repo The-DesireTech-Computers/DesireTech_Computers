@@ -25,7 +25,8 @@ const AddCaseFan = (props) => {
 		LED: "",
 
 		feature: "",
-		Dimension: "",
+
+		Dimention: "",
 	});
 	let [thumbnail, setThumbnail] = useState(null);
 	let [gallery, setGallery] = useState(null);
@@ -66,7 +67,11 @@ const AddCaseFan = (props) => {
 			alert("Please enter data in all the given fields (Color)");
 		} else if (data.LED === "") {
 			alert("Please enter data in all the given fields (LED)");
-		} else if (thumbnail === null) {
+		} else if (data.features.feature === "") {
+			alert("Please enter data in all the given fields (LED)");
+		} else if (data.Dimentions.Dimention === "") {
+			alert("Please enter data in all the given fields (LED)");
+		}else if (thumbnail === null) {
 			alert("Please provide a picture as a thumbnail picture(thumbnail)");
 		} else if (gallery === null) {
 			alert("Please provide atleaste 1 picture as gallery(gallery)");
@@ -92,6 +97,7 @@ const AddCaseFan = (props) => {
 			formData.append("Color", data.Color);
 			formData.append("LED", data.LED);
 			formData.append("feature", data.feature);
+			formData.append("Dimention", data.Dimention);
 
 			formData.append("thumbnail", thumbnail);
 
@@ -101,17 +107,18 @@ const AddCaseFan = (props) => {
 				}
 			}
 
-			await axios
-				.post("accessories/CaseFan", formData)
-				.then((res) => {
+			 axios
+				.post("accessories/casefan", formData)
+				.then(res=>{
 					console.log("product Added successfully");
 					setLoading(false);
 					props.history.replace("/admin-panel/managecasefan");
-				})
-				.catch((err) => {
+				}).catch(err=>{
 					console.log(err);
 					setLoading(false);
 				});
+
+				
 		}
 	};
 
@@ -337,6 +344,10 @@ const AddCaseFan = (props) => {
 										feature:
 									</label>
 									<br />
+									<label className={classes.label1} htmlFor="Dimentions">
+									Dimentions:
+									</label>
+									<br />
 									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
@@ -449,6 +460,19 @@ const AddCaseFan = (props) => {
 									/>
 									<br />
 
+									<input
+										className={classes.input1}
+										type="text"
+										id="Dimention"
+										name="Dimention"
+										placeholder="Enter Dimention."
+										required
+										onChange={(e) => {
+											setData({ ...data, Dimention: e.target.value });
+										}}
+									/>
+									<br />
+
 									<label className={classes.customfile1}>
 										<input
 											className={classes.inputfile1}
@@ -474,12 +498,10 @@ const AddCaseFan = (props) => {
 							</div>
 						</form>
 						<div className={classes.btnDiv1}>
-							<input
+							<button
 								className={classes.btn1}
-								type="submit"
-								value="Submit"
 								onClick={handelSubmitBtn}
-							/>
+							>Submit</button>
 						</div>
 					</div>
 				</div>

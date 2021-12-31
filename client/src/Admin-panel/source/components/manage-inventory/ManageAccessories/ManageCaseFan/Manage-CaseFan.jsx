@@ -10,7 +10,7 @@ let ManageCaseFan = (props) => {
 
 	let getData = () => {
 		axios
-			.get("accessories/CaseFan")
+			.get("accessories/casefan")
 			.then((res) => {
 				setData(res.data);
 			})
@@ -41,7 +41,7 @@ let ManageCaseFan = (props) => {
 					quantity={element.quantity}
 					id={element._id}
 					path="admin-panel/updatecasefan"
-					apiPath="accessories/CaseFan"
+					apiPath="accessories/casefan"
 					onDelete={getData}
 				/>
 			);

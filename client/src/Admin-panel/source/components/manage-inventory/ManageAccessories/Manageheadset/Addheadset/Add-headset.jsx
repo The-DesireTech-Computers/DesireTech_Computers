@@ -15,9 +15,11 @@ const AddHeadset = (props) => {
 		compatability: "",
 		LED: "",
 		weight: "",
+
 		connectiontype: "",
 		connector: "",
 		cordLength: "",
+
 		feature: "",
 	});
 	let [thumbnail, setThumbnail] = useState(null);
@@ -328,7 +330,7 @@ const AddHeadset = (props) => {
 										onChange={(e) => {
 											setData({
 												...data,
-												Power_Supply_Mounted: e.target.value,
+												connector: e.target.value,
 											});
 										}}
 									/>

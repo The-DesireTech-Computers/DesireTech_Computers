@@ -27,11 +27,9 @@ let CasefanSchema = mongoose.Schema({
     },
     features:{
         feature:String
-
     },
-
     Dimentions:{
-        Dimension:String
+        Dimention:String
     },
 
     image:{
@@ -58,7 +56,7 @@ let CasefanSchema = mongoose.Schema({
    
             type:joi.string().required() ,
             Compatability:joi.string().required() ,
-            Size:joi.Number().required() ,
+            Size:joi.number().required() ,
             BearingType:joi.string().required() ,
             RPM:joi.string().required() ,
             AirFlow:joi.string().required() ,
@@ -69,7 +67,7 @@ let CasefanSchema = mongoose.Schema({
      
             feature:joi.string().required() ,
           
-            Dimentions:joi.string().required() ,
+            Dimention:joi.string().required() ,
     
     
     thumbnail:joi.string().required(),
