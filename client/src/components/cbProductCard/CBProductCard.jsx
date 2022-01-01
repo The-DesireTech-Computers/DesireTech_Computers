@@ -1,5 +1,4 @@
 import React from "react";
-import { RiArrowDropRightLine } from "react-icons/ri";
 import { withRouter } from "react-router-dom";
 import "./CBProductCard.css";
 let CBProductCard = ({ selectBtnHandler, ...props }) => {
@@ -11,7 +10,7 @@ let CBProductCard = ({ selectBtnHandler, ...props }) => {
 						<img src={props.img} width="90px" height="70px" alt="product" />
 					</div>
 					<div className="col-1"></div>
-					<div className="col-8">{props.title}</div>
+					<div className="col-8">{props.title.substring(0, 70)}...</div>
 				</div>
 			</td>
 			<td>{props.detail1}</td>
@@ -25,7 +24,7 @@ let CBProductCard = ({ selectBtnHandler, ...props }) => {
 						selectBtnHandler(props.product_id);
 					}}
 				>
-					Select <RiArrowDropRightLine className="iconselectcb" />
+					Select
 				</button>
 			</td>
 		</tr>

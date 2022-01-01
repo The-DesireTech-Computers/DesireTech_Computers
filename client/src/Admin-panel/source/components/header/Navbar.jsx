@@ -16,7 +16,7 @@ const Navbar = (props) => {
 					<NavLink className="dropbtn1 linksadmin11" to="/admin-panel/home">
 						Manage Inventory
 					</NavLink>
-					<div className="dropdown-content1">
+					<div className="dropdown-content11">
 						<NavLink to="/admin-panel/manageprebuilt" className="linksadmin11">
 							Manage Pr-Built PCs
 						</NavLink>
@@ -56,7 +56,10 @@ const Navbar = (props) => {
 								>
 									MotherBoards
 								</NavLink>
-								<NavLink className="linksadmin31" to="/admin-panel/manageprocessor">
+								<NavLink
+									className="linksadmin31"
+									to="/admin-panel/manageprocessor"
+								>
 									CPUs/Processors
 								</NavLink>
 								<NavLink className="linksadmin31" to="/admin-panel/managepsu">

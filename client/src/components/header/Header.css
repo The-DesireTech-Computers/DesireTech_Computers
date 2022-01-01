@@ -95,6 +95,7 @@
 .nav-contain3 {
 	margin: auto;
 	width: 90%;
+	z-index: 200;
 }
 
 .navmain {
@@ -107,7 +108,7 @@
 	position: fixed;
 	top: 10px;
 	width: 90%;
-	z-index: 5;
+	z-index: 200;
 }
 
 .unlist2 {
@@ -146,10 +147,6 @@
 	cursor: pointer;
 }
 
-.links2.dropdowns {
-	display: inline-block;
-}
-
 .links3 {
 	display: block;
 	color: white;
@@ -172,10 +169,6 @@
 	border-radius: 15px;
 }
 
-.links3.dropdowns {
-	display: inline-block;
-}
-
 .links4 {
 	display: none;
 	color: white;
@@ -196,7 +189,9 @@
 	margin-left: 3px;
 }
 
-.dropdown-content {
+.dropdown-content1,
+.dropdown-content2,
+.dropdown-content3 {
 	visibility: hidden; /* hides sub-menu */
 	opacity: 0;
 	width: 250px;
@@ -210,13 +205,15 @@
 	transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s;
 }
 
-.dropdown-content a {
+.dropdown-content1 a,
+.dropdown-content2 a,
+.dropdown-content3 a {
 	text-align: left;
 }
 
-.dropdowns:focus .dropdown-content,
-/* .dropdowns:focus-within .dropdown-content, */
-.dropdowns:hover .dropdown-content {
+.dropdowns1:hover .dropdown-content1,
+.dropdowns2:hover .dropdown-content2,
+.dropdowns3:hover .dropdown-content3 {
 	visibility: visible; /* shows sub-menu */
 	opacity: 1;
 	transform: translateY(0%);

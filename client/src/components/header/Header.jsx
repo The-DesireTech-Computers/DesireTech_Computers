@@ -78,14 +78,14 @@ const Header = (props) => {
 				<div className="navmain">
 					<div className={show ? "nav-sticky" : "nav-contain3"} id="navbar">
 						<ul className="unlist2">
-							<li className="navleft dropdowns">
+							<li className="navleft">
 								<NavLink className="links2" to="/custom-built">
 									Custom-Built PCs
 								</NavLink>
 							</li>
-							<li className="navleft dropdowns">
+							<li className="navleft dropdowns1">
 								<div className="links2">Pre-Built PCs</div>
-								<div className="dropdown-content">
+								<div className="dropdown-content1">
 									<NavLink className="links3" to="/desktops">
 										Desktops
 									</NavLink>
@@ -94,9 +94,9 @@ const Header = (props) => {
 									</NavLink>
 								</div>
 							</li>
-							<li className="navleft dropdowns" data>
+							<li className="navleft dropdowns2" data>
 								<div className="links2">PC Accessories</div>
-								<div className="dropdown-content">
+								<div className="dropdown-content2">
 									<NavLink className="links3" to="/pcaccessories/casefan">
 										Case Fan
 									</NavLink>
@@ -123,9 +123,9 @@ const Header = (props) => {
 									</NavLink>
 								</div>
 							</li>
-							<li className="navleft dropdowns">
+							<li className="navleft dropdowns3">
 								<div className="links2">PC Parts</div>
-								<div className="dropdown-content">
+								<div className="dropdown-content3">
 									<NavLink className="links3" to="/pcparts/casing">
 										Computer Cases
 									</NavLink>

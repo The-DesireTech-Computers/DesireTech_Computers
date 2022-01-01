@@ -8,7 +8,7 @@ function App() {
 			<BrowserRouter>
 				<Switch>
 					<Route path={"/admin-panel"} component={AdminPanel} />
-					<Route exact path={"/"} component={Start} />
+					<Route path={"/"} component={Start} />
 				</Switch>
 			</BrowserRouter>
 		</div>

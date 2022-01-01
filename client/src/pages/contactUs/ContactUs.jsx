@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { RiAccountCircleFill, RiChat2Line } from "react-icons/ri";
 import { VscFeedback } from "react-icons/vsc";
 import axios from "../../axiosInstance/axiosInstance";
+import "./ContactUs.css";
 
 let ContactUs = (props) => {
 	let [data, setData] = useState({
@@ -52,19 +53,19 @@ let ContactUs = (props) => {
 	};
 
 	return (
-		<div>
+		<div className="anime">
 			<div className="container containlogin text-dark mt-5">
 				<div className="row py-5 align-items-center">
 					<div className="col-md-7">
 						<form className="needs-validation">
-							<div class="input-group mb-3">
-								<span class="input-group-text">
+							<div className="input-group mb-3 anime1">
+								<span className="input-group-text">
 									<RiAccountCircleFill />
 								</span>
 								<div className="form-floating form-group">
 									<input
 										type="text"
-										class="form-control"
+										className="form-control"
 										id="name"
 										placeholder="Name"
 										onChange={(e) => {
@@ -74,14 +75,14 @@ let ContactUs = (props) => {
 									<label for="name">Name</label>
 								</div>
 							</div>
-							<div class="input-group mb-3">
-								<span class="input-group-text">
+							<div className="input-group mb-3 anime2">
+								<span className="input-group-text">
 									<RiAccountCircleFill />
 								</span>
 								<div className="form-floating form-group">
 									<input
 										type="email"
-										class="form-control"
+										className="form-control"
 										id="email"
 										placeholder="Email"
 										onChange={(e) => {
@@ -92,13 +93,13 @@ let ContactUs = (props) => {
 								</div>
 							</div>
 
-							<div class="input-group mb-3">
-								<span class="input-group-text">
+							<div className="input-group mb-3 anime3">
+								<span className="input-group-text">
 									<VscFeedback />
 								</span>
 								<div className="form-floating form-group">
 									<textarea
-										class="form-control feedbackarea"
+										className="form-control feedbackarea"
 										id="message"
 										type="text"
 										placeholder="Message"
@@ -111,7 +112,7 @@ let ContactUs = (props) => {
 								</div>
 							</div>
 
-							<div class="input-group mb-3 ">
+							<div className="input-group mb-3 anime4">
 								<button
 									type="submit"
 									className="btn btn-outline-primary buttonsignup"

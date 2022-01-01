@@ -1,0 +1,28 @@
+/* .anime {
+	animation: 3s ease-out 0s 1 slideInLeft;
+} */
+.anime1 {
+	animation: 3s ease-out 0s 1 slideInLeft;
+	animation-delay: 3s;
+}
+.anime2 {
+	animation: 3s ease-out 0s 1 slideInLeft;
+	animation-delay: 6s;
+}
+.anime3 {
+	animation: 3s ease-out 0s 1 slideInLeft;
+	animation-delay: 9s;
+}
+.anime4 {
+	animation: 3s ease-out 0s 1 slideInLeft;
+	animation-delay: 12s;
+}
+
+@keyframes slideInLeft {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
