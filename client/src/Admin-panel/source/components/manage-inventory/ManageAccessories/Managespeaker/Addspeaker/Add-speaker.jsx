@@ -14,12 +14,14 @@ const Addspeaker = (props) => {
 		model: "",
 
 		type: "",
-		Color: "",
+		color: "",
 		configuration: "",
 		totalPower: "",
 		systemRequirement: "",
+
 		dimension: "",
 		weight: "",
+
 		feature: "",
 	});
 	let [thumbnail, setThumbnail] = useState(null);
@@ -43,7 +45,7 @@ const Addspeaker = (props) => {
 			alert("Please enter data in all the given fields (model)");
 		} else if (data.type === "") {
 			alert("Please enter data in all the given fields(type)");
-		} else if (data.Color === "") {
+		} else if (data.color === "") {
 			alert("Please enter data in all the given fields(Color)");
 		} else if (data.configuration === "") {
 			alert("Please enter data in all the given fields (configuration)");
@@ -73,7 +75,7 @@ const Addspeaker = (props) => {
 			formData.append("series", data.series);
 			formData.append("model", data.model);
 			formData.append("type", data.type);
-			formData.append("Color", data.Color);
+			formData.append("color", data.color);
 			formData.append("configuration", data.configuration);
 			formData.append("totalPower", data.totalPower);
 			formData.append("systemRequirement", data.systemRequirement);
@@ -329,7 +331,7 @@ const Addspeaker = (props) => {
 										placeholder="Enter Color"
 										required
 										onChange={(e) => {
-											setData({ ...data, Color: e.target.value });
+											setData({ ...data, color: e.target.value });
 										}}
 									/>
 									<br />

@@ -26,7 +26,7 @@ const Updatespeaker = (props) => {
 	useEffect(() => {
 		if (id) {
 			axios
-				.get("pcParts/casing/" + id)
+				.get("accessories/speaker/" + id)
 				.then((res) => {
 					setData(res.data);
 				})
@@ -45,32 +45,28 @@ const Updatespeaker = (props) => {
 			alert("Please enter data in all the given fields  (price)");
 		} else if (data.quantity === 0 || data.quantity === "") {
 			alert("Please enter data in all the given fields (quantity)");
-		} else if (data.brand === "") {
+		} else if (data.Model.brand === "") {
 			alert("Please enter data in all the given fields(brand)");
-		} else if (data.series === "") {
+		} else if (data.Model.series === "") {
 			alert("Please enter data in all the given fields (series)");
-		} else if (data.model === "") {
+		} else if (data.Model.model === "") {
 			alert("Please enter data in all the given fields (model)");
-		} else if (data.type === "") {
+		} else if (data.Details.Type === "") {
 			alert("Please enter data in all the given fields(type)");
-		} else if (data.Color === "") {
+		} else if (data.Details.color === "") {
 			alert("Please enter data in all the given fields(Color)");
-		} else if (data.configuration === "") {
+		} else if (data.Details.configuration === "") {
 			alert("Please enter data in all the given fields (configuration)");
-		} else if (data.totalPower === "") {
+		} else if (data.Details.totalPower === "") {
 			alert("Please enter data in all the given fields (totalPower)");
-		} else if (data.systemRequirement === "") {
+		} else if (data.Details.systemRequirement === "") {
 			alert("Please enter data in all the given fields (systemRequirement)");
-		} else if (data.dimension === "") {
+		} else if (data.Dimension.dimension === "") {
 			alert("Please enter data in all the given fields (dimension)");
-		} else if (data.weight === "") {
+		} else if (data.Dimension.weight === "") {
 			alert("Please enter data in all the given fields  (weight)");
-		} else if (data.feature === "") {
+		} else if (data.features.feature === "") {
 			alert("Please enter data in all the given fields  (feature)");
-		} else if (thumbnail === null) {
-			alert("Please provide a picture as a thumbnail picture(thumbnail)");
-		} else if (gallery === null) {
-			alert("Please provide atleaste 1 picture as gallery(gallery)");
 		} else {
 			setLoading(true);
 
@@ -79,17 +75,17 @@ const Updatespeaker = (props) => {
 			formData.append("title", data.title);
 			formData.append("price", data.price);
 			formData.append("quantity", data.quantity);
-			formData.append("brand", data.brand);
-			formData.append("series", data.series);
-			formData.append("model", data.model);
-			formData.append("type", data.type);
-			formData.append("Color", data.Color);
-			formData.append("configuration", data.configuration);
-			formData.append("totalPower", data.totalPower);
-			formData.append("systemRequirement", data.systemRequirement);
-			formData.append("dimension", data.dimension);
-			formData.append("weight", data.weight);
-			formData.append("feature", data.feature);
+			formData.append("brand", data.Model.brand);
+			formData.append("series", data.Model.series);
+			formData.append("model", data.Model.model);
+			formData.append("type", data.Details.Type);
+			formData.append("color", data.Details.color);
+			formData.append("configuration", data.Details.configuration);
+			formData.append("totalPower", data.Details.totalPower);
+			formData.append("systemRequirement", data.Details.systemRequirement);
+			formData.append("dimension", data.Dimension.dimension);
+			formData.append("weight", data.Dimension.weight);
+			formData.append("feature", data.features.feature);
 
 			formData.append("thumbnail", thumbnail);
 
@@ -100,7 +96,7 @@ const Updatespeaker = (props) => {
 			}
 
 			await axios
-				.post("accessories/speaker", formData)
+				.put("accessories/speaker/"+id, formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -115,16 +111,16 @@ const Updatespeaker = (props) => {
 
 	let form = <Spinner />;
 
-	if (!loading) {
+	if (!loading && data) {
 		form = (
 			<div>
 				<Navbar />
 				<div className={classes.main1}>
 					<div className={classes.inputform1}>
-						<h1 className={classes.h11}>Add Speaker</h1>
+						<h1 className={classes.h11}>Update Speaker</h1>
 						<form
 							className={classes.form1}
-							method="post"
+							method="put"
 							encType="multipart/form-data"
 						>
 							<div className={classes.form21}>
@@ -168,7 +164,7 @@ const Updatespeaker = (props) => {
 										type="text"
 										id="title"
 										name="title"
-										placeholder="Enter Title"
+										value={data.title}
 										required
 										onChange={(e) => {
 											setData({ ...data, title: e.target.value });
@@ -180,7 +176,7 @@ const Updatespeaker = (props) => {
 										type="number"
 										id="price"
 										name="price"
-										placeholder="Enter Price"
+										value={data.price}
 										required
 										onChange={(e) => {
 											let price = e.target.value;
@@ -197,10 +193,10 @@ const Updatespeaker = (props) => {
 										type="text"
 										id="brand"
 										name="brand"
-										placeholder="Enter Brand"
+										value={data.Model.brand}
 										required
 										onChange={(e) => {
-											setData({ ...data, brand: e.target.value });
+											setData({...data,Model:{...data.Model,brand: e.target.value}});
 										}}
 									/>
 									<br />
@@ -209,10 +205,10 @@ const Updatespeaker = (props) => {
 										type="text"
 										id="series"
 										name="series"
-										placeholder="Enter Series"
+										value={data.Model.series}
 										required
 										onChange={(e) => {
-											setData({ ...data, series: e.target.value });
+											setData({...data,Model:{...data.Model,series: e.target.value}});
 										}}
 									/>
 									<br />
@@ -221,10 +217,10 @@ const Updatespeaker = (props) => {
 										type="text"
 										id="model"
 										name="model"
-										placeholder="Enter Model"
+										value={data.Model.model}
 										required
 										onChange={(e) => {
-											setData({ ...data, model: e.target.value });
+											setData({...data,Model:{...data.Model,model: e.target.value}});
 										}}
 									/>
 									<br />
@@ -233,10 +229,10 @@ const Updatespeaker = (props) => {
 										type="text"
 										id="type"
 										name="type"
-										placeholder="Enter Type"
+										value={data.Details.Type}
 										required
 										onChange={(e) => {
-											setData({ ...data, type: e.target.value });
+											setData({...data,Details:{...data.Details,Type: e.target.value}});
 										}}
 									/>
 									<br />
@@ -246,10 +242,11 @@ const Updatespeaker = (props) => {
 										type="text"
 										id="weight"
 										name="weight"
-										placeholder="Enter weight"
+										value={data.Dimension.weight}
 										required
 										onChange={(e) => {
-											setData({ ...data, weight: e.target.value });
+											
+											setData({...data,Dimension:{...data.Dimension,weight: e.target.value}});
 										}}
 									/>
 									<br />
@@ -307,10 +304,10 @@ const Updatespeaker = (props) => {
 										type="text"
 										id="feature"
 										name="feature"
-										placeholder="Enter feature"
+										value={data.features.feature}
 										required
 										onChange={(e) => {
-											setData({ ...data, feature: e.target.value });
+											setData({...data,features:{...data.features,feature: e.target.value}});
 										}}
 									/>
 									<br />
@@ -319,7 +316,7 @@ const Updatespeaker = (props) => {
 										type="number"
 										id="quantity"
 										name="quantity"
-										placeholder="Enter Quantity"
+										value={data.quantity}
 										required
 										onChange={(e) => {
 											let quantity = e.target.value;
@@ -336,10 +333,10 @@ const Updatespeaker = (props) => {
 										type="text"
 										id="color"
 										name="color"
-										placeholder="Enter Color"
+										value={data.Details.color}
 										required
 										onChange={(e) => {
-											setData({ ...data, Color: e.target.value });
+											setData({...data,Details:{...data.Details,color: e.target.value}});
 										}}
 									/>
 									<br />
@@ -348,10 +345,10 @@ const Updatespeaker = (props) => {
 										type="text"
 										id="configuration"
 										name="configuration"
-										placeholder="Enter configuration"
+										value={data.Details.configuration}
 										required
 										onChange={(e) => {
-											setData({ ...data, configuration: e.target.value });
+											setData({...data,Details:{...data.Details,configuration: e.target.value}});
 										}}
 									/>
 									<br />
@@ -360,10 +357,10 @@ const Updatespeaker = (props) => {
 										type="text"
 										id="totalPower"
 										name="totalPower"
-										placeholder="Enter total Power"
+										value={data.Details.totalPower}
 										required
 										onChange={(e) => {
-											setData({ ...data, totalPower: e.target.value });
+											setData({...data,Details:{...data.Details,totalPower: e.target.value}});
 										}}
 									/>
 									<br />
@@ -372,13 +369,11 @@ const Updatespeaker = (props) => {
 										type="text"
 										id="systemRequirement"
 										name="systemRequirement"
-										placeholder="Enter system Requirement."
+										value={data.Details.systemRequirement}
 										required
 										onChange={(e) => {
-											setData({
-												...data,
-												systemRequirement: e.target.value,
-											});
+										
+											setData({...data,Details:{...data.Details,systemRequirement: e.target.value}});
 										}}
 									/>
 									<br />
@@ -387,13 +382,10 @@ const Updatespeaker = (props) => {
 										type="text"
 										id="dimension"
 										name="dimension"
-										placeholder="Enter dimension"
+										value={data.Dimension.dimension}
 										required
 										onChange={(e) => {
-											setData({
-												...data,
-												dimension: e.target.value,
-											});
+											setData({...data,Dimension:{...data.Dimension,dimension: e.target.value}});
 										}}
 									/>
 									<br />

@@ -50,7 +50,7 @@ let speakerModelSchema = mongoose.Schema({
         model:joi.string().required() ,
 
    
-            Type:joi.string().required() ,
+            type:joi.string().required() ,
             color:joi.string().required() ,
             configuration:joi.string().required() ,
             totalPower:joi.string().required() ,

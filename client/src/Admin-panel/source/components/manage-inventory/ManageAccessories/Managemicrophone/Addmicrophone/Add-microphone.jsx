@@ -3,7 +3,7 @@ import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
 import classes from "../../../Form.module.css";
-const AddCasing = (props) => {
+const AddMicrophone = (props) => {
 	let [data, setData] = useState({
 		title: "",
 		price: "",
@@ -15,6 +15,7 @@ const AddCasing = (props) => {
 
 		type: "",
 		specification: "",
+		
 		dimension: "",
 		weight: "",
 	});
@@ -344,4 +345,4 @@ const AddCasing = (props) => {
 	return <div>{form}</div>;
 };
 
-export default AddCasing;
+export default AddMicrophone;

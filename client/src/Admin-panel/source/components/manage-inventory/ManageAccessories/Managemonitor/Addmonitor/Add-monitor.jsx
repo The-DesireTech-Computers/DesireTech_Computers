@@ -3,7 +3,7 @@ import Navbar from "../../../../header/Navbar";
 import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
 import classes from "../../../Form.module.css";
-const AddCasing = (props) => {
+const AddMonitor = (props) => {
 	let [data, setData] = useState({
 		title: "",
 		price: "",
@@ -21,8 +21,8 @@ const AddCasing = (props) => {
 
 		connector: "",
 		inputvideocapability: "",
-		powersupply: "",
 
+		powersupply: "",
 		powerconsumption: "",
 	});
 	let [thumbnail, setThumbnail] = useState(null);
@@ -394,7 +394,7 @@ const AddCasing = (props) => {
 										onChange={(e) => {
 											setData({
 												...data,
-												MotherBoard_Compatibility: e.target.value,
+												connector: e.target.value,
 											});
 										}}
 									/>
@@ -407,7 +407,7 @@ const AddCasing = (props) => {
 										placeholder="Enter inputvideocapability"
 										required
 										onChange={(e) => {
-											setData({ ...data, Dust_Filters: e.target.value });
+											setData({ ...data, inputvideocapability: e.target.value });
 										}}
 									/>
 									<br />
@@ -465,4 +465,4 @@ const AddCasing = (props) => {
 	return <div>{form}</div>;
 };
 
-export default AddCasing;
+export default AddMonitor;

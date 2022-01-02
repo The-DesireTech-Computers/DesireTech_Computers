@@ -5,7 +5,7 @@ import Spinner from "../../../LoadingSpinner/LoadingSpinner";
 import axios from "../../../../axiosInstance";
 import classes from "../../Table.module.css";
 
-let ManageCasing = (props) => {
+let Managemouse = (props) => {
 	let [data, setData] = useState([]);
 
 	let getData = () => {
@@ -41,7 +41,7 @@ let ManageCasing = (props) => {
 					quantity={element.quantity}
 					id={element._id}
 					path="admin-panel/updatemouse"
-					apiPath="pcAccessories/mouse"
+					apiPath="accessories/mouse"
 					onDelete={getData}
 				/>
 			);
@@ -84,4 +84,4 @@ let ManageCasing = (props) => {
 	);
 };
 
-export default ManageCasing;
+export default Managemouse;

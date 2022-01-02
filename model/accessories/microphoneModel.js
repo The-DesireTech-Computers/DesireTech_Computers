@@ -42,7 +42,7 @@ let microphoneModelSchema = mongoose.Schema({
         model:joi.string().required() ,
 
    
-            Type:joi.string().required() ,
+            type:joi.string().required() ,
             specification:joi.string().required() ,
           
      

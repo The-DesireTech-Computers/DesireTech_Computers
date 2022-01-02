@@ -41,7 +41,6 @@ import HardDriveDetails from "./pages/productdisplay/pcParts/hardDrive/HardDrive
 import SSD from "./pages/productdisplay/pcParts/ssd/SSD";
 import SSDDetails from "./pages/productdisplay/pcParts/ssd/SSD-Details";
 
-import PcAccessories from "./pages/productdisplay/pcAccessories/PcAccessories";
 
 import PublicRoute from "./components/RoutesComponents/PublicRoutes/PublicRoute";
 
@@ -85,7 +84,7 @@ function Start() {
 						<Route path="/laptops" component={Laptops} />
 						<Route path="/laptopsdetails" component={LaptopsDetails} />
 
-						<Route path="/pcaccessories" component={PcAccessories} />
+					
 
 						<Route path="/pcparts/casing" component={Casing} />
 						<Route path="/casingdetails" component={CasingDetails} />

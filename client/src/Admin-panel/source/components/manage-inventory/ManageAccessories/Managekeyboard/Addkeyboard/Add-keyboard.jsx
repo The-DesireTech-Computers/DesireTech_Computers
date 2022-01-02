@@ -87,7 +87,7 @@ const Addkeyboard = (props) => {
 			formData.append("keyboardcolor", data.keyboardcolor);
 			formData.append("dimension", data.dimension);
 			formData.append("backlit", data.backlit);
-			formData.append("Type", data.Type);
+			formData.append("type", data.Type);
 			formData.append("feature", data.feature);
 
 			formData.append("thumbnail", thumbnail);
@@ -106,7 +106,8 @@ const Addkeyboard = (props) => {
 					props.history.replace("/admin-panel/managekeyboard");
 				})
 				.catch((err) => {
-					console.log(err);
+					console.log("error");
+					console.log(err.response.data);
 					setLoading(false);
 				});
 		}
@@ -462,12 +463,11 @@ const Addkeyboard = (props) => {
 							</div>
 						</form>
 						<div className={classes.btnDiv1}>
-							<input
+							<button
 								className={classes.btn1}
-								type="submit"
-								value="Submit"
+							
 								onClick={handelSubmitBtn}
-							/>
+							>Submit</button>
 						</div>
 					</div>
 				</div>

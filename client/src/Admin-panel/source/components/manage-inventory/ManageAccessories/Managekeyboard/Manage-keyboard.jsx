@@ -5,7 +5,7 @@ import Spinner from "../../../LoadingSpinner/LoadingSpinner";
 import axios from "../../../../axiosInstance";
 import classes from "../../Table.module.css";
 
-let ManageCasing = (props) => {
+let ManageKeyboard = (props) => {
 	let [data, setData] = useState([]);
 
 	let getData = () => {
@@ -84,4 +84,4 @@ let ManageCasing = (props) => {
 	);
 };
 
-export default ManageCasing;
+export default ManageKeyboard;

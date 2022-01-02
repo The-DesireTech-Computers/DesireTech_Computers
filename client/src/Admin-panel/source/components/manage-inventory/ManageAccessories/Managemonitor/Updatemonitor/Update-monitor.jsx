@@ -4,7 +4,7 @@ import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
 import classes from "../../../Form.module.css";
 
-const UpdateParts = (props) => {
+const UpdateMonitor = (props) => {
 	let [data, setData] = useState();
 	let [id, setId] = useState(null);
 	let [thumbnail, setThumbnail] = useState(null);
@@ -26,7 +26,7 @@ const UpdateParts = (props) => {
 	useEffect(() => {
 		if (id) {
 			axios
-				.get("pcParts/casing/" + id)
+				.get("accessories/monitor/" + id)
 				.then((res) => {
 					setData(res.data);
 				})
@@ -45,39 +45,35 @@ const UpdateParts = (props) => {
 			alert("Please enter data in all the given fields  (price)");
 		} else if (data.quantity === 0 || data.quantity === "") {
 			alert("Please enter data in all the given fields (quantity)");
-		} else if (data.brand === "") {
+		} else if (data.Model.brand === "") {
 			alert("Please enter data in all the given fields(brand)");
-		} else if (data.cabinetcolor === "") {
+		} else if (data.Model.cabinetcolor === "") {
 			alert("Please enter data in all the given fields (sercabinetcolories)");
-		} else if (data.model === "") {
+		} else if (data.Model.model === "") {
 			alert("Please enter data in all the given fields (model)");
-		} else if (data.glarescreen === "") {
+		} else if (data.Details.glarescreen === "") {
 			alert("Please enter data in all the given fields(glarescreen)");
-		} else if (data.displaytype === "") {
+		} else if (data.Details.displaytype === "") {
 			alert("Please enter data in all the given fields(displaytype)");
-		} else if (data.adaptivesychronisetech === "") {
+		} else if (data.Details.adaptivesychronisetech === "") {
 			alert(
 				"Please enter data in all the given fields (adaptivesychronisetech)"
 			);
-		} else if (data.pixelpitch === "") {
+		} else if (data.Details.pixelpitch === "") {
 			alert("Please enter data in all the given fields (pixelpitch)");
-		} else if (data.refreshRatio === "") {
+		} else if (data.Details.refreshRatio === "") {
 			alert("Please enter data in all the given fields (refreshRatio)");
-		} else if (data.connector === "") {
+		} else if (data.connectivity.connector === "") {
 			alert("Please enter data in all the given fields (connector)");
-		} else if (data.inputvideocapability === "") {
+		} else if (data.connectivity.inputvideocapability === "") {
 			alert(
 				"Please enter data in all the given fields  (inputvideocapability)"
 			);
-		} else if (data.powersupply === "") {
+		} else if (data.power.powersupply === "") {
 			alert("Please enter data in all the given fields  (powersupply)");
-		} else if (data.powerconsumption === "") {
+		} else if (data.power.powerconsumption === "") {
 			alert("Please enter data in all the given fields (powerconsumption)");
-		} else if (thumbnail === null) {
-			alert("Please provide a picture as a thumbnail picture(thumbnail)");
-		} else if (gallery === null) {
-			alert("Please provide atleaste 1 picture as gallery(gallery)");
-		} else {
+		}  else {
 			setLoading(true);
 
 			let formData = new FormData();
@@ -85,18 +81,18 @@ const UpdateParts = (props) => {
 			formData.append("title", data.title);
 			formData.append("price", data.price);
 			formData.append("quantity", data.quantity);
-			formData.append("brand", data.brand);
-			formData.append("cabinetcolor", data.cabinetcolor);
-			formData.append("model", data.model);
-			formData.append("glarescreen", data.glarescreen);
-			formData.append("displaytype", data.displaytype);
-			formData.append("adaptivesychronisetech", data.adaptivesychronisetech);
-			formData.append("pixelpitch", data.pixelpitch);
-			formData.append("refreshRatio", data.refreshRatio);
-			formData.append("connector", data.connector);
-			formData.append("inputvideocapability", data.inputvideocapability);
-			formData.append("powersupply", data.powersupply);
-			formData.append("powerconsumption", data.powerconsumption);
+			formData.append("brand", data.Model.brand);
+			formData.append("cabinetcolor", data.Model.cabinetcolor);
+			formData.append("model", data.Model.model);
+			formData.append("glarescreen", data.Details.glarescreen);
+			formData.append("displaytype", data.Details.displaytype);
+			formData.append("adaptivesychronisetech", data.Details.adaptivesychronisetech);
+			formData.append("pixelpitch", data.Details.pixelpitch);
+			formData.append("refreshRatio", data.Details.refreshRatio);
+			formData.append("connector", data.connectivity.connector);
+			formData.append("inputvideocapability", data.connectivity.inputvideocapability);
+			formData.append("powersupply", data.power.powersupply);
+			formData.append("powerconsumption", data.power.powerconsumption);
 
 			formData.append("thumbnail", thumbnail);
 
@@ -107,7 +103,7 @@ const UpdateParts = (props) => {
 			}
 
 			await axios
-				.post("accessories/monitor", formData)
+				.put("accessories/monitor/"+id, formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -122,16 +118,16 @@ const UpdateParts = (props) => {
 
 	let form = <Spinner />;
 
-	if (!loading) {
+	if (!loading && data) {
 		form = (
 			<div>
 				<Navbar />
 				<div className={classes.main1}>
 					<div className={classes.inputform1}>
-						<h1 className={classes.h11}>Add Casing</h1>
+						<h1 className={classes.h11}>Update Casing</h1>
 						<form
 							className={classes.form1}
-							method="post"
+							method="put"
 							encType="multipart/form-data"
 						>
 							<div className={classes.form21}>
@@ -152,6 +148,10 @@ const UpdateParts = (props) => {
 										cabinetcolor:
 									</label>
 									<br />
+									<label className={classes.label1} htmlFor="Model">
+										Model:
+									</label>
+									<br />
 									<label className={classes.label1} htmlFor="glarescreen">
 										glarescreen:
 									</label>
@@ -167,29 +167,7 @@ const UpdateParts = (props) => {
 										adaptive sychronisetech:
 									</label>
 									<br />
-									<label className={classes.label1} htmlFor="pixelpitch">
-										pixel pitch:
-									</label>
-									<br />
-									<label className={classes.label1} htmlFor="refreshRatio">
-										refresh Ratio:
-									</label>
-									<br />
-									<label className={classes.label1} htmlFor="connector">
-										connector:
-									</label>
-									<br />
-									<label
-										className={classes.label1}
-										htmlFor="inputvideocapability"
-									>
-										input video capability:
-									</label>
-									<br />
-									<label className={classes.label1} htmlFor="powersupply">
-										powersupply:
-									</label>
-									<br />
+								
 									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
@@ -200,7 +178,7 @@ const UpdateParts = (props) => {
 										type="text"
 										id="title"
 										name="title"
-										placeholder="Enter Title"
+										value={data.title}
 										required
 										onChange={(e) => {
 											setData({ ...data, title: e.target.value });
@@ -212,7 +190,7 @@ const UpdateParts = (props) => {
 										type="number"
 										id="price"
 										name="price"
-										placeholder="Enter Price"
+										value={data.price}
 										required
 										onChange={(e) => {
 											let price = e.target.value;
@@ -229,10 +207,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="brand"
 										name="brand"
-										placeholder="Enter Brand"
+										value={data.Model.brand}
 										required
 										onChange={(e) => {
-											setData({ ...data, brand: e.target.value });
+											setData({ ...data,Model:{...data.Model,brand: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -241,10 +219,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="cabinetcolor"
 										name="cabinetcolor"
-										placeholder="Enter cabinetcolor"
+										value={data.Model.cabinetcolor}
 										required
 										onChange={(e) => {
-											setData({ ...data, cabinetcolor: e.target.value });
+											setData({ ...data,Model:{...data.Model,cabinetcolor: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -253,10 +231,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="model"
 										name="model"
-										placeholder="Enter Model"
+										value={data.Model.model}
 										required
 										onChange={(e) => {
-											setData({ ...data, model: e.target.value });
+											setData({ ...data,Model:{...data.Model,model: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -265,10 +243,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="glarescreen"
 										name="glarescreen"
-										placeholder="Enter glarescreen"
+									    value={data.Details.glarescreen}
 										required
 										onChange={(e) => {
-											setData({ ...data, glarescreen: e.target.value });
+											setData({ ...data,Details:{...data.Details,glarescreen: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -277,10 +255,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="displaytype"
 										name="displaytype"
-										placeholder="Enter displaytype"
+										value={data.Details.displaytype}
 										required
 										onChange={(e) => {
-											setData({ ...data, displaytype: e.target.value });
+											setData({ ...data,Details:{...data.Details,displaytype: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -289,70 +267,14 @@ const UpdateParts = (props) => {
 										type="text"
 										id="adaptivesychronisetech"
 										name="adaptivesychronisetech"
-										placeholder="Enteradaptive sychronisetechg "
+										value={data.Details.adaptivesychronisetech}
 										required
 										onChange={(e) => {
-											setData({
-												...data,
-												adaptivesychronisetech: e.target.value,
-											});
+											setData({ ...data,Details:{...data.Details,adaptivesychronisetech: e.target.value}  });
 										}}
 									/>
 									<br />
-									<input
-										className={classes.input1}
-										type="text"
-										id="pixelpitch"
-										name="pixelpitch"
-										placeholder="Enter pixelpitch"
-										required
-										onChange={(e) => {
-											setData({ ...data, pixelpitch: e.target.value });
-										}}
-									/>
-									<br />
-									<input
-										className={classes.input1}
-										type="text"
-										id="refreshRatio"
-										name="refreshRatio"
-										placeholder="Enter refresh Ratio."
-										required
-										onChange={(e) => {
-											setData({
-												...data,
-												refreshRatio: e.target.value,
-											});
-										}}
-									/>
-									<br />
-									<input
-										className={classes.input1}
-										type="text"
-										id="connector"
-										name="connector"
-										placeholder="Enter connector"
-										required
-										onChange={(e) => {
-											setData({
-												...data,
-												MotherBoard_Compatibility: e.target.value,
-											});
-										}}
-									/>
-									<br />
-									<input
-										className={classes.input1}
-										type="text"
-										id="inputvideocapability"
-										name="inputvideocapability"
-										placeholder="Enter inputvideocapability"
-										required
-										onChange={(e) => {
-											setData({ ...data, Dust_Filters: e.target.value });
-										}}
-									/>
-									<br />
+								
 									<label className={classes.customfile1}>
 										<input
 											className={classes.inputfile1}
@@ -382,6 +304,25 @@ const UpdateParts = (props) => {
 									</label>
 
 									<br />
+									<label className={classes.label1} htmlFor="pixelpitch">
+										pixel pitch:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="refreshRatio">
+										refresh Ratio:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="connector">
+										connector:
+									</label>
+									<br />
+									<label
+										className={classes.label1}
+										htmlFor="inputvideocapability"
+									>
+										input video capability:
+									</label>
+									<br />
 									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
@@ -392,10 +333,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="powersupply"
 										name="powersupply"
-										placeholder="Enter power supply"
+										value={data.power.powersupply}
 										required
 										onChange={(e) => {
-											setData({ ...data, powersupply: e.target.value });
+											setData({ ...data,power:{...data.power,powersupply: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -404,7 +345,7 @@ const UpdateParts = (props) => {
 										type="number"
 										id="quantity"
 										name="quantity"
-										placeholder="Enter Quantity"
+										value={data.quantity}
 										required
 										onChange={(e) => {
 											let quantity = e.target.value;
@@ -422,10 +363,58 @@ const UpdateParts = (props) => {
 										type="text"
 										id="powerconsumption"
 										name="powerconsumption"
-										placeholder="Enter power consumption."
+										value={data.power.powerconsumption}
 										required
 										onChange={(e) => {
-											setData({ ...data, powerconsumption: e.target.value });
+											setData({ ...data,power:{...data.power,powerconsumption: e.target.value}  });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input1}
+										type="text"
+										id="pixelpitch"
+										name="pixelpitch"
+										value={data.Details.pixelpitch}
+										required
+										onChange={(e) => {
+											setData({ ...data,Details:{...data.Details,pixelpitch: e.target.value}  });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input1}
+										type="text"
+										id="refreshRatio"
+										name="refreshRatio"
+										value={data.Details.refreshRatio}
+										required
+										onChange={(e) => {
+											setData({ ...data,Details:{...data.Details,refreshRatio: e.target.value}  });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input1}
+										type="text"
+										id="connector"
+										name="connector"
+										value={data.connectivity.connector}
+										required
+										onChange={(e) => {
+											setData({ ...data,connectivity:{...data.connectivity,connector: e.target.value}  });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input1}
+										type="text"
+										id="inputvideocapability"
+										name="inputvideocapability"
+										value={data.connectivity.inputvideocapability}
+										required
+										onChange={(e) => {
+											setData({ ...data,connectivity:{...data.connectivity,inputvideocapability: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -471,4 +460,4 @@ const UpdateParts = (props) => {
 	return <div>{form}</div>;
 };
 
-export default UpdateParts;
+export default UpdateMonitor;
