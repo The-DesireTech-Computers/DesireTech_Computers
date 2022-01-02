@@ -49,7 +49,7 @@ const Signup = (props) => {
 			<div className="row mt-5 py-5 align-items-center">
 				<div className="col-md-5 mb-5 text-center">
 					<img
-						src="/images/logo/logo1.png"
+						src="/images/logo/logo.png"
 						alt="logo"
 						className="img-fluid mb-3 mx-auto d-none d-md-block imgsignup"
 					/>

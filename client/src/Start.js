@@ -1,6 +1,6 @@
 import { useState, createContext, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import "./App.css";
+
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import SideDrawer from "./components/header/sideDrawer/SideDrawer";
@@ -40,8 +40,6 @@ import HardDrive from "./pages/productdisplay/pcParts/hardDrive/HardDrive";
 import HardDriveDetails from "./pages/productdisplay/pcParts/hardDrive/HardDrive-Details";
 import SSD from "./pages/productdisplay/pcParts/ssd/SSD";
 import SSDDetails from "./pages/productdisplay/pcParts/ssd/SSD-Details";
-
-import PcAccessories from "./pages/productdisplay/pcAccessories/PcAccessories";
 
 import PublicRoute from "./components/RoutesComponents/PublicRoutes/PublicRoute";
 
@@ -84,8 +82,6 @@ function Start() {
 						<Route path="/desktops" component={PreBuilt} />
 						<Route path="/laptops" component={Laptops} />
 						<Route path="/laptopsdetails" component={LaptopsDetails} />
-
-						<Route path="/pcaccessories" component={PcAccessories} />
 
 						<Route path="/pcparts/casing" component={Casing} />
 						<Route path="/casingdetails" component={CasingDetails} />

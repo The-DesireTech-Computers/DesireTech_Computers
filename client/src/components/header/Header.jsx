@@ -72,7 +72,11 @@ const Header = (props) => {
 				</div>
 				{/* top logo display */}
 				<div className="nav-contain2">
-					<img src="/images/logo/logo.png" alt="logo" className="logo" />
+					<img
+						src="/images/logo/fulllogo_dark.png"
+						alt="logo"
+						className="logo"
+					/>
 				</div>
 				{/* 2nd navbar for products */}
 				<div className="navmain">

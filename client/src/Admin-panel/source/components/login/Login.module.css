@@ -37,7 +37,6 @@ html {
 .loginpic1 {
 	width: 275px;
 	height: 275px;
-	margin-bottom: 100px;
 }
 .loginpic1 img {
 	max-width: 100%;
@@ -137,6 +136,7 @@ html {
 	flex-wrap: wrap;
 	justify-content: center;
 	padding-top: 20px;
+	margin-top: 40px;
 }
 .loginformbtn1 {
 	font-family: "poppins", sans-serif;

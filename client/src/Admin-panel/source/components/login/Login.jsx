@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import classes from "./Login.module.css";
-import logo from "../../Assets/logo/desiretech1.png";
 import axios from "../../axiosAuthInstance";
 import Spinner from "../LoadingSpinner/LoadingSpinner";
 import { toast } from "react-toastify";
@@ -50,7 +49,11 @@ const Login = (props) => {
 				<div className={classes.containerlogin1}>
 					<div className={classes.wraplogin1}>
 						<div className={classes.loginpic1}>
-							<img src={logo} alt="Logo" />
+							<img
+								src="/images/logo/fulllogo_light.png"
+								className="mt-5 mx-4 pt-4"
+								alt="Logo"
+							/>
 						</div>
 
 						<form className={classes.loginform1} method="post">

@@ -3,7 +3,7 @@ import ProductCard from "../../../../components/productcard/ProductCard";
 import "../../ProductDisplay.css";
 import axios from "../../../../axiosInstance/axiosInstance";
 import Spinner from "../../../../components/LoadingSpinner/LoadingSpinner";
-import CaseCategory from "./CaseCategory";
+import CaseFanCategory from "./CaseFanCategory";
 
 const CaseFan = (props) => {
 	let [data, setData] = useState();
@@ -20,22 +20,22 @@ const CaseFan = (props) => {
 		setPriceFilter(x);
 	};
 	let addToCartBtnHandler = (product_id) => {
-		let cart = localStorage.getItem("casing_cart");
+		let cart = localStorage.getItem("caseFan_cart");
 
 		if (cart) {
 			cart = cart.split(",");
 			cart.push(product_id);
 
-			localStorage.setItem("casing_cart", cart);
+			localStorage.setItem("caseFan_cart", cart);
 		} else {
-			localStorage.setItem("casing_cart", product_id);
+			localStorage.setItem("caseFan_cart", product_id);
 		}
 		console.log(cart);
 	};
 
 	useEffect(() => {
 		axios
-			.get("pcParts/casing")
+			.get("accessories/casefan")
 			.then((res) => {
 				setData(res.data);
 				console.log(res.data);
@@ -52,16 +52,16 @@ const CaseFan = (props) => {
 
 	useEffect(() => {
 		if (companyFilter) {
-			if (companyFilter === "EVGA") {
+			if (companyFilter === "Noctua") {
 				setData1(
 					data1.filter((e) => {
-						return e.Model.brand === "EVGA";
+						return e.Model.brand === "Noctua";
 					})
 				);
-			} else if (companyFilter === "ASUS") {
+			} else if (companyFilter === "Thermaltake") {
 				setData1(
 					data1.filter((e) => {
-						return e.Model.brand === "ASUS";
+						return e.Model.brand === "Thermaltake";
 					})
 				);
 			} else if (companyFilter === "Corsair") {
@@ -135,12 +135,12 @@ const CaseFan = (props) => {
 			return (
 				<ProductCard
 					key={product._id}
-					img={"/images/productimages/4.jpg"}
+					img={"/uploads/accessories/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
 					addToCartBtnHandler={addToCartBtnHandler}
-					path="casingdetails"
+					path="caseFandetails"
 				/>
 			);
 		});
@@ -149,12 +149,12 @@ const CaseFan = (props) => {
 			return (
 				<ProductCard
 					key={product._id}
-					img={"/images/productimages/4.jpg"}
+					img={"/uploads/accessories/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
 					addToCartBtnHandler={addToCartBtnHandler}
-					path="casingdetails"
+					path="caseFandetails"
 				/>
 			);
 		});
@@ -168,21 +168,21 @@ const CaseFan = (props) => {
 						<img src="/images/others/casing.jpg" className="cbimage" />
 						<div className="heroimg">
 							<div className="hero-text">
-								<h1 id="cbh1text">PC Cases</h1>
-								<p id="cbptext">Here you can find PC cases</p>
+								<h1 id="cbh1text">Case Fans</h1>
+								<p id="cbptext">Here you can find Case Fans</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className="row mt-5">
-				<CaseCategory
+				<CaseFanCategory
 					setCompanyFilterHandler={setCompanyFilterHandler}
 					setPriceFilterHandler={setPriceFilterHandler}
 				/>
 				<div className="col-md-8 ">
 					<div className="container-fluid mt-3">
-						<h3 className="cbheading">PC Cases:</h3>
+						<h3 className="cbheading">Case Fans:</h3>
 						<div className="row mx-auto">{products}</div>
 					</div>
 				</div>
