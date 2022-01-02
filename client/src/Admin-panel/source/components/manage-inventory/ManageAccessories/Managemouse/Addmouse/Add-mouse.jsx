@@ -74,7 +74,7 @@ const Addmouse = (props) => {
 			formData.append("price", data.price);
 			formData.append("quantity", data.quantity);
 			formData.append("brand", data.brand);
-			formData.append("name", data.series);
+			formData.append("name", data.name);
 			formData.append("model", data.model);
 			formData.append("type", data.type);
 			formData.append("interface", data.interface);
@@ -439,12 +439,11 @@ const Addmouse = (props) => {
 							</div>
 						</form>
 						<div className={classes.btnDiv1}>
-							<input
+							<button
 								className={classes.btn1}
-								type="submit"
-								value="Submit"
+							
 								onClick={handelSubmitBtn}
-							/>
+							>Submit</button>
 						</div>
 					</div>
 				</div>

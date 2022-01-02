@@ -26,7 +26,7 @@ const Updatemouse = (props) => {
 	useEffect(() => {
 		if (id) {
 			axios
-				.get("pcParts/casing/" + id)
+				.get("accessories/mouse/" + id)
 				.then((res) => {
 					setData(res.data);
 				})
@@ -45,34 +45,30 @@ const Updatemouse = (props) => {
 			alert("Please enter data in all the given fields  (price)");
 		} else if (data.quantity === 0 || data.quantity === "") {
 			alert("Please enter data in all the given fields (quantity)");
-		} else if (data.brand === "") {
+		} else if (data.Model.brand === "") {
 			alert("Please enter data in all the given fields(brand)");
-		} else if (data.name === "") {
+		} else if (data.Model.name === "") {
 			alert("Please enter data in all the given fields (name)");
-		} else if (data.model === "") {
+		} else if (data.Model.model === "") {
 			alert("Please enter data in all the given fields (model)");
-		} else if (data.type === "") {
+		} else if (data.Details.Type === "") {
 			alert("Please enter data in all the given fields(type)");
-		} else if (data.interface === "") {
+		} else if (data.Details.interface === "") {
 			alert("Please enter data in all the given fields(interface)");
-		} else if (data.trackingmethod === "") {
+		} else if (data.Details.trackingmethod === "") {
 			alert("Please enter data in all the given fields (trackingmethod)");
-		} else if (data.maximumdpi === "") {
+		} else if (data.Details.maximumdpi === "") {
 			alert("Please enter data in all the given fields (maximumdpi)");
-		} else if (data.button === "") {
+		} else if (data.Details.button === "") {
 			alert("Please enter data in all the given fields (button)");
-		} else if (data.weightadjustment === "") {
+		} else if (data.Details.weightadjustment === "") {
 			alert("Please enter data in all the given fields (weightadjustment)");
-		} else if (data.scrollingcapablity === "") {
+		} else if (data.Details.scrollingcapablity === "") {
 			alert("Please enter data in all the given fields  (scrollingcapablity)");
-		} else if (data.color === "") {
+		} else if (data.Details.color === "") {
 			alert("Please enter data in all the given fields  (color)");
-		} else if (data.feature === "") {
+		} else if (data.features.feature === "") {
 			alert("Please enter data in all the given fields (feature)");
-		} else if (thumbnail === null) {
-			alert("Please provide a picture as a thumbnail picture(thumbnail)");
-		} else if (gallery === null) {
-			alert("Please provide atleaste 1 picture as gallery(gallery)");
 		} else {
 			setLoading(true);
 
@@ -81,18 +77,18 @@ const Updatemouse = (props) => {
 			formData.append("title", data.title);
 			formData.append("price", data.price);
 			formData.append("quantity", data.quantity);
-			formData.append("brand", data.brand);
-			formData.append("name", data.series);
-			formData.append("model", data.model);
-			formData.append("type", data.type);
-			formData.append("interface", data.interface);
-			formData.append("trackingmethod", data.trackingmethod);
-			formData.append("maximumdpi", data.maximumdpi);
-			formData.append("button", data.button);
-			formData.append("weightadjustment", data.weightadjustment);
-			formData.append("scrollingcapablity", data.scrollingcapablity);
-			formData.append("color", data.color);
-			formData.append("feature", data.feature);
+			formData.append("brand", data.Model.brand);
+			formData.append("name", data.Model.name);
+			formData.append("model", data.Model.model);
+			formData.append("type", data.Details.Type);
+			formData.append("interface", data.Details.interface);
+			formData.append("trackingmethod", data.Details.trackingmethod);
+			formData.append("maximumdpi", data.Details.maximumdpi);
+			formData.append("button", data.Details.button);
+			formData.append("weightadjustment", data.Details.weightadjustment);
+			formData.append("scrollingcapablity", data.Details.scrollingcapablity);
+			formData.append("color", data.Details.color);
+			formData.append("feature", data.features.feature);
 
 			formData.append("thumbnail", thumbnail);
 
@@ -103,7 +99,7 @@ const Updatemouse = (props) => {
 			}
 
 			await axios
-				.post("accessories/mouse", formData)
+				.put("accessories/mouse/"+id, formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -118,13 +114,13 @@ const Updatemouse = (props) => {
 
 	let form = <Spinner />;
 
-	if (!loading) {
+	if (!loading && data) {
 		form = (
 			<div>
 				<Navbar />
 				<div className={classes.main1}>
 					<div className={classes.inputform1}>
-						<h1 className={classes.h11}>Add Mouse</h1>
+						<h1 className={classes.h11}>Update Mouse</h1>
 						<form
 							className={classes.form1}
 							method="post"
@@ -178,7 +174,7 @@ const Updatemouse = (props) => {
 										type="text"
 										id="title"
 										name="title"
-										placeholder="Enter Title"
+										value={data.title}
 										required
 										onChange={(e) => {
 											setData({ ...data, title: e.target.value });
@@ -190,7 +186,7 @@ const Updatemouse = (props) => {
 										type="number"
 										id="price"
 										name="price"
-										placeholder="Enter Price"
+										value={data.price}
 										required
 										onChange={(e) => {
 											let price = e.target.value;
@@ -207,10 +203,10 @@ const Updatemouse = (props) => {
 										type="text"
 										id="brand"
 										name="brand"
-										placeholder="Enter Brand"
+										value={data.Model.brand}
 										required
 										onChange={(e) => {
-											setData({ ...data, brand: e.target.value });
+											setData({ ...data,Model:{...data.Model,brand: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -219,10 +215,10 @@ const Updatemouse = (props) => {
 										type="text"
 										id="name"
 										name="name"
-										placeholder="Enter name"
+										value={data.Model.name}
 										required
 										onChange={(e) => {
-											setData({ ...data, name: e.target.value });
+											setData({ ...data,Model:{...data.Model,name: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -231,10 +227,10 @@ const Updatemouse = (props) => {
 										type="text"
 										id="model"
 										name="model"
-										placeholder="Enter Model"
+										value={data.Model.model}
 										required
 										onChange={(e) => {
-											setData({ ...data, model: e.target.value });
+											setData({ ...data,Model:{...data.Model,model: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -244,13 +240,10 @@ const Updatemouse = (props) => {
 										type="text"
 										id="button"
 										name="button"
-										placeholder="Enter button."
+										value={data.Details.button}
 										required
 										onChange={(e) => {
-											setData({
-												...data,
-												button: e.target.value,
-											});
+											setData({ ...data,Details:{...data.Details,button: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -259,13 +252,10 @@ const Updatemouse = (props) => {
 										type="text"
 										id="weightadjustment"
 										name="weightadjustment"
-										placeholder="Enter weight adjustment"
+										value={data.Details.weightadjustment}
 										required
 										onChange={(e) => {
-											setData({
-												...data,
-												weightadjustment: e.target.value,
-											});
+											setData({ ...data,Details:{...data.Details,weightadjustment: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -274,10 +264,10 @@ const Updatemouse = (props) => {
 										type="text"
 										id="scrollingcapablity"
 										name="scrollingcapablity"
-										placeholder="Enter scrolling capablity"
+										value={data.Details.scrollingcapablity}
 										required
 										onChange={(e) => {
-											setData({ ...data, scrollingcapablity: e.target.value });
+											setData({ ...data,Details:{...data.Details,scrollingcapablity: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -336,10 +326,10 @@ const Updatemouse = (props) => {
 										type="text"
 										id="color"
 										name="color"
-										placeholder="Enter color"
+										value={data.Details.color}
 										required
 										onChange={(e) => {
-											setData({ ...data, color: e.target.value });
+											setData({ ...data,Details:{...data.Details,color: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -348,7 +338,7 @@ const Updatemouse = (props) => {
 										type="number"
 										id="quantity"
 										name="quantity"
-										placeholder="Enter Quantity"
+										value={data.quantity}
 										required
 										onChange={(e) => {
 											let quantity = e.target.value;
@@ -365,10 +355,10 @@ const Updatemouse = (props) => {
 										type="text"
 										id="type"
 										name="type"
-										placeholder="Enter Type"
+										value={data.Details.Type}
 										required
 										onChange={(e) => {
-											setData({ ...data, type: e.target.value });
+											setData({ ...data,Details:{...data.Details,Type: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -377,10 +367,10 @@ const Updatemouse = (props) => {
 										type="text"
 										id="interface"
 										name="interface"
-										placeholder="Enter interface"
+										value={data.Details.interface}
 										required
 										onChange={(e) => {
-											setData({ ...data, interface: e.target.value });
+											setData({ ...data,Details:{...data.Details,interface: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -389,10 +379,10 @@ const Updatemouse = (props) => {
 										type="text"
 										id="trackingmethod"
 										name="trackingmethod"
-										placeholder="Enter tracking method"
+										value={data.Details.trackingmethod}
 										required
 										onChange={(e) => {
-											setData({ ...data, trackingmethod: e.target.value });
+											setData({ ...data,Details:{...data.Details,trackingmethod: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -401,10 +391,10 @@ const Updatemouse = (props) => {
 										type="text"
 										id="maximumdpi"
 										name="maximumdpi"
-										placeholder="Enter Wmaximumdpi"
+										value={data.Details.maximumdpi}
 										required
 										onChange={(e) => {
-											setData({ ...data, maximumdpi: e.target.value });
+											setData({ ...data,Details:{...data.Details,maximumdpi: e.target.value}  });
 										}}
 									/>
 									<br />
@@ -414,10 +404,10 @@ const Updatemouse = (props) => {
 										type="text"
 										id="feature"
 										name="feature"
-										placeholder="Enter feature."
+										value={data.features.feature}
 										required
 										onChange={(e) => {
-											setData({ ...data, feature: e.target.value });
+											setData({ ...data,features:{...data.features,feature: e.target.value}  });
 										}}
 									/>
 

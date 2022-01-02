@@ -4,7 +4,7 @@ import axios from "../../../../../axiosInstance";
 import Spinner from "../../../../LoadingSpinner/LoadingSpinner";
 import classes from "../../../Form.module.css";
 
-const UpdateParts = (props) => {
+const UpdateMicrophone = (props) => {
 	let [data, setData] = useState();
 	let [id, setId] = useState(null);
 	let [thumbnail, setThumbnail] = useState(null);
@@ -45,24 +45,20 @@ const UpdateParts = (props) => {
 			alert("Please enter data in all the given fields  (price)");
 		} else if (data.quantity === 0 || data.quantity === "") {
 			alert("Please enter data in all the given fields (quantity)");
-		} else if (data.brand === "") {
+		} else if (data.Model.brand === "") {
 			alert("Please enter data in all the given fields(brand)");
-		} else if (data.series === "") {
+		} else if (data.Model.series === "") {
 			alert("Please enter data in all the given fields (series)");
-		} else if (data.model === "") {
+		} else if (data.Model.model === "") {
 			alert("Please enter data in all the given fields (model)");
-		} else if (data.type === "") {
+		} else if (data.Details.Type === "") {
 			alert("Please enter data in all the given fields(type)");
-		} else if (data.specification === "") {
+		} else if (data.Details.specification === "") {
 			alert("Please enter data in all the given fields(specification)");
-		} else if (data.dimension === "") {
+		} else if (data.Dimension.dimension === "") {
 			alert("Please enter data in all the given fields (dimension)");
-		} else if (data.weight === "") {
+		} else if (data.Dimension.weight === "") {
 			alert("Please enter data in all the given fields (weight)");
-		} else if (thumbnail === null) {
-			alert("Please provide a picture as a thumbnail picture(thumbnail)");
-		} else if (gallery === null) {
-			alert("Please provide atleaste 1 picture as gallery(gallery)");
 		} else {
 			setLoading(true);
 
@@ -71,13 +67,13 @@ const UpdateParts = (props) => {
 			formData.append("title", data.title);
 			formData.append("price", data.price);
 			formData.append("quantity", data.quantity);
-			formData.append("brand", data.brand);
-			formData.append("series", data.series);
-			formData.append("model", data.model);
-			formData.append("type", data.type);
-			formData.append("specification", data.specification);
-			formData.append("dimension", data.dimension);
-			formData.append("weight", data.weight);
+			formData.append("brand", data.Model.brand);
+			formData.append("series", data.Model.series);
+			formData.append("model", data.Model.model);
+			formData.append("type", data.Details.Type);
+			formData.append("specification", data.Details.specification);
+			formData.append("dimension", data.Dimension.dimension);
+			formData.append("weight", data.Dimension.weight);
 
 			formData.append("thumbnail", thumbnail);
 
@@ -88,7 +84,7 @@ const UpdateParts = (props) => {
 			}
 
 			await axios
-				.post("accessories/microphone", formData)
+				.put("accessories/microphone/"+id, formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -103,16 +99,16 @@ const UpdateParts = (props) => {
 
 	let form = <Spinner />;
 
-	if (!loading) {
+	if (!loading && data) {
 		form = (
 			<div>
 				<Navbar />
 				<div className={classes.main1}>
 					<div className={classes.inputform1}>
-						<h1 className={classes.h11}>Add Microphone</h1>
+						<h1 className={classes.h11}>Update Microphone</h1>
 						<form
 							className={classes.form1}
-							method="post"
+							method="put"
 							encType="multipart/form-data"
 						>
 							<div className={classes.form21}>
@@ -148,7 +144,7 @@ const UpdateParts = (props) => {
 										type="text"
 										id="title"
 										name="title"
-										placeholder="Enter Title"
+										value={data.title}
 										required
 										onChange={(e) => {
 											setData({ ...data, title: e.target.value });
@@ -160,7 +156,7 @@ const UpdateParts = (props) => {
 										type="number"
 										id="price"
 										name="price"
-										placeholder="Enter Price"
+										value={data.price}
 										required
 										onChange={(e) => {
 											let price = e.target.value;
@@ -177,10 +173,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="brand"
 										name="brand"
-										placeholder="Enter Brand"
+										value={data.Model.brand}
 										required
 										onChange={(e) => {
-											setData({ ...data, brand: e.target.value });
+											setData({ ...data,Model:{...data.Model, brand: e.target.value} });
 										}}
 									/>
 									<br />
@@ -189,10 +185,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="series"
 										name="series"
-										placeholder="Enter Series"
+										value={data.Model.series}
 										required
 										onChange={(e) => {
-											setData({ ...data, series: e.target.value });
+											setData({ ...data,Model:{...data.Model, series: e.target.value} });
 										}}
 									/>
 									<br />
@@ -201,10 +197,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="model"
 										name="model"
-										placeholder="Enter Model"
+										value={data.Model.model}
 										required
 										onChange={(e) => {
-											setData({ ...data, model: e.target.value });
+											setData({ ...data,Model:{...data.Model, model: e.target.value} });
 										}}
 									/>
 
@@ -255,7 +251,7 @@ const UpdateParts = (props) => {
 										type="number"
 										id="quantity"
 										name="quantity"
-										placeholder="Enter Quantity"
+										value={data.quantity}
 										required
 										onChange={(e) => {
 											let quantity = e.target.value;
@@ -273,10 +269,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="type"
 										name="type"
-										placeholder="Enter Type"
+										value={data.Details.Type}
 										required
 										onChange={(e) => {
-											setData({ ...data, type: e.target.value });
+											setData({ ...data,Details:{...data.Details, Type: e.target.value} });
 										}}
 									/>
 									<br />
@@ -285,10 +281,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="specification"
 										name="specification"
-										placeholder="Enter specification"
+										value={data.Details.specification}
 										required
 										onChange={(e) => {
-											setData({ ...data, specification: e.target.value });
+											setData({ ...data,Details:{...data.Details, specification: e.target.value} });
 										}}
 									/>
 									<br />
@@ -297,10 +293,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="dimension"
 										name="dimension"
-										placeholder="Enter dimension"
+										value={data.Dimension.dimension}
 										required
 										onChange={(e) => {
-											setData({ ...data, dimension: e.target.value });
+											setData({ ...data,Dimension:{...data.Dimension, dimension: e.target.value} });
 										}}
 									/>
 									<br />
@@ -309,10 +305,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="weight"
 										name="weight"
-										placeholder="Enter weight"
+										value={data.Dimension.weight}
 										required
 										onChange={(e) => {
-											setData({ ...data, weight: e.target.value });
+											setData({ ...data,Dimension:{...data.Dimension, weight: e.target.value} });
 										}}
 									/>
 
@@ -358,4 +354,4 @@ const UpdateParts = (props) => {
 	return <div>{form}</div>;
 };
 
-export default UpdateParts;
+export default UpdateMicrophone;

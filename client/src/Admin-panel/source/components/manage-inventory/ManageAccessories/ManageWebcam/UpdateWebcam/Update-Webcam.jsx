@@ -26,7 +26,7 @@ const UpdateParts = (props) => {
 	useEffect(() => {
 		if (id) {
 			axios
-				.get("pcParts/casing/" + id)
+				.get("accessories/webcam/" + id)
 				.then((res) => {
 					setData(res.data);
 				})
@@ -45,32 +45,28 @@ const UpdateParts = (props) => {
 			alert("Please enter data in all the given fields  (price)");
 		} else if (data.quantity === 0 || data.quantity === "") {
 			alert("Please enter data in all the given fields (quantity)");
-		} else if (data.brand === "") {
+		} else if (data.Model.brand === "") {
 			alert("Please enter data in all the given fields(brand)");
-		} else if (data.name === "") {
+		} else if (data.Model.name === "") {
 			alert("Please enter data in all the given fields (name)");
-		} else if (data.model === "") {
+		} else if (data.Model.model === "") {
 			alert("Please enter data in all the given fields (model)");
-		} else if (data.interface === "") {
+		} else if (data.Details.interface === "") {
 			alert("Please enter data in all the given fields(interface)");
-		} else if (data.Color === "") {
+		} else if (data.Details.color === "") {
 			alert("Please enter data in all the given fields(Color)");
-		} else if (data.videoResolution === "") {
+		} else if (data.Details.videoResolution === "") {
 			alert("Please enter data in all the given fields (videoResolution)");
-		} else if (data.maximumResolution === "") {
+		} else if (data.Details.maximumResolution === "") {
 			alert("Please enter data in all the given fields (maximumResolution)");
-		} else if (data.focusSetting === "") {
+		} else if (data.Details.focusSetting === "") {
 			alert("Please enter data in all the given fields (focusSetting)");
-		} else if (data.lens === "") {
+		} else if (data.Details.lens === "") {
 			alert("Please enter data in all the given fields (lens)");
-		} else if (data.operatingSystem === "") {
+		} else if (data.Details.operatingSystem === "") {
 			alert("Please enter data in all the given fields  (operatingSystem)");
-		} else if (data.feature === "") {
+		} else if (data.features.feature === "") {
 			alert("Please enter data in all the given fields  (feature)");
-		} else if (thumbnail === null) {
-			alert("Please provide a picture as a thumbnail picture(thumbnail)");
-		} else if (gallery === null) {
-			alert("Please provide atleaste 1 picture as gallery(gallery)");
 		} else {
 			setLoading(true);
 
@@ -79,17 +75,17 @@ const UpdateParts = (props) => {
 			formData.append("title", data.title);
 			formData.append("price", data.price);
 			formData.append("quantity", data.quantity);
-			formData.append("brand", data.brand);
-			formData.append("name", data.name);
-			formData.append("model", data.model);
-			formData.append("interface", data.interface);
-			formData.append("Color", data.Color);
-			formData.append("videoResolution", data.videoResolution);
-			formData.append("maximumResolution", data.maximumResolution);
-			formData.append("focusSetting", data.focusSetting);
-			formData.append("lens", data.lens);
-			formData.append("operatingSystem", data.operatingSystem);
-			formData.append("feature", data.feature);
+			formData.append("brand", data.Model.brand);
+			formData.append("name", data.Model.name);
+			formData.append("model", data.Model.model);
+			formData.append("interface", data.Details.interface);
+			formData.append("color", data.Details.color);
+			formData.append("videoResolution", data.Details.videoResolution);
+			formData.append("maximumResolution", data.Details.maximumResolution);
+			formData.append("focusSetting", data.Details.focusSetting);
+			formData.append("lens", data.Details.lens);
+			formData.append("operatingSystem", data.Details.operatingSystem);
+			formData.append("feature", data.features.feature);
 
 			formData.append("thumbnail", thumbnail);
 
@@ -100,7 +96,7 @@ const UpdateParts = (props) => {
 			}
 
 			await axios
-				.post("accessories/speaker", formData)
+				.put("accessories/webcam/"+id, formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -115,13 +111,13 @@ const UpdateParts = (props) => {
 
 	let form = <Spinner />;
 
-	if (!loading) {
+	if (!loading && data) {
 		form = (
 			<div>
 				<Navbar />
 				<div className={classes.main1}>
 					<div className={classes.inputform1}>
-						<h1 className={classes.h11}>Add Casing</h1>
+						<h1 className={classes.h11}>Update Casing</h1>
 						<form
 							className={classes.form1}
 							method="post"
@@ -145,26 +141,7 @@ const UpdateParts = (props) => {
 										name:
 									</label>
 									<br />
-									<label className={classes.label1} htmlFor="model">
-										Model:
-									</label>
-									<br />
-									<label className={classes.label1} htmlFor="interface">
-										interface:
-									</label>
-									<br />
-									<label className={classes.label1} htmlFor="color">
-										Color:
-									</label>
-									<br />
-									<label className={classes.label1} htmlFor="videoResolution">
-										videoResolution:
-									</label>
-									<br />
-									<label className={classes.label1} htmlFor="maximumResolution">
-										maximumResolution:
-									</label>
-									<br />
+								
 									<label className={classes.label1} htmlFor="focusSetting">
 										focusSetting:
 									</label>
@@ -187,7 +164,7 @@ const UpdateParts = (props) => {
 										type="text"
 										id="title"
 										name="title"
-										placeholder="Enter Title"
+										value={data.title}
 										required
 										onChange={(e) => {
 											setData({ ...data, title: e.target.value });
@@ -199,7 +176,7 @@ const UpdateParts = (props) => {
 										type="number"
 										id="price"
 										name="price"
-										placeholder="Enter Price"
+										value={data.price}
 										required
 										onChange={(e) => {
 											let price = e.target.value;
@@ -216,10 +193,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="brand"
 										name="brand"
-										placeholder="Enter Brand"
+										value={data.Model.brand}
 										required
 										onChange={(e) => {
-											setData({ ...data, brand: e.target.value });
+											setData({ ...data,Model:{...data.Model,brand: e.target.value} });
 										}}
 									/>
 									<br />
@@ -228,85 +205,23 @@ const UpdateParts = (props) => {
 										type="text"
 										id="name"
 										name="name"
-										placeholder="Enter name"
+										value={data.Model.name}
 										required
 										onChange={(e) => {
-											setData({ ...data, name: e.target.value });
+											setData({ ...data,Model:{...data.Model,name: e.target.value} });
 										}}
 									/>
 									<br />
-									<input
-										className={classes.input1}
-										type="text"
-										id="model"
-										name="model"
-										placeholder="Enter Model"
-										required
-										onChange={(e) => {
-											setData({ ...data, model: e.target.value });
-										}}
-									/>
-									<br />
-									<input
-										className={classes.input1}
-										type="text"
-										id="interface"
-										name="interface"
-										placeholder="Enter interface"
-										required
-										onChange={(e) => {
-											setData({ ...data, interface: e.target.value });
-										}}
-									/>
-									<br />
-									<input
-										className={classes.input1}
-										type="text"
-										id="color"
-										name="color"
-										placeholder="Enter Color"
-										required
-										onChange={(e) => {
-											setData({ ...data, Color: e.target.value });
-										}}
-									/>
-									<br />
-									<input
-										className={classes.input1}
-										type="text"
-										id="videoResolution"
-										name="videoResolution"
-										placeholder="Enter videoResolution"
-										required
-										onChange={(e) => {
-											setData({ ...data, videoResolution: e.target.value });
-										}}
-									/>
-									<br />
-									<input
-										className={classes.input1}
-										type="text"
-										id="maximumResolution"
-										name="maximumResolution"
-										placeholder="Enter maximumResolution"
-										required
-										onChange={(e) => {
-											setData({ ...data, maximumResolution: e.target.value });
-										}}
-									/>
-									<br />
+								
 									<input
 										className={classes.input1}
 										type="text"
 										id="focusSetting"
 										name="focusSetting"
-										placeholder="Enter focusSetting"
+										value={data.Details.focusSetting}
 										required
 										onChange={(e) => {
-											setData({
-												...data,
-												focusSetting: e.target.value,
-											});
+											setData({ ...data,Details:{...data.Details,focusSetting: e.target.value} });
 										}}
 									/>
 									<br />
@@ -315,13 +230,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="lens"
 										name="lens"
-										placeholder="Enter lens"
+										value={data.Details.lens}
 										required
 										onChange={(e) => {
-											setData({
-												...data,
-												lens: e.target.value,
-											});
+											setData({ ...data,Details:{...data.Details,lens: e.target.value} });
 										}}
 									/>
 									<br />
@@ -330,10 +242,10 @@ const UpdateParts = (props) => {
 										type="text"
 										id="operatingSystem"
 										name="operatingSystem"
-										placeholder="Enter operatingSystem"
+										value={data.Details.operatingSystem}
 										required
 										onChange={(e) => {
-											setData({ ...data, operatingSystem: e.target.value });
+											setData({ ...data,Details:{...data.Details,operatingSystem: e.target.value} });
 										}}
 									/>
 									<br />
@@ -360,27 +272,144 @@ const UpdateParts = (props) => {
 										Quantity:
 									</label>
 									<br />
-									<label className={classes.customfile1}>
-										<input
-											className={classes.inputfile1}
-											type="file"
-											id="gallery"
-											name="gallery"
-											required
-											multiple
-											onChange={(e) => {
-												let gal = e.target.files;
-												if (gal.length > 6) {
-													alert(
-														"You can only upload maximum of 6 files in gallery"
-													);
-												} else {
-													setGallery(gal);
-												}
-											}}
-										/>
-										<i className="fa fa-cloud-upload"></i> Select Files
+									<label className={classes.label1} htmlFor="model">
+										Model:
 									</label>
+									<br />
+									<label className={classes.label1} htmlFor="interface">
+										interface:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="color">
+										Color:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="videoResolution">
+										videoResolution:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="maximumResolution">
+										maximumResolution:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="gallery">
+										Gallery:
+									</label>
+									<br />
+								
+								</div>
+								<div className={classes.row1}>
+								<input
+										className={classes.input1}
+										type="text"
+										id="feature"
+										name="feature"
+										value={data.features.feature}
+										required
+										onChange={(e) => {
+											setData({ ...data,features:{...data.features,feature: e.target.value} });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input1}
+										type="number"
+										id="quantity"
+										name="quantity"
+										value={data.quantity}
+										required
+										onChange={(e) => {
+											let quantity = e.target.value;
+											if (quantity < 0) {
+												alert("Quantity Cannot be a Negative number");
+											} else if (quantity >= 0) {
+												setData({ ...data, quantity: e.target.value });
+											}
+										}}
+									/>
+									<br />
+								<input
+										className={classes.input1}
+										type="text"
+										id="model"
+										name="model"
+										value={data.Model.model}
+										required
+										onChange={(e) => {
+											setData({ ...data,Model:{...data.Model,model: e.target.value} });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input1}
+										type="text"
+										id="interface"
+										name="interface"
+										value={data.Details.interface}
+										required
+										onChange={(e) => {
+											setData({ ...data,Details:{...data.Details,interface: e.target.value} });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input1}
+										type="text"
+										id="color"
+										name="color"
+										value={data.Details.color}
+										required
+										onChange={(e) => {
+											setData({ ...data,Details:{...data.Details,color: e.target.value} });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input1}
+										type="text"
+										id="videoResolution"
+										name="videoResolution"
+										value={data.Details.videoResolution}
+										required
+										onChange={(e) => {
+											setData({ ...data,Details:{...data.Details,videoResolution: e.target.value} });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input1}
+										type="text"
+										id="maximumResolution"
+										name="maximumResolution"
+										value={data.Details.maximumResolution}
+										required
+										onChange={(e) => {
+											setData({ ...data,Details:{...data.Details,maximumResolution: e.target.value} });
+										}}
+									/>
+									<br />
+									<label className={classes.customfile1}>
+								
+								<input
+									className={classes.inputfile1}
+									type="file"
+									id="gallery"
+									name="gallery"
+									required
+									multiple
+									onChange={(e) => {
+										let gal = e.target.files;
+										if (gal.length > 6) {
+											alert(
+												"You can only upload maximum of 6 files in gallery"
+											);
+										} else {
+											setGallery(gal);
+										}
+									}}
+								/>
+								<i className="fa fa-cloud-upload"></i> Select Files
+							</label>
 								</div>
 							</div>
 						</form>
@@ -391,6 +420,7 @@ const UpdateParts = (props) => {
 								value="Submit"
 								onClick={handelSubmitBtn}
 							/>
+
 						</div>
 					</div>
 				</div>

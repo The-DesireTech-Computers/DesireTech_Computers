@@ -45,31 +45,31 @@ const Updatekeyboard = (props) => {
 			alert("Please enter data in all the given fields  (price)");
 		} else if (data.quantity === 0 || data.quantity === "") {
 			alert("Please enter data in all the given fields (quantity)");
-		} else if (data.brand === "") {
+		} else if (data.Model.brand === "") {
 			alert("Please enter data in all the given fields(brand)");
-		} else if (data.name === "") {
+		} else if (data.Model.name === "") {
 			alert("Please enter data in all the given fields (name)");
-		} else if (data.model === "") {
+		} else if (data.Model.model === "") {
 			alert("Please enter data in all the given fields (model)");
-		} else if (data.keyboardInterface === "") {
+		} else if (data.Details.keyboardInterface === "") {
 			alert("Please enter data in all the given fields(keyboardInterface)");
-		} else if (data.designStyle === "") {
+		} else if (data.Details.designStyle === "") {
 			alert("Please enter data in all the given fields(designStyle)");
-		} else if (data.palmRest === "") {
+		} else if (data.Details.palmRest === "") {
 			alert("Please enter data in all the given fields (palmRest)");
-		} else if (data.mechanicalKeyboard === "") {
+		} else if (data.Details.mechanicalKeyboard === "") {
 			alert("Please enter data in all the given fields (mechanicalKeyboard)");
-		} else if (data.keyswitchtype === "") {
+		} else if (data.Details.keyswitchtype === "") {
 			alert("Please enter data in all the given fields (keyswitchtype)");
-		} else if (data.keyboardcolor === "") {
+		} else if (data.Details.keyboardcolor === "") {
 			alert("Please enter data in all the given fields (keyboardcolor)");
-		} else if (data.dimension === "") {
+		} else if (data.Details.dimension === "") {
 			alert("Please enter data in all the given fields  (dimension)");
-		} else if (data.backlit === "") {
+		} else if (data.Details.backlit === "") {
 			alert("Please enter data in all the given fields  (backlit)");
-		} else if (data.Type === "") {
+		} else if (data.Details.Type === "") {
 			alert("Please enter data in all the given fields (Type)");
-		} else if (data.feature === "") {
+		} else if (data.features.feature === "") {
 			alert("Please enter data in all the given fields (feature)");
 		} else if (thumbnail === null) {
 			alert("Please provide a picture as a thumbnail picture(thumbnail)");
@@ -83,19 +83,19 @@ const Updatekeyboard = (props) => {
 			formData.append("title", data.title);
 			formData.append("price", data.price);
 			formData.append("quantity", data.quantity);
-			formData.append("brand", data.brand);
-			formData.append("name", data.name);
-			formData.append("model", data.model);
-			formData.append("keyboardInterface", data.keyboardInterface);
-			formData.append("designStyle", data.designStyle);
-			formData.append("palmRest", data.palmRest);
-			formData.append("mechanicalKeyboard", data.mechanicalKeyboard);
-			formData.append("keyswitchtype", data.keyswitchtype);
-			formData.append("keyboardcolor", data.keyboardcolor);
-			formData.append("dimension", data.dimension);
-			formData.append("backlit", data.backlit);
-			formData.append("Type", data.Type);
-			formData.append("feature", data.feature);
+			formData.append("brand", data.Model.brand);
+			formData.append("name", data.Model.name);
+			formData.append("model", data.Model.model);
+			formData.append("keyboardInterface", data.Details.keyboardInterface);
+			formData.append("designStyle", data.Details.designStyle);
+			formData.append("palmRest", data.Details.palmRest);
+			formData.append("mechanicalKeyboard", data.Details.mechanicalKeyboard);
+			formData.append("keyswitchtype", data.Details.keyswitchtype);
+			formData.append("keyboardcolor", data.Details.keyboardcolor);
+			formData.append("dimension", data.Details.dimension);
+			formData.append("backlit", data.Details.backlit);
+			formData.append("type", data.Details.Type);
+			formData.append("feature", data.features.feature);
 
 			formData.append("thumbnail", thumbnail);
 
@@ -106,7 +106,7 @@ const Updatekeyboard = (props) => {
 			}
 
 			await axios
-				.post("accessories/keyboard", formData)
+				.put("accessories/keyboard/"+id, formData)
 				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
@@ -121,16 +121,16 @@ const Updatekeyboard = (props) => {
 
 	let form = <Spinner />;
 
-	if (!loading) {
+	if (!loading && data) {
 		form = (
 			<div>
 				<Navbar />
 				<div className={classes.main1}>
 					<div className={classes.inputform1}>
-						<h1 className={classes.h11}>Add Keyboard</h1>
+						<h1 className={classes.h11}>Update Keyboard</h1>
 						<form
 							className={classes.form1}
-							method="post"
+							method="put"
 							encType="multipart/form-data"
 						>
 							<div className={classes.form21}>
@@ -178,7 +178,7 @@ const Updatekeyboard = (props) => {
 										type="text"
 										id="title"
 										name="title"
-										placeholder="Enter Title"
+										value={data.title}
 										required
 										onChange={(e) => {
 											setData({ ...data, title: e.target.value });
@@ -190,7 +190,7 @@ const Updatekeyboard = (props) => {
 										type="number"
 										id="price"
 										name="price"
-										placeholder="Enter Price"
+										value={data.price}
 										required
 										onChange={(e) => {
 											let price = e.target.value;
@@ -207,10 +207,10 @@ const Updatekeyboard = (props) => {
 										type="text"
 										id="brand"
 										name="brand"
-										placeholder="Enter Brand"
+										value={data.Model.brand}
 										required
 										onChange={(e) => {
-											setData({ ...data, brand: e.target.value });
+											setData({ ...data,Model:{...data.Model, brand: e.target.value} });
 										}}
 									/>
 									<br />
@@ -219,10 +219,10 @@ const Updatekeyboard = (props) => {
 										type="text"
 										id="name"
 										name="name"
-										placeholder="Enter name"
+										value={data.Model.name}
 										required
 										onChange={(e) => {
-											setData({ ...data, name: e.target.value });
+											setData({ ...data,Model:{...data.Model, name: e.target.value} });
 										}}
 									/>
 									<br />
@@ -231,10 +231,10 @@ const Updatekeyboard = (props) => {
 										type="text"
 										id="model"
 										name="model"
-										placeholder="Enter Model"
+										value={data.Model.model}
 										required
 										onChange={(e) => {
-											setData({ ...data, model: e.target.value });
+											setData({ ...data,Model:{...data.Model, model: e.target.value} });
 										}}
 									/>
 									<br />
@@ -244,13 +244,10 @@ const Updatekeyboard = (props) => {
 										type="text"
 										id="keyswitchtype"
 										name="keyswitchtype"
-										placeholder="Enter key switch type."
+										value={data.Details.keyswitchtype}
 										required
 										onChange={(e) => {
-											setData({
-												...data,
-												keyswitchtype: e.target.value,
-											});
+											setData({ ...data,Details:{...data.Details, keyswitchtype: e.target.value} });
 										}}
 									/>
 									<br />
@@ -259,13 +256,10 @@ const Updatekeyboard = (props) => {
 										type="text"
 										id="keyboardcolor"
 										name="keyboardcolor"
-										placeholder="Enter keyboard color"
+										value={data.Details.keyboardcolor}
 										required
 										onChange={(e) => {
-											setData({
-												...data,
-												keyboardcolor: e.target.value,
-											});
+											setData({ ...data,Details:{...data.Details, keyboardcolor: e.target.value} });
 										}}
 									/>
 									<br />
@@ -274,10 +268,10 @@ const Updatekeyboard = (props) => {
 										type="text"
 										id="dimension"
 										name="dimension"
-										placeholder="Enter dimension"
+										value={data.Details.dimension}
 										required
 										onChange={(e) => {
-											setData({ ...data, dimension: e.target.value });
+											setData({ ...data,Details:{...data.Details, dimension: e.target.value} });
 										}}
 									/>
 									<br />
@@ -345,10 +339,10 @@ const Updatekeyboard = (props) => {
 										type="text"
 										id="backlit"
 										name="backlit"
-										placeholder="Enter backlit"
+										value={data.Details.backlit}
 										required
 										onChange={(e) => {
-											setData({ ...data, backlit: e.target.value });
+											setData({ ...data,Details:{...data.Details, backlit: e.target.value} });
 										}}
 									/>
 									<br />
@@ -357,7 +351,7 @@ const Updatekeyboard = (props) => {
 										type="number"
 										id="quantity"
 										name="quantity"
-										placeholder="Enter Quantity"
+										value={data.quantity}
 										required
 										onChange={(e) => {
 											let quantity = e.target.value;
@@ -375,10 +369,10 @@ const Updatekeyboard = (props) => {
 										type="text"
 										id="Type"
 										name="Type"
-										placeholder="Enter Type."
+										value={data.Details.Type}
 										required
 										onChange={(e) => {
-											setData({ ...data, Type: e.target.value });
+											setData({ ...data,Details:{...data.Details, Type: e.target.value} });
 										}}
 									/>
 									<br />
@@ -387,10 +381,10 @@ const Updatekeyboard = (props) => {
 										type="text"
 										id="keyboardInterface"
 										name="keyboardInterface"
-										placeholder="Enter keyboardInterface"
+										value={data.Details.keyboardInterface}
 										required
 										onChange={(e) => {
-											setData({ ...data, keyboardInterface: e.target.value });
+											setData({ ...data,Details:{...data.Details, keyboardInterface: e.target.value} });
 										}}
 									/>
 									<br />
@@ -399,10 +393,10 @@ const Updatekeyboard = (props) => {
 										type="text"
 										id="designStyle"
 										name="designStyle"
-										placeholder="Enter design Style"
+										value={data.Details.designStyle}
 										required
 										onChange={(e) => {
-											setData({ ...data, designStyle: e.target.value });
+											setData({ ...data,Details:{...data.Details, designStyle: e.target.value} });
 										}}
 									/>
 									<br />
@@ -411,10 +405,10 @@ const Updatekeyboard = (props) => {
 										type="text"
 										id="palmRest"
 										name="palmRest"
-										placeholder="Enter palm Rest"
+										value={data.Details.palmRest}
 										required
 										onChange={(e) => {
-											setData({ ...data, palmRest: e.target.value });
+											setData({ ...data,Details:{...data.Details, palmRest: e.target.value} });
 										}}
 									/>
 									<br />
@@ -423,10 +417,10 @@ const Updatekeyboard = (props) => {
 										type="text"
 										id="mechanicalKeyboard"
 										name="mechanicalKeyboard"
-										placeholder="Enter mechanical Keyboard"
+										value={data.Details.mechanicalKeyboard}
 										required
 										onChange={(e) => {
-											setData({ ...data, mechanicalKeyboard: e.target.value });
+										setData({ ...data,Details:{...data.Details, mechanicalKeyboard: e.target.value} });
 										}}
 									/>
 									<br />
@@ -436,10 +430,10 @@ const Updatekeyboard = (props) => {
 										type="text"
 										id="feature"
 										name="feature"
-										placeholder="Enter feature."
+										value={data.features.feature}
 										required
 										onChange={(e) => {
-											setData({ ...data, feature: e.target.value });
+											setData({ ...data,features:{...data.features, feature: e.target.value} });
 										}}
 									/>
 									<br />

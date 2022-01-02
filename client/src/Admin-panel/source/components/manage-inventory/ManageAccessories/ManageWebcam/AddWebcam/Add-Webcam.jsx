@@ -14,12 +14,13 @@ const AddWebcam = (props) => {
 		model: "",
 
 		interface: "",
-		Color: "",
+		color: "",
 		videoResolution: "",
 		maximumResolution: "",
 		focusSetting: "",
 		lens: "",
 		operatingSystem: "",
+
 		feature: "",
 	});
 	let [thumbnail, setThumbnail] = useState(null);
@@ -43,7 +44,7 @@ const AddWebcam = (props) => {
 			alert("Please enter data in all the given fields (model)");
 		} else if (data.interface === "") {
 			alert("Please enter data in all the given fields(interface)");
-		} else if (data.Color === "") {
+		} else if (data.color === "") {
 			alert("Please enter data in all the given fields(Color)");
 		} else if (data.videoResolution === "") {
 			alert("Please enter data in all the given fields (videoResolution)");
@@ -73,7 +74,7 @@ const AddWebcam = (props) => {
 			formData.append("name", data.name);
 			formData.append("model", data.model);
 			formData.append("interface", data.interface);
-			formData.append("Color", data.Color);
+			formData.append("color", data.color);
 			formData.append("videoResolution", data.videoResolution);
 			formData.append("maximumResolution", data.maximumResolution);
 			formData.append("focusSetting", data.focusSetting);
@@ -315,24 +316,29 @@ const AddWebcam = (props) => {
 									<input
 										className={classes.input1}
 										type="number"
-										id="Quantity"
-										name="Quantity"
+										id="quantity"
+										name="quantity"
 										placeholder="Enter Quantity"
 										required
 										onChange={(e) => {
-											setData({ ...data, Quantity: e.target.value });
+											let quantity = e.target.value;
+											if (quantity < 0) {
+												alert("Quantity Cannot be a Negative number");
+											} else if (quantity >= 0) {
+												setData({ ...data, quantity: e.target.value });
+											}
 										}}
 									/>
 									<br />
 									<input
 										className={classes.input1}
 										type="text"
-										id="Model"
-										name="Model"
+										id="model"
+										name="model"
 										placeholder="Enter Model"
 										required
 										onChange={(e) => {
-											setData({ ...data, Model: e.target.value });
+											setData({ ...data, model: e.target.value });
 										}}
 									/>
 									<br />
@@ -356,7 +362,7 @@ const AddWebcam = (props) => {
 										placeholder="Enter Color"
 										required
 										onChange={(e) => {
-											setData({ ...data, Color: e.target.value });
+											setData({ ...data, color: e.target.value });
 										}}
 									/>
 									<br />

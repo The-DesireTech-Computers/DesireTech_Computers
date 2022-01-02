@@ -49,7 +49,7 @@ let keyboardModelSchema = mongoose.Schema({
    
             keyboardInterface:joi.string().required() ,
             designStyle:joi.string().required() ,
-            palmRest:joi.String().required() ,
+            palmRest:joi.string().required() ,
             mechanicalKeyboard:joi.string().required() ,
             keyswitchtype:joi.string().required() ,
             keyboardcolor:joi.string().required() ,

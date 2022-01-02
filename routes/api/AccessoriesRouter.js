@@ -1176,7 +1176,7 @@ router.delete('/monitor/:id',  auth,adminAuth,async (req, res)=> {
 //update monitor
 
 router.put('/monitor/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', maxCount: 1 },{ name: 'gallery', maxCount: 6 }]) , validationUpdatedMonitor, async (req, res)=> {
-    
+    console.log(req.body);
     let product = await monitor.findById(req.params.id);
 
 

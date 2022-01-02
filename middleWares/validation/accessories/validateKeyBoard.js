@@ -12,6 +12,7 @@ let validateKeyboard = (req,res,next)=>{
      let {error} = validationKeyboard(req.body);
 
     if(error){
+        console.log(error.details[0].message);
         return res.status(400).send(error.details[0].message);
     }
 

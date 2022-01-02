@@ -26,7 +26,6 @@ let mouseModelSchema = mongoose.Schema({
     },
     features:{
         feature:String
-
     },
 
     image:{
@@ -47,9 +46,9 @@ let mouseModelSchema = mongoose.Schema({
         model:joi.string().required() ,
 
    
-            Type:joi.string().required() ,
+            type:joi.string().required() ,
             interface:joi.string().required() ,
-            trackingmethod:joi.String().required() ,
+            trackingmethod:joi.string().required() ,
             maximumdpi:joi.string().required() ,
             button:joi.string().required() ,
             weightadjustment:joi.string().required() ,
