@@ -9,7 +9,6 @@ import Home from "./pages/home/Home";
 import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
 import ContactUs from "./pages/contactUs/ContactUs";
-
 import ShoppingCart from "./pages/shoppingcart/ShopingCart";
 
 import CustomBuilt from "./pages/productdisplay/custom-builtPC/Custom-Built";
@@ -41,8 +40,24 @@ import HardDriveDetails from "./pages/productdisplay/pcParts/hardDrive/HardDrive
 import SSD from "./pages/productdisplay/pcParts/ssd/SSD";
 import SSDDetails from "./pages/productdisplay/pcParts/ssd/SSD-Details";
 
-import PublicRoute from "./components/RoutesComponents/PublicRoutes/PublicRoute";
+import CaseFan from "./pages/productdisplay/pcAccessories/caseFan/CaseFan";
+import CaseFanDetails from "./pages/productdisplay/pcAccessories/caseFan/CaseFan-Details";
+import Headset from "./pages/productdisplay/pcAccessories/headset/Headset";
+import HeadsetDetails from "./pages/productdisplay/pcAccessories/headset/Headset-Details";
+import Keyboard from "./pages/productdisplay/pcAccessories/keyboard/Keyboard";
+import KeyboardDetails from "./pages/productdisplay/pcAccessories/keyboard/Keyboard-Details";
+import Microphone from "./pages/productdisplay/pcAccessories/microphone/Microphone";
+import MicrophoneDetails from "./pages/productdisplay/pcAccessories/microphone/Microphone-Details";
+import Monitor from "./pages/productdisplay/pcAccessories/monitor/Monitor";
+import MonitorDetails from "./pages/productdisplay/pcAccessories/monitor/Monitor-Details";
+import Mouse from "./pages/productdisplay/pcAccessories/mouse/Mouse";
+import MouseDetails from "./pages/productdisplay/pcAccessories/mouse/Mouse-Details";
+import Speaker from "./pages/productdisplay/pcAccessories/speaker/Speaker";
+import SpeakerDetails from "./pages/productdisplay/pcAccessories/speaker/Speaker-Details";
+import Webcam from "./pages/productdisplay/pcAccessories/webcam/Webcam";
+import WebcamDetails from "./pages/productdisplay/pcAccessories/webcam/Webcam-Details";
 
+import PublicRoute from "./components/RoutesComponents/PublicRoutes/PublicRoute";
 export const AuthContext = createContext();
 
 function Start() {
@@ -78,8 +93,10 @@ function Start() {
 
 					<Switch>
 						<Route path="/custom-built" component={CustomBuilt} />
+
 						<Route path="/desktopsdetails" component={PreBuiltDetails} />
 						<Route path="/desktops" component={PreBuilt} />
+
 						<Route path="/laptops" component={Laptops} />
 						<Route path="/laptopsdetails" component={LaptopsDetails} />
 
@@ -106,6 +123,24 @@ function Start() {
 							path="/coolingsystemdetails"
 							component={CoolingSystemDetails}
 						/>
+
+						<Route path="/pcaccessories/casefan" component={CaseFan} />
+						<Route path="/caseFandetails" component={CaseFanDetails} />
+						<Route path="/pcaccessories/headset" component={Headset} />
+						<Route path="/headsetdetails" component={HeadsetDetails} />
+						<Route path="/pcaccessories/keyboard" component={Keyboard} />
+						<Route path="/keyboarddetails" component={KeyboardDetails} />
+						<Route path="/pcaccessories/microphone" component={Microphone} />
+						<Route path="/microphonedetails" component={MicrophoneDetails} />
+						<Route path="/pcaccessories/monitor" component={Monitor} />
+						<Route path="/monitordetails" component={MonitorDetails} />
+						<Route path="/pcaccessories/mouse" component={Mouse} />
+						<Route path="/mousedetails" component={MouseDetails} />
+						<Route path="/pcaccessories/speaker" component={Speaker} />
+						<Route path="/speakerdetails" component={SpeakerDetails} />
+						<Route path="/pcaccessories/webcam" component={Webcam} />
+						<Route path="/webcamdetails" component={WebcamDetails} />
+
 						<Route path="/shoppingcart" component={ShoppingCart} />
 						<PublicRoute path="/signup" auth={auth} component={Signup} />
 						<PublicRoute path="/login" auth={auth} component={Login} />

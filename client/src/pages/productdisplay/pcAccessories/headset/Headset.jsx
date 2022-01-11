@@ -165,9 +165,9 @@ const Headset = (props) => {
 			<div className="container mt-5">
 				<div className="cbcontainer">
 					<div className="hero-image">
-						<img src="/images/others/casing.jpg" className="cbimage" />
+						<img src="/images/others/headset.jpg" className="cbimage" />
 						<div className="heroimg">
-							<div className="hero-text">
+							<div className="hero-text-light">
 								<h1 id="cbh1text">Headsets</h1>
 								<p id="cbptext">Here you can find Headsets</p>
 							</div>

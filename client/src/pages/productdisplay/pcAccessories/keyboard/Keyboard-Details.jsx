@@ -4,20 +4,20 @@ import DetailFooter from "../../../../components/productDetails/DetailFooter";
 import DetailHeader from "../../../../components/productDetails/DetailHeader";
 import "../../ProductDisplay.css";
 
-const CasingDisplay = (props) => {
+const KeyboardDisplay = (props) => {
 	let [id, setId] = useState();
 	let [data, setData] = useState();
 
 	let addToCartBtnHandler = () => {
-		let cart = localStorage.getItem("casing_cart");
+		let cart = localStorage.getItem("keyboard_cart");
 
 		if (cart) {
 			cart = cart.split(",");
 			cart.push(data._id);
 
-			localStorage.setItem("casing_cart", cart);
+			localStorage.setItem("keyboard_cart", cart);
 		} else {
-			localStorage.setItem("casing_cart", data._id);
+			localStorage.setItem("keyboard_cart", data._id);
 		}
 		console.log(cart);
 	};
@@ -37,7 +37,7 @@ const CasingDisplay = (props) => {
 	useEffect(() => {
 		if (id) {
 			axios
-				.get("pcParts/casing/" + id)
+				.get("accessories/keyboard/" + id)
 				.then((res) => {
 					console.log(res.data);
 					setData(res.data);
@@ -73,8 +73,8 @@ const CasingDisplay = (props) => {
 							<td>{data ? data.Model.brand : ""}</td>
 						</tr>
 						<tr>
-							<td>Series:</td>
-							<td>{data ? data.Model.series : ""}</td>
+							<td>Name:</td>
+							<td>{data ? data.Model.name : ""}</td>
 						</tr>
 						<tr>
 							<td>Model:</td>
@@ -89,96 +89,48 @@ const CasingDisplay = (props) => {
 							<td>{data ? data.Details.Type : ""}</td>
 						</tr>
 						<tr>
-							<td>Color:</td>
-							<td>{data ? data.Details.Color : ""}</td>
+							<td>Keyboard Interface:</td>
+							<td>{data ? data.Details.keyboardInterface : ""}</td>
 						</tr>
 						<tr>
-							<td>Casing Material:</td>
-							<td>{data ? data.Details.Casing_Material : ""}</td>
+							<td>Design Style:</td>
+							<td>{data ? data.Details.designStyle : ""}</td>
 						</tr>
 						<tr>
-							<td>With Power Supply:</td>
-							<td>{data ? data.Details.With_Power_Supply : ""}</td>
+							<td>Palm Rest:</td>
+							<td>{data ? data.Details.palmRest : ""}</td>
 						</tr>
 						<tr>
-							<td>Power Supply Mounted:</td>
-							<td>{data ? data.Details.Power_Supply_Mounted : ""}</td>
+							<td>Mechanical Keyboard:</td>
+							<td>{data ? data.Details.mechanicalKeyboard : ""}</td>
 						</tr>
 						<tr>
 							<td>MotherBoard Compatibility:</td>
 							<td>{data ? data.Details.MotherBoard_Compatibility : ""}</td>
 						</tr>
 						<tr>
-							<td>Side Panel Window:</td>
-							<td>{data ? data.Details.Side_Panel_Window : ""}</td>
+							<td>Key Switch Type:</td>
+							<td>{data ? data.Details.keyswitchtype : ""}</td>
 						</tr>
 						<tr>
-							<td>Dust Filters:</td>
-							<td>{data ? data.Details.Dust_Filters : ""}</td>
+							<td>Keyboard Color:</td>
+							<td>{data ? data.Details.keyboardcolor : ""}</td>
 						</tr>
 						<tr>
-							<th>Expansions</th>
+							<td>Dimension:</td>
+							<td>{data ? data.Details.dimension : ""}</td>
+						</tr>
+						<tr>
+							<td>Backlit:</td>
+							<td>{data ? data.Details.backlit : ""}</td>
+						</tr>
+						<tr>
+							<th>Features</th>
 							<th></th>
 						</tr>
 						<tr>
-							<td>Internal Drive Bays 2.5:</td>
-							<td>{data ? data.Expansions.Internal_Drive_bays25 : ""}</td>
-						</tr>
-						<tr>
-							<td>Internal Drive Bays 3.5:</td>
-							<td>{data ? data.Expansions.Internal_Drive_bays35 : ""}</td>
-						</tr>
-						<tr>
-							<td>Expansion Slots:</td>
-							<td>{data ? data.Expansions.Expansion_Slots : ""}</td>
-						</tr>
-						<tr>
-							<th>Front Panel Ports</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td>Front Panel Ports:</td>
-							<td>{data ? data.Front_Panel_Ports : ""}</td>
-						</tr>
-						<tr>
-							<th>Cooling System</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td>Fan Options:</td>
-							<td>{data ? data.Cooling_System.Fan_Options : ""}</td>
-						</tr>
-						<tr>
-							<td>Radiator Options:</td>
-							<td>{data ? data.Cooling_System.Rdiator_Options : ""}</td>
-						</tr>
-						<tr>
-							<th>Dimentions</th>
-							<th></th>
-						</tr>
-						<tr>
-							<td>Max GPU Length:</td>
-							<td>{data ? data.Dimentions.Max_GPU_Length : ""}</td>
-						</tr>
-						<tr>
-							<td>Max CPU Cooler Length:</td>
-							<td>{data ? data.Dimentions.Max_CPU_Cooler_Length : ""}</td>
-						</tr>
-						<tr>
-							<td>Max PSU Length:</td>
-							<td>{data ? data.Dimentions.Max_PSU_Length : ""}</td>
-						</tr>
-						<tr>
-							<td>Case Dimentions:</td>
-							<td>{data ? data.Dimentions.Case_Dimentions : ""}</td>
-						</tr>
-						<tr>
-							<td>Supported Motherboard:</td>
-							<td>{data ? data.Dimentions.Supported_Motherboard : ""}</td>
-						</tr>
-						<tr>
-							<td>Weight:</td>
-							<td>{data ? data.Dimentions.Weight : ""}</td>
+							<td>Feature:</td>
+							<td>{data ? data.features.feature : ""}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -188,4 +140,4 @@ const CasingDisplay = (props) => {
 	);
 };
 
-export default CasingDisplay;
+export default KeyboardDisplay;
