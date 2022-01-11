@@ -41,7 +41,9 @@ const Laptops = () => {
 		let cart = localStorage.getItem("laptops_cart");
 		if (cart) {
 			cart = cart.split(",");
-			cart.push(product_id);
+			if(!cart.includes(product_id)){
+				cart.push(product_id);
+			}
 			localStorage.setItem("laptops_cart", cart);
 		} else {
 			localStorage.setItem("laptops_cart", product_id);

@@ -28,7 +28,9 @@ const HardDrive = () => {
 
 		if (cart) {
 			cart = cart.split(",");
-			cart.push(product_id);
+			if(!cart.includes(product_id)){
+				cart.push(product_id);
+			}
 
 			localStorage.setItem("hardDrive_cart", cart);
 		} else {

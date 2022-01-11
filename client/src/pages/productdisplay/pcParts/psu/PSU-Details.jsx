@@ -8,12 +8,14 @@ const PSUDisplay = (props) => {
 	let [id, setId] = useState();
 	let [data, setData] = useState();
 
-	let addToCartBtnHandler = (product_id) => {
+	let addToCartBtnHandler = () => {
 		let cart = localStorage.getItem("psu_cart");
 
 		if (cart) {
 			cart = cart.split(",");
-			cart.push(data._id);
+			if(!cart.includes(data._id)){
+				cart.push(data._id);
+			}
 
 			localStorage.setItem("psu_cart", cart);
 		} else {

@@ -24,7 +24,9 @@ const SoundCard = () => {
 
 		if (cart) {
 			cart = cart.split(",");
-			cart.push(product_id);
+			if(!cart.includes(product_id)){
+				cart.push(product_id);
+			}
 
 			localStorage.setItem("soundCard_cart", cart);
 		} else {
