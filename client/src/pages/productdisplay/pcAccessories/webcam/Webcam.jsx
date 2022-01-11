@@ -3,9 +3,9 @@ import ProductCard from "../../../../components/productcard/ProductCard";
 import "../../ProductDisplay.css";
 import axios from "../../../../axiosInstance/axiosInstance";
 import Spinner from "../../../../components/LoadingSpinner/LoadingSpinner";
-import CaseCategory from "./CaseCategory";
+import WebcamCategory from "./WebcamCategory";
 
-const Casing = (props) => {
+const Webcam = (props) => {
 	let [data, setData] = useState();
 	let [data1, setData1] = useState();
 	let [data2, setData2] = useState();
@@ -20,22 +20,22 @@ const Casing = (props) => {
 		setPriceFilter(x);
 	};
 	let addToCartBtnHandler = (product_id) => {
-		let cart = localStorage.getItem("casing_cart");
+		let cart = localStorage.getItem("webcam_cart");
 
 		if (cart) {
 			cart = cart.split(",");
 			cart.push(product_id);
 
-			localStorage.setItem("casing_cart", cart);
+			localStorage.setItem("webcam_cart", cart);
 		} else {
-			localStorage.setItem("casing_cart", product_id);
+			localStorage.setItem("webcam_cart", product_id);
 		}
 		console.log(cart);
 	};
 
 	useEffect(() => {
 		axios
-			.get("pcParts/casing")
+			.get("accessories/webcam")
 			.then((res) => {
 				setData(res.data);
 				console.log(res.data);
@@ -52,10 +52,10 @@ const Casing = (props) => {
 
 	useEffect(() => {
 		if (companyFilter) {
-			if (companyFilter === "EVGA") {
+			if (companyFilter === "Logitech") {
 				setData1(
 					data1.filter((e) => {
-						return e.Model.brand === "EVGA";
+						return e.Model.brand === "Logitech";
 					})
 				);
 			} else if (companyFilter === "ASUS") {
@@ -64,16 +64,16 @@ const Casing = (props) => {
 						return e.Model.brand === "ASUS";
 					})
 				);
-			} else if (companyFilter === "Corsair") {
+			} else if (companyFilter === "Lenovo") {
 				setData1(
 					data1.filter((e) => {
-						return e.Model.brand === "Corsair";
+						return e.Model.brand === "Lenovo";
 					})
 				);
-			} else if (companyFilter === "Cooler Master") {
+			} else if (companyFilter === "Samsung") {
 				setData1(
 					data1.filter((e) => {
-						return e.Model.brand === "Cooler Master";
+						return e.Model.brand === "Samsung";
 					})
 				);
 			}
@@ -135,12 +135,12 @@ const Casing = (props) => {
 			return (
 				<ProductCard
 					key={product._id}
-					img={"/images/productimages/4.jpg"}
+					img={"/uploads/accessories/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
 					addToCartBtnHandler={addToCartBtnHandler}
-					path="casingdetails"
+					path="webcamdetails"
 				/>
 			);
 		});
@@ -149,12 +149,12 @@ const Casing = (props) => {
 			return (
 				<ProductCard
 					key={product._id}
-					img={"/images/productimages/4.jpg"}
+					img={"/uploads/accessories/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
 					addToCartBtnHandler={addToCartBtnHandler}
-					path="casingdetails"
+					path="webcamdetails"
 				/>
 			);
 		});
@@ -165,24 +165,24 @@ const Casing = (props) => {
 			<div className="container mt-5">
 				<div className="cbcontainer">
 					<div className="hero-image">
-						<img src="/images/others/casing.jpg" className="cbimage" />
+						<img src="/images/others/webcam.jpg" className="cbimage" />
 						<div className="heroimg">
-							<div className="hero-text">
-								<h1 id="cbh1text">PC Cases</h1>
-								<p id="cbptext">Here you can find PC cases</p>
+							<div className="hero-text-light">
+								<h1 id="cbh1text">Webcams</h1>
+								<p id="cbptext">Here you can find Webcams</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className="row mt-5">
-				<CaseCategory
+				<WebcamCategory
 					setCompanyFilterHandler={setCompanyFilterHandler}
 					setPriceFilterHandler={setPriceFilterHandler}
 				/>
 				<div className="col-md-8 ">
 					<div className="container-fluid mt-3">
-						<h3 className="cbheading">PC Cases:</h3>
+						<h3 className="cbheading">Webcams:</h3>
 						<div className="row mx-auto">{products}</div>
 					</div>
 				</div>
@@ -191,4 +191,4 @@ const Casing = (props) => {
 	);
 };
 
-export default Casing;
+export default Webcam;

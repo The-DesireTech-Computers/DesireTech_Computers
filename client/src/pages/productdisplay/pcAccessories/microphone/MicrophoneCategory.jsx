@@ -1,13 +1,16 @@
 import React from "react";
-const CaseCategory = ({ setCompanyFilterHandler,setPriceFilterHandler }) => {
+const MicrophoneCategory = ({
+	setCompanyFilterHandler,
+	setPriceFilterHandler,
+}) => {
 	return (
 		<div className="col-md-4">
 			<div className="container-fluid mt-3">
 				<h3 className="cbheading">Shop Category:</h3>
 				<div
 					className="accordion accordion-flush mt-4"
-					id="accordionFlushExample">
-
+					id="accordionFlushExample"
+				>
 					<div className="accordion-item " id="ctg1">
 						<h2 className="accordion-header" id="flush-headingOne">
 							<button
@@ -34,13 +37,13 @@ const CaseCategory = ({ setCompanyFilterHandler,setPriceFilterHandler }) => {
 										type="radio"
 										name="exampleRadios"
 										id="exampleRadios1"
-										value="Corsair"
+										value="Audio-Technica"
 										onChange={(e) => {
 											setCompanyFilterHandler(e.target.value);
 										}}
 									/>
 									<label className="form-check-label" for="exampleRadios1">
-										Corsair
+										Audio-Technica
 									</label>
 								</div>
 								<div className="form-check">
@@ -49,13 +52,13 @@ const CaseCategory = ({ setCompanyFilterHandler,setPriceFilterHandler }) => {
 										type="radio"
 										name="exampleRadios"
 										id="exampleRadios2"
-										value="Cooler Master"
+										value="HyperX"
 										onChange={(e) => {
 											setCompanyFilterHandler(e.target.value);
 										}}
 									/>
 									<label className="form-check-label" for="exampleRadios2">
-										Cooler Master
+										HyperX
 									</label>
 								</div>
 								<div className="form-check">
@@ -64,13 +67,13 @@ const CaseCategory = ({ setCompanyFilterHandler,setPriceFilterHandler }) => {
 										type="radio"
 										name="exampleRadios"
 										id="exampleRadios2"
-										value="ASUS"
+										value="Logitech"
 										onChange={(e) => {
 											setCompanyFilterHandler(e.target.value);
 										}}
 									/>
 									<label className="form-check-label" for="exampleRadios2">
-										ASUS
+										Logitech
 									</label>
 								</div>
 								<div className="form-check">
@@ -79,13 +82,13 @@ const CaseCategory = ({ setCompanyFilterHandler,setPriceFilterHandler }) => {
 										type="radio"
 										name="exampleRadios"
 										id="exampleRadios2"
-										value="EVGA"
+										value="Blue Microphones"
 										onChange={(e) => {
 											setCompanyFilterHandler(e.target.value);
 										}}
 									/>
 									<label className="form-check-label" for="exampleRadios2">
-										EVGA
+										Blue Microphones
 									</label>
 								</div>
 							</div>
@@ -113,7 +116,7 @@ const CaseCategory = ({ setCompanyFilterHandler,setPriceFilterHandler }) => {
 							data-bs-parent="#accordionFlushExample4"
 						>
 							<div class="accordion-body">
-							<div class="form-check">
+								<div class="form-check">
 									<input
 										className="form-check-input"
 										type="radio"
@@ -227,4 +230,4 @@ const CaseCategory = ({ setCompanyFilterHandler,setPriceFilterHandler }) => {
 	);
 };
 
-export default CaseCategory;
+export default MicrophoneCategory;

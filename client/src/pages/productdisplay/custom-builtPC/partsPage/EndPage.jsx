@@ -143,7 +143,7 @@ const EndPage = (props) => {
 				<div className="hero-image">
 					<img src="/images/custombuilt/mainpage.jpg" className="cbimage" />
 					<div className="heroimg">
-						<div className="hero-text">
+						<div className="hero-text-light">
 							<h1 id="cbh1text">Custom PC Build</h1>
 							<p id="cbptext">Build your desired Custom PC</p>
 							<button

@@ -169,7 +169,7 @@ const Casing = (props) => {
 					<div className="hero-image">
 						<img src="/images/others/casing.jpg" className="cbimage" />
 						<div className="heroimg">
-							<div className="hero-text">
+							<div className="hero-text-light">
 								<h1 id="cbh1text">PC Cases</h1>
 								<p id="cbptext">Here you can find PC cases</p>
 							</div>

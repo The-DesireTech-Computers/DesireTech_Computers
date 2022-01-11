@@ -165,9 +165,9 @@ const CaseFan = (props) => {
 			<div className="container mt-5">
 				<div className="cbcontainer">
 					<div className="hero-image">
-						<img src="/images/others/casing.jpg" className="cbimage" />
+						<img src="/images/others/casefan.jpg" className="cbimage" />
 						<div className="heroimg">
-							<div className="hero-text">
+							<div className="hero-text-light">
 								<h1 id="cbh1text">Case Fans</h1>
 								<p id="cbptext">Here you can find Case Fans</p>
 							</div>
