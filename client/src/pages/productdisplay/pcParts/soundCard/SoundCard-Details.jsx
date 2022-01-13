@@ -13,7 +13,9 @@ const SoundCardDisplay = (props) => {
 
 		if (cart) {
 			cart = cart.split(",");
-			cart.push(data._id);
+			if (!cart.includes(data._id)) {
+				cart.push(data._id);
+			}
 
 			localStorage.setItem("soundCard_cart", cart);
 		} else {

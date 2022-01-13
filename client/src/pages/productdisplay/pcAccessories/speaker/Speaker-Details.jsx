@@ -13,7 +13,9 @@ const SpeakerDisplay = (props) => {
 
 		if (cart) {
 			cart = cart.split(",");
-			cart.push(data._id);
+			if (!cart.includes(data._id)) {
+				cart.push(data._id);
+			}
 
 			localStorage.setItem("speaker_cart", cart);
 		} else {
