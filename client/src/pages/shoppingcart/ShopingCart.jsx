@@ -741,6 +741,7 @@ const ShoppingCart = (props) => {
 								);
 						  })
 						: null}
+					<tr className="emptytr"></tr>
 				</tbody>
 				<tfoot>
 					<tr className="d-block d-sm-none">
