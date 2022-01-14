@@ -411,7 +411,7 @@ const AddProcessor = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="OperatingFrequency"
 										name="OperatingFrequency"
 										placeholder="Enter Operating Frequency"

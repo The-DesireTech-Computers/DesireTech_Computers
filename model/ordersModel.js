@@ -15,6 +15,7 @@ let ordersSchema = mongoose.Schema({
        state:String,
        country:String,
    },
+   totalPrice:Number,
    status:{
        type:String,
        default:"pending"

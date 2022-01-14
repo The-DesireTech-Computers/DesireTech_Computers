@@ -1,15 +1,17 @@
 var express = require('express');
 var router = express.Router();
 let {Order} = require('../../model/ordersModel');
+let {auth} = require("../../middleWares/authentication/auth");
+let adminAuth = require("../../middleWares/authentication/adminAuth");
 
 /* GET order. */
-router.get('/', async function(req, res, next) {
+router.get('/',auth,adminAuth, async function(req, res, next) {
   let order = await Order.find();
   return res.send(order);
 });
 
 //get singel order
-router.get('/:id', async function(req, res, next) {
+router.get('/:id',auth,adminAuth, async function(req, res, next) {
     let order = await Order.findById(req.params.id);
     if (!order) return res.status(404).send('order on this given id not found');
     return res.send(order);
@@ -28,6 +30,7 @@ router.get('/:id', async function(req, res, next) {
     order.Shipping_Info.city = req.body.city; 
     order.Shipping_Info.state = req.body.state; 
     order.Shipping_Info.country = req.body.country; 
+    order.totalPrice = req.body.totalPrice; 
 
     await order.save();
 
@@ -39,7 +42,7 @@ router.get('/:id', async function(req, res, next) {
 
   // update order
 
-  router.put('/:id',async function(req, res, next) {
+  router.put('/:id',auth,adminAuth,async function(req, res, next) {
     
     let order = await Order.findById(req.params.id);
 
@@ -52,6 +55,7 @@ router.get('/:id', async function(req, res, next) {
     order.Shipping_Info.city = req.body.city; 
     order.Shipping_Info.state = req.body.state; 
     order.Shipping_Info.country = req.body.country; 
+    order.totalPrice = req.body.totalPrice; 
 
     await order.save();
 
@@ -62,7 +66,7 @@ router.get('/:id', async function(req, res, next) {
 
   //delete order
 
-  router.delete('/:id', async function(req, res, next) {
+  router.delete('/:id',auth,adminAuth, async function(req, res, next) {
     
     let order = await Order.findByIdAndDelete(req.params.id);
 
@@ -72,6 +76,34 @@ router.get('/:id', async function(req, res, next) {
   });
 
 
+    // shipped status order
+
+    router.put('/shipped/:id',auth,adminAuth,async function(req, res, next) {
+    
+
+        let order = await Order.findById(req.params.id);
+    
+        order.status = "shipped";
+    
+        await order.save();
+    
+        return res.send(order);
+    
+      });
+
+         // delivered status order
+
+    router.put('/delivered/:id',auth,adminAuth,async function(req, res, next) {
+    
+        let order = await Order.findById(req.params.id);
+    
+        order.status = "delivered";
+    
+        await order.save();
+    
+        return res.send(order);
+    
+      });
 
 
 module.exports = router;
