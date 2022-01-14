@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import classes from "./ManageContactUs.module.css";
 import Navbar from "../header/Navbar";
 import axios from '../../axiosInstance';
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 let ManageFeedbacks = (props) => {
 
 	let [data,setData] = useState();
 
 
-	
-
-	useEffect(()=>{
+	let getData = ()=>{
 		axios.get('contactUs')
 		.then(res=>{
 			setData(res.data);
@@ -17,7 +16,40 @@ let ManageFeedbacks = (props) => {
 		.catch(err=>{
 			alert(err.response.data);
 		});
-	},[])
+	}
+
+
+	let deleteItem = (id)=>{
+		axios.delete('contactUs/' + id).then(res=>{
+			console.log('deleted Successfully');
+			getData();
+		}).catch(err=>{
+			console.log('error deleting message');
+		})
+	}
+	
+
+	useEffect(()=>{
+		getData();
+	},[]);
+
+	
+
+
+	let form = <LoadingSpinner />
+
+	if(data){
+		form = data.map(x=>{
+			return 	<tr>
+			<td>{x.name}</td>
+			<td>{x.email}</td>
+			<td>{x.message}</td>
+			<td>
+			<button className={classes.approveBtn1}> Approve </button>
+			</td>
+		</tr>
+		}) 
+	}
 
 
 
@@ -37,13 +69,11 @@ let ManageFeedbacks = (props) => {
 						<tr>
 							<th className={classes.name1}>Name</th>
 							<th className={classes.email1}>Email</th>
-							<th className={classes.description1}>Description</th>
+							<th className={classes.description1}>Message</th>
+							<th classes={classes.action1}>Actions</th>
 						</tr>
-						<tr>
-							<td>Alfreds Futterkiste</td>
-							<td>Maria Anders</td>
-							<td>Germany</td>
-						</tr>
+						{form}
+						
 					</table>
 				</div>
 			</div>

@@ -8,7 +8,7 @@ let FansSchema = mongoose.Schema({
     price: Number,
     quantity:Number,
     category:{type:String,
-        default:'fans'
+        default:'pcParts'
         },
     Model:{
         brand:String,

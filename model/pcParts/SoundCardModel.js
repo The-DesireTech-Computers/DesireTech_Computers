@@ -8,7 +8,7 @@ let SoundCardSchema = mongoose.Schema({
     price: Number,
     quantity:Number,
     category:{type:String,
-        default:'soundcard'
+        default:'pcParts'
         },
     Model:{
         brand:String,

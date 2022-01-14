@@ -8,7 +8,7 @@ let mouseModelSchema = mongoose.Schema({
     price: Number,
     quantity:Number,
     category:{type:String,
-        default:'mouse'
+        default:'accessories'
         },
 
     Model:{

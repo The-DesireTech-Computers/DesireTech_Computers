@@ -8,7 +8,7 @@ let PSUSchema = mongoose.Schema({
     price: Number,
     quantity:Number,
     category:{type:String,
-        default:'psu'
+        default:'pcParts'
         },
     Model:{
         brand:String,

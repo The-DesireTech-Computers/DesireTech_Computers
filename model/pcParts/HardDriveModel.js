@@ -8,7 +8,7 @@ let HardDriveSchema = mongoose.Schema({
     price: Number,
     quantity:Number,
     category:{type:String,
-        default:'harddrive'
+        default:'pcParts'
         },
     Model:{
         brand:String,

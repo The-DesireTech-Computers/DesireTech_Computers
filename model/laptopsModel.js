@@ -6,7 +6,7 @@ let laptopsSchema = mongoose.Schema({
 	price: Number,
 	quantity: Number,
 	category:{type:String,
-		default:'laptop'
+		default:'laptops'
 		},
 	Model:{
 	brand: String,

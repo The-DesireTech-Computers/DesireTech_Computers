@@ -6,7 +6,7 @@ let CasingSchema = mongoose.Schema({
 	price: Number,
 	quantity: Number,
 	category:{type:String,
-		default:'casing'
+		default:'pcParts'
 		},
 	Model: {
 		brand: String,

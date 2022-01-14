@@ -8,7 +8,7 @@ let microphoneModelSchema = mongoose.Schema({
     price: Number,
     quantity:Number,
     category:{type:String,
-        default:'microphone'
+        default:'accessories'
         },
 
     Model:{

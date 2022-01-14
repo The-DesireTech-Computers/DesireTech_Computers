@@ -9,7 +9,7 @@ let speakerModelSchema = mongoose.Schema({
     price: Number,
     quantity:Number,
     category:{type:String,
-        default:'speaker'
+        default:'accessories'
         },
 
     Model:{

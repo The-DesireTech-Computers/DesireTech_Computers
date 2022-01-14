@@ -8,7 +8,7 @@ let keyboardModelSchema = mongoose.Schema({
     price: Number,
     quantity:Number,
     category:{type:String,
-        default:'keyboard'
+        default:'accessories'
         },
 
     Model:{
