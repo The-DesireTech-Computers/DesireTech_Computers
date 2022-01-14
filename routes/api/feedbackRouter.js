@@ -14,7 +14,7 @@ router.get('/', async function(req, res, next) {
 
 //get singel feedback
 router.get('/:id', async function(req, res, next) {
-    let feedback = await Feedback.findById(req.params.id).populate("user");
+    let feedback = await Feedback.findById(req.params.id).populate("user product_id");
     if (!feedback) return res.status(404).send('feedback on this given id not found');
     return res.send(feedback);
   });
@@ -59,7 +59,7 @@ router.get('/:id', async function(req, res, next) {
 
   router.delete('/:id',auth,adminAuth, async function(req, res, next) {
     
-    let feedback = Feedback.findByIdAndDelete(req.params.id);
+    let feedback = await Feedback.findByIdAndDelete(req.params.id);
 
     if (!feedback) return res.status(404).send('Feedback on this given id not found');
 

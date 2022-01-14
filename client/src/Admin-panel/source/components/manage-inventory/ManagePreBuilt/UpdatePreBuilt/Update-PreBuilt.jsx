@@ -281,6 +281,13 @@ const UpdatePreBuilt = (props) => {
 											MotherBoard Name:
 										</label>
 										<br />
+										<label
+											className={classes.label1}
+											htmlFor="BackPanel_VideoPort"
+										>
+											BackPanel VideoPort:
+										</label>
+										<br />
 										<label className={classes.label1} htmlFor="thumbnail">
 											Thumbnail:
 										</label>
@@ -665,6 +672,24 @@ const UpdatePreBuilt = (props) => {
 											}}
 										/>
 										<br />
+										<input
+											className={classes.input1}
+											type="text"
+											id="VideoPort"
+											name="VideoPort"
+											value={data.BackPanelPorts.videoPort}
+											required
+											onChange={(e) => {
+												setData({
+													...data,
+													BackPanelPorts: {
+														...data.BackPanelPorts,
+														videoPort: e.target.value,
+													},
+												});
+											}}
+										/>
+										<br />
 										<label className={classes.customfile1}>
 											<input
 												className={classes.inputfile1}
@@ -796,13 +821,7 @@ const UpdatePreBuilt = (props) => {
 											BackPanel SP DIF:
 										</label>
 										<br />
-										<label
-											className={classes.label1}
-											htmlFor="BackPanel_VideoPort"
-										>
-											BackPanel VideoPort:
-										</label>
-										<br />
+									
 										<label className={classes.label1} htmlFor="gallery">
 											Gallery:
 										</label>
@@ -1216,24 +1235,7 @@ const UpdatePreBuilt = (props) => {
 											}}
 										/>
 										<br />
-										<input
-											className={classes.input1}
-											type="text"
-											id="VideoPort"
-											name="VideoPort"
-											value={data.BackPanelPorts.videoPort}
-											required
-											onChange={(e) => {
-												setData({
-													...data,
-													BackPanelPorts: {
-														...data.BackPanelPorts,
-														videoPort: e.target.value,
-													},
-												});
-											}}
-										/>
-										<br />
+									
 										<label className={classes.customfile1}>
 											<input
 												className={classes.inputfile1}

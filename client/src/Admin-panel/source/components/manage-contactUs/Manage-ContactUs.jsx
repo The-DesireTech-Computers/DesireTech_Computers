@@ -3,7 +3,7 @@ import classes from "./ManageContactUs.module.css";
 import Navbar from "../header/Navbar";
 import axios from '../../axiosInstance';
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
-let ManageFeedbacks = (props) => {
+let ManageContactUs = (props) => {
 
 	let [data,setData] = useState();
 
@@ -20,8 +20,11 @@ let ManageFeedbacks = (props) => {
 
 
 	let deleteItem = (id)=>{
-		axios.delete('contactUs/' + id).then(res=>{
+
+		axios.delete('contactUs/'+ id)
+		.then(res=>{
 			console.log('deleted Successfully');
+			console.log(res.data);
 			getData();
 		}).catch(err=>{
 			console.log('error deleting message');
@@ -40,12 +43,12 @@ let ManageFeedbacks = (props) => {
 
 	if(data){
 		form = data.map(x=>{
-			return 	<tr>
+			return 	<tr key={x._id}>
 			<td>{x.name}</td>
 			<td>{x.email}</td>
 			<td>{x.message}</td>
 			<td>
-			<button className={classes.approveBtn1}> Approve </button>
+			<button className={classes.approveBtn1}   onClick={()=>{deleteItem(x._id)}} > Delete </button>
 			</td>
 		</tr>
 		}) 
@@ -81,4 +84,4 @@ let ManageFeedbacks = (props) => {
 	);
 };
 
-export default ManageFeedbacks;
+export default ManageContactUs;

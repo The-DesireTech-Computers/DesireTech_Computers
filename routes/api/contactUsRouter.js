@@ -54,7 +54,7 @@ router.get('/:id', async function(req, res, next) {
 
   router.delete('/:id', async function(req, res, next) {
     
-    let contactUs = ContactUs.findByIdAndDelete(req.params.id);
+    let contactUs = await ContactUs.findByIdAndDelete(req.params.id);
 
     if (!contactUs) return res.status(404).send('Feedback on this given id not found');
 

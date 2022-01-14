@@ -13,6 +13,7 @@ var pcPartsRouter = require("./routes/api/pcPartsRouter");
 var laptopsRouter = require("./routes/api/laptopsRouter");
 var feedbackRouter = require("./routes/api/feedbackRouter");
 var contactUsRouter = require("./routes/api/contactUsRouter");
+var orderRouter = require("./routes/api/ordersRouter");
 var AccessoriesRouter = require("./routes/api/AccessoriesRouter");
 
 var app = express();
@@ -38,6 +39,7 @@ app.use("/api/pcParts", pcPartsRouter);
 app.use("/api/laptops", laptopsRouter);
 app.use("/api/feedback", feedbackRouter);
 app.use("/api/contactUs", contactUsRouter);
+app.use("/api/order", orderRouter);
 app.use("/api/accessories", AccessoriesRouter);
 
 // catch 404 and forward to error handler
