@@ -7,6 +7,9 @@ let FansSchema = mongoose.Schema({
     title:String,
     price: Number,
     quantity:Number,
+    category:{type:String,
+        default:'fans'
+        },
     Model:{
         brand:String,
         series:String,

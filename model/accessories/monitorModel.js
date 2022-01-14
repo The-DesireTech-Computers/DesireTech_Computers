@@ -8,6 +8,9 @@ let monitorModelSchema = mongoose.Schema({
     title:String,
     price: Number,
     quantity:Number,
+    category:{type:String,
+        default:'monitor'
+        },
 
     Model:{
         brand:String,

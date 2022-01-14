@@ -7,6 +7,9 @@ let VideoCardSchema = mongoose.Schema({
     title:String,
     price: Number,
     quantity:Number,
+    category:{type:String,
+        default:'videocard'
+        },
     Model:{
         brand:String,
         series:String,

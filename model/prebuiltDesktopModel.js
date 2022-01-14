@@ -7,6 +7,9 @@ let preBuiltDesktopSchema = mongoose.Schema({
     title: String,
     price: Number,
     quantity: Number,
+    category:{type:String,
+        default:'prebuilt'
+        },
     Model:{
         brand:String,
         series:String,

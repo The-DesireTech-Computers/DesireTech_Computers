@@ -9,6 +9,9 @@ let memorySchema = mongoose.Schema({
     title:String,
     price: Number,
     quantity:Number,
+    category:{type:String,
+        default:'memory'
+        },
     Model:{
         brand:String,
         series:String,

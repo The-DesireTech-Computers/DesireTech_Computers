@@ -7,6 +7,9 @@ let PSUSchema = mongoose.Schema({
     title:String,
     price: Number,
     quantity:Number,
+    category:{type:String,
+        default:'psu'
+        },
     Model:{
         brand:String,
         series:String,

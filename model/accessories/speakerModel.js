@@ -8,6 +8,9 @@ let speakerModelSchema = mongoose.Schema({
     title:String,
     price: Number,
     quantity:Number,
+    category:{type:String,
+        default:'speaker'
+        },
 
     Model:{
         brand:String,

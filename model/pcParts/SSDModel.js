@@ -7,6 +7,9 @@ let SSDSchema = mongoose.Schema({
     title:String,
     price: Number,
     quantity:Number,
+    category:{type:String,
+        default:'ssd'
+        },
     Model:{
         brand:String,
         series:String,

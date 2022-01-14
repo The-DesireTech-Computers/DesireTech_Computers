@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { cloneElement, useEffect, useState } from "react";
 import "./ShoppingCart.css";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import axios from "../../axiosInstance/axiosInstance";
 const ShoppingCart = (props) => {
 	let [data, setData] = useState([]);
 	let [data1, setData1] = useState([]);
+	let [totalPrice, setTotalPrice] = useState([]);
 
 	let [preBuilt_cart, setpreBuilt_cart] = useState(
 		localStorage.getItem("preBuilt_cart")
@@ -712,8 +713,18 @@ const ShoppingCart = (props) => {
 		console.log(data);
 	}, [headset_cart]);
 
-	console.log(data);
-	console.log("data");
+	useEffect(()=>{
+		
+	if(data){
+		let total=0;	
+		for(let e of data){
+			total = total + e.price;
+		}
+		setTotalPrice(total);
+	}
+	},[data])
+
+	
 
 	return (
 		<div className="container cartcontain mt-5">
@@ -745,7 +756,7 @@ const ShoppingCart = (props) => {
 				<tfoot>
 					<tr className="d-block d-sm-none">
 						<td className="text-center">
-							<strong>Total: $1.99</strong>
+							<strong>Total: {totalPrice ? totalPrice:"0.00"} RS</strong>
 						</td>
 					</tr>
 					<tr>
@@ -757,7 +768,7 @@ const ShoppingCart = (props) => {
 
 						<td className="d-none d-sm-block text-center" />
 						<td className="d-none d-sm-block text-center">
-							<strong>Total: $1.99</strong>
+							<strong>Total: {totalPrice ? totalPrice:"0.00"} RS</strong>
 						</td>
 						<td></td>
 						<td>

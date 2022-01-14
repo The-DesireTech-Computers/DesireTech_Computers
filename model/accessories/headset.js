@@ -8,6 +8,9 @@ let headsetModelSchema = mongoose.Schema({
     title:String,
     price: Number,
     quantity:Number,
+    category:{type:String,
+        default:'headset'
+        },
 
     Model:{
         brand:String,

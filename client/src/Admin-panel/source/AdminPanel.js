@@ -67,6 +67,7 @@ import AddPreBuilt from "./components/manage-inventory/ManagePreBuilt/AddPreBuil
 import UpdatePreBuilt from "./components/manage-inventory/ManagePreBuilt/UpdatePreBuilt/Update-PreBuilt";
 import ManageOrders from "./components/manage-orders/Manage-Orders";
 import ManageFeedbacks from "./components/manage-feedbacks/Manage-Feedbacks";
+import ManageContactUs from "./components/manage-contactUs/Manage-ContactUs";
 import Profile from "./components/profile/Profile";
 import NotFound from "./components/NotFound";
 import { ToastContainer } from "react-toastify";
@@ -85,7 +86,7 @@ function AdminPanel() {
 				setUser(res.data);
 			})
 			.catch((err) => {
-				console.log(err.response.data);
+				console.log("error");
 			});
 	}, []);
 
@@ -476,6 +477,12 @@ function AdminPanel() {
 						path="/admin-panel/managefeedbacks"
 						exact
 						component={ManageFeedbacks}
+					/>
+					<PrivateRoute
+						auth={auth}
+						path="/admin-panel/managecontactus"
+						exact
+						component={ManageContactUs}
 					/>
 					<PrivateRoute
 						auth={auth}

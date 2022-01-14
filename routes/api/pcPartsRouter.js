@@ -2163,6 +2163,7 @@ router.delete('/fans/:id',  auth,adminAuth,async (req, res)=> {
    
     if(fs.existsSync(dir + product1.image.thumbnail )){
 
+
 		fs.unlinkSync(dir + product1.image.thumbnail);
 
 		for (let index in product1.image.gallery) {
