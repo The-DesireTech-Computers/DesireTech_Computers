@@ -141,6 +141,11 @@ const Navbar = (props) => {
 						Manage Feedbacks
 					</NavLink>
 				</li>
+				<li className="navleft12">
+					<NavLink to="/admin-panel/managecontactus" className="linksadmin11">
+						Manage Contact Us
+					</NavLink>
+				</li>
 				<li className="navright12">
 					<div className="iconstylebox1" onClick={handelLogoutBtn}>
 						<RiLogoutBoxRLine className="iconstyle11" />

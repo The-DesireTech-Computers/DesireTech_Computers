@@ -7,6 +7,9 @@ let processorSchema = mongoose.Schema({
     title:String,
     price: Number,
     quantity:Number,
+    category:{type:String,
+        default:'pcParts'
+        },
     Model:{
         brand:String,
         processorType:String,

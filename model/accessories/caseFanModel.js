@@ -7,6 +7,9 @@ let CasefanSchema = mongoose.Schema({
     title:String,
     price: Number,
     quantity:Number,
+    category:{type:String,
+    default:'accessories'
+    },
 
     Model:{
         brand:String,
