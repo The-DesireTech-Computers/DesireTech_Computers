@@ -498,7 +498,7 @@ const AddCasing = (props) => {
 
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="internaldrivebay25"
 										name="internaldrivebay25"
 										placeholder="Enter Internal Drive Bays 25."
@@ -513,7 +513,7 @@ const AddCasing = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="internaldrivebay35"
 										name="internaldrivebay35"
 										placeholder="Enter Internal Drive Bays 35."
@@ -576,7 +576,7 @@ const AddCasing = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="maxgpulength"
 										name="maxgpulength"
 										placeholder="Enter Max GPU Length."
@@ -588,7 +588,7 @@ const AddCasing = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="maxcpucoolerlength"
 										name="maxcpucoolerlength"
 										placeholder="Enter Max CPU Cooler Length."
@@ -603,7 +603,7 @@ const AddCasing = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="maxpsulength"
 										name="maxpsulength"
 										placeholder="Enter Max PSU Length."

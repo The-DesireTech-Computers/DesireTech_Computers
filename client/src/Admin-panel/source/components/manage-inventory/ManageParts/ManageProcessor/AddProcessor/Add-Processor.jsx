@@ -387,7 +387,7 @@ const AddProcessor = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="NumberOfCores"
 										name="NumberOfCores"
 										placeholder="Enter Number Of Cores"
@@ -399,7 +399,7 @@ const AddProcessor = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="NumberOfThreads"
 										name="NumberOfThreads"
 										placeholder="Enter Number Of Threads."
@@ -423,7 +423,7 @@ const AddProcessor = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="MaxFrequency"
 										name="MaxFrequency"
 										placeholder="Enter Max Frequency"
@@ -549,14 +549,15 @@ const AddProcessor = (props) => {
 										Thermal Design Power:
 									</label>
 									<br />
-									<label className={classes.label1} htmlFor="Power_Consumption">
-										Power Consumption:
-									</label>
-									<br />
 									<label className={classes.label1} htmlFor="CoolingDevice">
 										Cooling Device:
 									</label>
 									<br />
+									<label className={classes.label1} htmlFor="Power_Consumption">
+										Power Consumption:
+									</label>
+									<br />
+								
 									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
@@ -765,7 +766,7 @@ const AddProcessor = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="Power_Consumption"
 										name="Power_Consumption"
 										placeholder="Enter Power_Consumption."

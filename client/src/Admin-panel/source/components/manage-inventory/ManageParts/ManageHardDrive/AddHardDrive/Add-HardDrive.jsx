@@ -193,7 +193,7 @@ const AddHardDrive = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										packing="number"
+										type="number"
 										id="price"
 										name="price"
 										placeholder="Enter Price"
@@ -366,7 +366,7 @@ const AddHardDrive = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										packing="number"
+										type="number"
 										id="quantity"
 										name="quantity"
 										placeholder="Enter Quantity"

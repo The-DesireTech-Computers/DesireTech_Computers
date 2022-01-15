@@ -372,7 +372,7 @@ const AddVideoCard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="Memory_Size"
 										name="Memory_Size"
 										placeholder="Enter Memory Size"
@@ -636,7 +636,7 @@ const AddVideoCard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="Max_GPU_Length"
 										name="Max_GPU_Length"
 										placeholder="Enter Max GPU Length."

@@ -413,7 +413,7 @@ const UpdateProcessor = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="NumberOfCores"
 										name="NumberOfCores"
 										value={data.Details.NumberOfCores}
@@ -431,7 +431,7 @@ const UpdateProcessor = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="NumberOfThreads"
 										name="NumberOfThreads"
 										value={data.Details.NumberOfThreads}
@@ -449,7 +449,7 @@ const UpdateProcessor = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="OperatingFrequency"
 										name="OperatingFrequency"
 										value={data.Details.OperatingFrequency}
@@ -467,7 +467,7 @@ const UpdateProcessor = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="MaxFrequency"
 										name="MaxFrequency"
 										value={data.Details.MaxFrequency}
@@ -605,14 +605,15 @@ const UpdateProcessor = (props) => {
 										Thermal Design Power:
 									</label>
 									<br />
-									<label className={classes.label1} htmlFor="Power_Consumption">
-										Power Consumption:
-									</label>
-									<br />
 									<label className={classes.label1} htmlFor="CoolingDevice">
 										Cooling Device:
 									</label>
 									<br />
+									<label className={classes.label1} htmlFor="Power_Consumption">
+										Power Consumption:
+									</label>
+									<br />
+								
 									<label className={classes.label1} htmlFor="gallery">
 										Gallery:
 									</label>
@@ -873,7 +874,7 @@ const UpdateProcessor = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="Power_Consumption"
 										name="Power_Consumption"
 										value={data.Power_Consumption}

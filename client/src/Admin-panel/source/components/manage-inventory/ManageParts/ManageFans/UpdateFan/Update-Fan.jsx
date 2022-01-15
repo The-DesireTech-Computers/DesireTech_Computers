@@ -385,7 +385,7 @@ const UpdateFan = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="Fan_Size"
 										name="Fan_Size"
 										required

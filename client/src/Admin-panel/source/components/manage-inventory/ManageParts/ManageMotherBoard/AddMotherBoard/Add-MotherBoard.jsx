@@ -501,7 +501,7 @@ const AddMotherBoard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="Power_Consumption"
 										name="Power_Consumption"
 										placeholder="Enter Power_Consumption."
@@ -636,7 +636,7 @@ const AddMotherBoard = (props) => {
 
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="SATA_6GBs"
 										name="SATA_6GBs"
 										placeholder="Enter SATA_6GBs."

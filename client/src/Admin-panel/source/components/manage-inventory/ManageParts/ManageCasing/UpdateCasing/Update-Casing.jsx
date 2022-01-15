@@ -557,7 +557,7 @@ const UpdateParts = (props) => {
 
 										<input
 											className={classes.input1}
-											type="text"
+											type="number"
 											id="Internal_Drive_Bays25"
 											name="Internal_Drive_Bays25"
 											value={data.Expansions.Internal_Drive_Bays25}
@@ -575,7 +575,7 @@ const UpdateParts = (props) => {
 										<br />
 										<input
 											className={classes.input1}
-											type="text"
+											type="number"
 											id="Internal_Drive_Bays35"
 											name="Internal_Drive_Bays35"
 											value={data.Expansions.Internal_Drive_Bays35}
@@ -659,7 +659,7 @@ const UpdateParts = (props) => {
 										<br />
 										<input
 											className={classes.input1}
-											type="text"
+											type="number"
 											id="maxgpulength"
 											name="maxgpulength"
 											value={data.Dimentions.Max_GPU_Length}
@@ -677,7 +677,7 @@ const UpdateParts = (props) => {
 										<br />
 										<input
 											className={classes.input1}
-											type="text"
+											type="number"
 											id="maxcpucoolerlength"
 											name="maxcpucoolerlength"
 											value={data.Dimentions.Max_CPU_Cooler_Length}
@@ -695,7 +695,7 @@ const UpdateParts = (props) => {
 										<br />
 										<input
 											className={classes.input1}
-											type="text"
+											type="number"
 											id="maxpsulength"
 											name="maxpsulength"
 											value={data.Dimentions.Max_PSU_Length}

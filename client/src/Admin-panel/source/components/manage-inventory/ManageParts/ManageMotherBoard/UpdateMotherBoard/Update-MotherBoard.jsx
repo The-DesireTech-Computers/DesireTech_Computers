@@ -521,7 +521,7 @@ const UpdateMotherBoard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="Power_Consumption"
 										name="Power_Consumption"
 										value={data.Power_Consumption}
@@ -659,7 +659,7 @@ const UpdateMotherBoard = (props) => {
 
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="SATA_6GBs"
 										name="SATA_6GBs"
 										value={data.Storage_Device.SATA_6GBs}

@@ -193,7 +193,7 @@ const UpdateHardDrive = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										packing="number"
+										type="number"
 										id="price"
 										name="price"
 										value={data.price}
@@ -399,7 +399,7 @@ const UpdateHardDrive = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										packing="number"
+										type="number"
 										id="quantity"
 										name="quantity"
 										value={data.quantity}

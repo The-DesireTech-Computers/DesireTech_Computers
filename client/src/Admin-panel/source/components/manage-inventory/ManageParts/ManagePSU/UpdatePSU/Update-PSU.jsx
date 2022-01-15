@@ -646,7 +646,7 @@ const UpdatePSU = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="Max_PSU_Length"
 										name="Max_PSU_Length"
 										value={data.Details.Max_PSU_Length}

@@ -356,7 +356,7 @@ const UpdateVideoCard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="Memory_Size"
 										name="Memory_Size"
 										value={data.Memory.Memory_Size}
@@ -614,7 +614,7 @@ const UpdateVideoCard = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="Max_GPU_Length"
 										name="Max_GPU_Length"
 										value={data.Dimentions.Max_GPU_Length}

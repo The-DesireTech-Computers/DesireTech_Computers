@@ -664,7 +664,7 @@ const AddPSU = (props) => {
 									<br />
 									<input
 										className={classes.input1}
-										type="text"
+										type="number"
 										id="Max_PSU_Length"
 										name="Max_PSU_Length"
 										placeholder="Enter Max PSU Length."
