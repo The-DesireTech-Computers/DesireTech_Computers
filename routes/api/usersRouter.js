@@ -29,7 +29,6 @@ router.put('/:id',auth , adminAuth,async (req,res,next)=>{
   
 
   let user = await User.findById(req.params.id);
-
   if(req.body.password === user.password){
     user.name = req.body.name;
   user.password = user.password;

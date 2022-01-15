@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaEnvelope, FaLock, FaPhoneAlt, FaUserTie } from "react-icons/fa";
 import axios from "../../axiosInstance/axiosInstance";
-import { toast } from "react-toastify";
 
-const UserProfile = () => {
+const UserProfile = (props) => {
 	let [data, setData] = useState();
 	let [newPassword, setNewPassword] = useState("");
 	let [confirmPassword, setConfirmPassword] = useState("");
@@ -24,29 +23,17 @@ const UserProfile = () => {
 
 	let handelSubmitBtn = async () => {
 		if (data.name === "") {
-			toast.error("Please enter data in all the given fields ", {
-				position: toast.POSITION.TOP_LEFT,
-			});
-		} else if (data.phone === "") {
-			toast.error("Please enter data in all the given fields ", {
-				position: toast.POSITION.TOP_LEFT,
-			});
+			alert('name cannot be left empty')
+		} else if (data.phone === "" || data.phone===0) {
+			alert('phone number cannot be left empty')
 		} else if (data.email === "") {
-			toast.error("Please enter data in all the given fields ", {
-				position: toast.POSITION.TOP_LEFT,
-			});
+			alert("email canot be left empty")
 		} else if (newPassword === "") {
-			toast.error("Please enter data in all the given fields ", {
-				position: toast.POSITION.TOP_LEFT,
-			});
+			alert("password cannot be left empty")
 		} else if (confirmPassword === "") {
-			toast.error("Please enter data in all the given fields ", {
-				position: toast.POSITION.TOP_LEFT,
-			});
+			alert('confirm password cannot be left empty');
 		} else if (newPassword !== confirmPassword) {
-			toast.error("New password and Confirm password fields does not match ", {
-				position: toast.POSITION.TOP_LEFT,
-			});
+			alert("confirm password should be equal to password feild")
 
 			console.log(data);
 		} else {
@@ -55,15 +42,12 @@ const UserProfile = () => {
 			await axios
 				.put("users/" + data._id, data)
 				.then((res) => {
-					toast.success("Profile updated successfully ", {
-						position: toast.POSITION.TOP_LEFT,
-					});
+					console.log('successful udate');
+					props.history.replace('/');
 				})
 				.catch((err) => {
-					console.log(err);
-					toast.error(err.response.data, {
-						position: toast.POSITION.TOP_LEFT,
-					});
+					console.log(err.response.data);
+					
 				});
 		}
 	};
