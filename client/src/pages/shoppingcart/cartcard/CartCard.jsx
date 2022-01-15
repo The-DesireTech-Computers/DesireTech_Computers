@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdDeleteForever } from "react-icons/md";
+import Counter from "./counter/Counter";
 
-const CartCard = ({ title, price, product_id, deleteBtnHandler, img }) => {
+const CartCard = ({ title, price,quantity, product_id, deleteBtnHandler,changeQuantity, img }) => {
+	let [quantityCounter,setQuantityCounter] = useState(1);
+
+
+	
 	return (
 		<tr className="middle">
 			<td>
@@ -17,7 +22,7 @@ const CartCard = ({ title, price, product_id, deleteBtnHandler, img }) => {
 			</td>
 			<td className="text-center">{price} PKR</td>
 			<td className="text-center">
-				<input type="number" className="form-control" value="1" />
+				<Counter quantity={quantity} product_id={product_id} changeQuantity={changeQuantity}/>
 			</td>
 
 			<td className="text-center">

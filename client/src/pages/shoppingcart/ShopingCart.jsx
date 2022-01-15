@@ -7,7 +7,7 @@ import { AuthContext } from "../../Start";
 const ShoppingCart = (props) => {
 	const auth = useContext(AuthContext);
 	let [data, setData] = useState([]);
-	let [data1, setData1] = useState([]);
+	let [mainCart, setMainCart] = useState([]);
 	let [totalPrice, setTotalPrice] = useState([]);
 
 	let [preBuilt_cart, setpreBuilt_cart] = useState(
@@ -236,6 +236,15 @@ const ShoppingCart = (props) => {
 
 		window.location.reload();
 	};
+
+	useEffect(()=>{
+ setMainCart(data.map(x=>{
+
+	if(x.quantity>5){
+	 return {...x,quantity: 1}
+	}
+	}));
+	},[data])
 
 	useEffect(() => {
 		if (preBuilt_cart) {
@@ -525,7 +534,6 @@ const ShoppingCart = (props) => {
 	useEffect(() => {
 		if (caseFan_cart) {
 			caseFan_cart = caseFan_cart.split(",");
-
 			for (let item of caseFan_cart) {
 				console.log(item);
 				axios
@@ -715,14 +723,35 @@ const ShoppingCart = (props) => {
 	}, [headset_cart]);
 
 	useEffect(() => {
-		if (data) {
+		if (mainCart) {
 			let total = 0;
-			for (let e of data) {
-				total = total + e.price;
+			for (let e of mainCart) {
+
+				total = total + (e.price * e.quantity);
 			}
 			setTotalPrice(total);
 		}
-	}, [data]);
+	}, [mainCart]);
+
+
+
+
+
+
+
+let changeQuantity = (id,e)=>{
+	if(e>0 && e<=5){		
+	setMainCart (mainCart.map((item) => {
+		console.log(item.quantity)
+				if(item._id === id){
+					console.log({...item,quantity:e});
+					return  {...item,quantity:e};
+				}
+			}));
+}
+}
+
+
 	let cartbody = (
 		<tr className="emptytr">
 			<td>Currently there is no Product in the Cart.</td>
@@ -731,14 +760,16 @@ const ShoppingCart = (props) => {
 			<td></td>
 		</tr>
 	);
-	if (data.length !== 0) {
-		cartbody = data.map((item) => {
+	if (mainCart.length !== 0) {
+		cartbody = mainCart.map((item) => {
 			return (
 				<CartCard
 					title={item.title}
 					price={item.price}
+					quantity={item.quantity}
 					key={item._id}
 					product_id={item._id}
+					changeQuantity={changeQuantity}
 					deleteBtnHandler={deleteBtnHandler}
 					img={"/uploads/" + item.category + "/" + item.image.thumbnail}
 				/>
@@ -746,6 +777,14 @@ const ShoppingCart = (props) => {
 		});
 	}
 
+
+	
+	if(mainCart.length !== 0){
+		
+console.log(mainCart[0].quantity);
+	}
+console.log(mainCart);
+console.log(data);
 	return (
 		<div className="container cartcontain mt-5">
 			<table id="cart" className="table table-hover table-striped">
