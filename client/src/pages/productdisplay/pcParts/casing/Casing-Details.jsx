@@ -13,10 +13,9 @@ const CasingDisplay = (props) => {
 
 		if (cart) {
 			cart = cart.split(",");
-			if(!cart.includes(data._id)){
+			if (!cart.includes(data._id)) {
 				cart.push(data._id);
 			}
-
 
 			localStorage.setItem("casing_cart", cart);
 		} else {
@@ -57,7 +56,11 @@ const CasingDisplay = (props) => {
 
 	return (
 		<div className="container mt-5 detailcolor">
-			<DetailHeader data={data} addToCartBtnHandler={addToCartBtnHandler} />
+			<DetailHeader
+				data={data}
+				addToCartBtnHandler={addToCartBtnHandler}
+				imgpath="pcParts"
+			/>
 			<h3 className="cbheading">Specification:</h3>
 			<div className="row mt-4 table-responsive">
 				<table
@@ -107,10 +110,7 @@ const CasingDisplay = (props) => {
 							<td>Power Supply Mounted:</td>
 							<td>{data ? data.Details.Power_Supply_Mounted : ""}</td>
 						</tr>
-						<tr>
-							<td>MotherBoard Compatibility:</td>
-							<td>{data ? data.Details.MotherBoard_Compatibility : ""}</td>
-						</tr>
+
 						<tr>
 							<td>Side Panel Window:</td>
 							<td>{data ? data.Details.Side_Panel_Window : ""}</td>
@@ -125,11 +125,11 @@ const CasingDisplay = (props) => {
 						</tr>
 						<tr>
 							<td>Internal Drive Bays 2.5:</td>
-							<td>{data ? data.Expansions.Internal_Drive_bays25 : ""}</td>
+							<td>{data ? data.Expansions.Internal_Drive_Bays25 : ""}</td>
 						</tr>
 						<tr>
 							<td>Internal Drive Bays 3.5:</td>
-							<td>{data ? data.Expansions.Internal_Drive_bays35 : ""}</td>
+							<td>{data ? data.Expansions.Internal_Drive_Bays35 : ""}</td>
 						</tr>
 						<tr>
 							<td>Expansion Slots:</td>

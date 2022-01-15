@@ -13,10 +13,9 @@ const MotherBoardDisplay = (props) => {
 
 		if (cart) {
 			cart = cart.split(",");
-			if(!cart.includes(data._id)){
+			if (!cart.includes(data._id)) {
 				cart.push(data._id);
 			}
-
 
 			localStorage.setItem("motherBoard_cart", cart);
 		} else {
@@ -57,7 +56,11 @@ const MotherBoardDisplay = (props) => {
 
 	return (
 		<div className="container mt-5 detailcolor">
-			<DetailHeader data={data} addToCartBtnHandler={addToCartBtnHandler} />
+			<DetailHeader
+				data={data}
+				addToCartBtnHandler={addToCartBtnHandler}
+				imgpath="pcParts"
+			/>
 			<h3 className="cbheading">Specification:</h3>
 			<div className="row mt-4 table-responsive">
 				<table

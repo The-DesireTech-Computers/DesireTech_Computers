@@ -1,18 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "../../axiosInstance/axiosInstance";
+import { FaCreditCard, FaStreetView } from "react-icons/fa";
+import "./Payment.css";
 
 const Payment = () => {
+	let [data, setData] = useState();
+	let [selectedClient, setSelectedClient] = useState("none");
+
+	function handleSelectChange(event) {
+		setSelectedClient(event.target.value);
+	}
 	return (
 		<div className="container containlogin">
 			<div className="row mt-5 py-5 align-items-center">
 				<div className="col-md-6">
-					<form method="put">
+					<select
+						class="form-select input-group mb-3"
+						aria-label="Default select example"
+						value={selectedClient}
+						onChange={handleSelectChange}
+					>
+						<option value="none">Select Payment Method.</option>
+						<option value="COD">Cash on Delivery.</option>
+						<option value="Card">Master/Visa Card.</option>
+					</select>
+					<form
+						method="put"
+						className={
+							selectedClient == "none" || selectedClient == "COD"
+								? "disableform"
+								: null
+						}
+					>
 						<div class="input-group mb-3">
 							<span class="input-group-text">
-								<FaAddressCard />
+								<FaCreditCard />
 							</span>
 							<div className="form-floating">
 								<input
-									type="text"
+									type="number"
 									class="form-control"
 									required
 									placeholder="Address"
@@ -21,7 +47,7 @@ const Payment = () => {
 										setData({ ...data, name: e.target.value });
 									}}
 								/>
-								<label for="floatingInput">Address</label>
+								<label for="floatingInput">Card Number</label>
 							</div>
 						</div>
 						<div class="input-group mb-3">
@@ -30,7 +56,7 @@ const Payment = () => {
 							</span>
 							<div className="form-floating">
 								<input
-									type="text"
+									type="date"
 									class="form-control"
 									required
 									placeholder="Street"
@@ -39,56 +65,7 @@ const Payment = () => {
 										setData({ ...data, phone: e.target.value });
 									}}
 								/>
-								<label for="floatingInput">Street</label>
-							</div>
-						</div>
-						<div class="input-group mb-3">
-							<span class="input-group-text">
-								<FaCity />
-							</span>
-							<div className="form-floating">
-								<input
-									type="text"
-									class="form-control"
-									placeholder="City"
-									id="floatingInput"
-									required
-									onChange={(e) => {
-										setData({ ...data, email: e.target.value });
-									}}
-								/>
-								<label for="floatingInput">City</label>
-							</div>
-						</div>
-
-						<div class="input-group mb-3">
-							<span class="input-group-text">
-								<GrMapLocation />
-							</span>
-							<div className="form-floating">
-								<input
-									type="text"
-									class="form-control"
-									id="floatingInput"
-									placeholder="State"
-									required
-								/>
-								<label for="floatingInput">State</label>
-							</div>
-						</div>
-						<div class="input-group mb-3">
-							<span class="input-group-text">
-								<GrMapLocation />
-							</span>
-							<div className="form-floating">
-								<input
-									type="text"
-									class="form-control"
-									id="floatingInput"
-									placeholder="Country"
-									required
-								/>
-								<label for="floatingInput">Country</label>
+								<label for="floatingInput">Expiry Date</label>
 							</div>
 						</div>
 					</form>
@@ -97,7 +74,7 @@ const Payment = () => {
 							type="submit"
 							className="btn btn-outline-primary buttonsignup"
 						>
-							Continue
+							Confirm
 						</button>
 					</div>
 				</div>

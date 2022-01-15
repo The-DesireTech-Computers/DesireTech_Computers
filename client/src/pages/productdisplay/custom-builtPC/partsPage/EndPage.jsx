@@ -162,7 +162,7 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src="/images/custombuilt/motherboard.png"
+								src={"/uploads/pcParts/" + motherBoard.image.thumbnail}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -177,7 +177,7 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src="/images/custombuilt/cpu.png"
+								src={"/uploads/pcParts/" + cpu.image.thumbnail}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -192,7 +192,7 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src="/images/custombuilt/cpucooler.png"
+								src={"/uploads/pcParts/" + coolingSystem.image.thumbnail}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -207,7 +207,7 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src="/images/custombuilt/ram.png"
+								src={"/uploads/pcParts/" + memory.image.thumbnail}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -222,7 +222,7 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src="/images/custombuilt/gpu.png"
+								src={"/uploads/pcParts/" + videocard.image.thumbnail}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -237,7 +237,7 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src="/images/custombuilt/psu.png"
+								src={"/uploads/pcParts/" + psu.image.thumbnail}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -252,7 +252,7 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src="/images/custombuilt/case.png"
+								src={"/uploads/pcParts/" + casing.image.thumbnail}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -267,7 +267,7 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src="/images/custombuilt/diskdrive.png"
+								src={"/uploads/pcParts/" + hdd.image.thumbnail}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -282,7 +282,7 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src="/images/custombuilt/ssd.png"
+								src={"/uploads/pcParts/" + ssd.image.thumbnail}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."

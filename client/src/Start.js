@@ -60,6 +60,7 @@ import WebcamDetails from "./pages/productdisplay/pcAccessories/webcam/Webcam-De
 import PublicRoute from "./components/RoutesComponents/PublicRoutes/PublicRoute";
 import UserProfile from "./pages/userProfile/UserProfile";
 import ShippingInfo from "./pages/checkout/ShippingInfo";
+import Payment from "./pages/checkout/Payment";
 export const AuthContext = createContext();
 
 function Start() {
@@ -145,6 +146,7 @@ function Start() {
 
 						<Route path="/shoppingcart" component={ShoppingCart} />
 						<Route path="/shippinginfo" component={ShippingInfo} />
+						<Route path="/payment" component={Payment} />
 						<PublicRoute path="/signup" auth={auth} component={Signup} />
 						<PublicRoute path="/login" auth={auth} component={Login} />
 						<Route path="/profile-manager" component={UserProfile} />
