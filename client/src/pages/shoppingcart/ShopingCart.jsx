@@ -9,7 +9,18 @@ const ShoppingCart = (props) => {
 	let [data, setData] = useState([]);
 	let [mainCart, setMainCart] = useState([]);
 	let [totalPrice, setTotalPrice] = useState([]);
+	let [user, setUser] = useState();
+	let [order,setOrder] = useState({
+		products:[],
+		userName:'',
+		user_id:'',
+		user_PhoneNumber:0,
+		totalPrice:0
+	});
 
+	let [user_id, setUser_id] = useState(
+		localStorage.getItem("user_id")
+	);
 	let [preBuilt_cart, setpreBuilt_cart] = useState(
 		localStorage.getItem("preBuilt_cart")
 	);
@@ -238,13 +249,33 @@ const ShoppingCart = (props) => {
 	};
 
 	useEffect(()=>{
+		console.log(mainCart);
  setMainCart(data.map(x=>{
-
+	
 	if(x.quantity>5){
 	 return {...x,quantity: 1}
 	}
 	}));
-	},[data])
+	console.log(mainCart);
+	},[data]);
+
+	useEffect(() => {
+		if (user_id) {
+				axios
+					.get("/users/" + user_id)
+					.then((res) => {
+						console.log(res.data);
+						setUser( res.data);
+
+					})
+					.catch((err) => {
+						if (err.response.data) {
+							console.log(err.response.data);
+						}})
+					}
+	}, [user_id]);
+
+	
 
 	useEffect(() => {
 		if (preBuilt_cart) {
@@ -735,20 +766,68 @@ const ShoppingCart = (props) => {
 
 
 
+	useEffect(() => {
+		if(mainCart.length !==0 && user){
+		let array =[];
+		for(let item of mainCart){
+			let product = {
+				title:'',
+				product_id:'',
+				category:'',
+				quantity:''
+			}
+			product.title = item.title;
+			product.product_id = item._id;
+			product.category = item.category;
+			product.quantity = item.quantity;
+	
+			array.push(product);
+		}
+		setOrder({...order,products:array,userName:user.name,user_id:user._id,user_PhoneNumber:user.phone,totalPrice:totalPrice});
+		}
+	
+
+	}, [mainCart,user,totalPrice]);
+	console.log(order)
 
 
 
 
+
+
+//changing quantity of the product
 let changeQuantity = (id,e)=>{
-	if(e>0 && e<=5){		
+	if(e>0 && e<=5){	
+		console.log(e);	
 	setMainCart (mainCart.map((item) => {
-		console.log(item.quantity)
 				if(item._id === id){
-					console.log({...item,quantity:e});
 					return  {...item,quantity:e};
+				}
+				else{
+					return	item
 				}
 			}));
 }
+}
+
+
+//sending order to backend via checkout button
+let checkOutBtn = ()=>{
+
+	axios.post('/order',order).then(res=>{
+		console.log(res.data);
+		console.log("success");
+		let id = res.data._id;
+		// sending query params
+		let queryString = new URLSearchParams({id });
+		props.history.push({
+			pathname: "/shippinginfo",
+			search: "?" + queryString.toString(),
+		});
+	}).catch(err=>{
+		console.log('error');
+	})
+
 }
 
 
@@ -778,7 +857,7 @@ let changeQuantity = (id,e)=>{
 	}
 
 
-	
+
 	if(mainCart.length !== 0){
 		
 console.log(mainCart[0].quantity);
@@ -823,7 +902,7 @@ console.log(data);
 						<td></td>
 						<td>
 							{totalPrice && auth ? (
-								<button to="#" className="btn btn-sm btn-success">
+								<button onClick={checkOutBtn} className="btn btn-sm btn-success">
 									Checkout
 								</button>
 							) : (
@@ -833,7 +912,7 @@ console.log(data);
 									data-toggle="tooltip"
 									title="Login & Add Products to continue."
 								>
-									<button to="#" className="btn btn-sm btn-success" disabled>
+									<button className="btn btn-sm btn-success" disabled>
 										Checkout
 									</button>
 								</span>
