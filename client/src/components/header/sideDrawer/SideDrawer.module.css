@@ -1,12 +1,12 @@
 .SideDrawer {
-	width: 275px;
+	width: 300px;
 	position: fixed;
 	height: 97%;
 	top: 0;
 	left: 0;
 	z-index: 200;
 	background-color: black;
-	box-shadow: 0px 0px 5px white;
+	box-shadow: 0px 0px 3px white;
 	padding: 10px 10px;
 	overflow-x: hidden;
 	box-sizing: border-box;

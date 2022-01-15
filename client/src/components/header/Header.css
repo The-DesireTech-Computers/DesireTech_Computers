@@ -8,7 +8,7 @@
 	background-color: black;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
-	box-shadow: 0px 0px 10px white;
+	box-shadow: 0px 0px 3px white;
 }
 
 .navleft {
@@ -28,13 +28,13 @@
 }
 
 .iconstylebox {
-	padding: 3px 16px;
+	padding: 5px 16px;
 	transition: all 0.4s;
 	text-align: center;
 }
 
 .iconstylebox.active {
-	background-color: rgb(182, 23, 23);
+	background-color: #c91919;
 	color: rgb(255, 255, 255);
 	border-radius: 10px;
 }
@@ -44,7 +44,8 @@
 	border-radius: 10px;
 	cursor: pointer;
 }
-.iconstylebox:hover > .iconstyle1 {
+.iconstylebox:hover > .iconstyle1,
+.links:hover > .iconstyle1 {
 	color: black;
 }
 
@@ -58,7 +59,7 @@
 }
 
 .links.active {
-	background-color: rgb(182, 23, 23);
+	background-color: #e11919;
 	color: white;
 	border-radius: 10px;
 }
@@ -118,7 +119,7 @@
 	overflow: hidden;
 	background-color: black;
 	border-radius: 15px;
-	box-shadow: 0px 0px 10px white;
+	box-shadow: 0px 0px 3px white;
 }
 
 .links2:hover > .iconstyle1 {
@@ -135,7 +136,7 @@
 }
 
 .links2.active {
-	background-color: rgb(182, 23, 23);
+	background-color: #e11919;
 	color: rgb(255, 255, 255);
 	border-radius: 15px;
 }
@@ -158,7 +159,7 @@
 }
 
 .links3.active {
-	background-color: rgb(182, 23, 23);
+	background-color: #e11919;
 	color: rgb(255, 255, 255);
 	border-radius: 15px;
 }
@@ -180,7 +181,7 @@
 	background-color: black;
 	border-radius: 15px;
 	top: 0;
-	box-shadow: 0px 0px 10px white;
+	box-shadow: 0px 0px 3px white;
 }
 
 .links3:hover > .links4 {
@@ -201,7 +202,7 @@
 	position: absolute;
 	transform: translateY(-2em);
 	z-index: 2;
-	box-shadow: 0px 0px 10px white;
+	box-shadow: 0px 0px 3px white;
 	transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s;
 }
 
@@ -311,7 +312,7 @@
 }
 
 .iconstylebox2.active {
-	background-color: rgb(182, 23, 23);
+	background-color: #e11919;
 	color: white;
 	border-radius: 15px;
 }

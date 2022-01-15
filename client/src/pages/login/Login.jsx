@@ -51,7 +51,7 @@ const Login = (props) => {
 						</span>
 						<div className="form-floating">
 							<input
-								type="text"
+								type="email"
 								class="form-control"
 								id="floatingInput"
 								placeholder="name@example.com"

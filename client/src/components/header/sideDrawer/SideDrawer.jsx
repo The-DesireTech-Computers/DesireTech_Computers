@@ -1,10 +1,37 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import classes from "./SideDrawer.module.css";
 import BlackBackground from "../BlackBackground/BlackBackground";
 import { NavLink } from "react-router-dom";
 import Dropdown from "./Dropdown/Dropdown";
+import { AuthContext } from "../../../Start";
 
 const SideDrawer = (props) => {
+	const auth = useContext(AuthContext);
+	let logoutBtnHandler = () => {
+		localStorage.removeItem("tokken");
+		localStorage.removeItem("user_id");
+		window.location.reload();
+	};
+
+	let showLoginLogoutBtn = (
+		<React.Fragment>
+			<NavLink className="links5" to="/login" onClick={props.closeSideDrawer}>
+				Login
+			</NavLink>
+			<NavLink className="links5" to="/signup" onClick={props.closeSideDrawer}>
+				Signup
+			</NavLink>
+		</React.Fragment>
+	);
+
+	if (auth) {
+		showLoginLogoutBtn = (
+			<div className="links5" onClick={logoutBtnHandler}>
+				Logout
+			</div>
+		);
+	}
+
 	let assignedClasses = [classes.SideDrawer, classes.Close];
 
 	if (props.show) {
@@ -204,20 +231,7 @@ const SideDrawer = (props) => {
 			</div>
 		);
 	} else if (group3) {
-		groupdiv = (
-			<div className="mt-3 border ">
-				<NavLink className="links5" to="/login" onClick={props.closeSideDrawer}>
-					Login
-				</NavLink>
-				<NavLink
-					className="links5"
-					to="/signup"
-					onClick={props.closeSideDrawer}
-				>
-					Signup
-				</NavLink>
-			</div>
-		);
+		groupdiv = <div className="mt-3 border ">{showLoginLogoutBtn}</div>;
 	}
 
 	return (

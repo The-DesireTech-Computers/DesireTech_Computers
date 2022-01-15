@@ -1,7 +1,6 @@
 import { React, useEffect, useState } from "react";
 import Navbar from "../header/Navbar";
 import axios from "../../axiosAuthInstance";
-import { withRouter } from "react-router";
 import Spinner from "../LoadingSpinner/LoadingSpinner";
 import classes from "./Profile.module.css";
 import { toast } from "react-toastify";
@@ -28,8 +27,6 @@ const UpdateProfile = (props) => {
 	}, [id]);
 
 	let handelSubmitBtn = async () => {
-		console.log("Submit Button");
-
 		if (data.name === "") {
 			toast.error("Please enter data in all the given fields ", {
 				position: toast.POSITION.TOP_LEFT,

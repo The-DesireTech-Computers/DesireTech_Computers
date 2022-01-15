@@ -13,10 +13,10 @@
 	width: 65%;
 }
 .price {
-	width: 10%;
+	width: 15%;
 }
 .quantity {
-	width: 15%;
+	width: 10%;
 }
 .actions {
 	width: 10%;
@@ -26,8 +26,8 @@
 }
 
 .cartimg {
-	width: 120px;
-	height: 100px;
+	width: 100px;
+	height: 80px;
 }
 
 .icon1 {
@@ -48,7 +48,7 @@ table#cart tbody td .form-control {
 	}
 	table#cart tbody td {
 		display: block;
-		padding: 0.6rem;
+		padding: 0.3rem;
 		min-width: 320px;
 	}
 	table#cart tbody tr td:first-child {

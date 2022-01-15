@@ -5,11 +5,11 @@ import { RiLogoutBoxRLine, RiShoppingCart2Line } from "react-icons/ri";
 import { FiMenu } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Start";
+import { FaUserCircle } from "react-icons/fa";
 
 const Header = (props) => {
 	const [show, setShow] = useState(false);
 	const auth = useContext(AuthContext);
-	console.log(auth);
 
 	useEffect(() => {
 		window.addEventListener("scroll", handleScroll);
@@ -43,11 +43,18 @@ const Header = (props) => {
 
 	if (auth) {
 		showLoginLogoutBtn = (
-			<li className="navright">
-				<div className="iconstylebox" onClick={logoutBtnHandler}>
-					<RiLogoutBoxRLine className="iconstyle1" />
-				</div>
-			</li>
+			<React.Fragment>
+				<li className="navright">
+					<div className="iconstylebox" onClick={logoutBtnHandler}>
+						<RiLogoutBoxRLine className="iconstyle1" />
+					</div>
+				</li>
+				<li className="navright">
+					<NavLink className="links" to="/profile-manager">
+						<FaUserCircle className="iconstyle1" />
+					</NavLink>
+				</li>
+			</React.Fragment>
 		);
 	}
 
@@ -168,18 +175,13 @@ const Header = (props) => {
 									<RiShoppingCart2Line className="iconstyle2" />
 								</NavLink>
 							</li>
-							{/* <li className="navright">
-								<form id="demo-2">
-									<input type="search" placeholder="Search" />
-								</form>
-							</li> */}
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div className="navigation-div2">
 				<div className="nav-contain2">
-					<img src="/images/logo/logo1.png" alt="logo" className="logo2" />
+					<img src="/images/logo/logo.png" alt="logo" className="logo2" />
 				</div>
 				<div className="navmain2">
 					<div className={show ? "nav-sticky2" : "nav-contain4"} id="navbar">
@@ -193,11 +195,6 @@ const Header = (props) => {
 								<NavLink className="iconstylebox2" to="/shoppingcart">
 									<RiShoppingCart2Line className="iconstyle2" />
 								</NavLink>
-							</li>
-							<li className="navright">
-								<form id="demo-2">
-									<input type="search" placeholder="Search" />
-								</form>
 							</li>
 						</ul>
 					</div>

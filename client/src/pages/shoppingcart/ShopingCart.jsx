@@ -1,10 +1,11 @@
-import React, { cloneElement, useEffect, useState } from "react";
+import React, { cloneElement, useContext, useEffect, useState } from "react";
 import "./ShoppingCart.css";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import CartCard from "./cartcard/CartCard";
 import axios from "../../axiosInstance/axiosInstance";
+import { AuthContext } from "../../Start";
 const ShoppingCart = (props) => {
+	const auth = useContext(AuthContext);
 	let [data, setData] = useState([]);
 	let [data1, setData1] = useState([]);
 	let [totalPrice, setTotalPrice] = useState([]);
@@ -713,18 +714,37 @@ const ShoppingCart = (props) => {
 		console.log(data);
 	}, [headset_cart]);
 
-	useEffect(()=>{
-		
-	if(data){
-		let total=0;	
-		for(let e of data){
-			total = total + e.price;
+	useEffect(() => {
+		if (data) {
+			let total = 0;
+			for (let e of data) {
+				total = total + e.price;
+			}
+			setTotalPrice(total);
 		}
-		setTotalPrice(total);
+	}, [data]);
+	let cartbody = (
+		<tr className="emptytr">
+			<td>Currently there is no Product in the Cart.</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	);
+	if (data.length !== 0) {
+		cartbody = data.map((item) => {
+			return (
+				<CartCard
+					title={item.title}
+					price={item.price}
+					key={item._id}
+					product_id={item._id}
+					deleteBtnHandler={deleteBtnHandler}
+					img={"/uploads/" + item.category + "/" + item.image.thumbnail}
+				/>
+			);
+		});
 	}
-	},[data])
-
-	
 
 	return (
 		<div className="container cartcontain mt-5">
@@ -739,43 +759,46 @@ const ShoppingCart = (props) => {
 					</tr>
 				</thead>
 				<tbody>
-					{data
-						? data.map((item) => {
-								return (
-									<CartCard
-										title={item.title}
-										price={item.price}
-										key={item._id}
-										product_id={item._id}
-										deleteBtnHandler={deleteBtnHandler}
-									/>
-								);
-						  })
-						: null}
+					{cartbody}
 					<tr className="emptytr"></tr>
 				</tbody>
 				<tfoot>
-					<tr className="d-block d-sm-none">
-						<td className="text-center">
-							<strong>Total: {totalPrice ? totalPrice:"0.00"} RS</strong>
+					<tr className="d-block d-sm-none text-center">
+						<td>
+							<strong>Total: </strong>
+							{totalPrice ? totalPrice : "0.00"} PKR
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<Link to="#" className="btn btn-warning">
+							<Link to="/" className="btn btn-sm btn-warning">
 								Continue Shopping
 							</Link>
 						</td>
 
-						<td className="d-none d-sm-block text-center" />
+						<td className="d-none d-sm-block " />
 						<td className="d-none d-sm-block text-center">
-							<strong>Total: {totalPrice ? totalPrice:"0.00"} RS</strong>
+							<strong>Total: </strong>
+							{totalPrice ? totalPrice : "0.00"} PKR
 						</td>
 						<td></td>
 						<td>
-							<Link to="#" className="btn btn-success">
-								Checkout
-							</Link>
+							{totalPrice && auth ? (
+								<button to="#" className="btn btn-sm btn-success">
+									Checkout
+								</button>
+							) : (
+								<span
+									class="d-inline-block"
+									tabindex="0"
+									data-toggle="tooltip"
+									title="Login & Add Products to continue."
+								>
+									<button to="#" className="btn btn-sm btn-success" disabled>
+										Checkout
+									</button>
+								</span>
+							)}
 						</td>
 					</tr>
 				</tfoot>

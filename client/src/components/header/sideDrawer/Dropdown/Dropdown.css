@@ -27,8 +27,12 @@
 	border-radius: 15px;
 }
 
+.dropdownbtn:active > .menuicon,
+.dropdownbtn:hover > .menuicon {
+	color: black;
+}
+
 .menuicon {
-	padding-top: 5px;
 	font-size: 20px;
 	color: white;
 }
