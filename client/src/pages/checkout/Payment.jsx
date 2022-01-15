@@ -1,11 +1,6 @@
-import React, { useEffect, useState } from "react";
-import axios from "../../axiosInstance/axiosInstance";
-import { FaAddressCard, FaCity, FaStreetView } from "react-icons/fa";
-import { GrMapLocation } from "react-icons/gr";
+import React from "react";
 
-const ShippingInfo = () => {
-	let [data, setData] = useState();
-
+const Payment = () => {
 	return (
 		<div className="container containlogin">
 			<div className="row mt-5 py-5 align-items-center">
@@ -112,4 +107,4 @@ const ShippingInfo = () => {
 	);
 };
 
-export default ShippingInfo;
+export default Payment;

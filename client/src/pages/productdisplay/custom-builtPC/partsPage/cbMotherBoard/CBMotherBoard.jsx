@@ -76,7 +76,7 @@ const CBMotherBoard = (props) => {
 			return (
 				<CBProductCard
 					key={product._id}
-					img={"/images/productimages/4.jpg"}
+					img={"/uploads/pcParts/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					detail1={product.Supported_CPU.CPU_Socket_Type}
@@ -93,7 +93,7 @@ const CBMotherBoard = (props) => {
 			return (
 				<CBProductCard
 					key={product._id}
-					img={"/images/productimages/4.jpg"}
+					img={"/uploads/pcParts/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					detail1={product.Supported_CPU.CPU_Socket_Type}

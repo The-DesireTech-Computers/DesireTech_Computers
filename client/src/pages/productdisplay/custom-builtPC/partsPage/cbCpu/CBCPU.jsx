@@ -118,7 +118,7 @@ const CBCPU = (props) => {
 			return (
 				<CBProductCard
 					key={product._id}
-					img={"/images/productimages/4.jpg"}
+					img={"/uploads/pcParts/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					detail1={product.Details.NumberOfCores}
@@ -135,7 +135,7 @@ const CBCPU = (props) => {
 			return (
 				<CBProductCard
 					key={product._id}
-					img={"/images/productimages/4.jpg"}
+					img={"/uploads/pcParts/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					detail1={product.Details.NumberOfCores}

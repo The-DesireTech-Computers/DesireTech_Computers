@@ -24,7 +24,7 @@ const Casing = (props) => {
 
 		if (cart) {
 			cart = cart.split(",");
-			if(!cart.includes(product_id)){
+			if (!cart.includes(product_id)) {
 				cart.push(product_id);
 			}
 
@@ -137,7 +137,7 @@ const Casing = (props) => {
 			return (
 				<ProductCard
 					key={product._id}
-					img={"/images/productimages/4.jpg"}
+					img={"/uploads/pcParts/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
@@ -151,7 +151,7 @@ const Casing = (props) => {
 			return (
 				<ProductCard
 					key={product._id}
-					img={"/images/productimages/4.jpg"}
+					img={"/uploads/pcParts/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
