@@ -19,7 +19,7 @@ let mouseModelSchema = mongoose.Schema({
     Details:{
         Type:String,
         interface:String,
-        trackingmethod:Number,
+        trackingmethod:String,
         maximumdpi:String,
         button:String,
         weightadjustment:String,

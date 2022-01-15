@@ -19,7 +19,7 @@ let keyboardModelSchema = mongoose.Schema({
     Details:{
         keyboardInterface:String,
         designStyle:String,
-        palmRest:Number,
+        palmRest:String,
         mechanicalKeyboard:String,
         keyswitchtype:String,
         keyboardcolor:String,
