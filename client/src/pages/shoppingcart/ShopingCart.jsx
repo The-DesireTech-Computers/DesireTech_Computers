@@ -238,13 +238,17 @@ const ShoppingCart = (props) => {
 	};
 
 	useEffect(()=>{
+		console.log(mainCart);
  setMainCart(data.map(x=>{
-
+	
 	if(x.quantity>5){
 	 return {...x,quantity: 1}
 	}
 	}));
-	},[data])
+	console.log(mainCart);
+	},[data]);
+
+	
 
 	useEffect(() => {
 		if (preBuilt_cart) {
@@ -740,12 +744,14 @@ const ShoppingCart = (props) => {
 
 
 let changeQuantity = (id,e)=>{
-	if(e>0 && e<=5){		
+	if(e>0 && e<=5){	
+		console.log(e);	
 	setMainCart (mainCart.map((item) => {
-		console.log(item.quantity)
 				if(item._id === id){
-					console.log({...item,quantity:e});
 					return  {...item,quantity:e};
+				}
+				else{
+					return	item
 				}
 			}));
 }
@@ -778,7 +784,7 @@ let changeQuantity = (id,e)=>{
 	}
 
 
-	
+
 	if(mainCart.length !== 0){
 		
 console.log(mainCart[0].quantity);
