@@ -3,8 +3,70 @@ import axios from "../../axiosInstance/axiosInstance";
 import { FaAddressCard, FaCity, FaStreetView } from "react-icons/fa";
 import { GrMapLocation } from "react-icons/gr";
 
-const ShippingInfo = () => {
+const ShippingInfo = (props) => {
 	let [data, setData] = useState();
+	let [data1, setData1] = useState({
+		address:'',
+		street:'',
+		city:'',
+		state:'',
+		country:'',
+	});
+	let [orderId, setOrderId] = useState();
+
+//receiving query params
+useEffect(() => {
+	let params = new URLSearchParams(props.location.search);
+	let id = null;
+
+	for (let [key, value] of params) {
+		id = value;
+	}
+	setOrderId(id);
+}, []);
+
+
+useEffect(()=>{
+axios.get('/order/'+orderId).then(res=>{
+	setData(res.data);
+}).catch(err=>{
+	console.log("error receiving data");
+});
+},[orderId])
+
+
+useEffect(()=>{
+	setData1({...data});
+	},[data])
+
+
+
+	let continueBtnHandler = ()=>{
+		if (data1.address === "") {
+			alert("Please enter data in all the given fields  (address)");
+		} else if (data1.street === "") {
+			alert("Please enter data in all the given fields  (street)");
+		} else if (data1.city === "") {
+			alert("Please enter data in all the given fields (city)");
+		} else if (data1.state === "") {
+			alert("Please enter data in all the given fields(state)");
+		} else if (data1.country === "") {
+			alert("Please enter data in all the given fields (country)");
+		} else{
+			axios.put('/order/'+orderId,data1).then(res=>{
+				console.log('success');
+				props.history.push('/payment')
+			}).catch(err=>{
+				console.log('error')
+			})
+		}
+	}
+
+
+
+
+	console.log(data1)
+
 
 	return (
 		<div className="container containlogin">
@@ -23,7 +85,7 @@ const ShippingInfo = () => {
 									placeholder="Address"
 									id="floatingInput"
 									onChange={(e) => {
-										setData({ ...data, name: e.target.value });
+										setData1({ ...data1, address: e.target.value });
 									}}
 								/>
 								<label for="floatingInput">Address</label>
@@ -41,7 +103,7 @@ const ShippingInfo = () => {
 									placeholder="Street"
 									id="floatingInput"
 									onChange={(e) => {
-										setData({ ...data, phone: e.target.value });
+										setData1({ ...data1, street: e.target.value });
 									}}
 								/>
 								<label for="floatingInput">Street</label>
@@ -59,7 +121,7 @@ const ShippingInfo = () => {
 									id="floatingInput"
 									required
 									onChange={(e) => {
-										setData({ ...data, email: e.target.value });
+										setData1({ ...data1, city: e.target.value });
 									}}
 								/>
 								<label for="floatingInput">City</label>
@@ -77,6 +139,9 @@ const ShippingInfo = () => {
 									id="floatingInput"
 									placeholder="State"
 									required
+									onChange={(e) => {
+										setData1({ ...data1, state: e.target.value });
+									}}
 								/>
 								<label for="floatingInput">State</label>
 							</div>
@@ -92,6 +157,9 @@ const ShippingInfo = () => {
 									id="floatingInput"
 									placeholder="Country"
 									required
+									onChange={(e) => {
+										setData1({ ...data1, country: e.target.value });
+									}}
 								/>
 								<label for="floatingInput">Country</label>
 							</div>
@@ -101,6 +169,7 @@ const ShippingInfo = () => {
 						<button
 							type="submit"
 							className="btn btn-outline-primary buttonsignup"
+							onClick={continueBtnHandler}
 						>
 							Continue
 						</button>
