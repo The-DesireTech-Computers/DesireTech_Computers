@@ -161,7 +161,7 @@ const UpdateMotherBoard = (props) => {
 			formData.append("Windows", data.Windows);
 			formData.append("Features", data.Features);
 			formData.append("Power_Consumption", data.Power_Consumption);
-			formData.append("Company", data.company);
+			formData.append("company", data.company);
 
 			formData.append("thumbnail", thumbnail);
 

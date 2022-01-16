@@ -13,19 +13,31 @@ const EndPage = (props) => {
 	let [hdd, setHDD] = useState();
 	let [ssd, setSSD] = useState();
 
-
-	
 	let [data, setData] = useState([]);
 	let [mainCart, setMainCart] = useState([]);
 	let [totalPrice, setTotalPrice] = useState([]);
 	let [user, setUser] = useState();
-	let [order,setOrder] = useState({
-		products:[],
-		userName:'',
-		user_id:'',
-		user_PhoneNumber:0,
-		totalPrice:0
+	let [order, setOrder] = useState({
+		products: [],
+		userName: "",
+		user_id: "",
+		user_PhoneNumber: 0,
+		totalPrice: 0,
 	});
+
+	let addbtnhandler = () => {
+		setMainCart([
+			motherBoard,
+			cpu,
+			coolingSystem,
+			memory,
+			videocard,
+			psu,
+			casing,
+			hdd,
+			ssd,
+		]);
+	};
 
 	let array = localStorage.getItem("CustomBuilt");
 	let user_id = localStorage.getItem("user_id");
@@ -66,7 +78,6 @@ const EndPage = (props) => {
 			.get("pcParts/processor/" + cpuID)
 			.then((res) => {
 				setCPU(res.data);
-				
 			})
 			.catch((err) => {
 				console.log(err.response.data);
@@ -127,70 +138,62 @@ const EndPage = (props) => {
 			.catch((err) => {
 				console.log(err.response.data);
 			});
-			if(data === null){
-				setData(1);
-			}
+		if (data === null) {
+			setData(1);
+		}
 	}, [ssdID]);
 
-
-
-	useEffect(()=>{
-		if (motherBoard && cpu && coolingSystem && memory && videocard && psu && casing && hdd && ssd &&data){
-			setMainCart((prev) => [...prev,motherBoard,cpu,coolingSystem,memory,videocard,psu,casing,hdd,ssd]);
-		}
-	},[data]);
-
-
-	useEffect(()=>{
-
-		axios.get('/users/'+user_id).then(res=>{
-			setUser(res.data);
-		}).catch(err=>{
-			console.log('error');
-		})
-
-	},[user_id])
-
+	useEffect(() => {
+		axios
+			.get("/users/" + user_id)
+			.then((res) => {
+				setUser(res.data);
+			})
+			.catch((err) => {
+				console.log("error");
+			});
+	}, [user_id]);
 
 	useEffect(() => {
 		if (mainCart) {
 			let total = 0;
 			for (let e of mainCart) {
-
-				total = total +e.price;
+				total = total + e.price;
 			}
 			setTotalPrice(total);
 		}
 	}, [mainCart]);
 	useEffect(() => {
-		if(mainCart.length !==0 && user){
-		let array =[];
-		for(let item of mainCart){
-			let product = {
-				title:'',
-				product_id:'',
-				category:'',
-				quantity:''
+		if (mainCart.length !== 0 && user) {
+			let array = [];
+			for (let item of mainCart) {
+				let product = {
+					title: "",
+					product_id: "",
+					category: "",
+					quantity: "",
+				};
+				product.title = item.title;
+				product.product_id = item._id;
+				product.category = item.category;
+				product.category1 = item.category1;
+				product.quantity = item.quantity;
+
+				array.push(product);
 			}
-			product.title = item.title;
-			product.product_id = item._id;
-			product.category = item.category;
-			product.category1 = item.category1;
-			product.quantity = item.quantity;
-	
-			array.push(product);
+			setOrder({
+				...order,
+				products: array,
+				userName: user.name,
+				user_id: user._id,
+				user_PhoneNumber: user.phone,
+				totalPrice: totalPrice,
+			});
 		}
-		setOrder({...order,products:array,userName:user.name,user_id:user._id,user_PhoneNumber:user.phone,totalPrice:totalPrice});
-		}
-	
-
-	}, [mainCart,user,totalPrice]);
-
+	}, [mainCart, user, totalPrice]);
 
 	console.log(order);
 	console.log(mainCart);
-
-
 
 	let backBtnHandler = () => {
 		let array = localStorage.getItem("CustomBuilt");
@@ -205,16 +208,10 @@ const EndPage = (props) => {
 		props.history.push("/custom-built");
 	};
 
-	// let onclickhandler = () => {
-	// 	let CustomBuilt = localStorage.getItem("CustomBuilt");
-	// 	if (CustomBuilt) {
-	// 		localStorage.setItem("cart2", CustomBuilt);
-	// 		localStorage.removeItem("CustomBuilt");
-	// 		props.history.push("/shoppingcart");
-	// 	} else {
-	// 		props.history.push("/custom-built/cbmotherboard");
-	// 	}
-	// };
+	let CustomBuilt = localStorage.getItem("CustomBuilt");
+	if (!CustomBuilt) {
+		props.history.push("/custom-built/cbmotherboard");
+	}
 
 	return (
 		<div className="container">
@@ -266,6 +263,7 @@ const EndPage = (props) => {
 								id="herobtn"
 								data-bs-toggle="modal"
 								data-bs-target="#exampleModal"
+								onClick={addbtnhandler}
 							>
 								<span id="herospan">Add to Cart</span>
 							</button>

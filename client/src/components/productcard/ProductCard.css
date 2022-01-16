@@ -1,7 +1,7 @@
 .card1 {
 	transition: 0.3s;
 	width: 15rem;
-	border-radius: 1.5rem;
+	border-radius: 10px;
 	overflow: hidden;
 }
 .card {
@@ -9,7 +9,9 @@
 	width: 15rem;
 }
 
-.card:hover,
+.card:hover {
+	transform: scale(1.01);
+}
 .card1:hover {
 	transform: scale(1.025);
 }
