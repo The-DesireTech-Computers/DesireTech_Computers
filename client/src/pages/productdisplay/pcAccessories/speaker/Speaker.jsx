@@ -141,6 +141,7 @@ const Speaker = (props) => {
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
+					quantity={product.quantity}
 					addToCartBtnHandler={addToCartBtnHandler}
 					path="speakerdetails"
 				/>
@@ -155,6 +156,7 @@ const Speaker = (props) => {
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
+					quantity={product.quantity}
 					addToCartBtnHandler={addToCartBtnHandler}
 					path="speakerdetails"
 				/>

@@ -1,6 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 const DetailHeader = ({ data, imgpath, addToCartBtnHandler }) => {
+	let btnclass = "";
+	if (data) {
+		btnclass =
+			data.quantity > 5
+				? "btn btn-warning my-3"
+				: "btn btn-secondary disablebtn my-3";
+	}
+
 	return (
 		<div className="row">
 			<div className="col-md-6">
@@ -180,7 +188,7 @@ const DetailHeader = ({ data, imgpath, addToCartBtnHandler }) => {
 					</tbody>
 				</table>
 
-				<button className="btn btn-warning my-3" onClick={addToCartBtnHandler}>
+				<button className={btnclass} onClick={addToCartBtnHandler}>
 					Add to Cart
 				</button>
 			</div>

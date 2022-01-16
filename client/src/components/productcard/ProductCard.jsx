@@ -11,6 +11,7 @@ let ProductCard = ({
 	path,
 	history,
 	addToCartBtnHandler,
+	quantity,
 }) => {
 	let handelDetailsProduct = () => {
 		// sending query params
@@ -24,33 +25,39 @@ let ProductCard = ({
 
 	return (
 		<div className="col mt-4">
-			<div className="card">
-				<img src={img} className="card-img-top" alt="..." />
-				<div className="card-body">
-					<p className="card-text">{title.substring(0, 60)}...</p>
-				</div>
-				<ul className="list-group list-group-flush">
-					<li className="list-group-item">Price: {price} PKR</li>
-				</ul>
-				<div className="card-body">
-					<button
-						id="btncard"
-						type="button"
-						className="btn btn-outline-warning"
-						onClick={() => {
-							addToCartBtnHandler(product_id);
-						}}
-					>
-						<MdAddShoppingCart />
-					</button>{" "}
-					<button
-						id="btncard"
-						type="button"
-						className="btn btn-outline-info"
-						onClick={handelDetailsProduct}
-					>
-						View Details <RiArrowDropRightLine className="icondetails" />
-					</button>
+			<div className="card1">
+				<div className="card">
+					<img src={img} className="card-img-top" alt="..." />
+					<div className="card-body">
+						<p className="card-text">{title.substring(0, 60)}...</p>
+					</div>
+					<ul className="list-group list-group-flush">
+						<li className="list-group-item">Price: {price} PKR</li>
+					</ul>
+					<div className="card-body">
+						<button
+							id="btncard"
+							type="button"
+							className={
+								quantity > 5
+									? "btn btn-outline-warning"
+									: "btn btn-outline-secondary disablebtn"
+							}
+							onClick={() => {
+								addToCartBtnHandler(product_id);
+							}}
+						>
+							<MdAddShoppingCart />
+						</button>{" "}
+						<button
+							id="btncard"
+							type="button"
+							className="btn btn-outline-info"
+							onClick={handelDetailsProduct}
+						>
+							View Details <RiArrowDropRightLine className="icondetails" />
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>

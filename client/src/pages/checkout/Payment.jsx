@@ -3,9 +3,13 @@ import axios from "../../axiosInstance/axiosInstance";
 import { FaCreditCard, FaStreetView } from "react-icons/fa";
 import "./Payment.css";
 
-const Payment = () => {
+const Payment = (props) => {
 	let [data, setData] = useState();
 	let [selectedClient, setSelectedClient] = useState("none");
+
+	function closehandle() {
+		props.history.replace("/");
+	}
 
 	function handleSelectChange(event) {
 		setSelectedClient(event.target.value);
@@ -71,11 +75,40 @@ const Payment = () => {
 					</form>
 					<div class="input-group mb-3 ">
 						<button
-							type="submit"
+							type="button"
 							className="btn btn-outline-primary buttonsignup"
+							data-bs-toggle="modal"
+							data-bs-target="#staticBackdrop"
 						>
 							Confirm
 						</button>
+					</div>
+				</div>
+				<div
+					class="modal fade"
+					id="staticBackdrop"
+					data-bs-backdrop="static"
+					data-bs-keyboard="false"
+					tabindex="-1"
+					aria-labelledby="staticBackdropLabel"
+					aria-hidden="true"
+				>
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="staticBackdropLabel">
+									Order Successful
+								</h5>
+								<button
+									type="button"
+									class="btn-close"
+									data-bs-dismiss="modal"
+									aria-label="Close"
+									onClick={closehandle}
+								></button>
+							</div>
+							<div class="modal-body">Thanks for Shopping!</div>
+						</div>
 					</div>
 				</div>
 				<div className="col-md-6 mb-5 text-center d-none d-md-block">

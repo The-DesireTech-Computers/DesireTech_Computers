@@ -141,6 +141,7 @@ const CaseFan = (props) => {
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
+					quantity={product.quantity}
 					addToCartBtnHandler={addToCartBtnHandler}
 					path="caseFandetails"
 				/>
@@ -155,6 +156,7 @@ const CaseFan = (props) => {
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
+					quantity={product.quantity}
 					addToCartBtnHandler={addToCartBtnHandler}
 					path="caseFandetails"
 				/>

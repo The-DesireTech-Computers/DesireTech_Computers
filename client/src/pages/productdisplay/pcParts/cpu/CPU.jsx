@@ -126,6 +126,7 @@ const CPU = () => {
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
+					quantity={product.quantity}
 					addToCartBtnHandler={addToCartBtnHandler}
 					path="cpudetails"
 				/>
@@ -140,6 +141,7 @@ const CPU = () => {
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
+					quantity={product.quantity}
 					addToCartBtnHandler={addToCartBtnHandler}
 					path="cpudetails"
 				/>

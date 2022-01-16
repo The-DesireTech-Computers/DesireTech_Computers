@@ -141,6 +141,7 @@ const Microphone = (props) => {
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
+					quantity={product.quantity}
 					addToCartBtnHandler={addToCartBtnHandler}
 					path="microphonedetails"
 				/>
@@ -155,6 +156,7 @@ const Microphone = (props) => {
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
+					quantity={product.quantity}
 					addToCartBtnHandler={addToCartBtnHandler}
 					path="microphonedetails"
 				/>

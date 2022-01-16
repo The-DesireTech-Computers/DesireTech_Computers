@@ -178,6 +178,7 @@ const Memory = () => {
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
+					quantity={product.quantity}
 					addToCartBtnHandler={addToCartBtnHandler}
 					path="memorydetails"
 				/>
@@ -192,6 +193,7 @@ const Memory = () => {
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
+					quantity={product.quantity}
 					addToCartBtnHandler={addToCartBtnHandler}
 					path="memorydetails"
 				/>

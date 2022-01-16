@@ -1,12 +1,22 @@
-.card {
+.card1 {
 	transition: 0.3s;
 	width: 15rem;
 	border-radius: 1.5rem;
 	overflow: hidden;
 }
+.card {
+	transition: 0.3s;
+	width: 15rem;
+}
 
-.card:hover {
+.card:hover,
+.card1:hover {
 	transform: scale(1.025);
+}
+
+.disablebtn {
+	opacity: 0.8;
+	pointer-events: none;
 }
 
 .icondetails {

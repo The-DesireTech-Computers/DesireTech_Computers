@@ -274,9 +274,9 @@ const PreBuilt = () => {
 					key={product._id}
 					img={"/uploads/preBuiltDesktop/" + product.image.thumbnail}
 					title={product.title}
-					quantity={product.quantity}
 					price={product.price}
 					product_id={product._id}
+					quantity={product.quantity}
 					addToCartBtnHandler={addToCartBtnHandler}
 					path="desktopsdetails"
 				/>
