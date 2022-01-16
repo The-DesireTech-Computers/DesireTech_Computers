@@ -274,6 +274,7 @@ const PreBuilt = () => {
 					key={product._id}
 					img={"/uploads/preBuiltDesktop/" + product.image.thumbnail}
 					title={product.title}
+					quantity={product.quantity}
 					price={product.price}
 					product_id={product._id}
 					addToCartBtnHandler={addToCartBtnHandler}
@@ -289,6 +290,7 @@ const PreBuilt = () => {
 					img={"/uploads/preBuiltDesktop/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
+					quantity={product.quantity}
 					product_id={product._id}
 					addToCartBtnHandler={addToCartBtnHandler}
 					path="desktopsdetails"

@@ -126,19 +126,54 @@ const EndPage = (props) => {
 		props.history.push("/custom-built");
 	};
 
-	let onclickhandler = () => {
-		let CustomBuilt = localStorage.getItem("CustomBuilt");
-		if (CustomBuilt) {
-			localStorage.setItem("cart2", CustomBuilt);
-			localStorage.removeItem("CustomBuilt");
-			props.history.push("/shoppingcart");
-		} else {
-			props.history.push("/custom-built/cbmotherboard");
-		}
-	};
+	// let onclickhandler = () => {
+	// 	let CustomBuilt = localStorage.getItem("CustomBuilt");
+	// 	if (CustomBuilt) {
+	// 		localStorage.setItem("cart2", CustomBuilt);
+	// 		localStorage.removeItem("CustomBuilt");
+	// 		props.history.push("/shoppingcart");
+	// 	} else {
+	// 		props.history.push("/custom-built/cbmotherboard");
+	// 	}
+	// };
 
 	return (
 		<div className="container">
+			<div
+				class="modal fade"
+				id="exampleModal"
+				tabindex="-1"
+				aria-labelledby="exampleModalLabel"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">
+								Custom-Built Options.
+							</h5>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body">
+							How would you like the Custom-built PC. Assembled or
+							Non-Assembled.
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger">
+								Assemble and Ship.
+							</button>
+							<button type="button" class="btn btn-warning">
+								I'll Assemble it.
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div className="cbcontainer">
 				<div className="hero-image">
 					<img src="/images/custombuilt/mainpage.jpg" className="cbimage" />
@@ -147,9 +182,11 @@ const EndPage = (props) => {
 							<h1 id="cbh1text">Custom PC Build</h1>
 							<p id="cbptext">Build your desired Custom PC</p>
 							<button
+								type="button"
 								className="btn btn-success"
 								id="herobtn"
-								onClick={onclickhandler}
+								data-bs-toggle="modal"
+								data-bs-target="#exampleModal"
 							>
 								<span id="herospan">Add to Cart</span>
 							</button>
