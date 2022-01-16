@@ -779,6 +779,7 @@ const ShoppingCart = (props) => {
 			product.title = item.title;
 			product.product_id = item._id;
 			product.category = item.category;
+			product.category1 = item.category1;
 			product.quantity = item.quantity;
 	
 			array.push(product);

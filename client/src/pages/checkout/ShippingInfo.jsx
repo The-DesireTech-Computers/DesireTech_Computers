@@ -67,7 +67,6 @@ const ShippingInfo = (props) => {
 	};
 
 	console.log(data1);
-	console.log(data);
 	return (
 		<div className="container containlogin">
 			<div className="row mt-5 py-5 align-items-center">
