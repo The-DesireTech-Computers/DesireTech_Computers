@@ -114,7 +114,7 @@ let array= [];
 			</ul>)
 			})}
 		</td>
-		<td>{
+		{order.Shipping_Info ? <td>{
 			<ul>
 				<li><strong>Address:</strong>  {order.Shipping_Info.address}</li>
 				<li><strong>City:</strong> {order.Shipping_Info.city}</li>
@@ -122,8 +122,9 @@ let array= [];
 				<li><strong>State:</strong> {order.Shipping_Info.state}</li>
 				<li><strong>Country:</strong> {order.Shipping_Info.country}</li>
 			</ul>
-			}</td>
-	
+			}</td> : <td>-------</td>
+	}
+		
 		<td><strong>{order.totalPrice} PKR</strong></td>
 		<td>Cash on Delivery</td>
 		<td>{order.user.userName}</td>
@@ -158,9 +159,7 @@ let array= [];
 							<th className={classes.id1}>Sr#</th>
 							<th className={classes.id1}>Order ID</th>
 							<th className={classes.items1}>Items List</th>
-							{data[0].Shipping_Info ? 
-							<th className={classes.items1}>Shipping Info.</th>:null
-							}
+							<th className={classes.items1}>Shipping Info.</th>
 							<th className={classes.price11}>Total Price</th>
 							<th className={classes.payment1}>Payment Method</th>
 							<th className={classes.date1}>User Name</th>
