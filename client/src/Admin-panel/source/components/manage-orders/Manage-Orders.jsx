@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import classes from "./ManageOrders.module.css";
 import Navbar from "../header/Navbar";
 import axios from "../../axiosInstance";
+import axios1 from "axios";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 let ManageOrders = (props) => {
 
@@ -13,7 +14,7 @@ let ManageOrders = (props) => {
 			let arr = res.data;
 		
 			setData(	arr.filter(x=>{
-				return x.status !== "delivered"
+				return x.status !== "delivered" && x.Shipping_Info
 			}));
 		}).catch(err=>{
 			console.log('error')
@@ -27,13 +28,39 @@ let ManageOrders = (props) => {
 	},[])
 
 
-	let shipBtnHandler = (id)=>{
-		axios.put('/order/shipped/'+id).then(res=>{
-			console.log("shipped");
-			getData();
-		}).catch(err=>{
-			console.log("error")
-		})
+	let shipBtnHandler = async (orderId,products)=>{
+let array= [];
+
+		for(let item of products){
+			await axios.get('/'+item.category+"/"+item.product_id,).then(res=>{
+				let i = res.data;
+				i.quantity = i.quantity - item.quantity;
+				array.push(i);
+			}).catch(err=>{
+				console.log('error');
+			})
+		}
+
+		console.log(array);
+
+		for(let item of array){
+			let obj= {
+				quantity: item.quantity
+			}
+			await axios1.put('http://localhost:4000/api/'+item.category+"/"+item._id,obj).then(res=>{
+			console.log(res.data)
+			}).catch(err=>{
+				console.log('error');
+			})
+		}
+
+
+		// axios.put('/order/shipped/'+orderId).then(res=>{
+		// 	console.log("shipped");
+		// 	getData();
+		// }).catch(err=>{
+		// 	console.log("error")
+		// })
 	}
 
 	let deliveredBtnHandler = (id)=>{
@@ -62,8 +89,7 @@ let ManageOrders = (props) => {
 			</ul>)
 			})}
 		</td>
-
-		{order.Shipping_Info ? 	<td>{
+		<td>{
 			<ul>
 				<li><strong>Address:</strong>  {order.Shipping_Info.address}</li>
 				<li><strong>City:</strong> {order.Shipping_Info.city}</li>
@@ -71,7 +97,7 @@ let ManageOrders = (props) => {
 				<li><strong>State:</strong> {order.Shipping_Info.state}</li>
 				<li><strong>Country:</strong> {order.Shipping_Info.country}</li>
 			</ul>
-			}</td>:<td>----</td>}
+			}</td>
 	
 		<td><strong>{order.totalPrice} PKR</strong></td>
 		<td>Cash on Delivery</td>
@@ -79,7 +105,7 @@ let ManageOrders = (props) => {
 		<td>{order.user.user_PhoneNumber}</td>
 		<td>{order.status==="shipped"? 
 		<button onClick={()=>deliveredBtnHandler(order._id)} className={classes.deleteBtn1}>Delivered</button>
-		: <button  onClick={()=>shipBtnHandler(order._id)} className={classes.updateBtn1}>Ship</button>}</td>
+		: <button  onClick={()=>shipBtnHandler(order._id,order.products)} className={classes.updateBtn1}>Ship</button>}</td>
 	</tr>)
 		})
 		

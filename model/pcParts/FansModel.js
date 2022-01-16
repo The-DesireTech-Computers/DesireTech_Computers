@@ -40,7 +40,7 @@ let FansSchema = mongoose.Schema({
       Tube_Material:String,
   },
    Features:String,
-
+   Power_Consumption:Number,
 
 
     image:{
@@ -90,6 +90,8 @@ let validation = (data)=>{
       Tube_Material:joi.string().required() ,
 
    Features:joi.string().required() ,
+   Power_Consumption:joi.number().required() ,
+
      
     thumbnail:joi.string().required(),
     gallery: joi.array().required(),
