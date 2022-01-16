@@ -71,7 +71,7 @@ const AddCaseFan = (props) => {
 			alert("Please enter data in all the given fields (LED)");
 		} else if (data.Dimention === "") {
 			alert("Please enter data in all the given fields (LED)");
-		}else if (thumbnail === null) {
+		} else if (thumbnail === null) {
 			alert("Please provide a picture as a thumbnail picture(thumbnail)");
 		} else if (gallery === null) {
 			alert("Please provide atleaste 1 picture as gallery(gallery)");
@@ -107,18 +107,17 @@ const AddCaseFan = (props) => {
 				}
 			}
 
-			 axios
+			axios
 				.post("accessories/casefan", formData)
-				.then(res=>{
+				.then((res) => {
 					console.log("product Added successfully");
 					setLoading(false);
 					props.history.replace("/admin-panel/managecasefan");
-				}).catch(err=>{
+				})
+				.catch((err) => {
 					console.log(err);
 					setLoading(false);
 				});
-
-				
 		}
 	};
 
@@ -345,7 +344,7 @@ const AddCaseFan = (props) => {
 									</label>
 									<br />
 									<label className={classes.label1} htmlFor="Dimentions">
-									Dimentions:
+										Dimentions:
 									</label>
 									<br />
 									<label className={classes.label1} htmlFor="gallery">
@@ -498,10 +497,9 @@ const AddCaseFan = (props) => {
 							</div>
 						</form>
 						<div className={classes.btnDiv1}>
-							<button
-								className={classes.btn1}
-								onClick={handelSubmitBtn}
-							>Submit</button>
+							<button className={classes.btn1} onClick={handelSubmitBtn}>
+								Submit
+							</button>
 						</div>
 					</div>
 				</div>

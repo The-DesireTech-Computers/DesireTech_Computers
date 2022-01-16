@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { FaEnvelope, FaLock, FaPhoneAlt, FaUserTie } from "react-icons/fa";
 import axios from "../../axiosInstance/axiosInstance";
+import Alerts from "../../components/alert/Alerts";
 
 const UserProfile = (props) => {
 	let [data, setData] = useState();
 	let [newPassword, setNewPassword] = useState("");
 	let [confirmPassword, setConfirmPassword] = useState("");
+	let [alertShow, setAlertShow] = useState(false);
+	let [msg, setmsg] = useState();
 	let id = localStorage.getItem("user_id");
 
 	useEffect(() => {
@@ -20,20 +23,22 @@ const UserProfile = (props) => {
 				});
 		}
 	}, [id]);
-
+	let alert = <Alerts msg={msg} alertShow={alertShow} />;
 	let handelSubmitBtn = async () => {
 		if (data.name === "") {
-			alert('name cannot be left empty')
-		} else if (data.phone === "" || data.phone===0) {
-			alert('phone number cannot be left empty')
+			// alert('name cannot be left empty')
+			setAlertShow(true);
+			setmsg("show name");
+		} else if (data.phone === "" || data.phone === 0) {
+			alert("phone number cannot be left empty");
 		} else if (data.email === "") {
-			alert("email canot be left empty")
+			alert("email canot be left empty");
 		} else if (newPassword === "") {
-			alert("password cannot be left empty")
+			alert("password cannot be left empty");
 		} else if (confirmPassword === "") {
-			alert('confirm password cannot be left empty');
+			alert("confirm password cannot be left empty");
 		} else if (newPassword !== confirmPassword) {
-			alert("confirm password should be equal to password feild")
+			alert("confirm password should be equal to password feild");
 
 			console.log(data);
 		} else {
@@ -42,12 +47,11 @@ const UserProfile = (props) => {
 			await axios
 				.put("users/" + data._id, data)
 				.then((res) => {
-					console.log('successful udate');
-					props.history.replace('/');
+					console.log("successful udate");
+					props.history.replace("/");
 				})
 				.catch((err) => {
 					console.log(err.response.data);
-					
 				});
 		}
 	};
@@ -56,6 +60,7 @@ const UserProfile = (props) => {
 		<div className="container containlogin">
 			<div className="row mt-5 py-5 align-items-center">
 				<div className="col-md-6">
+					{alert}
 					<form method="put">
 						<div class="input-group mb-3">
 							<span class="input-group-text">
