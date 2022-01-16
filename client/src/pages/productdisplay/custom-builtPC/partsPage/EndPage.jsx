@@ -162,7 +162,11 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src={"/uploads/pcParts/" + motherBoard.image.thumbnail}
+								src={
+									motherBoard
+										? "/uploads/pcParts/" + motherBoard.image.thumbnail
+										: ""
+								}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -177,7 +181,7 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src={"/uploads/pcParts/" + cpu.image.thumbnail}
+								src={cpu ? "/uploads/pcParts/" + cpu.image.thumbnail : ""}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -192,7 +196,11 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src={"/uploads/pcParts/" + coolingSystem.image.thumbnail}
+								src={
+									coolingSystem
+										? "/uploads/pcParts/" + coolingSystem.image.thumbnail
+										: ""
+								}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -207,7 +215,7 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src={"/uploads/pcParts/" + memory.image.thumbnail}
+								src={memory ? "/uploads/pcParts/" + memory.image.thumbnail : ""}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -222,7 +230,11 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src={"/uploads/pcParts/" + videocard.image.thumbnail}
+								src={
+									videocard
+										? "/uploads/pcParts/" + videocard.image.thumbnail
+										: ""
+								}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -237,7 +249,7 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src={"/uploads/pcParts/" + psu.image.thumbnail}
+								src={psu ? "/uploads/pcParts/" + psu.image.thumbnail : ""}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -252,7 +264,7 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src={"/uploads/pcParts/" + casing.image.thumbnail}
+								src={casing ? "/uploads/pcParts/" + casing.image.thumbnail : ""}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -267,7 +279,7 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src={"/uploads/pcParts/" + hdd.image.thumbnail}
+								src={hdd ? "/uploads/pcParts/" + hdd.image.thumbnail : ""}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."
@@ -282,7 +294,7 @@ const EndPage = (props) => {
 					<div class="col">
 						<div class="card h-80" id="cbcard">
 							<img
-								src={"/uploads/pcParts/" + ssd.image.thumbnail}
+								src={ssd ? "/uploads/pcParts/" + ssd.image.thumbnail : ""}
 								class="card-img-top p-2"
 								id="cbcardimg"
 								alt="..."

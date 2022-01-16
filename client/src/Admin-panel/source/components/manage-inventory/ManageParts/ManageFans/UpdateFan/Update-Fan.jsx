@@ -415,10 +415,7 @@ const UpdateFan = (props) => {
 										onChange={(e) => {
 											setData({
 												...data,
-												Fan: {
-													...data.Power_Consumption,
-													Power_Consumption: e.target.value,
-												},
+												Power_Consumption: e.target.value,
 											});
 										}}
 									/>

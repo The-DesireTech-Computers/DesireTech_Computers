@@ -101,9 +101,9 @@ const CBCasing = (props) => {
 					arr = arr.split(",");
 					console.log(arr);
 					return (
-						e.Dimentions.Max_GPU_Length == videocard &&
-						e.Dimentions.Max_CPU_Cooler_Length == coolingSystem &&
-						e.Dimentions.Max_PSU_Length == psu &&
+						e.Dimentions.Max_GPU_Length >= videocard &&
+						e.Dimentions.Max_CPU_Cooler_Length >= coolingSystem &&
+						e.Dimentions.Max_PSU_Length >= psu &&
 						arr.some((x) => x === motherBoard)
 					);
 				})
