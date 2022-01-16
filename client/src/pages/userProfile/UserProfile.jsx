@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { FaEnvelope, FaLock, FaPhoneAlt, FaUserTie } from "react-icons/fa";
 import axios from "../../axiosInstance/axiosInstance";
-import Alerts from "../../components/alert/Alerts";
 
 const UserProfile = (props) => {
 	let [data, setData] = useState();
 	let [newPassword, setNewPassword] = useState("");
 	let [confirmPassword, setConfirmPassword] = useState("");
 	let [alertShow, setAlertShow] = useState(false);
-	let [msg, setmsg] = useState();
+	let [msg, setmsg] = useState("");
 	let id = localStorage.getItem("user_id");
 
 	useEffect(() => {
@@ -23,7 +22,37 @@ const UserProfile = (props) => {
 				});
 		}
 	}, [id]);
-	let alert = <Alerts msg={msg} alertShow={alertShow} />;
+	let alert = (
+		<div class="position-fixed top-0 start-0 p-3" style={{ "z-index": 300 }}>
+			<div
+				id="liveToast"
+				className={alertShow ? "toast show" : "toast hide"}
+				role="alert"
+				aria-live="assertive"
+				aria-atomic="true"
+			>
+				<div class="toast-header">
+					<img
+						src="/images/logo/favicon.png"
+						height="20px"
+						width="20px"
+						class="rounded me-2"
+						alt="..."
+					/>
+					<strong class="me-auto">Alert!</strong>
+
+					<button
+						type="button"
+						class="btn-close"
+						data-bs-dismiss="toast"
+						aria-label="Close"
+					></button>
+				</div>
+				<div class="toast-body">{msg}</div>
+			</div>
+		</div>
+	);
+
 	let handelSubmitBtn = async () => {
 		if (data.name === "") {
 			// alert('name cannot be left empty')

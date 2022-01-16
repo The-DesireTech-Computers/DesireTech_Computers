@@ -145,6 +145,10 @@ const AddMonitor = (props) => {
 										cabinetcolor:
 									</label>
 									<br />
+									<label className={classes.label1} htmlFor="model">
+										Model:
+									</label>
+									<br />
 									<label className={classes.label1} htmlFor="glarescreen">
 										glarescreen:
 									</label>
@@ -161,10 +165,6 @@ const AddMonitor = (props) => {
 									</label>
 									<br />
 
-									<label className={classes.label1} htmlFor="powersupply">
-										powersupply:
-									</label>
-									<br />
 									<label className={classes.label1} htmlFor="thumbnail">
 										Thumbnail:
 									</label>
@@ -264,7 +264,7 @@ const AddMonitor = (props) => {
 										type="text"
 										id="adaptivesychronisetech"
 										name="adaptivesychronisetech"
-										placeholder="Enteradaptive sychronisetechg "
+										placeholder="Enter adaptive sychronisetech"
 										required
 										onChange={(e) => {
 											setData({
@@ -407,7 +407,10 @@ const AddMonitor = (props) => {
 										placeholder="Enter inputvideocapability"
 										required
 										onChange={(e) => {
-											setData({ ...data, inputvideocapability: e.target.value });
+											setData({
+												...data,
+												inputvideocapability: e.target.value,
+											});
 										}}
 									/>
 									<br />
