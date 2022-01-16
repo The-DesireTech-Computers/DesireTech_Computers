@@ -57,11 +57,7 @@ const CBVideoCard = (props) => {
 
 	useEffect(() => {
 		if (data) {
-			setFilteredData(
-				data.filter((e) => {
-					return e.Model.Type === "Desktop";
-				})
-			);
+			setFilteredData(data);
 		}
 	}, [data]);
 

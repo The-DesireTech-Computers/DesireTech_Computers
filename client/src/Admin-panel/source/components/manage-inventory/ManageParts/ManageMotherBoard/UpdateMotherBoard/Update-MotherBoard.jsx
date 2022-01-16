@@ -112,6 +112,8 @@ const UpdateMotherBoard = (props) => {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
 		} else if (data.Power_Consumption === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
+		} else if (data.company === "") {
+			alert("Please enter data in all the given fields(company)");
 		} else {
 			setLoading(true);
 
@@ -159,6 +161,7 @@ const UpdateMotherBoard = (props) => {
 			formData.append("Windows", data.Windows);
 			formData.append("Features", data.Features);
 			formData.append("Power_Consumption", data.Power_Consumption);
+			formData.append("Company", data.company);
 
 			formData.append("thumbnail", thumbnail);
 
@@ -275,6 +278,10 @@ const UpdateMotherBoard = (props) => {
 									<br />
 									<label className={classes.label1} htmlFor="Power_Consumption">
 										Power_Consumption:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="company">
+										Company:
 									</label>
 									<br />
 									<label className={classes.label1} htmlFor="thumbnail">
@@ -528,6 +535,18 @@ const UpdateMotherBoard = (props) => {
 										required
 										onChange={(e) => {
 											setData({ ...data, Power_Consumption: e.target.value });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input1}
+										type="text"
+										id="company"
+										name="company"
+										value={data.company}
+										required
+										onChange={(e) => {
+											setData({ ...data, company: e.target.value });
 										}}
 									/>
 									<br />

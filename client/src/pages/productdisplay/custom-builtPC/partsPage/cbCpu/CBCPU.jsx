@@ -58,11 +58,7 @@ const CBCPU = (props) => {
 
 	useEffect(() => {
 		if (data) {
-			setFilteredData(
-				data.filter((e) => {
-					return e.Model.processorType === "Desktop";
-				})
-			);
+			setFilteredData(data);
 		}
 	}, [data]);
 

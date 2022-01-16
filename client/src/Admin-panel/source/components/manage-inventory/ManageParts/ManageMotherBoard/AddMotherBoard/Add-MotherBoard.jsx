@@ -50,6 +50,7 @@ const AddMotherBoard = (props) => {
 		Windows: "",
 		Features: "",
 		Power_Consumption: "",
+		company: "",
 	});
 	let [thumbnail, setThumbnail] = useState(null);
 	let [gallery, setGallery] = useState(null);
@@ -130,6 +131,8 @@ const AddMotherBoard = (props) => {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
 		} else if (data.Power_Consumption === "") {
 			alert("Please enter data in all the given fields(Audio_Chipset)");
+		} else if (data.company === "") {
+			alert("Please enter data in all the given fields(company)");
 		} else if (thumbnail === null) {
 			alert("Please provide a picture as a thumbnail picture(thumbnail)");
 		} else if (gallery === null) {
@@ -175,6 +178,7 @@ const AddMotherBoard = (props) => {
 			formData.append("Windows", data.Windows);
 			formData.append("Features", data.Features);
 			formData.append("Power_Consumption", data.Power_Consumption);
+			formData.append("company", data.company);
 
 			formData.append("thumbnail", thumbnail);
 
@@ -291,6 +295,10 @@ const AddMotherBoard = (props) => {
 									<br />
 									<label className={classes.label1} htmlFor="Power_Consumption">
 										Power_Consumption:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="company">
+										Company:
 									</label>
 									<br />
 									<label className={classes.label1} htmlFor="thumbnail">
@@ -508,6 +516,18 @@ const AddMotherBoard = (props) => {
 										required
 										onChange={(e) => {
 											setData({ ...data, Power_Consumption: e.target.value });
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input1}
+										type="text"
+										id="company"
+										name="company"
+										placeholder="Enter Company."
+										required
+										onChange={(e) => {
+											setData({ ...data, company: e.target.value });
 										}}
 									/>
 									<br />

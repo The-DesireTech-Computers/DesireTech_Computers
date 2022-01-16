@@ -70,11 +70,7 @@ const CBMemory = (props) => {
 
 	useEffect(() => {
 		if (data) {
-			setFilteredData(
-				data.filter((e) => {
-					return e.Details.Type === "Desktop";
-				})
-			);
+			setFilteredData(data);
 		}
 	}, [data]);
 

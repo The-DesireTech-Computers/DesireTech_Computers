@@ -82,6 +82,8 @@ const UpdateFan = (props) => {
 			alert("Please enter data in all the given fields (Tube_Material)");
 		} else if (data.Features === "") {
 			alert("Please enter data in all the given fields (Features)");
+		} else if (data.Power_Consumption === "") {
+			alert("Please enter data in all the given fields (Power_Consumption)");
 		}
 		{
 			let formData = new FormData();
@@ -114,6 +116,7 @@ const UpdateFan = (props) => {
 			formData.append("Tube_Material", data.Tube.Tube_Material);
 
 			formData.append("Features", data.Features);
+			formData.append("Power_Consumption", data.Power_Consumption);
 
 			formData.append("thumbnail", thumbnail);
 
@@ -200,6 +203,10 @@ const UpdateFan = (props) => {
 									<br />
 									<label className={classes.label1} htmlFor="Fan_Size">
 										Fan Size:
+									</label>
+									<br />
+									<label className={classes.label1} htmlFor="Power_Consumption">
+										Power_Consumption:
 									</label>
 									<br />
 									<label className={classes.label1} htmlFor="thumbnail">
@@ -394,6 +401,24 @@ const UpdateFan = (props) => {
 											setData({
 												...data,
 												Fan: { ...data.Fan, Fan_Size: e.target.value },
+											});
+										}}
+									/>
+									<br />
+									<input
+										className={classes.input1}
+										type="number"
+										id="Power_Consumption"
+										name="Power_Consumption"
+										required
+										value={data.Power_Consumption}
+										onChange={(e) => {
+											setData({
+												...data,
+												Fan: {
+													...data.Power_Consumption,
+													Power_Consumption: e.target.value,
+												},
 											});
 										}}
 									/>
