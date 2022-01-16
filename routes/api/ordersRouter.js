@@ -32,6 +32,9 @@ router.get('/:id',auth,adminAuth, async function(req, res, next) {
     order.Shipping_Info.state = req.body.state; 
     order.Shipping_Info.country = req.body.country; 
     order.totalPrice = req.body.totalPrice; 
+    if(req.body.Assemble){
+      order.Assemble=req.body.Assemble;
+    }
 
     await order.save();
 
@@ -57,7 +60,10 @@ router.get('/:id',auth,adminAuth, async function(req, res, next) {
     order.Shipping_Info.state = req.body.state; 
     order.Shipping_Info.country = req.body.country; 
     order.totalPrice = req.body.totalPrice; 
-
+    if(req.body.Assemble){
+      order.Assemble = req.body.Assemble; 
+    }
+    
     await order.save();
 
     return res.send(order);

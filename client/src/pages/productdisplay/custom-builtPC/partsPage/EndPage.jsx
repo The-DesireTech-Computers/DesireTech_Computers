@@ -13,7 +13,22 @@ const EndPage = (props) => {
 	let [hdd, setHDD] = useState();
 	let [ssd, setSSD] = useState();
 
+
+	
+	let [data, setData] = useState([]);
+	let [mainCart, setMainCart] = useState([]);
+	let [totalPrice, setTotalPrice] = useState([]);
+	let [user, setUser] = useState();
+	let [order,setOrder] = useState({
+		products:[],
+		userName:'',
+		user_id:'',
+		user_PhoneNumber:0,
+		totalPrice:0
+	});
+
 	let array = localStorage.getItem("CustomBuilt");
+	let user_id = localStorage.getItem("user_id");
 
 	let motherBoardID;
 	let cpuID;
@@ -51,6 +66,7 @@ const EndPage = (props) => {
 			.get("pcParts/processor/" + cpuID)
 			.then((res) => {
 				setCPU(res.data);
+				
 			})
 			.catch((err) => {
 				console.log(err.response.data);
@@ -111,7 +127,70 @@ const EndPage = (props) => {
 			.catch((err) => {
 				console.log(err.response.data);
 			});
+			if(data === null){
+				setData(1);
+			}
 	}, [ssdID]);
+
+
+
+	useEffect(()=>{
+		if (motherBoard && cpu && coolingSystem && memory && videocard && psu && casing && hdd && ssd &&data){
+			setMainCart((prev) => [...prev,motherBoard,cpu,coolingSystem,memory,videocard,psu,casing,hdd,ssd]);
+		}
+	},[data]);
+
+
+	useEffect(()=>{
+
+		axios.get('/users/'+user_id).then(res=>{
+			setUser(res.data);
+		}).catch(err=>{
+			console.log('error');
+		})
+
+	},[user_id])
+
+
+	useEffect(() => {
+		if (mainCart) {
+			let total = 0;
+			for (let e of mainCart) {
+
+				total = total +e.price;
+			}
+			setTotalPrice(total);
+		}
+	}, [mainCart]);
+	useEffect(() => {
+		if(mainCart.length !==0 && user){
+		let array =[];
+		for(let item of mainCart){
+			let product = {
+				title:'',
+				product_id:'',
+				category:'',
+				quantity:''
+			}
+			product.title = item.title;
+			product.product_id = item._id;
+			product.category = item.category;
+			product.category1 = item.category1;
+			product.quantity = item.quantity;
+	
+			array.push(product);
+		}
+		setOrder({...order,products:array,userName:user.name,user_id:user._id,user_PhoneNumber:user.phone,totalPrice:totalPrice});
+		}
+	
+
+	}, [mainCart,user,totalPrice]);
+
+
+	console.log(order);
+	console.log(mainCart);
+
+
 
 	let backBtnHandler = () => {
 		let array = localStorage.getItem("CustomBuilt");

@@ -401,7 +401,7 @@ router.post('/processor',auth,adminAuth, upload.fields([{ name: 'thumbnail', max
 
 //update quantity
 
-router.put('processor/quantity/:id', async (req,res)=>{
+router.put('/processor/quantity/:id', async (req,res)=>{
     console.log(req.body);
     let product = await Processor.findById(req.params.id);
     if(!product){
@@ -708,7 +708,7 @@ router.post('/memory',auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCou
 
 //update quantity
 
-router.put('memory/quantity/:id', async (req,res)=>{
+router.put('/memory/quantity/:id', async (req,res)=>{
     console.log(req.body);
     let product = await Memory.findById(req.params.id);
     if(!product){
@@ -1126,7 +1126,7 @@ router.post('/motherboard',auth,adminAuth, upload.fields([{ name: 'thumbnail', m
 
 //update quantity
 
-router.put('motherboard/quantity/:id', async (req,res)=>{
+router.put('/motherboard/quantity/:id', async (req,res)=>{
     console.log(req.body);
     let product = await MotherBoard.findById(req.params.id);
     if(!product){
@@ -1508,7 +1508,7 @@ router.post('/videocard',auth,adminAuth, upload.fields([{ name: 'thumbnail', max
 
 //update quantity
 
-router.put('videocard/quantity/:id', async (req,res)=>{
+router.put('/videocard/quantity/:id', async (req,res)=>{
     console.log(req.body);
     let product = await VideoCard.findById(req.params.id);
     if(!product){
@@ -1846,7 +1846,7 @@ router.post('/casing',auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCou
 
 //update quantity
 
-router.put('casing/quantity/:id', async (req,res)=>{
+router.put('/casing/quantity/:id', async (req,res)=>{
     console.log(req.body);
     let product = await Casing.findById(req.params.id);
     if(!product){
@@ -2195,7 +2195,7 @@ console.log(req.body);
 
 //update quantity
 
-router.put('psu/quantity/:id', async (req,res)=>{
+router.put('/psu/quantity/:id', async (req,res)=>{
     console.log(req.body);
     let product = await PSU.findById(req.params.id);
     if(!product){
@@ -2531,7 +2531,7 @@ router.post('/fans',auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCount
 
 //update quantity
 
-router.put('fans/quantity/:id', async (req,res)=>{
+router.put('/fans/quantity/:id', async (req,res)=>{
     console.log(req.body);
     let product = await Fans.findById(req.params.id);
     if(!product){
@@ -2854,7 +2854,7 @@ router.post('/soundcard',auth,adminAuth, upload.fields([{ name: 'thumbnail', max
 
 //update quantity
 
-router.put('soundcard/quantity/:id', async (req,res)=>{
+router.put('/soundcard/quantity/:id', async (req,res)=>{
     console.log(req.body);
     let product = await SoundCard.findById(req.params.id);
     if(!product){
@@ -3152,7 +3152,7 @@ router.post('/harddrive',auth,adminAuth, upload.fields([{ name: 'thumbnail', max
 
 //update quantity
 
-router.put('harddrive/quantity/:id', async (req,res)=>{
+router.put('/harddrive/quantity/:id', async (req,res)=>{
     console.log(req.body);
     let product = await HardDrive.findById(req.params.id);
     if(!product){
@@ -3464,7 +3464,7 @@ router.post('/ssd',auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCount:
 
 //update quantity
 
-router.put('ssd/quantity/:id', async (req,res)=>{
+router.put('/ssd/quantity/:id', async (req,res)=>{
     console.log(req.body);
     let product = await SSD.findById(req.params.id);
     if(!product){

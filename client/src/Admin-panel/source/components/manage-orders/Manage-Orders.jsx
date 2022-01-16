@@ -33,6 +33,7 @@ let array= [];
 
 		for(let item of products){
 			if(item.category ==="accessories" || item.category ==="pcParts"){
+				console.log(item)
 				await axios.get('/'+item.category+"/"+item.category1+"/"+item.product_id,).then(res=>{
 					let i = res.data;
 					i.quantity = i.quantity - item.quantity;
