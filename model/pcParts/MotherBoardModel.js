@@ -58,6 +58,7 @@ let motherBoardSchema = mongoose.Schema({
     Windows:String,
     Features:String,
     Power_Consumption: Number,
+    company: String,
 
     image:{
         thumbnail:String,
@@ -122,6 +123,7 @@ let validation = (data)=>{
         Windows:joi.string().required() ,
         Features:joi.string().required() ,
         Power_Consumption:joi.number().required() ,
+        company:joi.string().required() ,
     
     thumbnail:joi.string().required(),
     gallery: joi.array().required(),

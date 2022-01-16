@@ -821,6 +821,7 @@ router.put('/motherboard/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail'
         product.Windows = req.body.Windows;
         product.Features = req.body.Features;
         product.Power_Consumption = req.body.Power_Consumption;
+        product.company = req.body.company;
         
         product.image.thumbnail = req.files.thumbnail[0].filename;
         product.image.gallery=[];
@@ -882,6 +883,7 @@ router.put('/motherboard/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail'
         product.Windows = req.body.Windows;
         product.Features = req.body.Features;
         product.Power_Consumption = req.body.Power_Consumption;
+        product.company = req.body.company;
             
             product.image.thumbnail = req.files.thumbnail[0].filename;
              product.image.gallery =product.image.gallery;
@@ -936,6 +938,7 @@ router.put('/motherboard/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail'
         product.Windows = req.body.Windows;
         product.Features = req.body.Features;
         product.Power_Consumption = req.body.Power_Consumption;
+        product.company = req.body.company;
         
         product.image.thumbnail = product.image.thumbnail;
         product.image.gallery = [];
@@ -996,6 +999,7 @@ router.put('/motherboard/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail'
         product.Windows = req.body.Windows;
         product.Features = req.body.Features;
         product.Power_Consumption = req.body.Power_Consumption;
+        product.company = req.body.company;
         
         product.image.thumbnail = product.image.thumbnail;
         product.image.gallery= product.image.gallery;
@@ -1069,6 +1073,7 @@ router.post('/motherboard',auth,adminAuth, upload.fields([{ name: 'thumbnail', m
         product.Windows = req.body.Windows;
         product.Features = req.body.Features;
         product.Power_Consumption = req.body.Power_Consumption;
+        product.company = req.body.company;
  
         
         product.image.thumbnail = req.files.thumbnail[0].filename;
@@ -2222,6 +2227,7 @@ router.put('/fans/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', maxCo
         product.Tube.Tube_Material = req.body.Tube_Material;
 
         product.Features = req.body.Features;
+        product.Power_Consumption = req.body.Power_Consumption;
         
         product.image.thumbnail = req.files.thumbnail[0].filename;
         product.image.gallery=[];
@@ -2265,6 +2271,8 @@ router.put('/fans/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', maxCo
         product.Tube.Tube_Material = req.body.Tube_Material;
 
         product.Features = req.body.Features;
+        
+        product.Power_Consumption = req.body.Power_Consumption;
             
             product.image.thumbnail = req.files.thumbnail[0].filename;
              product.image.gallery =product.image.gallery;
@@ -2302,6 +2310,8 @@ router.put('/fans/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', maxCo
         product.Tube.Tube_Material = req.body.Tube_Material;
 
         product.Features = req.body.Features;
+        
+        product.Power_Consumption = req.body.Power_Consumption;
         
         product.image.thumbnail = product.image.thumbnail;
         product.image.gallery = [];
@@ -2343,6 +2353,8 @@ router.put('/fans/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', maxCo
         product.Tube.Tube_Material = req.body.Tube_Material;
 
         product.Features = req.body.Features;
+        
+        product.Power_Consumption = req.body.Power_Consumption;
         
         product.image.thumbnail = product.image.thumbnail;
         product.image.gallery= product.image.gallery;
@@ -2400,6 +2412,7 @@ router.post('/fans',auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCount
         product.Tube.Tube_Material = req.body.Tube_Material;
 
         product.Features = req.body.Features;
+        product.Power_Consumption = req.body.Power_Consumption;
  
         
         product.image.thumbnail = req.files.thumbnail[0].filename;

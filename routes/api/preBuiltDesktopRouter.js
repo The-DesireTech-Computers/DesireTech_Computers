@@ -116,7 +116,7 @@ router.delete('/:id', auth,adminAuth, async (req, res)=> {
 
 //update product
 
-router.put('/:id', auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCount: 1 },{ name: 'gallery', maxCount: 6 }]) , validationUpdated , async (req, res)=> {
+router.put('/:id', upload.fields([{ name: 'thumbnail', maxCount: 1 },{ name: 'gallery', maxCount: 6 }]) , validationUpdated , async (req, res)=> {
    
         let product = await PreBuiltDesktop.findById(req.params.id);
         if(!product){
@@ -517,6 +517,24 @@ router.post('/',auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCount: 1 
         return res.send(product);
         
 });
+
+
+//update quantity
+
+router.put('/quantity/:id', async (req,res)=>{
+    console.log(req.body);
+    let product = await PreBuiltDesktop.findById(req.params.id);
+    if(!product){
+        res.status(404).send("product not found on this ID")
+    }
+    
+    console.log(product.quantity);
+
+   product.quantity = req.body.quantity;
+
+    await product.save();
+    res.send(product);
+})
     
 
 
