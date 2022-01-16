@@ -10,7 +10,7 @@ let mouseModelSchema = mongoose.Schema({
     category:{type:String,
         default:'accessories'
         },
-
+        category1: { type: String, default: "mouse" },
     Model:{
         brand:String,
         name:String,

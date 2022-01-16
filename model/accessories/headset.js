@@ -11,6 +11,7 @@ let headsetModelSchema = mongoose.Schema({
     category:{type:String,
         default:'accessories'
         },
+        category1: { type: String, default: "headset" },
 
     Model:{
         brand:String,

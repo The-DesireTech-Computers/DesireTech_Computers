@@ -11,7 +11,7 @@ let webcamModelSchema = mongoose.Schema({
     category:{type:String,
         default:'accessories'
         },
-
+        category1: { type: String, default: "webcam" },
     Model:{
         brand:String,
         name:String,

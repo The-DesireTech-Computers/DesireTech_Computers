@@ -10,6 +10,7 @@ let SoundCardSchema = mongoose.Schema({
     category:{type:String,
         default:'pcParts'
         },
+        category1: { type: String, default: "soundcard" },
     Model:{
         brand:String,
         series:String,

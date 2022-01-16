@@ -546,4 +546,21 @@ router.post(
 	}
 );
 
+//update quantity
+
+router.put('/quantity/:id', async (req,res)=>{
+    console.log(req.body);
+    let product = await Laptops.findById(req.params.id);
+    if(!product){
+        res.status(404).send("product not found on this ID")
+    }
+    
+    console.log(product.quantity);
+
+   product.quantity = req.body.quantity;
+
+    await product.save();
+    res.send(product);
+})
+
 module.exports = router;

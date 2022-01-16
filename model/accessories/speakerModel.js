@@ -11,7 +11,7 @@ let speakerModelSchema = mongoose.Schema({
     category:{type:String,
         default:'accessories'
         },
-
+        category1: { type: String, default: "speaker" },
     Model:{
         brand:String,
         series:String,

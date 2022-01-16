@@ -12,6 +12,7 @@ let memorySchema = mongoose.Schema({
     category:{type:String,
         default:'pcParts'
         },
+        category1: { type: String, default: "memory" },
     Model:{
         brand:String,
         series:String,

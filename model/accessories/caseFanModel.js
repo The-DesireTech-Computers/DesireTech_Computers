@@ -6,6 +6,7 @@ let CasefanSchema = mongoose.Schema({
 	price: Number,
 	quantity: Number,
 	category: { type: String, default: "accessories" },
+	category1: { type: String, default: "casefan" },
 
 	Model: {
 		brand: String,

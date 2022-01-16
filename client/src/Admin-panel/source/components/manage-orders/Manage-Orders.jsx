@@ -32,13 +32,24 @@ let ManageOrders = (props) => {
 let array= [];
 
 		for(let item of products){
-			await axios.get('/'+item.category+"/"+item.product_id,).then(res=>{
-				let i = res.data;
-				i.quantity = i.quantity - item.quantity;
-				array.push(i);
-			}).catch(err=>{
-				console.log('error');
-			})
+			if(item.category ==="accessories" || item.category ==="pcParts"){
+				await axios.get('/'+item.category+"/"+item.category1+"/"+item.product_id,).then(res=>{
+					let i = res.data;
+					i.quantity = i.quantity - item.quantity;
+					array.push(i);
+				}).catch(err=>{
+					console.log('error');
+				})
+			}else{
+				await axios.get('/'+item.category+"/"+item.product_id,).then(res=>{
+					let i = res.data;
+					i.quantity = i.quantity - item.quantity;
+					array.push(i);
+				}).catch(err=>{
+					console.log('error');
+				})
+			}
+			
 		}
 
 		console.log(array);
@@ -47,20 +58,33 @@ let array= [];
 			let obj= {
 				quantity: item.quantity
 			}
-			await axios1.put('http://localhost:4000/api/'+item.category+"/"+item._id,obj).then(res=>{
-			console.log(res.data)
-			}).catch(err=>{
-				console.log('error');
-			})
+
+
+			if(item.category ==="accessories" || item.category ==="pcParts"){
+				await axios1.put('http://localhost:4000/api/'+item.category+"/"+item.category1+"/quantity/"+item._id,obj).then(res=>{
+					console.log(res.data)
+					}).catch(err=>{
+						console.log('error');
+					})	
+			}
+			else{
+				await axios1.put('http://localhost:4000/api/'+item.category+"/quantity/"+item._id,obj).then(res=>{
+					console.log(res.data)
+					}).catch(err=>{
+						console.log('error');
+					})
+			}
+
+			
 		}
 
 
-		// axios.put('/order/shipped/'+orderId).then(res=>{
-		// 	console.log("shipped");
-		// 	getData();
-		// }).catch(err=>{
-		// 	console.log("error")
-		// })
+		axios.put('/order/shipped/'+orderId).then(res=>{
+			console.log("shipped");
+			getData();
+		}).catch(err=>{
+			console.log("error")
+		})
 	}
 
 	let deliveredBtnHandler = (id)=>{

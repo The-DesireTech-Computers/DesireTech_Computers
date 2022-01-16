@@ -10,6 +10,7 @@ let motherBoardSchema = mongoose.Schema({
     category:{type:String,
         default:'pcParts'
         },
+        category1: { type: String, default: "motherboard" },
     Model:{
         brand:String,
         model:String,

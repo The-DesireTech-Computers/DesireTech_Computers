@@ -116,7 +116,7 @@ router.delete('/:id', auth,adminAuth, async (req, res)=> {
 
 //update product
 
-router.put('/:id', upload.fields([{ name: 'thumbnail', maxCount: 1 },{ name: 'gallery', maxCount: 6 }]) , validationUpdated , async (req, res)=> {
+router.put('/:id', auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCount: 1 },{ name: 'gallery', maxCount: 6 }]) , validationUpdated , async (req, res)=> {
    
         let product = await PreBuiltDesktop.findById(req.params.id);
         if(!product){

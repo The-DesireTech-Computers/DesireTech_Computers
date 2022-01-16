@@ -10,6 +10,7 @@ let processorSchema = mongoose.Schema({
     category:{type:String,
         default:'pcParts'
         },
+        category1: { type: String, default: "processor" },
     Model:{
         brand:String,
         processorType:String,

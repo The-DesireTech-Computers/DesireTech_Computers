@@ -341,7 +341,22 @@ console.log(req.body);
 });
 
 
+//update quantity
 
+router.put('casefan/quantity/:id', async (req,res)=>{
+    console.log(req.body);
+    let product = await CaseFan.findById(req.params.id);
+    if(!product){
+        res.status(404).send("product not found on this ID")
+    }
+    
+    console.log(product.quantity);
+
+   product.quantity = req.body.quantity;
+
+    await product.save();
+    res.send(product);
+})
 
 
 
@@ -585,7 +600,22 @@ router.post('/headset',auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCo
 });
 
 
+//update quantity
 
+router.put('headset/quantity/:id', async (req,res)=>{
+    console.log(req.body);
+    let product = await headset.findById(req.params.id);
+    if(!product){
+        res.status(404).send("product not found on this ID")
+    }
+    
+    console.log(product.quantity);
+
+   product.quantity = req.body.quantity;
+
+    await product.save();
+    res.send(product);
+})
 
 
 
@@ -863,7 +893,22 @@ router.post('/keyboard',auth,adminAuth, upload.fields([{ name: 'thumbnail', maxC
 
 
 
+//update quantity
 
+router.put('keyboard/quantity/:id', async (req,res)=>{
+    console.log(req.body);
+    let product = await keyboard.findById(req.params.id);
+    if(!product){
+        res.status(404).send("product not found on this ID")
+    }
+    
+    console.log(product.quantity);
+
+   product.quantity = req.body.quantity;
+
+    await product.save();
+    res.send(product);
+})
 
 
 
@@ -1107,7 +1152,22 @@ router.post('/microphone',auth,adminAuth, upload.fields([{ name: 'thumbnail', ma
 
 
 
+//update quantity
 
+router.put('microphone/quantity/:id', async (req,res)=>{
+    console.log(req.body);
+    let product = await microphone.findById(req.params.id);
+    if(!product){
+        res.status(404).send("product not found on this ID")
+    }
+    
+    console.log(product.quantity);
+
+   product.quantity = req.body.quantity;
+
+    await product.save();
+    res.send(product);
+})
 
 
 //****************************************************************************************** */
@@ -1645,7 +1705,22 @@ router.post('/mouse',auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCoun
 
 
 
+//update quantity
 
+router.put('mouse/quantity/:id', async (req,res)=>{
+    console.log(req.body);
+    let product = await mouse.findById(req.params.id);
+    if(!product){
+        res.status(404).send("product not found on this ID")
+    }
+    
+    console.log(product.quantity);
+
+   product.quantity = req.body.quantity;
+
+    await product.save();
+    res.send(product);
+})
 
 
 
@@ -1912,7 +1987,22 @@ router.post('/speaker',auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCo
 
 
 
+//update quantity
 
+router.put('speaker/quantity/:id', async (req,res)=>{
+    console.log(req.body);
+    let product = await speaker.findById(req.params.id);
+    if(!product){
+        res.status(404).send("product not found on this ID")
+    }
+    
+    console.log(product.quantity);
+
+   product.quantity = req.body.quantity;
+
+    await product.save();
+    res.send(product);
+})
 
 
 
@@ -2170,5 +2260,23 @@ router.post('/webcam',auth,adminAuth, upload.fields([{ name: 'thumbnail', maxCou
    }
         
 });
+
+//update quantity
+
+router.put('webcam/quantity/:id', async (req,res)=>{
+    console.log(req.body);
+    let product = await webcam.findById(req.params.id);
+    if(!product){
+        res.status(404).send("product not found on this ID")
+    }
+    
+    console.log(product.quantity);
+
+   product.quantity = req.body.quantity;
+
+    await product.save();
+    res.send(product);
+})
+
 
 module.exports = router;
