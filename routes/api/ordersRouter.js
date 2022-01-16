@@ -20,6 +20,7 @@ router.get('/:id',auth,adminAuth, async function(req, res, next) {
 
   //post a order
   router.post('/',async function(req, res, next) {
+    console.log(req.body)
     let order = new Order();
     order.products = req.body.products; 
     order.user.userName = req.body.userName; 
@@ -43,13 +44,13 @@ router.get('/:id',auth,adminAuth, async function(req, res, next) {
   // update order
 
   router.put('/:id',auth,adminAuth,async function(req, res, next) {
-    
+    console.log(req.body);
     let order = await Order.findById(req.params.id);
 
     order.products = req.body.products; 
-    order.user.userName = req.body.userName; 
-    order.user.user_id = req.body.user_id; 
-    order.user.user_PhoneNumber = req.body.user_PhoneNumber; 
+    order.user.userName = req.body.user.userName; 
+    order.user.user_id = req.body.user.user_id; 
+    order.user.user_PhoneNumber = req.body.user.user_PhoneNumber; 
     order.Shipping_Info.address = req.body.address; 
     order.Shipping_Info.street = req.body.street; 
     order.Shipping_Info.city = req.body.city; 

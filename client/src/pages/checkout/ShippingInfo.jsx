@@ -42,6 +42,7 @@ useEffect(()=>{
 
 
 	let continueBtnHandler = ()=>{
+		if(orderId !== undefined && data1){
 		if (data1.address === "") {
 			alert("Please enter data in all the given fields  (address)");
 		} else if (data1.street === "") {
@@ -60,6 +61,7 @@ useEffect(()=>{
 				console.log('error')
 			})
 		}
+	}
 	}
 
 
