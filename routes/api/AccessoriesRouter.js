@@ -139,8 +139,8 @@ router.put('/casefan/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', ma
     if(req.files.thumbnail && req.files.gallery){
    
         product.title = req.body.title;
-        product.price=req.body.title;
-        product.quantity=req.body.title;
+        product.price=req.body.price;
+        product.quantity=req.body.quantity;
        
     
      
@@ -178,9 +178,8 @@ router.put('/casefan/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', ma
         if(req.files.thumbnail){
     
             product.title = req.body.title;
-            product.price=req.body.title;
-            product.quantity=req.body.title;
-           
+            product.price=req.body.price;
+            product.quantity=req.body.quantity;      
         
          
                   product.Model.brand = req.body.brand;
@@ -210,9 +209,8 @@ router.put('/casefan/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', ma
         else if(req.files.gallery){
         
             product.title = req.body.title;
-        product.price=req.body.title;
-        product.quantity=req.body.title;
-       
+            product.price=req.body.price;
+            product.quantity=req.body.quantity;
     
      
               product.Model.brand = req.body.brand;
@@ -245,10 +243,9 @@ router.put('/casefan/:id', auth,adminAuth,upload.fields([{ name: 'thumbnail', ma
         
     }
     else{
-       
         product.title = req.body.title;
-        product.price=req.body.title;
-        product.quantity=req.body.title;
+        product.price=req.body.price;
+        product.quantity=req.body.quantity;
        
     
      
@@ -299,8 +296,8 @@ console.log(req.body);
         let product = new CaseFan();
 
         product.title = req.body.title;
-        product.price=req.body.title;
-        product.quantity=req.body.title;
+        product.price=req.body.price;
+        product.quantity=req.body.quantity;
        
     
      

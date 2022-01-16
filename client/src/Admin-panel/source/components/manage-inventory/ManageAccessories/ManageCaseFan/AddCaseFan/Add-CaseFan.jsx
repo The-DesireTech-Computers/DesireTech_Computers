@@ -67,9 +67,9 @@ const AddCaseFan = (props) => {
 			alert("Please enter data in all the given fields (Color)");
 		} else if (data.LED === "") {
 			alert("Please enter data in all the given fields (LED)");
-		} else if (data.features.feature === "") {
+		} else if (data.feature === "") {
 			alert("Please enter data in all the given fields (LED)");
-		} else if (data.Dimentions.Dimention === "") {
+		} else if (data.Dimention === "") {
 			alert("Please enter data in all the given fields (LED)");
 		}else if (thumbnail === null) {
 			alert("Please provide a picture as a thumbnail picture(thumbnail)");
