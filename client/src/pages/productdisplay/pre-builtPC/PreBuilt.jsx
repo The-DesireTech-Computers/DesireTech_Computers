@@ -42,10 +42,9 @@ const PreBuilt = () => {
 
 		if (cart) {
 			cart = cart.split(",");
-			if(!cart.includes(product_id)){
+			if (!cart.includes(product_id)) {
 				cart.push(product_id);
 			}
-			
 
 			localStorage.setItem("preBuilt_cart", cart);
 		} else {
@@ -273,7 +272,7 @@ const PreBuilt = () => {
 			return (
 				<ProductCard
 					key={product._id}
-					img={"/uploads/preBuiltpc/" + product.image.thumbnail}
+					img={"/uploads/preBuiltDesktop/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					product_id={product._id}
@@ -287,7 +286,7 @@ const PreBuilt = () => {
 			return (
 				<ProductCard
 					key={product._id}
-					img={"/uploads/preBuiltpc/" + product.image.thumbnail}
+					img={"/uploads/preBuiltDesktop/" + product.image.thumbnail}
 					title={product.title}
 					price={product.price}
 					product_id={product._id}

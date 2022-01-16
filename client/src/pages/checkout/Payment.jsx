@@ -78,7 +78,14 @@ const Payment = () => {
 						</button>
 					</div>
 				</div>
-				<div className="col-md-6"></div>
+				<div className="col-md-6 mb-5 text-center d-none d-md-block">
+					<img
+						src="/images/others/payment.png"
+						alt="logo"
+						className="img-fluid mb-3 mx-auto imgfeedback"
+					/>
+					<h2>Select Payment Method</h2>
+				</div>
 			</div>
 		</div>
 	);

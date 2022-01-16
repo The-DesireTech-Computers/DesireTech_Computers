@@ -13,10 +13,9 @@ const PreBuiltDisplay = (props) => {
 
 		if (cart) {
 			cart = cart.split(",");
-			if(!cart.includes(data._id)){
+			if (!cart.includes(data._id)) {
 				cart.push(data._id);
 			}
-
 
 			localStorage.setItem("preBuilt_cart", cart);
 		} else {
@@ -60,7 +59,7 @@ const PreBuiltDisplay = (props) => {
 		<div className="container mt-5 detailcolor">
 			<DetailHeader
 				data={data}
-				imgpath="preBuiltpc"
+				imgpath="preBuiltDesktop"
 				addToCartBtnHandler={addToCartBtnHandler}
 			/>
 			<h3 className="cbheading">Specification:</h3>
