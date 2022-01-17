@@ -1,1 +1,17 @@
+.ulstyle {
+	list-style-type: circle;
+	color: white;
+	font-size: clamp(1rem, 2.5vw, 1.7rem);
+	line-height: 160%;
+	font-weight: 350;
+}
 
+.imgshd {
+	box-shadow: 1px 1px 5px black;
+}
+
+.avatar {
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+}
