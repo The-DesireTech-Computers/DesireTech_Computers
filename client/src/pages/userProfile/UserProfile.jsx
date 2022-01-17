@@ -15,34 +15,47 @@ const UserProfile = (props) => {
 		axios
 			.get("/order")
 			.then((res) => {
-				setOrder(res.data);
+				let data = res.data;
+				setOrder(
+					data.filter((x) => {
+						return x.user.user_id === id;
+					})
+				);
 			})
 			.catch((err) => {
 				console.log("error");
 			});
 	}, []);
 
-	let orderlist = order.map((e) => {
-		<tr>
-			<td>{e._id}</td>
-			<td>
-				{e.products.map((x) => {
-					return (
-						<ul>
-							<li>
-								<strong>Title :</strong>
-								{x.title}
-							</li>
-							<li>
-								<strong>Quantity:</strong> {x.quantity}
-							</li>
-						</ul>
-					);
-				})}
-			</td>
-			<td>{e.status}</td>
-		</tr>;
-	});
+	let orderlist;
+	if (order) {
+		orderlist = order.map((e) => {
+			return (
+				<tr>
+					<td>{e._id}</td>
+					<td>
+						{e.products.map((x) => {
+							return (
+								<ul>
+									<li>
+										<strong>Title :</strong>
+										{x.title.substring(0, 30)}...
+									</li>
+									<li>
+										<strong>Quantity:</strong> {x.quantity}
+									</li>
+								</ul>
+							);
+						})}
+					</td>
+					<td>{e.status}</td>
+				</tr>
+			);
+		});
+	}
+
+	console.log(order);
+	console.log(orderlist);
 
 	useEffect(() => {
 		if (id) {
