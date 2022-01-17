@@ -121,6 +121,7 @@ let array= [];
 				<li><strong>Street:</strong> {order.Shipping_Info.street}</li>
 				<li><strong>State:</strong> {order.Shipping_Info.state}</li>
 				<li><strong>Country:</strong> {order.Shipping_Info.country}</li>
+				{order.Assemble ? <li><strong>Instructions: </strong>{order.Assemble}</li>:null}
 			</ul>
 			}</td> : <td>-------</td>
 	}
