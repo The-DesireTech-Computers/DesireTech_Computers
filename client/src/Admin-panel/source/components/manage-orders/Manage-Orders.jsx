@@ -5,78 +5,101 @@ import axios from "../../axiosInstance";
 import axios1 from "axios";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 let ManageOrders = (props) => {
+	let [data, setData] = useState();
 
+	let getData = () => {
+		axios
+			.get("/order")
+			.then((res) => {
+				let arr = res.data;
 
-	let [data,setData] = useState();
+				setData(
+					arr.filter((x) => {
+						return x.status !== "delivered" && x.Shipping_Info;
+					})
+				);
+			})
+			.catch((err) => {
+				console.log("error");
+			});
+	};
 
-	let getData = ()=>{
-		axios.get('/order').then(res=>{
-			let arr = res.data;
-		
-			setData(	arr.filter(x=>{
-				return x.status !== "delivered" && x.Shipping_Info
-			}));
-		}).catch(err=>{
-			console.log('error')
-		})
-
-	}
-
-	useEffect(()=>{
-
+	useEffect(() => {
 		getData();
-	},[])
+	}, []);
 
+	let shipBtnHandler = async (orderId, products) => {
+		let array = [];
 
-	let shipBtnHandler = async (orderId,products)=>{
-let array= [];
-
-		for(let item of products){
-			if(item.category ==="accessories" || item.category ==="pcParts"){
-				console.log(item)
-				await axios.get('/'+item.category+"/"+item.category1+"/"+item.product_id,).then(res=>{
-					let i = res.data;
-					i.quantity = i.quantity - item.quantity;
-					array.push(i);
-				}).catch(err=>{
-					console.log('error');
-				})
-			}else{
-				await axios.get('/'+item.category+"/"+item.product_id,).then(res=>{
-					let i = res.data;
-					i.quantity = i.quantity - item.quantity;
-					array.push(i);
-				}).catch(err=>{
-					console.log('error');
-				})
+		for (let item of products) {
+			if (item.category === "accessories" || item.category === "pcParts") {
+				console.log(item);
+				await axios
+					.get(
+						"/" + item.category + "/" + item.category1 + "/" + item.product_id
+					)
+					.then((res) => {
+						let i = res.data;
+						i.quantity = i.quantity - item.quantity;
+						array.push(i);
+					})
+					.catch((err) => {
+						console.log("error");
+					});
+			} else {
+				await axios
+					.get("/" + item.category + "/" + item.product_id)
+					.then((res) => {
+						let i = res.data;
+						i.quantity = i.quantity - item.quantity;
+						array.push(i);
+					})
+					.catch((err) => {
+						console.log("error");
+					});
 			}
-			
 		}
 
 		console.log(array);
 
-		for(let item of array){
-			let obj= {
-				quantity: item.quantity
-			}
+		for (let item of array) {
+			let obj = {
+				quantity: item.quantity,
+			};
 
-
-			if(item.category ==="accessories" || item.category ==="pcParts"){
-				await axios1.put('http://localhost:4000/api/'+item.category+"/"+item.category1+"/quantity/"+item._id,obj).then(res=>{
-					console.log(res.data)
-					}).catch(err=>{
-						console.log('error');
-					})	
-			}
-			else{
-				await axios1.put('http://localhost:4000/api/'+item.category+"/quantity/"+item._id,obj).then(res=>{
-					console.log(res.data)
-					}).catch(err=>{
-						console.log('error');
+			if (item.category === "accessories" || item.category === "pcParts") {
+				await axios1
+					.put(
+						"http://localhost:4000/api/" +
+							item.category +
+							"/" +
+							item.category1 +
+							"/quantity/" +
+							item._id,
+						obj
+					)
+					.then((res) => {
+						console.log(res.data);
 					})
+					.catch((err) => {
+						console.log("error");
+					});
+			} else {
+				await axios1
+					.put(
+						"http://localhost:4000/api/" +
+							item.category +
+							"/quantity/" +
+							item._id,
+						obj
+					)
+					.then((res) => {
+						console.log(res.data);
+					})
+					.catch((err) => {
+						console.log("error");
+					});
 			}
-
-			
 		}
 
 
@@ -121,6 +144,7 @@ let array= [];
 				<li><strong>Street:</strong> {order.Shipping_Info.street}</li>
 				<li><strong>State:</strong> {order.Shipping_Info.state}</li>
 				<li><strong>Country:</strong> {order.Shipping_Info.country}</li>
+				{order.Assemble ? <li><strong>Instructions: </strong>{order.Assemble}</li>:null}
 			</ul>
 			}</td> : <td>-------</td>
 	}
@@ -139,9 +163,6 @@ let array= [];
 		
 	}
 
-
-
-
 	return (
 		<div>
 			<Navbar />
@@ -155,17 +176,18 @@ let array= [];
 				</div>
 				<div className={classes.tab1}>
 					<table className={classes.container1}>
-						{data ? <tr>
-							<th className={classes.id1}>Sr#</th>
-							<th className={classes.id1}>Order ID</th>
-							<th className={classes.items1}>Items List</th>
-							<th className={classes.items1}>Shipping Info.</th>
-							<th className={classes.price11}>Total Price</th>
-							<th className={classes.payment1}>Payment Method</th>
-							<th className={classes.date1}>User Name</th>
-							<th className={classes.date1}>User Phone#</th>
-							<th className={classes.date1}>Actions</th>
-						</tr>: null}
+						{data ? (
+							<tr>
+								<th className={classes.id1}>Order ID</th>
+								<th className={classes.items1}>Items List</th>
+								<th className={classes.shippinginfo12}>Shipping Info.</th>
+								<th className={classes.price11}>Total Price</th>
+								<th className={classes.payment1}>Payment Method</th>
+								<th className={classes.date1}>User Name</th>
+								<th className={classes.date1}>User Phone#</th>
+								<th className={classes.date1}>Actions</th>
+							</tr>
+						) : null}
 						{td}
 					</table>
 				</div>

@@ -32,9 +32,7 @@ router.get('/:id',auth,adminAuth, async function(req, res, next) {
     order.Shipping_Info.state = req.body.state; 
     order.Shipping_Info.country = req.body.country; 
     order.totalPrice = req.body.totalPrice; 
-    if(req.body.Assemble){
-      order.Assemble=req.body.Assemble;
-    }
+  
 
     await order.save();
 
@@ -60,9 +58,7 @@ router.get('/:id',auth,adminAuth, async function(req, res, next) {
     order.Shipping_Info.state = req.body.state; 
     order.Shipping_Info.country = req.body.country; 
     order.totalPrice = req.body.totalPrice; 
-    if(req.body.Assemble){
-      order.Assemble = req.body.Assemble; 
-    }
+  
     
     await order.save();
 
@@ -112,5 +108,38 @@ router.get('/:id',auth,adminAuth, async function(req, res, next) {
     
       });
 
+
+
+      
+         // Assemble status order
+
+    router.put('/assemble/:id',auth,adminAuth,async function(req, res, next) {
+    
+      let order = await Order.findById(req.params.id);
+  
+      order.Assemble = "Custom Built Assemble and Ship";
+  
+      await order.save();
+  
+      return res.send(order);
+  
+    });
+
+
+    
+         // Unassemble status order
+
+         router.put('/unassemble/:id',auth,adminAuth,async function(req, res, next) {
+    
+          let order = await Order.findById(req.params.id);
+      
+          order.Assemble = "Custom Built Unassembled";
+      
+          await order.save();
+      
+          return res.send(order);
+      
+        });
+    
 
 module.exports = router;

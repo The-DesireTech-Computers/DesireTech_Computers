@@ -23,6 +23,7 @@ const EndPage = (props) => {
 		user_id: "",
 		user_PhoneNumber: 0,
 		totalPrice: 0,
+		
 	});
 
 	let addbtnhandler = () => {
@@ -213,6 +214,65 @@ const EndPage = (props) => {
 		props.history.push("/custom-built/cbmotherboard");
 	}
 
+
+
+	
+
+	let  assembleAndShipBtn = async ()=>{
+		
+
+		let id= "";
+		await axios.post('/order',order).then(res=>{
+			localStorage.removeItem("CustomBuilt")
+			console.log("success");
+		 id = res.data._id;
+		
+		}).catch(err=>{
+			console.log('error')
+		})
+
+
+		await axios.put('/order/assemble/'+id).then(res=>{
+			console.log(res.data);
+			// sending query params
+		let queryString = new URLSearchParams({id });
+		props.history.push({
+			pathname: "/shippinginfo",
+			search: "?" + queryString.toString(),
+		});
+		}).catch(err=>{
+			console.log("error");
+		})
+
+	}
+
+
+	
+	let  unassembleAndShipBtn = async ()=>{
+		let id="";
+
+		await axios.post('/order',order).then(res=>{
+			localStorage.removeItem("CustomBuilt")
+			console.log("success");
+		id = res.data._id;
+
+		}).catch(err=>{
+			console.log('error')
+		})
+
+		await axios.put('/order/assemble/'+id).then(res=>{
+			console.log(res.data);
+			// sending query params
+		let queryString = new URLSearchParams({id });
+		props.history.push({
+			pathname: "/shippinginfo",
+			search: "?" + queryString.toString(),
+		});
+		}).catch(err=>{
+			console.log("error");
+		})
+	}
+
 	return (
 		<div className="container">
 			<div
@@ -240,10 +300,12 @@ const EndPage = (props) => {
 							Non-Assembled.
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-danger">
+							<button type="button"data-bs-dismiss="modal"
+								aria-label="Close" class="btn btn-danger" onClick={assembleAndShipBtn} >
 								Assemble and Ship.
 							</button>
-							<button type="button" class="btn btn-warning">
+							<button type="button" data-bs-dismiss="modal"
+								aria-label="Close"class="btn btn-warning" onClick={unassembleAndShipBtn} >
 								I'll Assemble it.
 							</button>
 						</div>

@@ -1,137 +1,141 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 
 .main1 {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
 }
 
 .heading1 {
-  width: 80%;
-  margin: 10px auto;
+	width: 80%;
+	margin: 10px auto;
 }
 
 .heading1 ul {
-  background: #9053c7;
-  background: linear-gradient(-120deg, #c850c0, #4158d0) fixed;
+	background: #9053c7;
+	background: linear-gradient(-120deg, #c850c0, #4158d0) fixed;
 }
 
 .navleft1 {
-  float: left;
-  color: white;
-  text-shadow: 1px 1px 10px black;
+	float: left;
+	color: white;
+	text-shadow: 1px 1px 10px black;
 }
 
 .navleft1 h1 {
-  font-family: "Poppins", sans-serif;
+	font-family: "Poppins", sans-serif;
 }
 
 .tab1 {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .container1 {
-  background-color: rgb(255, 255, 255);
-  width: 95%;
-  text-align: center;
-  border-radius: 15px;
-  margin: 20px auto;
-  border-collapse: separate;
-  overflow: hidden;
+	background-color: rgb(255, 255, 255);
+	width: 95%;
+	text-align: left;
+	border-radius: 15px;
+	margin: 20px auto;
+	border-collapse: separate;
+	overflow: hidden;
 }
 
 .container1 th {
-  background-color: #c850c0;
-  border: 1px solid #4158d0;
-  border-radius: 15px;
-  padding: 15px;
-  color: white;
-  font-size: medium;
-  font-weight: lighter;
-  font-style: italic;
-  border-radius: 15px;
-  transition: 0.3s;
+	background-color: #c850c0;
+	border: 1px solid #4158d0;
+	border-radius: 15px;
+	padding: 15px;
+	color: white;
+	font-size: medium;
+	font-weight: lighter;
+	font-style: italic;
+	border-radius: 15px;
+	transition: 0.3s;
 }
 
 .container1 th:hover {
-  background-color: #4158d0;
-  border: 1px solid #c850c0;
-  cursor: pointer;
+	background-color: #4158d0;
+	border: 1px solid #c850c0;
+	cursor: pointer;
 }
 
 .container1 td {
-  border: 1px solid #4158d0;
-  border-radius: 15px;
-  padding: 10px;
-  font-size: small;
+	border: 1px solid #4158d0;
+	border-radius: 15px;
+	padding: 10px;
+	font-size: small;
 }
 
 .container1 tr:nth-child(odd) {
-  background-color: skyblue;
+	background-color: skyblue;
 }
 
 .updateBtn1 {
-  background-color: #4158d0;
-  color: white;
-  width: 6rem;
-  height: 5vh;
-  border: transparent;
-  border-radius: 10px;
-  font-size: 15px;
+	background-color: #4158d0;
+	color: white;
+	width: 6rem;
+	height: 5vh;
+	border: transparent;
+	border-radius: 10px;
+	font-size: 15px;
 }
 
 .deleteBtn1 {
-  background-color: #cf0c0c;
-  color: white;
-  width: 6rem;
-  height: 5vh;
-  border: transparent;
-  border-radius: 10px;
-  font-size: 15px;
+	background-color: #cf0c0c;
+	color: white;
+	width: 6rem;
+	height: 5vh;
+	border: transparent;
+	border-radius: 10px;
+	font-size: 15px;
 }
 
 .updateBtn1:hover {
-  background-color: #6576cc;
-  transition: 0.3s;
-  cursor: pointer;
+	background-color: #6576cc;
+	transition: 0.3s;
+	cursor: pointer;
 }
 
 .deleteBtn1:hover {
-  background-color: #f53535;
-  transition: 0.3s;
-  cursor: pointer;
+	background-color: #f53535;
+	transition: 0.3s;
+	cursor: pointer;
 }
 
 .addBtn1 {
-  background-color: rgb(47, 160, 204);
-  color: white;
-  width: 8rem;
-  height: 7vh;
-  border: transparent;
-  border-radius: 10px;
-  font-size: 15px;
+	background-color: rgb(47, 160, 204);
+	color: white;
+	width: 8rem;
+	height: 7vh;
+	border: transparent;
+	border-radius: 10px;
+	font-size: 15px;
 }
 
 .addBtn1:hover {
-  background-color: skyblue;
-  color: black;
-  transition: 0.3s;
-  cursor: pointer;
+	background-color: skyblue;
+	color: black;
+	transition: 0.3s;
+	cursor: pointer;
 }
 
 .id1 {
-  width: 15%;
+	width: 10%;
 }
 .items1 {
-  width: 50%;
+	width: 40%;
 }
-.price1 {
-  width: 10%;
+.price11 {
+	width: 15%;
 }
+.shippinginfo12 {
+	width: 15%;
+}
+
 .payment1 {
-  width: 10%;
+	width: 10%;
 }
 .date1 {
-  width: 15%;
+	width: 10%;
 }
