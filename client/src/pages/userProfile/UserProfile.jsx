@@ -9,6 +9,40 @@ const UserProfile = (props) => {
 	let [alertShow, setAlertShow] = useState(false);
 	let [msg, setmsg] = useState("");
 	let id = localStorage.getItem("user_id");
+	let [order, setOrder] = useState();
+
+	useEffect(() => {
+		axios
+			.get("/order")
+			.then((res) => {
+				setOrder(res.data);
+			})
+			.catch((err) => {
+				console.log("error");
+			});
+	}, []);
+
+	let orderlist = order.map((e) => {
+		<tr>
+			<td>{e._id}</td>
+			<td>
+				{e.products.map((x) => {
+					return (
+						<ul>
+							<li>
+								<strong>Title :</strong>
+								{x.title}
+							</li>
+							<li>
+								<strong>Quantity:</strong> {x.quantity}
+							</li>
+						</ul>
+					);
+				})}
+			</td>
+			<td>{e.status}</td>
+		</tr>;
+	});
 
 	useEffect(() => {
 		if (id) {
@@ -87,8 +121,8 @@ const UserProfile = (props) => {
 
 	return (
 		<div className="container containlogin">
-			<div className="row mt-5 py-5 align-items-center">
-				<div className="col-md-6">
+			<div className="row mt-5 py-5 ">
+				<div className="col-md-6 align-items-center">
 					{alert}
 					<form method="put">
 						<div class="input-group mb-3">
@@ -202,7 +236,18 @@ const UserProfile = (props) => {
 						</button>
 					</div>
 				</div>
-				<div className="col-md-6"></div>
+				<div className="col-md-6">
+					<table className="table">
+						<thead>
+							<tr>
+								<td>Order Id</td>
+								<td>Product List</td>
+								<td>Status</td>
+							</tr>
+						</thead>
+						<tbody>{orderlist}</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	);
