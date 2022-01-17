@@ -127,7 +127,6 @@ let ManageOrders = (props) => {
 		td = data.map(order=>{
 			
 	return(	<tr key={order._id}>
-		<td>{data.indexOf(order)+1}</td>
 		<td>{order._id}</td>
 		<td>
 			{order.products.map(x=>{
@@ -183,8 +182,8 @@ let ManageOrders = (props) => {
 								<th className={classes.shippinginfo12}>Shipping Info.</th>
 								<th className={classes.price11}>Total Price</th>
 								<th className={classes.payment1}>Payment Method</th>
-								<th className={classes.date1}>User Name</th>
-								<th className={classes.date1}>User Phone#</th>
+								<th className={classes.date1}>Customer Name</th>
+								<th className={classes.date1}>Customer Phone#</th>
 								<th className={classes.date1}>Actions</th>
 							</tr>
 						) : null}
